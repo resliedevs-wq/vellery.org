@@ -8,7 +8,9 @@ overwritten; to redo anything, start a new batch.
 
 Each run starts in an empty temporary directory with the user's personal
 config, memory, MCP servers, apps, and plugins excluded, and web tools off
-for both CLIs. If the CLI itself fails (crash,
+for both CLIs. Both can run shell commands inside a sandbox that limits
+writes to the working directory and blocks the network. Codex's image
+generator is off. If the CLI itself fails (crash,
 timeout, unreadable output), the run is retried up to MAX_ATTEMPTS times.
 Every attempt is kept under run-<n>/attempt-<k>/. A run whose attempts all
 fail is recorded as failed, not dropped.
@@ -88,6 +90,10 @@ def run_claude(model, prompt, workdir):
         "--no-session-persistence",
         "--permission-mode", "acceptEdits",
         "--disallowedTools", "WebSearch", "WebFetch",
+        # Shell commands run sandboxed: writes limited to the working
+        # directory, no network. Matches codex's workspace-write sandbox.
+        "--settings", json.dumps({"sandbox": {
+            "enabled": True, "autoAllowBashIfSandboxed": True, "allowUnsandboxedCommands": False}}),
         "--output-format", "json",
     ]
     env = {**os.environ, "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "1"}
@@ -121,6 +127,9 @@ def run_codex(model, prompt, workdir):
         "--sandbox", "workspace-write",
         "--disable", "apps",
         "--disable", "plugins",
+        # The built-in image generator calls a separate image model; runs
+        # should show what the tested model makes itself.
+        "--disable", "image_generation",
         "-c", 'web_search="disabled"',
         "--cd", str(workdir),
         "--model", model["id"],
@@ -284,6 +293,10 @@ def main():
             print(f"  {out.relative_to(batch_dir)}")
         return
 
+    userns = Path("/proc/sys/kernel/apparmor_restrict_unprivileged_userns")
+    if "claude" in {job[2]["harness"] for job in jobs} and userns.exists() and userns.read_text().strip() == "1":
+        sys.exit("Claude's shell sandbox can't start while kernel.apparmor_restrict_unprivileged_userns=1. "
+                 "Run: sysctl -w kernel.apparmor_restrict_unprivileged_userns=0")
     if git("status", "--porcelain", "--", "tasks", "models.yaml", "prices.yaml", "runner"):
         sys.exit("tasks/, models.yaml, prices.yaml, or runner/ has uncommitted changes. Commit them before running a batch.")
     start_batch(batch_dir, {job[2]["harness"] for job in jobs})
