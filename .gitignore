@@ -1,5 +1,4 @@
 __pycache__/
-grading/kitchen/key.json
 dist/
 node_modules/
 .wrangler/

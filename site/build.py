@@ -351,9 +351,15 @@ def reveal_key(models):
     key_file = KITCHEN / "key.json"
     labels = {m["id"]: m["label"] for m in models}
     out = {}
-    if key_file.exists():
-        for kid, k in json.loads(key_file.read_text()).items():
-            out[f"kitchen-illustration.{kid}"] = {"id": k["model"], "label": labels[k["model"]], "run": k["run"]}
+    if not key_file.exists():
+        raise ValueError("Missing grading/kitchen/key.json: cannot build model reveal")
+    key = json.loads(key_file.read_text())
+    drawing_ids = {p.stem[:4] for variant in VARIANTS
+                   for p in (KITCHEN / variant).iterdir() if p.suffix in (".svg", ".png")}
+    if not drawing_ids or drawing_ids != set(key):
+        raise ValueError("Kitchen model key must cover exactly all blind drawings")
+    for kid, k in key.items():
+        out[f"kitchen-illustration.{kid}"] = {"id": k["model"], "label": labels[k["model"]], "run": k["run"]}
     REVEAL_MODULE.write_text(f"export default {json.dumps(out)};\n")
     return bool(out)
 

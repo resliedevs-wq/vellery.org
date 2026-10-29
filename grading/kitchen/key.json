@@ -1,0 +1,633 @@
+{
+  "K547": {
+    "batch": "2026-10-29",
+    "variant": "strong",
+    "model": "gpt-6-astra",
+    "run": 3,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/strong/gpt-6-astra/run-3/attempt-1/files/kitchen.svg"
+    ]
+  },
+  "K454": {
+    "batch": "2026-10-29-redo",
+    "variant": "weak",
+    "model": "gpt-6.1-sol",
+    "run": 2,
+    "files": [
+      "outputs/2026-10-29-redo/kitchen-illustration/weak/gpt-6.1-sol/run-2/attempt-1/files/cozy-kitchen.png",
+      "outputs/2026-10-29-redo/kitchen-illustration/weak/gpt-6.1-sol/run-2/attempt-1/files/cozy-kitchen.svg"
+    ]
+  },
+  "K232": {
+    "batch": "2026-10-29",
+    "variant": "weak",
+    "model": "claude-haiku-5-5",
+    "run": 5,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/weak/claude-haiku-5-5/run-5/attempt-1/files/cozy-kitchen-morning.svg"
+    ]
+  },
+  "K655": {
+    "batch": "2026-10-29-redo",
+    "variant": "weak",
+    "model": "gpt-6.1-terra",
+    "run": 1,
+    "files": [
+      "outputs/2026-10-29-redo/kitchen-illustration/weak/gpt-6.1-terra/run-1/attempt-1/files/cozy-kitchen.svg"
+    ]
+  },
+  "K994": {
+    "batch": "2026-10-29",
+    "variant": "strong",
+    "model": "claude-sonnet-5-5",
+    "run": 5,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/strong/claude-sonnet-5-5/run-5/attempt-1/files/kitchen.svg"
+    ]
+  },
+  "K358": {
+    "batch": "2026-10-29",
+    "variant": "strong",
+    "model": "claude-opus-5-5",
+    "run": 5,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/strong/claude-opus-5-5/run-5/attempt-1/files/kitchen.svg"
+    ]
+  },
+  "K472": {
+    "batch": "2026-10-29",
+    "variant": "strong",
+    "model": "claude-sonnet-5-5",
+    "run": 3,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/strong/claude-sonnet-5-5/run-3/attempt-1/files/kitchen.svg"
+    ]
+  },
+  "K291": {
+    "batch": "2026-10-29",
+    "variant": "strong",
+    "model": "claude-opus-5-5",
+    "run": 2,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/strong/claude-opus-5-5/run-2/attempt-1/files/kitchen.svg"
+    ]
+  },
+  "K186": {
+    "batch": "2026-10-29-redo",
+    "variant": "weak",
+    "model": "gpt-6-astra",
+    "run": 3,
+    "files": [
+      "outputs/2026-10-29-redo/kitchen-illustration/weak/gpt-6-astra/run-3/attempt-1/files/cozy-kitchen.png"
+    ]
+  },
+  "K739": {
+    "batch": "2026-10-29",
+    "variant": "weak",
+    "model": "claude-haiku-5-5",
+    "run": 2,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/weak/claude-haiku-5-5/run-2/attempt-1/files/cozy-kitchen-morning.svg"
+    ]
+  },
+  "K702": {
+    "batch": "2026-10-29",
+    "variant": "strong",
+    "model": "gpt-6.1-terra",
+    "run": 2,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/strong/gpt-6.1-terra/run-2/attempt-1/files/kitchen.svg"
+    ]
+  },
+  "K470": {
+    "batch": "2026-10-29",
+    "variant": "strong",
+    "model": "claude-haiku-5-5",
+    "run": 4,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/strong/claude-haiku-5-5/run-4/attempt-1/files/kitchen.svg"
+    ]
+  },
+  "K710": {
+    "batch": "2026-10-29",
+    "variant": "strong",
+    "model": "claude-haiku-5-5",
+    "run": 3,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/strong/claude-haiku-5-5/run-3/attempt-1/files/kitchen.svg"
+    ]
+  },
+  "K435": {
+    "batch": "2026-10-29",
+    "variant": "strong",
+    "model": "claude-sonnet-5-5",
+    "run": 2,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/strong/claude-sonnet-5-5/run-2/attempt-1/files/kitchen.svg"
+    ]
+  },
+  "K906": {
+    "batch": "2026-10-29",
+    "variant": "strong",
+    "model": "gpt-6.1-sol",
+    "run": 1,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/strong/gpt-6.1-sol/run-1/attempt-1/files/kitchen.svg"
+    ]
+  },
+  "K090": {
+    "batch": "2026-10-29",
+    "variant": "weak",
+    "model": "claude-opus-5-5",
+    "run": 3,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/weak/claude-opus-5-5/run-3/attempt-1/files/cozy_kitchen.svg"
+    ]
+  },
+  "K801": {
+    "batch": "2026-10-29",
+    "variant": "strong",
+    "model": "gpt-6.1-sol",
+    "run": 2,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/strong/gpt-6.1-sol/run-2/attempt-1/files/kitchen.svg"
+    ]
+  },
+  "K278": {
+    "batch": "2026-10-29",
+    "variant": "strong",
+    "model": "gpt-6-luna",
+    "run": 5,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/strong/gpt-6-luna/run-5/attempt-1/files/kitchen.svg"
+    ]
+  },
+  "K713": {
+    "batch": "2026-10-29",
+    "variant": "strong",
+    "model": "gpt-6.1-terra",
+    "run": 4,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/strong/gpt-6.1-terra/run-4/attempt-1/files/kitchen.svg"
+    ]
+  },
+  "K268": {
+    "batch": "2026-10-29",
+    "variant": "weak",
+    "model": "claude-opus-5-5",
+    "run": 5,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/weak/claude-opus-5-5/run-5/attempt-1/files/cozy_kitchen.svg"
+    ]
+  },
+  "K151": {
+    "batch": "2026-10-29",
+    "variant": "strong",
+    "model": "claude-haiku-5-5",
+    "run": 5,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/strong/claude-haiku-5-5/run-5/attempt-1/files/kitchen.svg"
+    ]
+  },
+  "K434": {
+    "batch": "2026-10-29",
+    "variant": "strong",
+    "model": "gpt-6-luna",
+    "run": 3,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/strong/gpt-6-luna/run-3/attempt-1/files/kitchen.svg"
+    ]
+  },
+  "K936": {
+    "batch": "2026-10-29",
+    "variant": "weak",
+    "model": "claude-sonnet-5-5",
+    "run": 1,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/weak/claude-sonnet-5-5/run-1/attempt-1/files/cozy_kitchen_morning.svg"
+    ]
+  },
+  "K895": {
+    "batch": "2026-10-29-redo",
+    "variant": "weak",
+    "model": "gpt-6-astra",
+    "run": 1,
+    "files": [
+      "outputs/2026-10-29-redo/kitchen-illustration/weak/gpt-6-astra/run-1/attempt-1/files/cozy-kitchen.png"
+    ]
+  },
+  "K675": {
+    "batch": "2026-10-29",
+    "variant": "strong",
+    "model": "gpt-6-astra",
+    "run": 1,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/strong/gpt-6-astra/run-1/attempt-1/files/kitchen.svg"
+    ]
+  },
+  "K237": {
+    "batch": "2026-10-29",
+    "variant": "weak",
+    "model": "claude-sonnet-5-5",
+    "run": 2,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/weak/claude-sonnet-5-5/run-2/attempt-1/files/cozy_kitchen.svg"
+    ]
+  },
+  "K899": {
+    "batch": "2026-10-29",
+    "variant": "strong",
+    "model": "claude-opus-5-5",
+    "run": 3,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/strong/claude-opus-5-5/run-3/attempt-1/files/kitchen.svg"
+    ]
+  },
+  "K513": {
+    "batch": "2026-10-29",
+    "variant": "strong",
+    "model": "claude-sonnet-5-5",
+    "run": 4,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/strong/claude-sonnet-5-5/run-4/attempt-1/files/kitchen.svg"
+    ]
+  },
+  "K138": {
+    "batch": "2026-10-29-redo",
+    "variant": "weak",
+    "model": "gpt-6.1-terra",
+    "run": 3,
+    "files": [
+      "outputs/2026-10-29-redo/kitchen-illustration/weak/gpt-6.1-terra/run-3/attempt-1/files/cozy-kitchen.svg"
+    ]
+  },
+  "K262": {
+    "batch": "2026-10-29",
+    "variant": "strong",
+    "model": "claude-haiku-5-5",
+    "run": 1,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/strong/claude-haiku-5-5/run-1/attempt-1/files/kitchen.svg"
+    ]
+  },
+  "K372": {
+    "batch": "2026-10-29",
+    "variant": "weak",
+    "model": "claude-sonnet-5-5",
+    "run": 3,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/weak/claude-sonnet-5-5/run-3/attempt-1/files/cozy_kitchen.svg"
+    ]
+  },
+  "K942": {
+    "batch": "2026-10-29-redo",
+    "variant": "weak",
+    "model": "gpt-6-luna",
+    "run": 4,
+    "files": [
+      "outputs/2026-10-29-redo/kitchen-illustration/weak/gpt-6-luna/run-4/attempt-1/files/cozy-kitchen-morning.svg"
+    ]
+  },
+  "K963": {
+    "batch": "2026-10-29",
+    "variant": "weak",
+    "model": "claude-haiku-5-5",
+    "run": 3,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/weak/claude-haiku-5-5/run-3/attempt-1/files/cozy-kitchen-morning.svg"
+    ]
+  },
+  "K600": {
+    "batch": "2026-10-29-redo",
+    "variant": "weak",
+    "model": "gpt-6.1-terra",
+    "run": 4,
+    "files": [
+      "outputs/2026-10-29-redo/kitchen-illustration/weak/gpt-6.1-terra/run-4/attempt-1/files/cozy-kitchen.svg"
+    ]
+  },
+  "K938": {
+    "batch": "2026-10-29",
+    "variant": "weak",
+    "model": "claude-haiku-5-5",
+    "run": 1,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/weak/claude-haiku-5-5/run-1/attempt-1/files/cozy-kitchen-morning.svg"
+    ]
+  },
+  "K923": {
+    "batch": "2026-10-29-redo",
+    "variant": "weak",
+    "model": "gpt-6-luna",
+    "run": 1,
+    "files": [
+      "outputs/2026-10-29-redo/kitchen-illustration/weak/gpt-6-luna/run-1/attempt-1/files/cozy-kitchen-morning.svg"
+    ]
+  },
+  "K977": {
+    "batch": "2026-10-29",
+    "variant": "strong",
+    "model": "gpt-6.1-terra",
+    "run": 1,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/strong/gpt-6.1-terra/run-1/attempt-1/files/kitchen.svg"
+    ]
+  },
+  "K108": {
+    "batch": "2026-10-29",
+    "variant": "weak",
+    "model": "claude-sonnet-5-5",
+    "run": 4,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/weak/claude-sonnet-5-5/run-4/attempt-1/files/cozy_kitchen_morning.svg"
+    ]
+  },
+  "K792": {
+    "batch": "2026-10-29",
+    "variant": "strong",
+    "model": "gpt-6-astra",
+    "run": 2,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/strong/gpt-6-astra/run-2/attempt-1/files/kitchen.svg"
+    ]
+  },
+  "K251": {
+    "batch": "2026-10-29",
+    "variant": "strong",
+    "model": "gpt-6-luna",
+    "run": 1,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/strong/gpt-6-luna/run-1/attempt-1/files/kitchen.svg"
+    ]
+  },
+  "K087": {
+    "batch": "2026-10-29",
+    "variant": "weak",
+    "model": "claude-opus-5-5",
+    "run": 4,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/weak/claude-opus-5-5/run-4/attempt-1/files/cozy-kitchen.svg"
+    ]
+  },
+  "K321": {
+    "batch": "2026-10-29-redo",
+    "variant": "weak",
+    "model": "gpt-6.1-sol",
+    "run": 4,
+    "files": [
+      "outputs/2026-10-29-redo/kitchen-illustration/weak/gpt-6.1-sol/run-4/attempt-1/files/cozy-kitchen.png"
+    ]
+  },
+  "K287": {
+    "batch": "2026-10-29",
+    "variant": "strong",
+    "model": "gpt-6.1-terra",
+    "run": 5,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/strong/gpt-6.1-terra/run-5/attempt-1/files/kitchen.svg"
+    ]
+  },
+  "K201": {
+    "batch": "2026-10-29",
+    "variant": "strong",
+    "model": "gpt-6-luna",
+    "run": 4,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/strong/gpt-6-luna/run-4/attempt-1/files/kitchen.svg"
+    ]
+  },
+  "K451": {
+    "batch": "2026-10-29-redo",
+    "variant": "weak",
+    "model": "gpt-6.1-terra",
+    "run": 2,
+    "files": [
+      "outputs/2026-10-29-redo/kitchen-illustration/weak/gpt-6.1-terra/run-2/attempt-1/files/cozy-kitchen.svg"
+    ]
+  },
+  "K406": {
+    "batch": "2026-10-29",
+    "variant": "strong",
+    "model": "claude-sonnet-5-5",
+    "run": 1,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/strong/claude-sonnet-5-5/run-1/attempt-1/files/kitchen.svg"
+    ]
+  },
+  "K207": {
+    "batch": "2026-10-29",
+    "variant": "strong",
+    "model": "gpt-6-astra",
+    "run": 5,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/strong/gpt-6-astra/run-5/attempt-1/files/kitchen.svg"
+    ]
+  },
+  "K204": {
+    "batch": "2026-10-29",
+    "variant": "weak",
+    "model": "claude-opus-5-5",
+    "run": 2,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/weak/claude-opus-5-5/run-2/attempt-1/files/cozy_kitchen.svg"
+    ]
+  },
+  "K536": {
+    "batch": "2026-10-29",
+    "variant": "weak",
+    "model": "claude-sonnet-5-5",
+    "run": 5,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/weak/claude-sonnet-5-5/run-5/attempt-1/files/cozy_kitchen_morning.svg"
+    ]
+  },
+  "K519": {
+    "batch": "2026-10-29",
+    "variant": "strong",
+    "model": "gpt-6.1-sol",
+    "run": 4,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/strong/gpt-6.1-sol/run-4/attempt-1/files/kitchen.svg"
+    ]
+  },
+  "K125": {
+    "batch": "2026-10-29",
+    "variant": "strong",
+    "model": "claude-opus-5-5",
+    "run": 4,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/strong/claude-opus-5-5/run-4/attempt-1/files/kitchen.svg"
+    ]
+  },
+  "K868": {
+    "batch": "2026-10-29",
+    "variant": "strong",
+    "model": "gpt-6-luna",
+    "run": 2,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/strong/gpt-6-luna/run-2/attempt-1/files/kitchen.svg"
+    ]
+  },
+  "K104": {
+    "batch": "2026-10-29",
+    "variant": "strong",
+    "model": "gpt-6.1-sol",
+    "run": 5,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/strong/gpt-6.1-sol/run-5/attempt-1/files/kitchen.svg"
+    ]
+  },
+  "K191": {
+    "batch": "2026-10-29",
+    "variant": "strong",
+    "model": "gpt-6.1-sol",
+    "run": 3,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/strong/gpt-6.1-sol/run-3/attempt-1/files/kitchen.svg"
+    ]
+  },
+  "K316": {
+    "batch": "2026-10-29-redo",
+    "variant": "weak",
+    "model": "gpt-6.1-terra",
+    "run": 5,
+    "files": [
+      "outputs/2026-10-29-redo/kitchen-illustration/weak/gpt-6.1-terra/run-5/attempt-1/files/cozy-kitchen.svg"
+    ]
+  },
+  "K105": {
+    "batch": "2026-10-29-redo",
+    "variant": "weak",
+    "model": "gpt-6-astra",
+    "run": 4,
+    "files": [
+      "outputs/2026-10-29-redo/kitchen-illustration/weak/gpt-6-astra/run-4/attempt-1/files/cozy-kitchen.png"
+    ]
+  },
+  "K220": {
+    "batch": "2026-10-29",
+    "variant": "strong",
+    "model": "gpt-6-astra",
+    "run": 4,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/strong/gpt-6-astra/run-4/attempt-1/files/kitchen.svg"
+    ]
+  },
+  "K669": {
+    "batch": "2026-10-29-redo",
+    "variant": "weak",
+    "model": "gpt-6.1-sol",
+    "run": 5,
+    "files": [
+      "outputs/2026-10-29-redo/kitchen-illustration/weak/gpt-6.1-sol/run-5/attempt-1/files/cozy-kitchen.png"
+    ]
+  },
+  "K947": {
+    "batch": "2026-10-29-redo",
+    "variant": "weak",
+    "model": "gpt-6-luna",
+    "run": 2,
+    "files": [
+      "outputs/2026-10-29-redo/kitchen-illustration/weak/gpt-6-luna/run-2/attempt-1/files/cozy-morning-kitchen.svg"
+    ]
+  },
+  "K499": {
+    "batch": "2026-10-29",
+    "variant": "weak",
+    "model": "claude-opus-5-5",
+    "run": 1,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/weak/claude-opus-5-5/run-1/attempt-1/files/cozy_kitchen_morning.svg"
+    ]
+  },
+  "K299": {
+    "batch": "2026-10-29",
+    "variant": "weak",
+    "model": "claude-haiku-5-5",
+    "run": 4,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/weak/claude-haiku-5-5/run-4/attempt-1/files/cozy_kitchen_morning.svg"
+    ]
+  },
+  "K428": {
+    "batch": "2026-10-29",
+    "variant": "strong",
+    "model": "gpt-6.1-terra",
+    "run": 3,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/strong/gpt-6.1-terra/run-3/attempt-1/files/kitchen.svg"
+    ]
+  },
+  "K978": {
+    "batch": "2026-10-29-redo",
+    "variant": "weak",
+    "model": "gpt-6-luna",
+    "run": 5,
+    "files": [
+      "outputs/2026-10-29-redo/kitchen-illustration/weak/gpt-6-luna/run-5/attempt-1/files/cozy_morning_kitchen.svg"
+    ]
+  },
+  "K133": {
+    "batch": "2026-10-29",
+    "variant": "strong",
+    "model": "claude-opus-5-5",
+    "run": 1,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/strong/claude-opus-5-5/run-1/attempt-1/files/kitchen.svg"
+    ]
+  },
+  "K139": {
+    "batch": "2026-10-29-redo",
+    "variant": "weak",
+    "model": "gpt-6.1-sol",
+    "run": 3,
+    "files": [
+      "outputs/2026-10-29-redo/kitchen-illustration/weak/gpt-6.1-sol/run-3/attempt-1/files/artifacts/cozy-kitchen-morning.png"
+    ]
+  },
+  "K554": {
+    "batch": "2026-10-29",
+    "variant": "strong",
+    "model": "claude-haiku-5-5",
+    "run": 2,
+    "files": [
+      "outputs/2026-10-29/kitchen-illustration/strong/claude-haiku-5-5/run-2/attempt-1/files/kitchen.svg"
+    ]
+  },
+  "K894": {
+    "batch": "2026-10-29-redo",
+    "variant": "weak",
+    "model": "gpt-6-astra",
+    "run": 5,
+    "files": [
+      "outputs/2026-10-29-redo/kitchen-illustration/weak/gpt-6-astra/run-5/attempt-1/files/artwork/cozy-kitchen-morning.png"
+    ]
+  },
+  "K880": {
+    "batch": "2026-10-29-redo",
+    "variant": "weak",
+    "model": "gpt-6-astra",
+    "run": 2,
+    "files": [
+      "outputs/2026-10-29-redo/kitchen-illustration/weak/gpt-6-astra/run-2/attempt-1/files/artifacts/cozy-morning-kitchen.png"
+    ]
+  },
+  "K974": {
+    "batch": "2026-10-29-redo",
+    "variant": "weak",
+    "model": "gpt-6.1-sol",
+    "run": 1,
+    "files": [
+      "outputs/2026-10-29-redo/kitchen-illustration/weak/gpt-6.1-sol/run-1/attempt-1/files/art/cozy-kitchen-morning.png"
+    ]
+  },
+  "K617": {
+    "batch": "2026-10-29-redo",
+    "variant": "weak",
+    "model": "gpt-6-luna",
+    "run": 3,
+    "files": [
+      "outputs/2026-10-29-redo/kitchen-illustration/weak/gpt-6-luna/run-3/attempt-1/files/cozy-morning-kitchen.svg"
+    ]
+  }
+}

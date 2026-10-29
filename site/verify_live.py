@@ -6,6 +6,7 @@ Usage: python3 site/verify_live.py [https://vellery.org]
 """
 
 import hashlib
+import json
 import pathlib
 import sys
 import time
@@ -27,6 +28,12 @@ def stale():
             url = f"{HOST}/{f.relative_to(DIST)}".replace("index.html", "")
             if hashlib.md5(fetch(url)).digest() != hashlib.md5(f.read_bytes()).digest():
                 out.append(url)
+    # Matching HTML is insufficient if a build silently removed model reveal.
+    expected = json.loads((DIST.parent / "site" / "reveal.generated.js").read_text()
+                          .removeprefix("export default ").rstrip(";\n"))
+    url = f"{HOST}/api/reveal?task=kitchen-illustration"
+    if not expected or json.loads(fetch(url)) != expected:
+        out.append(url)
     return out
 
 
