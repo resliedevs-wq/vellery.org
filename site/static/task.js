@@ -139,8 +139,17 @@
       t.hidden = t.dataset.variant !== variant;
       t.classList.toggle("on", t.dataset.id === selected);
       const v = tally(t.dataset.id);
-      t.querySelector(".score").textContent = [v.up && `▲ ${v.up}`, v.down - v.basic && `▼ ${v.down - v.basic}`, v.basic && `▼▼ ${v.basic}`]
-        .filter(Boolean).join("  ");
+      const indicators = [
+        ["good", v.up, "Upvotes"],
+        ["fix", v.down - v.basic, "Downvotes"],
+        ["slop", v.basic, "Not meeting basic standard"],
+      ].filter(([, count]) => count).map(([grade, count, label]) => {
+        const indicator = el("span", `rating ${grade}`, count);
+        indicator.title = `${label}: ${count}`;
+        indicator.setAttribute("aria-label", indicator.title);
+        return indicator;
+      });
+      t.querySelector(".score").replaceChildren(...indicators);
     });
     Object.values(groups).forEach((box) => {
       const n = [...box.querySelectorAll(".tile")].filter((t) => !t.hidden).length;
