@@ -3,10 +3,8 @@
 
 Reads tasks/, outputs/ and grading/kitchen/ and writes:
   index.html                 the tasks, every run as a dot
-  tasks/<slug>/index.html    input, prompts, model x run grid, each run beside the reference
-  rate/index.html            the tasks to rate
-  rate/<slug>/index.html     blind rating page, one output at a time, ids only
-  items.json                 every rateable id (the Worker only accepts these)
+  tasks/<slug>/index.html    input, prompts, runs ordered green/yellow/red, each beside the reference
+  items.json                 the outputs visitors can vote on (the Worker only accepts these)
 
 Kitchen drawings stay under their blind ids until grading is done, so their
 task page is a gallery, not a model grid.
@@ -56,8 +54,8 @@ def blob(data):
     return json.dumps(data).replace("<", "\\u003c")
 
 
-def page(title, body, scripts=(), wide=False):
-    tags = "".join(f'<script src="/static/{s}" defer></script>' for s in scripts)
+def page(title, body, scripts=()):
+    tags = "".join(f'<script src="/static/{s}" defer></script>' for s in ("auth.js", *scripts))
     return (
         '<!doctype html><html lang="en"><head><meta charset="utf-8">'
         '<meta name="viewport" content="width=device-width,initial-scale=1">'
@@ -65,8 +63,8 @@ def page(title, body, scripts=(), wide=False):
         '<link rel="preload" href="/static/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>'
         '<link rel="stylesheet" href="/static/style.css">'
         '</head><body><header class="top"><a class="brand" href="/">Vellery</a>'
-        '<nav><a href="/#tasks">Tasks</a><a href="/rate/">Rate</a></nav></header>'
-        f'<main{" class=wide" if wide else ""}>{body}</main>'
+        '<nav><a href="/#tasks">Tasks</a><span id="auth"></span></nav></header>'
+        f'<main>{body}</main>'
         f'<footer>Every prompt, raw output and grading script is on <a href="{REPO}">GitHub</a>.</footer>'
         f"{tags}</body></html>"
     )
@@ -231,13 +229,6 @@ def sheet_compare(task, run, expected):
     return f'<div class="checks"><ul class="facts">{"".join(chips)}</ul></div>{table}{notes_html}'
 
 
-def sheet_payload_rows(run):
-    block = sheet_block(run)
-    if block is None:
-        return None, run["response"]
-    return list(csv.reader(io.StringIO(block.strip()))), sheet_notes(run, block)
-
-
 # ---------- pages ----------
 
 def load_tasks():
@@ -294,7 +285,7 @@ def summary(runs, total_per_variant):
     for variant in VARIANTS:
         c = counts(runs, variant)
         graded = sum(c.values())
-        label = f'{c["good"]} of {graded} usable' if graded else "grading in progress"
+        label = f'{c["good"]} of {graded} usable' if graded else "voting open"
         rows.append(f'<div class="sumrow"><span>{variant.capitalize()} prompt</span>'
                     f'{stack(c, graded)}<span class="num">{label}</span></div>')
     return f'<div class="summary">{"".join(rows)}</div>'
@@ -324,42 +315,50 @@ def prompt_cards(task):
         f"<pre>{esc(prompt_text(task, v))}</pre></button>" for v in VARIANTS) + "</div>"
 
 
+BUCKETS = {"good": "Usable as is", "fix": "Needs a fix", "slop": "Slop", "none": "Waiting for votes"}
+# Personal-call tasks (no scripted check) take their color from votes.
+RULES = {"min": 3, "green": 0.8, "red": 0.3}
+
+
+def board(tiles):
+    """tiles: list of (bucket, html). Groups are filled here and moved by task.js."""
+    groups = []
+    for bucket, label in BUCKETS.items():
+        mine = "".join(h for b, h in tiles if b == bucket)
+        groups.append(f'<div class="group {bucket}" data-g="{bucket}"><h3>{label} <span class="count"></span></h3>'
+                      f'<div class="tiles">{mine}</div></div>')
+    return f'<div class="board" id="board">{"".join(groups)}</div>'
+
+
 def build_task_page(task, runs, models, items):
     slug = task["slug"]
     head = (f'<section class="hero task"><div><p class="eyebrow">{esc(task["category"])}</p>'
-            f'<h1>{esc(task["title"])}</h1>'
-            f'<a class="button" href="/rate/{slug}/">Rate these outputs</a></div>'
-            f'{summary(runs, len(items) // 2)}</section>')
+            f'<h1>{esc(task["title"])}</h1></div>{summary(runs, len(items) // 2)}</section>')
     body = head
     (DIST / "tasks" / slug).mkdir(parents=True, exist_ok=True)
     body += input_section(task)
     body += f'<section class="block"><h2>Prompt</h2>{prompt_cards(task)}</section>'
+    votable, detail, tiles = {}, {}, []
     if task["kind"] == "svg":
-        gallery = "".join(
-            f'<a href="/rate/{slug}/#{i["id"]}" class="shot" data-id="{i["id"]}" data-variant="{i["variant"]}">'
-            f'<img src="{i["srcs"][0]}" alt="" loading="lazy"><span class="tally"></span>'
-            f'<span class="sid">{i["id"].split(".")[1]}</span></a>'
-            for i in items)
-        body += (f'<section class="block"><h2>Outputs</h2><p class="note">Model names stay hidden until the drawings '
-                 f'are graded.</p><div class="gallery" id="gallery">{gallery}</div></section>')
-        data = {"slug": slug, "mode": "gallery"}
+        for i in items:
+            tiles.append(("none",
+                f'<button class="tile shot" data-id="{i["id"]}" data-variant="{i["variant"]}" '
+                f'aria-label="Drawing {i["id"].split(".")[1]}"><img src="{i["srcs"][0]}" alt="" loading="lazy">'
+                f'<span class="sid">{i["id"].split(".")[1]}</span><span class="score"></span></button>'))
+            detail[i["id"]] = (
+                f'<div class="dhead"><div><h2>{i["id"].split(".")[1]}</h2>'
+                '<p class="note">Model hidden until the drawings are graded.</p></div></div>'
+                f'<div class="art">{"".join(f"<img src={chr(34)}{src}{chr(34)} alt={chr(34)}{chr(34)}>" for src in i["srcs"])}</div>')
+            votable[i["id"]] = {"basic": True}
+        note = ('<p class="note">Only logged-in visitors can vote. A drawing needs '
+                f'{RULES["min"]} votes to be placed. Green: {RULES["green"]:.0%} or more upvotes. Red: under '
+                f'{RULES["red"]:.0%} upvotes and more "not meeting basic standard" than plain downvotes. Otherwise yellow.</p>')
     else:
         reference = (task["dir"] / task["reference"]).read_text() if task["kind"] == "text" else None
         expected = list(csv.DictReader((task["dir"] / "expected.csv").open())) if task["slug"] == "clean-spreadsheet" else None
-        detail, grids = {}, []
-        for variant in VARIANTS:
-            head_cells = "".join(f'<div class="runno">{n}</div>' for n in range(1, task["runs"] + 1))
-            rows = [f'<div></div>{head_cells}']
-            for m in models:
-                mine = sorted((r for r in runs if r["variant"] == variant and r["model"] == m["id"]), key=lambda r: r["run"])
-                if not mine:
-                    continue
-                cells = "".join(
-                    f'<button class="cell {r["grade"]["grade"]}" data-id="{r["item"]}" '
-                    f'aria-label="{esc(m["label"])}, run {r["run"]}: {GRADES[r["grade"]["grade"]]}"></button>'
-                    for r in mine)
-                rows.append(f'<div class="model">{esc(m["label"])}</div>{cells}')
-                for r in mine:
+        for m in models:
+            for variant in VARIANTS:
+                for r in sorted((r for r in runs if r["variant"] == variant and r["model"] == m["id"]), key=lambda r: r["run"]):
                     g = r["grade"]
                     why = f"<small>{esc(g['why'])}</small>" if g["why"] else ""
                     compare = (email_compare(task, r, reference) if reference is not None
@@ -368,36 +367,21 @@ def build_task_page(task, runs, models, items):
                     detail[r["item"]] = (
                         f'<div class="dhead"><div><h2>{esc(m["label"])} <span>run {r["run"]}</span></h2>'
                         f'<p class="note"><a href="{r["source"]}">Raw output</a>{cost}</p></div>'
-                        f'<span class="verdict {g["grade"]}">{GRADES[g["grade"]]}{why}</span></div>'
-                        + compare)
-            grids.append(f'<div class="grid" data-variant="{variant}" hidden>{"".join(rows)}</div>')
-        legend = "".join(f'<span class="{g}">{label}</span>' for g, label in GRADES.items())
-        body += (f'<section class="block"><h2>Runs</h2>{"".join(grids)}<div class="legend">{legend}</div></section>'
-                 '<section id="detail" class="block" hidden></section>')
-        data = {"slug": slug, "mode": "grid", "detail": detail, "grades": GRADES}
+                        f'<span class="verdict {g["grade"]}">{GRADES[g["grade"]]}{why}</span></div>' + compare)
+                    tiles.append((g["grade"],
+                        f'<button class="tile" data-id="{r["item"]}" data-variant="{variant}" '
+                        f'aria-label="{esc(m["label"])}, run {r["run"]}: {GRADES[g["grade"]]}">'
+                        f'<b>{esc(m["label"])}</b><span>run {r["run"]}</span><span class="score"></span></button>'))
+                    if g["grade"] == "good":
+                        votable[r["item"]] = {}
+        note = ('<p class="note">Usable runs can be upvoted or downvoted by logged-in visitors. '
+                'Their order is shuffled on every visit.</p>')
+    body += f'<section class="block"><h2>Outputs</h2>{note}{board(tiles)}</section><section id="detail" class="block" hidden></section>'
+    data = {"slug": slug, "mode": "gallery" if task["kind"] == "svg" else "grid", "detail": detail,
+            "votable": votable, "rules": RULES, "buckets": BUCKETS}
     body += f'<script id="data" type="application/json">{blob(data)}</script>'
     write(f"tasks/{slug}/index.html", page(task["title"], body, ["task.js"]))
-
-
-def item_payload(task, run):
-    base = {"id": run["item"], "variant": run["variant"], "kind": task["kind"]}
-    if task["slug"] == "clean-spreadsheet":
-        rows, prose = sheet_payload_rows(run)
-        return {**base, "kind": "sheet", "rows": rows, "text": prose}
-    return {**base, "text": run["response"].strip()}
-
-
-def build_rate_page(task, items):
-    slug = task["slug"]
-    data = {"slug": slug, "grades": GRADES, "items": items,
-            "prompts": {v: prompt_text(task, v) for v in VARIANTS}}
-    body = (f'<section class="hero slim"><div><p class="eyebrow"><a href="/tasks/{slug}/">{esc(task["title"])}</a></p>'
-            '<h1>Would you use this?</h1></div><p id="progress" class="num"></p></section>'
-            '<div id="rater"><div class="prompt solo"><b id="variant"></b><pre id="prompt"></pre></div>'
-            '<div id="item"></div><div id="buttons"></div><div id="result"></div></div>'
-            '<p class="note">Model names are hidden. No sign-in: anyone can vote, so these ratings are a test and are not part of the grades.</p>'
-            f'<script id="data" type="application/json">{blob(data)}</script>')
-    write(f"rate/{slug}/index.html", page(f'Rate: {task["title"]}', body, ["rate.js"]))
+    return votable
 
 
 def main():
@@ -406,36 +390,26 @@ def main():
     tasks = load_tasks()
     models = yaml.safe_load((ROOT / "models.yaml").read_text())["models"]
     all_runs = load_runs()
-    known, cards, rate_cards = [], [], []
+    known, cards = {}, []
     for task in tasks:
         slug = task["slug"]
         runs = [r for r in all_runs if r["task"] == slug]
-        items = kitchen_items() if task["kind"] == "svg" else [item_payload(task, r) for r in runs]
-        known += [i["id"] for i in items]
-        build_task_page(task, runs, models, items)
-        build_rate_page(task, items)
+        items = kitchen_items() if task["kind"] == "svg" else [{"id": r["item"], "variant": r["variant"]} for r in runs]
+        known.update(build_task_page(task, runs, models, items))
         field = "".join(f'<div class="field"><span>{v.capitalize()}</span><div class="dots">{dots(runs, v)}</div></div>'
                         for v in VARIANTS)
         cards.append(
             f'<a class="card" href="/tasks/{slug}/"><p class="eyebrow">{esc(task["category"])}</p>'
             f'<h2>{esc(task["title"])}</h2>{field}</a>')
-        rate_cards.append(
-            f'<a class="card" href="/rate/{slug}/"><p class="eyebrow">{esc(task["category"])}</p>'
-            f'<h2>{esc(task["title"])}</h2><p class="note">{len(items)} outputs</p></a>')
     write("items.json", json.dumps(known))
     legend = "".join(f'<span class="{g}">{label}</span>' for g, label in GRADES.items())
-    n_models = len(models)
     write("index.html", page("Vellery", (
         '<section class="hero home"><h1>Same prompt.<br>Different results.</h1>'
-        f'<p class="lede">{n_models} AI models did the same everyday tasks five times each, once with a vague prompt and once '
+        f'<p class="lede">{len(models)} AI models did the same everyday tasks five times each, once with a vague prompt and once '
         'with a precise one. Every output is here, graded, with the reason it passed or failed.</p></section>'
         f'<section id="tasks" class="block"><div class="legend">{legend}<span>not graded yet</span></div>'
         f'<div class="cards">{"".join(cards)}</div></section>')))
-    write("rate/index.html", page("Rate", (
-        '<section class="hero slim"><div><h1>Rate outputs</h1>'
-        '<p class="lede">One output at a time, model names hidden.</p></div></section>'
-        f'<div class="cards">{"".join(rate_cards)}</div>')))
-    print(f"{len(tasks)} tasks, {len(known)} rateable outputs -> {DIST.relative_to(ROOT)}")
+    print(f"{len(tasks)} tasks, {len(known)} votable outputs -> {DIST.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":
