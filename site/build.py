@@ -378,7 +378,7 @@ def build_task_page(task, runs, models, items, can_reveal):
                 f'<span class="sid">{kid}</span><span class="score"></span></button>'))
             detail[i["id"]] = (
                 f'<div class="dhead"><div><h2>{kid}</h2>'
-                '<p class="note">Model hidden until you have rated every drawing or reveal it.</p></div></div>'
+                '<p class="note">Model hidden until every drawing for this prompt is rated, or revealed.</p></div></div>'
                 f'<div class="art">{"".join(f"<img src={chr(34)}{src}{chr(34)} alt={chr(34)}{chr(34)}>" for src in i["srcs"])}</div>')
             votable[i["id"]] = {"basic": True}
         note = ('<p class="note">Only logged-in visitors can vote. A drawing needs '

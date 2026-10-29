@@ -3,7 +3,7 @@
   "scripts": {
     "build": "python3 site/build.py",
     "dev": "python3 site/build.py && wrangler dev",
-    "deploy": "python3 site/build.py && wrangler deploy"
+    "deploy": "python3 site/build.py && wrangler deploy && python3 site/verify_live.py"
   },
   "devDependencies": {
     "wrangler": "^4.155.0"

@@ -10,11 +10,12 @@
   const rules = data.rules;
   const byId = Object.fromEntries(tiles.map((t) => [t.dataset.id, t]));
   const cacheKey = `vellery.votes.${data.slug}`;
-  const revealKey = `vellery.reveal.${data.slug}`;
+  const metaKey = `vellery.reveal.${data.slug}`;
+  const flagKey = `vellery_revealed_${data.slug}`;
   const rank = { good: 0, fix: 1, slop: 2, none: 3 };
   const rowsPlaced = new Set();
   let meta = {};
-  let revealed = false;
+  const revealed = new Set();
   let revealing = false;
   const pending = {};
   let votes = {};
@@ -70,7 +71,9 @@
     return list;
   }
 
-  const inMatrix = () => data.mode !== "gallery" || revealed;
+  // A prompt's drawings get model rows once that prompt is revealed.
+  const inMatrix = () => data.mode !== "gallery" || revealed.has(variant);
+  const blind = (t) => data.mode === "gallery" && !revealed.has(t.dataset.variant);
   const rowOf = (model) => matrixBox.querySelector(`.mrow[data-model="${model}"]`);
 
   // Drawings get model rows once the models are revealed.
@@ -83,7 +86,7 @@
       matrixBox.append(row);
     }
     tiles.forEach((t) => {
-      const who = meta[t.dataset.id];
+      const who = revealed.has(t.dataset.variant) && meta[t.dataset.id];
       if (who) {
         t.dataset.model = who.id;
         t.dataset.run = who.run;
@@ -112,7 +115,7 @@
   function placeFlat(wanted) {
     for (const [g, box] of Object.entries(groups)) {
       const holder = box.querySelector(".tiles");
-      let mine = tiles.filter((t) => wanted[t.dataset.id] === g);
+      let mine = tiles.filter((t) => wanted[t.dataset.id] === g && blind(t));
       if (g === "good" && !placed) mine = shuffle(mine);
       for (const t of mine) if (!placed || t.parentNode !== holder) holder.append(t);
     }
@@ -150,38 +153,50 @@
   }
 
   // Revealing: the Worker hands over which model made each drawing. Rating every
-  // drawing reveals them automatically; the button skips ahead.
-  async function reveal() {
-    if (revealed || revealing || !data.reveal) return;
-    revealing = true;
+  // drawing on a prompt's page reveals that page; the button skips ahead.
+  const saved = () => [...revealed].join(",");
+  function rememberRevealed() {
+    document.cookie = `${flagKey}=${saved()}; Path=/; Max-Age=31536000; SameSite=Lax`;
+  }
+
+  async function fetchMeta() {
+    if (Object.keys(meta).length) return true;
     try {
       const res = await fetch(`/api/reveal?task=${data.slug}`);
       if (res.ok) meta = await res.json();
     } catch {}
-    revealing = false;
-    if (!Object.keys(meta).length) return;
+    if (!Object.keys(meta).length) return false;
     try {
-      localStorage.setItem(revealKey, JSON.stringify(meta));
+      localStorage.setItem(metaKey, JSON.stringify(meta));
     } catch {}
-    adopt();
+    return true;
   }
 
-  function adopt() {
-    revealed = true;
-    if (revealBar) revealBar.hidden = true;
+  async function reveal(which) {
+    if (!data.reveal || revealed.has(which) || revealing) return;
+    revealing = true;
+    const ok = await fetchMeta();
+    revealing = false;
+    if (!ok) return;
+    revealed.add(which);
+    rememberRevealed();
     buildRows();
     render();
   }
 
+  const mineCount = (list) => list.filter((t) => votes[t.dataset.id] && votes[t.dataset.id].mine).length;
+
   function paintReveal() {
-    if (!revealBar || revealed) return;
-    const rated = tiles.filter((t) => votes[t.dataset.id] && votes[t.dataset.id].mine).length;
-    revealBar.querySelector(".num").textContent = window.vellery.me ? `${rated} of ${tiles.length} rated` : "";
-    if (window.vellery.me && rated === tiles.length) reveal();
+    if (!revealBar) return;
+    const here = tiles.filter((t) => t.dataset.variant === variant);
+    revealBar.hidden = revealed.has(variant);
+    if (revealed.has(variant)) return;
+    revealBar.querySelector(".num").textContent = window.vellery.me ? `${mineCount(here)} of ${here.length} rated` : "";
+    if (window.vellery.me && mineCount(here) === here.length) reveal(variant);
   }
 
   function paintHeader() {
-    const who = revealed && selected && meta[selected];
+    const who = selected && revealed.has(byId[selected].dataset.variant) && meta[selected];
     if (!who) return;
     const head = body.querySelector(".dhead");
     if (!head || head.dataset.revealed) return;
@@ -332,7 +347,9 @@
   function pick(next) {
     variant = next;
     prompts.forEach((p) => p.classList.toggle("on", p.dataset.variant === variant));
+    place();
     refresh();
+    paintReveal();
   }
 
   async function load() {
@@ -349,16 +366,18 @@
   document.addEventListener("vellery:auth", load);
 
   const revealButton = document.getElementById("reveal");
-  if (revealButton) revealButton.addEventListener("click", reveal);
-  try {
-    meta = JSON.parse(localStorage.getItem(revealKey) || "{}");
-  } catch {
-    meta = {};
-  }
-  if (data.reveal && Object.keys(meta).length) {
-    revealed = true;
-    if (revealBar) revealBar.hidden = true;
-    buildRows();
+  if (revealButton) revealButton.addEventListener("click", () => reveal(variant));
+  // Come back revealed: the choice lives in a cookie, the key in local storage if it fits.
+  const flag = (document.cookie.match(new RegExp(`${flagKey}=([a-z,]*)`)) || [])[1];
+  if (data.reveal && flag) {
+    try {
+      meta = JSON.parse(localStorage.getItem(metaKey) || "{}");
+    } catch {
+      meta = {};
+    }
+    flag.split(",").filter(Boolean).forEach((v) => revealed.add(v));
+    if (Object.keys(meta).length) buildRows();
+    else fetchMeta().then((ok) => ok && (buildRows(), render()));
   }
   place();
   pick("strong");
