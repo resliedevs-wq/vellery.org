@@ -119,6 +119,49 @@ def extract_csv(response):
     return None
 
 
+def canonical(row):
+    # A header like "Amount (USD)" is the same column, not a change.
+    out = {}
+    for key, value in row.items():
+        name = next((n for n in ("Date", "Description", "Category", "Amount")
+                     if (key or "").strip().lower().startswith(n.lower())), key)
+        out[name] = value
+    return out
+
+
+def sheet_rows(block):
+    return [canonical(r) for r in csv.DictReader(io.StringIO(block.strip()))
+            if any((v or "").strip() for v in r.values())]
+
+
+def parse_amount(cell):
+    try:
+        return float(re.sub(r"[$,\s]", "", cell or ""))
+    except ValueError:
+        return None
+
+
+def pair_rows(rows, expected):
+    """Pair each returned row with the closest expected row of the same description.
+
+    Returns ([(expected row or None, returned row, parsed amount)], unmatched expected rows).
+    """
+    keyed = {}
+    for r in expected:
+        keyed.setdefault(r["Description"].strip().lower(), []).append(r)
+    pairs = []
+    for r in rows:
+        pool = keyed.get((r.get("Description") or "").strip().lower(), [])
+        amount = parse_amount(r.get("Amount"))
+        if not pool:
+            pairs.append((None, r, amount))
+            continue
+        best = min(pool, key=lambda e: abs(float(e["Amount"]) - amount) if amount is not None else 0)
+        pool.remove(best)
+        pairs.append((best, r, amount))
+    return pairs, [r for pool in keyed.values() for r in pool]
+
+
 def grade_sheet(task_dir, variant, response, run_dir):
     expected = list(csv.DictReader((task_dir / "expected.csv").open()))
     block = extract_csv(response)
@@ -127,37 +170,14 @@ def grade_sheet(task_dir, variant, response, run_dir):
             block = f.read_text()
     if block is None:
         return {"grade": "slop", "why": "no table returned", "checks": {}, "review": []}
-    def canonical(row):
-        # A header like "Amount (USD)" is the same column, not a change.
-        out = {}
-        for key, value in row.items():
-            name = next((n for n in ("Date", "Description", "Category", "Amount")
-                         if (key or "").strip().lower().startswith(n.lower())), key)
-            out[name] = value
-        return out
-
-    rows = [canonical(r) for r in csv.DictReader(io.StringIO(block.strip()))
-            if any((v or "").strip() for v in r.values())]
+    rows = sheet_rows(block)
     checks = {"rows": len(rows), "expected_rows": len(expected)}
     problems = {"wrong_date": [], "wrong_amount": [], "wrong_category": [], "format": [], "unconverted_date": []}
-    keyed = {}
-    for r in expected:
-        keyed.setdefault(r["Description"].strip().lower(), []).append(r)
-    matched = []
-    for r in rows:
-        desc = (r.get("Description") or "").strip().lower()
-        pool = keyed.get(desc, [])
-        if not pool:
+    pairs, unmatched = pair_rows(rows, expected)
+    for best, r, amount in pairs:
+        if best is None:
             problems.setdefault("extra_or_renamed", []).append(r.get("Description"))
             continue
-        # Pair with the closest expected row of that description (by amount, then position).
-        try:
-            amount = float(re.sub(r"[$,\s]", "", r.get("Amount") or ""))
-        except ValueError:
-            amount = None
-        best = min(pool, key=lambda e: abs(float(e["Amount"]) - amount) if amount is not None else 0)
-        pool.remove(best)
-        matched.append(best["Description"])
         if amount is None or abs(amount - float(best["Amount"])) > 0.005:
             problems["wrong_amount"].append(f"{best['Description']}: {r.get('Amount')} (expected {best['Amount']})")
         elif not re.fullmatch(r"\d+\.\d{2}", (r.get("Amount") or "").strip()):
@@ -172,7 +192,7 @@ def grade_sheet(task_dir, variant, response, run_dir):
             problems["wrong_category"].append(f"{best['Description']}: {cat}")
         elif cat != best["Category"]:
             problems["format"].append(f"category '{cat}'")
-    missing = [r["Description"] + " " + r["Date"] for pool in keyed.values() for r in pool]
+    missing = [r["Description"] + " " + r["Date"] for r in unmatched]
     checks["missing_rows"] = missing
     checks["problems"] = {k: v for k, v in problems.items() if v}
 

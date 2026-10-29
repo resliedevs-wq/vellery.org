@@ -5,6 +5,8 @@ kind: text
 runs: 5
 inputs:
   - email.txt
+# One answer that passes every check, shown beside each run.
+reference: reference.txt
 
 prompts:
   weak: |

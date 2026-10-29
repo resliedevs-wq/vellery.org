@@ -55,7 +55,7 @@
       if (it.text) wrap.append(el("pre", "", it.text));
       box.append(wrap);
     } else {
-      box.append(el("pre", "out", it.text));
+      box.append(el("pre", "doc", it.text));
     }
   }
 
@@ -67,8 +67,9 @@
         const bar = el("i");
         const fill = el("s");
         fill.style.width = `${(100 * (t[g] || 0)) / total}%`;
+        fill.style.background = `var(--${g})`;
         bar.append(fill);
-        row.append(el("span", "", label), bar, el("span", "", String(t[g] || 0)));
+        row.append(el("span", "", label), bar, el("span", "num", String(t[g] || 0)));
         return row;
       }),
     );
@@ -76,18 +77,19 @@
 
   function render() {
     const it = queue[at];
-    $("progress").textContent = `${Object.keys(votes).length} rated · ${at + 1} of ${queue.length}`;
+    $("progress").textContent = `${at + 1} of ${queue.length} · ${Object.keys(votes).filter((k) => k.startsWith(slug + ".")).length} rated`;
     $("prompt").textContent = prompts[it.variant];
+    $("variant").textContent = `${it.variant[0].toUpperCase()}${it.variant.slice(1)} prompt`;
     renderItem(it);
     $("result").replaceChildren();
     $("buttons").replaceChildren(
       ...Object.entries(grades).map(([g, label], n) => {
-        const b = el("button", "choice" + (votes[it.id] === g ? " on" : ""), `${label}`);
+        const b = el("button", `choice ${g}` + (votes[it.id] === g ? " on" : ""), label);
         b.title = `Key ${n + 1}`;
         b.addEventListener("click", () => rate(it, g));
         return b;
       }),
-      Object.assign(el("button", "choice", "Next"), { onclick: next }),
+      Object.assign(el("button", "choice next", "Next →"), { onclick: next }),
     );
     history.replaceState(null, "", `#${it.id}`);
   }
