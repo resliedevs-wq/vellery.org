@@ -1,0 +1,58 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>
+:root{--good:#16a34a;--ok:#ca8a04;--slop:#dc2626}
+*{box-sizing:border-box}
+body{font-family:var(--font-sans,system-ui);color:var(--foreground);margin:0}
+.wrap{display:flex;flex-direction:column;gap:22px}
+.crumb{font-size:12px;color:var(--muted-foreground)}
+h1{font-size:22px;margin:4px 0 0;font-weight:650}
+.prompts{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.p{border:1px solid var(--border);border-radius:var(--radius,10px);padding:14px;font-size:13px;line-height:1.5}
+.p.weak{border-style:dashed}
+.p .tag{font-size:11px;font-weight:600;margin-bottom:6px;display:block}
+.p.weak .tag{color:var(--slop)} .p.strong .tag{color:var(--good)}
+.p q{font-family:var(--font-mono);font-size:12px;quotes:none;display:block;color:var(--muted-foreground)}
+.tabs{display:flex;gap:6px;font-size:12px}
+.tabs span{padding:5px 10px;border-radius:999px;border:1px solid var(--border);color:var(--muted-foreground)}
+.tabs span.on{background:var(--foreground);color:var(--background);border-color:var(--foreground)}
+.grid{display:grid;grid-template-columns:92px repeat(5,1fr);gap:8px;align-items:center}
+.m{font-size:12px;font-weight:600}
+.cell{aspect-ratio:4/3;border-radius:8px;background:var(--muted);position:relative;overflow:hidden;padding:7px;display:flex;flex-direction:column;gap:4px}
+.cell i{display:block;height:4px;border-radius:2px;background:var(--border)}
+.cell i:nth-child(2){width:80%}.cell i:nth-child(3){width:60%}.cell i:nth-child(4){width:70%}
+.cell::after{content:"";position:absolute;right:6px;bottom:6px;width:9px;height:9px;border-radius:50%}
+.g::after{background:var(--good)} .o::after{background:var(--ok)} .s::after{background:var(--slop)}
+.cell.sel{outline:2px solid var(--foreground);outline-offset:1px}
+.legend{display:flex;gap:14px;font-size:12px;color:var(--muted-foreground)}
+.legend b{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;vertical-align:-1px}
+.detail{display:grid;grid-template-columns:1.1fr 1fr;gap:16px;border:1px solid var(--border);border-radius:var(--radius,10px);padding:16px}
+.doc{background:var(--muted);border-radius:8px;padding:12px;font-size:12px;line-height:1.55}
+.doc mark{background:color-mix(in srgb,var(--slop) 25%,transparent);color:inherit;border-radius:3px;padding:0 2px}
+.notes{font-size:13px;line-height:1.55}
+.notes h3{font-size:13px;margin:0 0 6px}
+.notes ul{margin:0;padding-left:18px}
+.take{border-left:3px solid var(--foreground);padding:4px 0 4px 12px;font-size:14px;line-height:1.5}
+</style></head><body><div class="wrap">
+<div><div class="crumb">Writing · Text editing</div><h1>Shorten a rambling email</h1></div>
+
+<div class="prompts">
+ <div class="p weak"><span class="tag">Weak prompt</span><q>make this email better</q></div>
+ <div class="p strong" style="outline:2px solid var(--foreground);outline-offset:1px"><span class="tag">Strong prompt</span><q>Cut this email to under 120 words for my manager. Keep the two dates and the budget figure exactly. Friendly, not formal.</q></div>
+</div>
+
+<div class="grid">
+ <div></div><div class="crumb">1</div><div class="crumb">2</div><div class="crumb">3</div><div class="crumb">4</div><div class="crumb">5</div>
+ <div class="m">Model A</div><div class="cell g"><i></i><i></i><i></i><i></i></div><div class="cell g"><i></i><i></i><i></i><i></i></div><div class="cell g"><i></i><i></i><i></i><i></i></div><div class="cell o"><i></i><i></i><i></i><i></i></div><div class="cell g"><i></i><i></i><i></i><i></i></div>
+ <div class="m">Model B</div><div class="cell g"><i></i><i></i><i></i><i></i></div><div class="cell s sel"><i></i><i></i><i></i><i></i></div><div class="cell g"><i></i><i></i><i></i><i></i></div><div class="cell g"><i></i><i></i><i></i><i></i></div><div class="cell o"><i></i><i></i><i></i><i></i></div>
+ <div class="m">Model C</div><div class="cell o"><i></i><i></i><i></i><i></i></div><div class="cell o"><i></i><i></i><i></i><i></i></div><div class="cell g"><i></i><i></i><i></i><i></i></div><div class="cell s"><i></i><i></i><i></i><i></i></div><div class="cell o"><i></i><i></i><i></i><i></i></div>
+ <div class="m">Model D</div><div class="cell g"><i></i><i></i><i></i><i></i></div><div class="cell g"><i></i><i></i><i></i><i></i></div><div class="cell g"><i></i><i></i><i></i><i></i></div><div class="cell g"><i></i><i></i><i></i><i></i></div><div class="cell g"><i></i><i></i><i></i><i></i></div>
+</div>
+<div class="legend"><span><b style="background:var(--good)"></b>Usable as is</span><span><b style="background:var(--ok)"></b>Needs a fix</span><span><b style="background:var(--slop)"></b>Slop</span></div>
+
+<div class="detail">
+ <div class="doc">Hi Dana — quick update on the venue. We can confirm for <mark>March 14</mark> and the walkthrough on March 3. Budget lands at $4,200, a bit under plan. I'll send the contract Friday unless you'd like changes first. Thanks!</div>
+ <div class="notes"><h3>Model B · Run 2</h3><ul><li>Reads well and hits the length.</li><li>Changed the event date from March 12 to March 14. Easy to miss, costly if sent.</li></ul></div>
+</div>
+
+<div class="take">Polished text can still be wrong. When facts matter, say which ones must not change, then check them.</div>
+</div></body></html>

@@ -1,0 +1,67 @@
+slug: clean-spreadsheet
+title: Clean up a messy expense sheet
+category: Sheets
+kind: sheet
+runs: 5
+inputs:
+  - expenses.csv
+
+prompts:
+  weak: |
+    clean up this spreadsheet
+
+    {{expenses.csv}}
+  strong: |
+    Clean up this March 2026 expense sheet and return it as CSV.
+    - Dates as YYYY-MM-DD. Every expense is from March 2026.
+    - Remove rows that are exact duplicates. Keep repeated purchases on different dates.
+    - Category names in Title Case.
+    - Amounts as plain numbers with two decimals, no $ or commas.
+    Then list each change you made and anything you weren't sure about.
+
+    {{expenses.csv}}
+
+# Ground truth, computed from expenses.csv.
+expected:
+  rows: 18
+  removed_duplicates:
+    - 2026-03-02 Office chairs 1240.00
+    - 2026-03-04 Printer paper 48.50
+  keep_not_duplicate: Team lunch on 2026-03-05 and 2026-03-25 (same amount, different dates)
+  dates:
+    "03/04/2026": 2026-03-04   # reads as April 3 under DD/MM; context says March
+    "10/03/2026": 2026-03-10   # reads as October 3 under MM/DD
+    "18/03/2026": 2026-03-18
+    "3/9/26": 2026-03-09
+    "Mar 13": 2026-03-13       # no year in source
+  category_totals:
+    Equipment: 360.96
+    Furniture: 1304.00
+    Meals: 771.39
+    Office Supplies: 81.05
+    Software: 335.00
+    Travel: 690.20
+  total: 3542.60
+
+# Totals are computed by script from the rows each run returns.
+rubric:
+  strong:
+    good: 18 rows; every date, amount, and category correct; list of changes included.
+    fix: Data correct, but a formatting rule missed or the list of changes left out.
+    slop: Wrong row count, a wrong date, a changed amount, or the two team lunches merged.
+  # The weak prompt states no requirements and doesn't say the month. Its
+  # runs are scored on what the user evidently needed: tidier data with
+  # nothing lost or changed.
+  weak:
+    good: >
+      Amounts unchanged, no real expense dropped, dates in one format, and
+      the ambiguous dates read as March or flagged as uncertain.
+    fix: Data intact, but some mess left (mixed formats, duplicates kept without comment).
+    slop: >
+      An amount changed, a real expense dropped (including merging the team
+      lunches), or an ambiguous date silently placed in the wrong month.
+
+# Rewritten from the graded results before publishing.
+draft_lesson: >
+  Models clean confidently, including the parts they guessed. Ask them to
+  list what they weren't sure about, then check the totals yourself.

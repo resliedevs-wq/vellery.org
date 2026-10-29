@@ -1,0 +1,56 @@
+# API list prices in USD per million tokens, standard tier, short context.
+# Used only to estimate what each run would cost through the API; the runs
+# themselves go through Claude and ChatGPT subscriptions.
+#
+# Every prompt in Vellery is far below the long-context thresholds
+# (Claude Haiku 5.5: 100K tokens; OpenAI: 272K), so those prices are omitted.
+
+checked: 2026-10-29
+
+sources:
+  anthropic: https://platform.claude.com/docs/en/about-claude/pricing
+  openai: https://developers.openai.com/api/docs/pricing
+
+models:
+  claude-opus-5-5:
+    input: 4.00
+    cache_write_5m: 5.00
+    cache_write_1h: 8.00
+    cache_read: 0.20
+    output: 20.00
+  claude-sonnet-5-5:
+    input: 2.00
+    cache_write_5m: 2.50
+    cache_write_1h: 4.00
+    cache_read: 0.10
+    output: 10.00
+  claude-haiku-5-5:
+    input: 0.10
+    cache_write_5m: 0.125
+    cache_write_1h: 0.20
+    cache_read: 0.01
+    output: 0.50
+  gpt-6.1-sol:
+    input: 2.00
+    cache_write_30m: 2.50
+    cache_write_12h: 5.00
+    cache_read: 0.10
+    output: 10.00
+  gpt-6.1-terra:
+    input: 1.00
+    cache_write_30m: 1.25
+    cache_write_12h: 2.50
+    cache_read: 0.05
+    output: 5.00
+  gpt-6-astra:
+    input: 10.00
+    cache_write_30m: 12.50
+    cache_write_12h: 25.00
+    cache_read: 1.00
+    output: 50.00
+  gpt-6-luna:
+    input: 0.10
+    cache_write_30m: 0.125
+    cache_write_12h: 0.25
+    cache_read: 0.01
+    output: 0.50

@@ -1,0 +1,50 @@
+slug: kitchen-illustration
+title: Draw a kitchen scene
+category: Drawing
+kind: svg
+# Drawn by the model itself as SVG code, not by an image generator.
+runs: 5
+inputs: []
+
+prompts:
+  weak: |
+    draw a cozy kitchen in the morning
+  strong: |
+    Flat vector illustration of a small kitchen table, seen from the front.
+    On the table: exactly three red apples, a blue mug with the word MONDAY
+    printed on it, and a folded newspaper with a gray cat asleep on top.
+    Morning sunlight comes from a window on the left. Warm, muted colors.
+    No people. Save it as kitchen.svg.
+
+# Checked by eye on the rendered image, graded without model names shown.
+checks:
+  major:
+    - kitchen.svg exists and renders
+    - exactly 3 apples, all red
+    - mug reads MONDAY, spelled correctly
+    - gray cat on the newspaper with its eyes closed
+    - no people
+  minor:
+    - mug is blue
+    - table seen from the front
+    - newspaper is folded
+    - light comes from the left
+    - flat vector style (solid fills, no photographic texture)
+    - warm, muted colors
+
+rubric:
+  strong:
+    good: Every check passes.
+    fix: No major misses and one or two minor misses.
+    slop: Any major miss, or three or more minor misses.
+  # The weak prompt names none of these details or a file format. Its runs
+  # are scored only on whether the user got a usable picture.
+  weak:
+    good: A viewable image of a kitchen in the morning.
+    fix: A viewable image, but not clearly a kitchen or not clearly morning.
+    slop: No viewable image.
+
+# Rewritten from the graded results before publishing.
+draft_lesson: >
+  Models nail the mood and slip on details: counts, text, and who is
+  where. Name the details you care about, and count them in the result.

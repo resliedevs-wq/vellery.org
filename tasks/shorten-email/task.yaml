@@ -1,0 +1,52 @@
+slug: shorten-email
+title: Shorten a rambling email
+category: Writing
+kind: text
+runs: 5
+inputs:
+  - email.txt
+
+prompts:
+  weak: |
+    make this email better
+
+    {{email.txt}}
+  strong: |
+    Cut this email to 120 words or fewer. It's going to my manager. Keep every
+    date, name, number, and condition exactly as written. Friendly, not formal.
+    Return only the email.
+
+    {{email.txt}}
+
+# Judged on meaning, not exact wording. Changing, dropping, or adding to any
+# of these is a defect.
+facts:
+  - Addressed to Dana, signed by Sam
+  - Venue is Harbor Hall; Sam spoke with Priya
+  - Event confirmed for March 12
+  - Walkthrough offered on March 3; Dana should flag a conflict
+  - Final price $4,200, a bit under plan
+  - AV setup fee waived
+  - Covers up to 85 guests (a capacity, not a headcount)
+  - Sam will send the signed contract back Friday if Dana doesn't reply first
+
+checks:
+  # Words in the body, split on whitespace; a subject line is not counted.
+  max_words: 120
+
+rubric:
+  strong:
+    good: All facts kept, 120 words or fewer.
+    fix: All facts kept, but over 120 words or with text besides the email.
+    slop: Any fact changed, dropped, or invented.
+  # The weak prompt states no requirements. Its runs are scored on what the
+  # user evidently needed: a clearer email with the same facts.
+  weak:
+    good: All facts kept, and shorter than the original.
+    fix: All facts kept, but not shorter than the original.
+    slop: Any fact changed, dropped, or invented.
+
+# Rewritten from the graded results before publishing.
+draft_lesson: >
+  Polished text can still be wrong. When facts matter, say which ones must
+  not change, then check them.
