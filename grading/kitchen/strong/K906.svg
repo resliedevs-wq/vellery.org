@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="800" viewBox="0 0 1100 800" role="img" aria-labelledby="title description">
+  <title id="title">A quiet Monday morning</title>
+  <desc id="description">Flat vector illustration of a small kitchen table viewed from the front. Exactly three red apples sit beside a blue mug printed with MONDAY. A gray cat sleeps on a folded newspaper. Morning sunlight enters through the window on the left. There are no people.</desc>
+
+  <!-- Warm plaster wall and a quiet strip of floor. -->
+  <path fill="#eee4d4" d="M0 0h1100v800H0z"/>
+  <path fill="#ddd0bb" d="M0 637h1100v163H0z"/>
+  <path fill="#d2c2aa" d="M0 631h1100v9H0z"/>
+
+  <!-- A left-hand window, with pale gold morning light. -->
+  <path fill="#e7d7bc" d="M65 79h242v287H65z"/>
+  <path fill="#b7a187" d="M75 87h222v265H75z"/>
+  <path fill="#c6d8d5" d="M86 98h200v242H86z"/>
+  <path fill="#e8e5c9" d="M86 253q62-38 111-19t89-6v112H86z"/>
+  <circle cx="130" cy="147" r="25" fill="#f7e9b8"/>
+  <path fill="#f7e9b8" opacity=".52" d="m92 226 193-63 659 468H381z"/>
+  <path fill="#f8edcd" d="M179 97h13v244h-13z"/>
+  <path fill="#f8edcd" d="M85 210h201v12H85z"/>
+  <path fill="#f5ebd7" d="M66 342h242v18H66z"/>
+  <path fill="#c8b394" d="M66 360h242v7H66z"/>
+
+  <!-- Sunlight falling across the floor and the table's soft shadow. -->
+  <path fill="#eee0b9" d="m381 641 563-1 156 110v50H607z"/>
+  <ellipse cx="556" cy="716" rx="367" ry="27" fill="#c8b89e" opacity=".55"/>
+
+  <!-- The table is straight-on, with just enough top surface to see its contents. -->
+  <path fill="#9d6c50" d="M218 510h46l-13 207h-25zM836 510h46l-8 207h-25z"/>
+  <path fill="#b9835c" d="M218 510h17l3 207h-12zM836 510h17l8 207h-12z"/>
+  <path fill="#a87352" d="M202 499h696v49H202z"/>
+  <path fill="#ba865f" d="M202 499h696v13H202z"/>
+  <path fill="#d9ac78" d="m193 449 714 0 30 45H163z"/>
+  <path fill="#c69264" d="M163 494h774v18H163z"/>
+  <path fill="#f1d199" opacity=".55" d="m238 449 288 0 65 45H303z"/>
+  <path d="M187 491h727" fill="none" stroke="#e8be88" stroke-width="3"/>
+
+  <!-- Exactly three individual red apples. -->
+  <g id="three-red-apples">
+    <ellipse cx="280" cy="475" rx="34" ry="7" fill="#b18460" opacity=".45"/>
+    <ellipse cx="350" cy="479" rx="33" ry="7" fill="#b18460" opacity=".45"/>
+    <ellipse cx="410" cy="473" rx="32" ry="7" fill="#b18460" opacity=".45"/>
+    <g id="apple-1">
+      <path fill="#ba5549" d="M280 421c-13-10-34-4-36 15-3 19 8 39 22 40 6 1 9-2 14-2s8 3 14 2c15-2 25-23 21-41-4-17-23-23-35-14Z"/>
+      <path fill="#cd6b57" d="M263 427c-9 3-13 14-10 23 1 3 5 3 5-1-1-9 1-14 8-18 3-2 1-5-3-4Z"/>
+      <path d="M279 422q-2-11 4-17" fill="none" stroke="#77604a" stroke-width="4" stroke-linecap="round"/>
+      <path fill="#8f9a68" d="M282 415q10-17 25-9-8 14-25 9Z"/>
+    </g>
+    <g id="apple-2">
+      <path fill="#c16050" d="M350 429c-13-10-32-5-35 12-4 18 6 37 20 39 6 1 10-2 15-2s9 3 15 1c14-3 23-22 19-39-4-16-23-21-34-11Z"/>
+      <path fill="#da7e65" d="M331 435c-7 3-10 11-8 18 1 4 5 4 5 0-1-6 1-11 6-14 3-2 0-6-3-4Z"/>
+      <path d="M350 430q3-11-1-17" fill="none" stroke="#77604a" stroke-width="4" stroke-linecap="round"/>
+    </g>
+    <g id="apple-3">
+      <path fill="#af4d45" d="M411 420c-12-10-31-5-34 12-4 18 6 38 20 40 6 1 9-2 14-2 4 0 8 3 14 1 14-3 23-22 19-39-4-16-21-21-33-12Z"/>
+      <path fill="#c76a57" d="M392 427c-6 3-10 11-8 18 1 4 5 4 5 0-1-6 1-11 6-14 3-2 0-6-3-4Z"/>
+      <path d="M411 421q-2-10 3-17" fill="none" stroke="#77604a" stroke-width="4" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <!-- A blue ceramic mug; the lettering remains real, editable SVG text. -->
+  <g id="monday-mug">
+    <ellipse cx="536" cy="479" rx="53" ry="8" fill="#a98160" opacity=".4"/>
+    <path d="M568 408h16c28 0 28 43 0 43h-13" fill="none" stroke="#5a8294" stroke-width="13"/>
+    <path fill="#638c9e" d="M489 391h88v66q0 20-44 20t-44-20Z"/>
+    <path fill="#7fa2af" d="M489 392h13v64q0 12 17 17c-22-2-30-8-30-16Z"/>
+    <ellipse cx="533" cy="391" rx="44" ry="10" fill="#9cb6bb"/>
+    <ellipse cx="533" cy="392" rx="35" ry="5" fill="#6f6557"/>
+    <text x="533" y="442" fill="#f7efdc" font-family="DejaVu Sans, Arial, sans-serif" font-size="15" font-weight="700" text-anchor="middle" letter-spacing=".5">MONDAY</text>
+  </g>
+
+  <!-- A folded newspaper, with its fold and printed columns visible below the cat. -->
+  <g id="folded-newspaper">
+    <path fill="#ad8867" opacity=".32" d="m633 467 218-7 38 28-235 10Z"/>
+    <path fill="#d5cdbb" d="m628 452 211-4 42 36-231 9Z"/>
+    <path fill="#f4eedc" d="m627 446 211-3 43 35-231 10Z"/>
+    <path fill="#e5ddc9" d="m650 488 231-10v6l-231 9Z"/>
+    <path d="m650 488-23-42" fill="none" stroke="#bcb4a4" stroke-width="2"/>
+    <g fill="none" stroke="#aaa99a" stroke-width="2" stroke-linecap="round">
+      <path d="m659 468 54-2m-50 7 54-2m-50 7 54-2m-50 7 54-2"/>
+      <path d="m735 466 46-2m-42 7 46-2m-42 7 46-2m-42 7 46-2"/>
+      <path d="m801 464 41-2m-37 7 42-2m-37 7 43-2"/>
+    </g>
+  </g>
+
+  <!-- A gray cat curled up asleep on the newspaper. -->
+  <g id="sleeping-gray-cat">
+    <ellipse cx="754" cy="450" rx="97" ry="12" fill="#92958d" opacity=".24"/>
+    <path fill="#929998" d="M689 432c-1-38 28-66 73-66 48 0 87 27 91 61 3 23-18 32-60 31l-75-1c-19 0-29-9-29-25Z"/>
+    <path fill="#a7adab" d="M705 401c16-23 48-28 75-21 24 6 41 20 46 39-28-18-67-23-121-18Z"/>
+    <path d="M804 407c34 8 55 37 32 44-14 5-39 0-55-4" fill="none" stroke="#7d8585" stroke-width="19" stroke-linecap="round"/>
+    <path d="M796 447c-14-3-25-3-34-1" fill="none" stroke="#a2a9a6" stroke-width="13" stroke-linecap="round"/>
+    <!-- Ears, round cheeks, and a resting paw. -->
+    <path fill="#8e9695" d="m648 413 1-35q1-5 5-2l25 20 27-17q5-3 6 3l3 35Z"/>
+    <path fill="#b6aaa5" d="m656 400 0-15 15 13Zm42-1 8-12 1 17Z"/>
+    <path fill="#a4aba8" d="M647 412c4-15 21-22 38-20 23 1 37 14 35 34-2 20-17 31-38 30-23-1-40-20-35-44Z"/>
+    <path fill="#b8bcb5" d="M665 434q17-8 34 0c3 11-5 18-15 18-11 0-21-7-19-18Z"/>
+    <g fill="none" stroke="#596361" stroke-width="2.8" stroke-linecap="round">
+      <path d="M656 423q6 6 12 0m23 0q6 6 12 0"/>
+      <path d="m682 437 1 4m0 0q-5 4-8 0m8 0q4 4 8 0" stroke-width="1.8"/>
+    </g>
+    <path fill="#897d76" d="M678 434q5-3 10 0l-5 5Z"/>
+    <g fill="none" stroke="#7b8580" stroke-width="1.5" stroke-linecap="round">
+      <path d="m664 435-18-3m19 8-18 3m52-8 18-4m-18 9 18 2"/>
+    </g>
+    <path fill="#b2b8b2" d="M704 444c8-4 19-4 23 2 4 7-3 13-15 12l-24-1c-10-1-12-9-5-12 5-2 14 0 21-1Z"/>
+    <path d="m691 450 1 5m6-5 1 5" fill="none" stroke="#8c9690" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="m740 376 4 11m12-14 2 11m13-10-1 10" fill="none" stroke="#818b89" stroke-width="5" stroke-linecap="round"/>
+  </g>
+</svg>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700">
+<defs>
+ <linearGradient id="wall" x2="0" y2="1"><stop stop-color="#fff1ce"/><stop offset="1" stop-color="#eacda1"/></linearGradient>
+ <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#f8c58d"/><stop offset="1" stop-color="#fff2c5"/></linearGradient>
+ <linearGradient id="floor" x2="0" y2="1"><stop stop-color="#c88f5d"/><stop offset="1" stop-color="#97613f"/></linearGradient>
+ <radialGradient id="light"><stop stop-color="#fff5b7" stop-opacity=".8"/><stop offset="1" stop-color="#fff5b7" stop-opacity="0"/></radialGradient>
+ <pattern id="tile" width="66" height="48" patternUnits="userSpaceOnUse"><rect width="66" height="48" fill="#f7ead1" stroke="#dcc9a9"/><path d="M33 0v48" stroke="#e5d4b6"/></pattern>
+</defs>
+<!-- room -->
+<rect width="1000" height="700" fill="url(#wall)"/><path d="M0 521H1000V700H0z" fill="url(#floor)"/><path d="M0 570h1000M0 635h1000M180 521l-70 179M410 521l-25 179M640 521l20 179M860 521l80 179" fill="none" stroke="#a96f49" stroke-width="3" opacity=".5"/>
+<circle cx="500" cy="255" r="330" fill="url(#light)"/>
+<!-- window -->
+<rect x="342" y="65" width="316" height="291" rx="5" fill="#805e43"/><rect x="355" y="78" width="290" height="265" fill="url(#sky)"/>
+<circle cx="565" cy="154" r="35" fill="#fff0b3"/><path d="M355 285q55-52 112-14 49-53 92-10 48-39 86 7v75H355z" fill="#a6ad81"/><path d="M355 309q64-29 115-5 60-32 113-5 31-12 62-3v47H355z" fill="#7f9976"/>
+<path d="M500 78v265M355 212h290" stroke="#f9edcf" stroke-width="12"/><path d="M355 78h290v265H355z" fill="none" stroke="#fff3d9" stroke-width="9"/><rect x="328" y="344" width="344" height="17" rx="3" fill="#f7e5c5"/>
+<!-- curtains -->
+<path d="M338 66h56q-9 76 4 145l-26 24-30-19zM662 66h-56q9 76-4 145l26 24 30-19z" fill="#e9a58a"/><path d="M346 68q14 69 8 145M654 68q-14 69-8 145" fill="none" stroke="#d68b76" stroke-width="3"/><path d="M329 62h342" stroke="#89654b" stroke-width="8" stroke-linecap="round"/>
+<!-- cabinets and backsplash -->
+<rect y="366" width="1000" height="149" fill="url(#tile)"/><rect x="24" y="78" width="244" height="204" rx="5" fill="#8b9b7d" stroke="#6f8066" stroke-width="7"/><path d="M146 82v196M37 92h96v174H37zM159 92h96v174h-96z" fill="none" stroke="#b6c2a4" stroke-width="4"/><circle cx="126" cy="183" r="4" fill="#e2c78d"/><circle cx="166" cy="183" r="4" fill="#e2c78d"/>
+<path d="M740 129h225M755 216h210" stroke="#906a4b" stroke-width="12" stroke-linecap="round"/><g fill="#f7f0dd" stroke="#d5c5a8" stroke-width="2"><path d="M774 82h31v42h-31zM813 92h29v32h-29zM854 88h40v36h-40z"/><path d="M774 174h37v37h-37zM821 181h32v30h-32zM870 171h42v40h-42z"/></g><path d="M805 91q17 0 12 17-2 6-12 6M811 183q16 0 13 15-2 6-13 6" fill="none" stroke="#d5c5a8" stroke-width="3"/>
+<rect x="0" y="496" width="1000" height="28" fill="#765239"/><rect x="0" y="487" width="1000" height="13" fill="#c49a70"/>
+<!-- lower cupboards -->
+<rect x="0" y="524" width="1000" height="120" fill="#899c7b"/><path d="M0 638h1000M178 524v114M350 524v114M665 524v114M830 524v114" fill="none" stroke="#6d8063" stroke-width="7"/><g fill="none" stroke="#b2c1a3" stroke-width="3"><rect x="18" y="539" width="142" height="83"/><rect x="193" y="539" width="142" height="83"/><rect x="682" y="539" width="131" height="83"/><rect x="846" y="539" width="136" height="83"/></g><g fill="#e9ce95"><circle cx="146" cy="578" r="5"/><circle cx="208" cy="578" r="5"/><circle cx="798" cy="578" r="5"/><circle cx="861" cy="578" r="5"/></g>
+<!-- sink and faucet -->
+<path d="M388 489q12 33 30 33h166q18 0 30-33" fill="#c6c4ad" stroke="#8f998b" stroke-width="4"/><path d="M495 485v-54q0-24 26-24t26 24v9" fill="none" stroke="#858d80" stroke-width="9" stroke-linecap="round"/>
+<!-- potted plant -->
+<path d="M220 447h47l-6 40h-35z" fill="#bd7656"/><path d="M242 449q-4-47-32-55 3 32 32 45M243 447q2-62 27-69 4 34-27 58M244 442q20-34 38-30-5 22-38 37" fill="#72946d" stroke="#607d5d" stroke-width="2"/>
+<!-- kettle -->
+<path d="M96 451q-3-24 21-30 26-2 31 30l-4 34h-44z" fill="#e5b974" stroke="#a9794e" stroke-width="3"/><path d="M147 439q25-3 19 22-3 8-17 8M114 421q10-18 24 0M99 451l-16-10 5 19 12 5" fill="none" stroke="#a9794e" stroke-width="5"/>
+<!-- bread and cup -->
+<ellipse cx="731" cy="482" rx="65" ry="9" fill="#a87953"/><path d="M690 473q1-34 38-37 35 0 40 37z" fill="#d69a59" stroke="#b37848" stroke-width="3"/><path d="M711 447l8 12m10-16 8 12m10-10 7 11" stroke="#f5cd91" stroke-width="4" stroke-linecap="round"/><path d="M855 450h40v35h-40z" fill="#f5e9d2" stroke="#d1bfa6" stroke-width="3"/><path d="M895 456q20 0 15 16-2 6-15 6" fill="none" stroke="#d1bfa6" stroke-width="4"/><path d="M865 442q-8-12 2-22m15 22q-8-12 2-22" fill="none" stroke="#fff8e6" stroke-width="4" stroke-linecap="round" opacity=".8"/>
+<!-- foreground table -->
+<ellipse cx="502" cy="667" rx="290" ry="49" fill="#70452f" opacity=".3"/><path d="M254 625q0-25 248-25t248 25v35q-248 49-496 0z" fill="#ad744c"/><ellipse cx="502" cy="625" rx="248" ry="36" fill="#d4a170"/><ellipse cx="502" cy="625" rx="221" ry="27" fill="none" stroke="#e7bb8b" stroke-width="2"/>
+<ellipse cx="500" cy="621" rx="57" ry="14" fill="#ede2cb"/><path d="M460 617q7-25 40-25t40 25q-5 20-40 20t-40-20" fill="#f3e7ce" stroke="#d7c3a4" stroke-width="3"/><path d="M473 611q4-12 14-12m12 16q6-17 17-17" fill="none" stroke="#dba961" stroke-width="5" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="800" viewBox="0 0 1000 800" role="img" aria-labelledby="title desc">
+  <title id="title">A quiet Monday morning</title>
+  <desc id="desc">Flat vector illustration of a small kitchen table viewed from the front. Exactly three red apples sit beside a blue mug printed with MONDAY. A gray cat sleeps on a folded newspaper. Warm morning sunlight enters through a window on the left. No people.</desc>
+  <defs>
+    <clipPath id="window-glass"><rect x="66" y="94" width="210" height="262" rx="3"/></clipPath>
+  </defs>
+
+  <!-- Warm plaster wall and floor. -->
+  <path fill="#eee4d3" d="M0 0h1000v800H0z"/>
+  <path fill="#d9c7ac" d="M0 639h1000v161H0z"/>
+  <path fill="#cdb99d" d="M0 631h1000v10H0z"/>
+
+  <!-- The morning window, to the left of the table. -->
+  <rect x="47" y="75" width="248" height="302" rx="6" fill="#d7c5a9"/>
+  <rect x="56" y="84" width="230" height="282" rx="4" fill="#faf3e3"/>
+  <g clip-path="url(#window-glass)">
+    <path fill="#c6d6d2" d="M66 94h210v262H66z"/>
+    <circle cx="111" cy="161" r="36" fill="#f7e8b4"/>
+    <path fill="#b8c7b1" d="M66 306q57-38 112-10t98-9v69H66z"/>
+    <path fill="#abbca6" d="M66 333q54-26 108-5t102-8v36H66z"/>
+  </g>
+  <path fill="#faf3e3" d="M164 90h12v272h-12zM62 220h218v12H62z"/>
+  <rect x="37" y="365" width="270" height="14" rx="3" fill="#e2d2b8"/>
+  <path fill="#fff1c5" opacity=".43" d="m77 379 187-1 606 261H436z"/>
+  <path fill="#f5e2b1" opacity=".46" d="M436 641h434l130 104v55H729z"/>
+
+  <!-- Straight-on view of a compact wooden table. -->
+  <ellipse cx="519" cy="737" rx="344" ry="23" fill="#b9a183" opacity=".35"/>
+  <path fill="#a47a57" d="M212 560h39v174h-39zM780 560h39v174h-39z"/>
+  <path fill="#bb9168" d="M212 560h12v174h-12zM780 560h12v174h-12z"/>
+  <path fill="#ae8059" d="M236 562h559v43H236z"/>
+  <rect x="165" y="517" width="700" height="34" rx="9" fill="#cba073"/>
+  <path fill="#b98b60" d="M165 539h700v17a7 7 0 0 1-7 7H172a7 7 0 0 1-7-7z"/>
+  <path fill="#dfb786" d="M176 517h678a11 11 0 0 1 11 11H165a11 11 0 0 1 11-11Z"/>
+
+  <!-- Exactly three separate red apples. -->
+  <g id="apple-1">
+    <ellipse cx="249" cy="518" rx="31" ry="6" fill="#ac805d" opacity=".4"/>
+    <path d="M249 465q-4-13 3-22" fill="none" stroke="#765d42" stroke-width="5" stroke-linecap="round"/>
+    <path fill="#889667" d="M251 453q8-15 24-10-7 15-24 10Z"/>
+    <path fill="#b95448" d="M249 465c-16-12-34-2-34 16 0 19 13 39 26 39 5 0 6-3 9-3s5 3 10 2c14-3 24-25 22-41-2-16-19-24-33-13Z"/>
+    <path d="M228 479q-3 10 2 18" fill="none" stroke="#d9826a" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <g id="apple-2">
+    <ellipse cx="321" cy="519" rx="31" ry="6" fill="#ac805d" opacity=".4"/>
+    <path d="M321 463q4-11 0-20" fill="none" stroke="#765d42" stroke-width="5" stroke-linecap="round"/>
+    <path fill="#c46150" d="M321 464c-16-12-33-3-34 14-2 20 10 42 25 43 5 0 6-3 10-3s6 3 11 2c14-3 26-24 23-43-3-16-20-24-35-13Z"/>
+    <path d="M300 479q-3 9 1 17" fill="none" stroke="#e09679" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <g id="apple-3">
+    <ellipse cx="393" cy="519" rx="30" ry="6" fill="#ac805d" opacity=".4"/>
+    <path d="M394 470q-3-12 3-21" fill="none" stroke="#765d42" stroke-width="5" stroke-linecap="round"/>
+    <path fill="#89966b" d="M394 458q-12-13-24-6 9 12 24 6Z"/>
+    <path fill="#b65349" d="M393 470c-14-12-31-4-33 12-3 18 10 37 23 38 5 1 6-2 10-2s5 3 10 2c14-2 26-24 22-39-4-16-19-20-32-11Z"/>
+    <path d="M372 484q-2 8 2 15" fill="none" stroke="#d88670" stroke-width="5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Blue ceramic mug, with a clearly legible printed word. -->
+  <ellipse cx="511" cy="520" rx="48" ry="7" fill="#ac805d" opacity=".4"/>
+  <path d="M551 453h12c29 0 29 43 0 43h-12" fill="none" stroke="#62879a" stroke-width="13"/>
+  <path fill="#7198a9" d="M467 438h88v65q0 17-19 17h-50q-19 0-19-17Z"/>
+  <path fill="#62889b" d="M540 442h15v61q0 17-19 17h-50q-10 0-15-7h53q16 0 16-16Z"/>
+  <ellipse cx="511" cy="438" rx="44" ry="8" fill="#a8c0c7"/>
+  <ellipse cx="511" cy="439" rx="36" ry="4.5" fill="#6c6254"/>
+  <text x="511" y="484" fill="#fcf3df" font-family="DejaVu Sans, Arial, sans-serif" font-size="15" font-weight="700" text-anchor="middle" letter-spacing=".6">MONDAY</text>
+
+  <!-- A folded newspaper, its page edges and columns visible beneath the cat. -->
+  <ellipse cx="721" cy="521" rx="112" ry="7" fill="#ac805d" opacity=".35"/>
+  <path fill="#c7bfac" d="m607 488 204 1 28 32-224 1Z"/>
+  <path fill="#f2ead8" d="m604 483 206 2 26 30-225 1Z"/>
+  <path fill="#e4dcc9" d="m709 484 101 1 26 30-110 1Z"/>
+  <path d="m709 487 17 26M615 519l216-1" fill="none" stroke="#b5ad9c" stroke-width="1.5"/>
+  <g fill="none" stroke="#a7a394" stroke-width="2">
+    <path d="m617 490 65 1M620 496l35 1m7 0h24M622 502l35 1m7 0h25M624 508l35 1m7 0h26M754 497h55m-52 5h56m-52 5h56"/>
+  </g>
+
+  <!-- Sleeping gray cat, curled comfortably on the folded paper. -->
+  <path fill="#8e9290" d="M648 479c-21-15-15-49 10-65 21-14 64-15 91-2 27 12 41 37 31 60-7 18-39 26-73 24-26-1-44-6-59-17Z"/>
+  <path fill="#a1a4a0" d="M650 454c0-25 26-43 57-43 27 0 50 13 58 31-29-10-53-8-71 10-13 13-29 19-44 2Z"/>
+  <path d="M651 459c-21 4-24 24-6 33 15 7 47 8 65 0 9-4 9-14-1-17-9-3-19 3-30 1" fill="none" stroke="#7d8381" stroke-width="17" stroke-linecap="round"/>
+  <ellipse cx="768" cy="489" rx="26" ry="9" fill="#b0b2ac"/>
+  <path fill="#969b97" d="m745 444 1-30 25 16 23-10 10 29c13 14 7 37-10 43-16 7-40 4-50-9-9-12-8-27 1-39Z"/>
+  <path fill="#c1b1a6" d="m752 439 0-14 13 9Zm31-5 9-6 5 17Z"/>
+  <path fill="#afb2ac" d="M751 467c5-7 13-8 21-4 10-5 22-3 26 6 6 14-8 23-23 23-18 0-32-12-24-25Z"/>
+  <g fill="none" stroke="#5c6663" stroke-width="2.6" stroke-linecap="round">
+    <path d="M749 456q6 7 13 0m18 0q6 7 13 0"/>
+    <path d="M770 473q3 4 7 0"/>
+  </g>
+  <path fill="#8e7972" d="M767 465h10l-5 5Z"/>
+  <g fill="none" stroke="#77817b" stroke-width="1.5" stroke-linecap="round">
+    <path d="m755 470-20-3m21 8-20 2m53-7 20-4m-21 9 21 1"/>
+  </g>
+</svg>

@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">A quiet kitchen morning</title>
+  <desc id="desc">A warm, muted flat vector illustration of a kitchen table with three red apples, a blue mug labeled MONDAY, and a folded newspaper with a sleeping gray cat on top. Sunlight enters through a window on the left.</desc>
+  <defs>
+    <linearGradient id="wall" x2="0" y2="1"><stop stop-color="#eee0c8"/><stop offset="1" stop-color="#e4d1b2"/></linearGradient>
+    <linearGradient id="sunbeam" x2="1" y2=".35"><stop stop-color="#f8df9e" stop-opacity=".56"/><stop offset="1" stop-color="#f8df9e" stop-opacity="0"/></linearGradient>
+    <linearGradient id="tabletop" x2="0" y2="1"><stop stop-color="#b77b4f"/><stop offset="1" stop-color="#98623f"/></linearGradient>
+    <linearGradient id="mug" x2="0" y2="1"><stop stop-color="#698b9b"/><stop offset="1" stop-color="#456b7c"/></linearGradient>
+    <filter id="softShadow" x="-.2" y="-.3" width="1.4" height="1.7"><feGaussianBlur stdDeviation="10"/></filter>
+    <clipPath id="windowClip"><rect x="66" y="71" width="310" height="343" rx="5"/></clipPath>
+  </defs>
+
+  <!-- Quiet, sunlit kitchen wall -->
+  <rect width="1200" height="900" fill="url(#wall)"/>
+  <path d="M0 606H1200" stroke="#d4bea0" stroke-width="4"/>
+  <rect x="0" y="610" width="1200" height="290" fill="#d9c6aa"/>
+  <path d="M0 664H1200M0 798H1200" stroke="#c9b493" stroke-width="3" opacity=".7"/>
+  <path d="M0 666H1200M0 800H1200" stroke="#eadcc5" stroke-width="2" opacity=".8"/>
+
+  <!-- Left window and broad morning beams -->
+  <path d="M360 125L1010 610H660L360 374Z" fill="url(#sunbeam)"/>
+  <rect x="47" y="52" width="348" height="383" rx="10" fill="#a77450"/>
+  <rect x="58" y="63" width="326" height="361" rx="6" fill="#f2e5cf"/>
+  <g clip-path="url(#windowClip)">
+    <rect x="66" y="71" width="310" height="343" fill="#bed1ca"/>
+    <rect x="66" y="71" width="310" height="188" fill="#b9d0d2"/>
+    <circle cx="297" cy="128" r="40" fill="#e8c982"/>
+    <path d="M56 293Q117 235 184 289Q240 226 399 282V427H56Z" fill="#8fa48b"/>
+    <path d="M58 333Q142 275 209 326Q275 278 390 317V430H58Z" fill="#718b76"/>
+    <path d="M65 368Q124 329 189 364Q273 317 388 356V433H65Z" fill="#a8ad83"/>
+    <rect x="208" y="69" width="13" height="360" fill="#eadcc4"/>
+    <rect x="62" y="250" width="319" height="14" fill="#eadcc4"/>
+  </g>
+  <rect x="46" y="49" width="350" height="19" rx="8" fill="#bd8c63"/>
+  <rect x="46" y="425" width="350" height="22" rx="7" fill="#bd8c63"/>
+  <path d="M30 450H414L385 468H59Z" fill="#d0a77b"/>
+  <path d="M78 449V476M365 449V476" stroke="#a87350" stroke-width="7" stroke-linecap="round"/>
+  <!-- Small sill plant -->
+  <path d="M332 422Q317 390 335 371Q352 395 344 422M352 423Q351 386 378 377Q378 405 361 425" fill="#7d9270"/>
+  <path d="M322 416H368L363 445Q345 454 328 444Z" fill="#c77d5d"/>
+  <path d="M326 421H366" stroke="#e2a17d" stroke-width="5"/>
+
+  <!-- Shadow beneath the table -->
+  <ellipse cx="635" cy="790" rx="450" ry="40" fill="#6a4c37" opacity=".19" filter="url(#softShadow)"/>
+
+  <!-- Table legs and apron -->
+  <path d="M254 615H949L920 842Q916 858 899 858H858L864 655H345L352 858H311Q294 858 291 841Z" fill="#98633f"/>
+  <path d="M310 654H896L887 685H319Z" fill="#855739" opacity=".65"/>
+  <path d="M332 682H871" stroke="#c08b5d" stroke-width="5" opacity=".55"/>
+
+  <!-- Tabletop, seen straight on -->
+  <path d="M204 570Q204 550 224 550H982Q1001 550 1001 570V633Q1001 650 983 650H222Q204 650 204 633Z" fill="url(#tabletop)"/>
+  <path d="M220 570H984" stroke="#d19a68" stroke-width="7" stroke-linecap="round" opacity=".82"/>
+  <path d="M220 638H985" stroke="#805333" stroke-width="5" opacity=".45"/>
+  <path d="M265 591Q429 581 557 593M710 592Q825 584 938 591" fill="none" stroke="#ce9564" stroke-width="3" opacity=".4"/>
+
+  <!-- Three red apples, each with a distinct silhouette -->
+  <ellipse cx="390" cy="555" rx="62" ry="10" fill="#774b35" opacity=".2"/>
+  <path d="M389 490C374 467 344 469 329 489C306 520 327 562 361 567C377 570 386 561 394 560C403 563 417 570 432 564C464 551 471 510 450 487C434 470 409 470 394 490Z" fill="#b8473c"/>
+  <path d="M392 490Q388 478 395 466" fill="none" stroke="#5e5738" stroke-width="7" stroke-linecap="round"/>
+  <path d="M396 477Q416 463 432 477Q417 491 398 485Z" fill="#74845c"/>
+  <path d="M338 503Q330 524 341 539" fill="none" stroke="#dc7560" stroke-width="6" stroke-linecap="round" opacity=".75"/>
+
+  <ellipse cx="536" cy="557" rx="56" ry="9" fill="#774b35" opacity=".2"/>
+  <path d="M535 501C521 480 493 482 480 501C462 526 477 559 505 566C519 570 529 562 538 561C547 562 557 569 572 565C600 558 609 526 591 502C578 484 550 481 535 501Z" fill="#c65343"/>
+  <path d="M535 501Q532 488 538 478" fill="none" stroke="#5e5738" stroke-width="7" stroke-linecap="round"/>
+  <path d="M539 488Q556 476 571 488Q557 501 541 496Z" fill="#7e895e"/>
+  <path d="M489 512Q483 531 494 545" fill="none" stroke="#e78369" stroke-width="5" stroke-linecap="round" opacity=".7"/>
+
+  <ellipse cx="702" cy="558" rx="58" ry="9" fill="#774b35" opacity=".2"/>
+  <path d="M702 496C688 474 659 477 645 497C625 524 642 559 672 566C687 570 697 562 705 561C715 562 726 569 741 565C770 557 779 522 760 497C746 478 718 476 702 496Z" fill="#ad3f37"/>
+  <path d="M703 496Q700 483 706 473" fill="none" stroke="#5e5738" stroke-width="7" stroke-linecap="round"/>
+  <path d="M707 484Q725 471 740 484Q724 498 709 492Z" fill="#77885a"/>
+  <path d="M654 508Q648 529 660 544" fill="none" stroke="#d96b59" stroke-width="5" stroke-linecap="round" opacity=".72"/>
+
+  <!-- Folded newspaper, with a simple readable front page -->
+  <ellipse cx="826" cy="581" rx="101" ry="11" fill="#684933" opacity=".25"/>
+  <path d="M747 490L926 483L942 553L769 564Z" fill="#ede6d8" stroke="#c8bca8" stroke-width="3"/>
+  <path d="M747 490L835 487L844 558L769 564Z" fill="#f5efe3"/>
+  <path d="M835 487L926 483L942 553L844 558Z" fill="#e4dccd"/>
+  <path d="M835 487L844 558" stroke="#c2b6a3" stroke-width="3"/>
+  <text x="793" y="509" text-anchor="middle" fill="#5a5146" font-family="Georgia,serif" font-size="13" font-weight="700" letter-spacing="1.2">THE MORNING</text>
+  <path d="M761 516H826M761 521H827M761 526H829M761 531H828M761 536H830M761 541H832M761 546H833" stroke="#9d9589" stroke-width="2" opacity=".8"/>
+  <path d="M857 500H916M857 505H917M857 510H918M857 515H919M857 520H920M857 525H921M857 530H922M857 535H924" stroke="#a39a8d" stroke-width="2" opacity=".75"/>
+  <path d="M850 541L923 537" stroke="#ba7765" stroke-width="4"/>
+
+  <!-- Curled gray cat asleep on the newspaper -->
+  <ellipse cx="866" cy="480" rx="66" ry="18" fill="#684933" opacity=".18"/>
+  <path d="M807 468C802 446 818 427 845 425C866 406 898 416 909 438C927 449 928 475 910 489C894 503 866 499 850 491C832 495 814 488 807 468Z" fill="#858987"/>
+  <path d="M825 437L819 413Q837 418 844 431M883 423L899 406Q905 425 899 438" fill="#858987" stroke="#777d7b" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M824 431L822 421L837 432M889 428L898 416L896 435" fill="#c9958b"/>
+  <path d="M844 453Q852 460 861 453M875 451Q883 458 891 450" fill="none" stroke="#4f5554" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M865 462L870 465L865 468Z" fill="#bd8177"/>
+  <path d="M865 468Q860 473 855 470M865 468Q871 474 876 470" fill="none" stroke="#535958" stroke-width="2" stroke-linecap="round"/>
+  <path d="M847 465L822 460M847 470L821 472M882 465L906 460M882 470L906 473" stroke="#d5d4cb" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M832 428Q846 439 852 450M869 423Q867 437 872 445" fill="none" stroke="#aeb1aa" stroke-width="5" stroke-linecap="round" opacity=".65"/>
+  <path d="M821 478Q833 488 849 482" fill="none" stroke="#666d6a" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Blue Monday mug -->
+  <ellipse cx="600" cy="548" rx="55" ry="9" fill="#684933" opacity=".24"/>
+  <path d="M633 493Q678 489 673 525Q670 548 640 546" fill="none" stroke="#416577" stroke-width="12"/>
+  <path d="M565 478Q565 470 574 470H635Q644 470 644 479L638 539Q637 549 627 551H582Q572 550 571 540Z" fill="url(#mug)"/>
+  <ellipse cx="604.5" cy="478" rx="39.5" ry="9" fill="#7796a0"/>
+  <ellipse cx="604.5" cy="478" rx="31" ry="5" fill="#4b5960"/>
+  <path d="M577 486L581 534" stroke="#8eabb0" stroke-width="4" stroke-linecap="round" opacity=".52"/>
+  <text x="604" y="515" text-anchor="middle" fill="#f4e8d2" font-family="Arial,sans-serif" font-size="14" font-weight="700" letter-spacing="1.4">MONDAY</text>
+
+  <!-- Small accents of soft morning light -->
+  <path d="M81 484H247" stroke="#e0bd83" stroke-width="3" opacity=".65"/>
+  <path d="M110 492H211" stroke="#e0bd83" stroke-width="2" opacity=".45"/>
+</svg>

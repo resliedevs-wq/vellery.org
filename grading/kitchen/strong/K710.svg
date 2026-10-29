@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <!-- Wall and floor -->
+  <rect x="0" y="0" width="800" height="540" fill="#F2E6D0"/>
+  <rect x="0" y="540" width="800" height="60" fill="#D9C3A5"/>
+
+  <!-- Window with morning glow -->
+  <rect x="40" y="60" width="200" height="230" fill="#FBF0C8"/>
+  <line x1="140" y1="60" x2="140" y2="290" stroke="#9C7A5B" stroke-width="6"/>
+  <line x1="40" y1="175" x2="240" y2="175" stroke="#9C7A5B" stroke-width="6"/>
+  <rect x="34" y="54" width="212" height="242" fill="none" stroke="#9C7A5B" stroke-width="10"/>
+  <rect x="24" y="294" width="232" height="12" rx="3" fill="#B8977A"/>
+
+  <!-- Sunlight beams from the left -->
+  <polygon points="240,64 240,286 600,350 600,250" fill="#FFE7A0" opacity="0.35"/>
+  <polygon points="240,110 240,240 470,345 360,170" fill="#FFE7A0" opacity="0.25"/>
+
+  <!-- Table shadow and legs -->
+  <ellipse cx="400" cy="548" rx="300" ry="10" fill="#B9A285" opacity="0.6"/>
+  <rect x="120" y="368" width="22" height="172" fill="#6E4A2F"/>
+  <rect x="658" y="368" width="22" height="172" fill="#6E4A2F"/>
+
+  <!-- Tabletop -->
+  <rect x="90" y="340" width="620" height="28" rx="2" fill="#A06F45"/>
+  <rect x="90" y="340" width="620" height="5" fill="#B88558"/>
+
+  <!-- Three red apples -->
+  <g>
+    <circle cx="190" cy="312" r="28" fill="#C0392B"/>
+    <ellipse cx="180" cy="302" rx="6" ry="9" fill="#E57B6B" opacity="0.7"/>
+    <path d="M190 284 Q192 274 199 272" fill="none" stroke="#5B4330" stroke-width="3" stroke-linecap="round"/>
+
+    <circle cx="240" cy="318" r="26" fill="#B03A2E"/>
+    <ellipse cx="231" cy="309" rx="5" ry="8" fill="#E57B6B" opacity="0.7"/>
+    <path d="M240 292 Q242 282 249 280" fill="none" stroke="#5B4330" stroke-width="3" stroke-linecap="round"/>
+
+    <circle cx="216" cy="276" r="25" fill="#C94A3A"/>
+    <ellipse cx="207" cy="267" rx="5" ry="8" fill="#EE8B7B" opacity="0.7"/>
+    <path d="M216 252 Q218 242 225 240" fill="none" stroke="#5B4330" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- Blue MONDAY mug -->
+  <g>
+    <path d="M490 262 Q516 264 516 292 Q516 326 486 320" fill="none" stroke="#3E6BA8" stroke-width="9" stroke-linecap="round"/>
+    <path d="M410 262 L490 262 L486 330 Q485 340 474 340 L426 340 Q415 340 414 330 Z" fill="#3E6BA8"/>
+    <ellipse cx="450" cy="262" rx="40" ry="7" fill="#2D4F7F"/>
+    <text x="450" y="306" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold" fill="#FDF6E3" text-anchor="middle" letter-spacing="1">MONDAY</text>
+  </g>
+
+  <!-- Folded newspaper -->
+  <g>
+    <rect x="530" y="322" width="160" height="18" fill="#EDE6D3" stroke="#B9AF98" stroke-width="1.5"/>
+    <line x1="538" y1="328" x2="682" y2="328" stroke="#BDB39B" stroke-width="1.5"/>
+    <line x1="538" y1="333" x2="682" y2="333" stroke="#BDB39B" stroke-width="1.5"/>
+  </g>
+
+  <!-- Gray cat asleep on the newspaper -->
+  <g>
+    <path d="M650 316 Q674 318 672 304 Q670 296 662 302" fill="none" stroke="#8C8C8C" stroke-width="6" stroke-linecap="round"/>
+    <ellipse cx="608" cy="306" rx="48" ry="16" fill="#9A9A9A"/>
+    <ellipse cx="608" cy="316" rx="44" ry="7" fill="#7F7F7F" opacity="0.5"/>
+    <ellipse cx="554" cy="320" rx="9" ry="4" fill="#7A7A7A"/>
+    <circle cx="566" cy="302" r="16" fill="#9A9A9A"/>
+    <polygon points="553,295 555,278 567,289" fill="#9A9A9A"/>
+    <polygon points="569,289 578,277 580,296" fill="#9A9A9A"/>
+    <path d="M556 303 Q560 306 564 303" fill="none" stroke="#5A5A5A" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M568 303 Q572 306 576 303" fill="none" stroke="#5A5A5A" stroke-width="1.8" stroke-linecap="round"/>
+  </g>
+</svg>

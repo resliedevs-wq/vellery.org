@@ -1,0 +1,15 @@
+{
+  "graded_by": "runner/grade.py",
+  "grade": "fix",
+  "why": "131 words, limit 120",
+  "checks": {
+    "words": 131,
+    "original_words": 281,
+    "missing": [],
+    "invented": [],
+    "text_outside_email": false
+  },
+  "review": [
+    "any other fact changed or added (e.g. who spoke to whom, the RSVP count)?"
+  ]
+}

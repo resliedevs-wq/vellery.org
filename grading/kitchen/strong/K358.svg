@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <title>Kitchen table in morning light</title>
+  <desc>A small kitchen table seen from the front with three red apples, a blue MONDAY mug, and a folded newspaper with a sleeping gray cat. Sunlight comes from a window on the left.</desc>
+
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f3dfbf"/>
+      <stop offset="1" stop-color="#e2c9a6"/>
+    </linearGradient>
+    <linearGradient id="beam" x1="0" y1="0" x2="1" y2="0.6">
+      <stop offset="0" stop-color="#fff4d6" stop-opacity="0.75"/>
+      <stop offset="1" stop-color="#fff4d6" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7e3b5"/>
+      <stop offset="1" stop-color="#fbeed0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Wall and floor -->
+  <rect x="0" y="0" width="800" height="500" fill="url(#wall)"/>
+  <rect x="0" y="500" width="800" height="100" fill="#b98a63"/>
+  <rect x="0" y="496" width="800" height="8" fill="#a07452"/>
+  <g stroke="#a98059" stroke-width="2" opacity="0.6">
+    <line x1="0" y1="535" x2="800" y2="535"/>
+    <line x1="0" y1="568" x2="800" y2="568"/>
+  </g>
+
+  <!-- Window (left) -->
+  <rect x="40" y="70" width="170" height="230" rx="4" fill="#c99d72"/>
+  <rect x="52" y="82" width="146" height="206" fill="url(#sky)"/>
+  <circle cx="90" cy="120" r="22" fill="#fff6dc" opacity="0.9"/>
+  <rect x="121" y="82" width="8" height="206" fill="#c99d72"/>
+  <rect x="52" y="181" width="146" height="8" fill="#c99d72"/>
+  <rect x="32" y="296" width="186" height="12" rx="3" fill="#b3875e"/>
+
+  <!-- Sunlight beams -->
+  <polygon points="198,82 198,288 760,500 520,500" fill="url(#beam)"/>
+  <polygon points="198,82 198,200 800,420 800,300" fill="url(#beam)" opacity="0.5"/>
+
+  <!-- Floor shadow of table (cast to the right) -->
+  <ellipse cx="480" cy="555" rx="290" ry="18" fill="#8f6646" opacity="0.35"/>
+
+  <!-- Table -->
+  <g>
+    <rect x="215" y="392" width="22" height="168" fill="#8a5a3b"/>
+    <rect x="663" y="392" width="22" height="168" fill="#7a4e33"/>
+    <rect x="200" y="392" width="500" height="22" fill="#9a6644"/>
+    <rect x="180" y="378" width="540" height="18" rx="3" fill="#b77d52"/>
+    <rect x="180" y="378" width="540" height="5" rx="2" fill="#cc9466"/>
+  </g>
+
+  <!-- Newspaper (folded) -->
+  <g transform="translate(-12,0)">
+    <ellipse cx="345" cy="378" rx="105" ry="4" fill="#8a5a3b" opacity="0.45"/>
+    <rect x="232" y="356" width="190" height="22" rx="2" fill="#e9e3d4"/>
+    <rect x="232" y="356" width="190" height="6" rx="2" fill="#f6f1e4"/>
+    <path d="M232,367 h190" stroke="#cfc6b2" stroke-width="1.5"/>
+    <g stroke="#9c9586" stroke-width="2" stroke-linecap="round">
+      <line x1="244" y1="372" x2="300" y2="372"/>
+      <line x1="310" y1="372" x2="380" y2="372"/>
+      <line x1="390" y1="372" x2="412" y2="372"/>
+    </g>
+  </g>
+
+  <!-- Sleeping gray cat on newspaper -->
+  <g transform="translate(-12,0)">
+    <!-- tail curling along the front -->
+    <path d="M395,350 C420,352 418,364 390,364 L300,364 C285,364 282,358 290,355"
+          fill="none" stroke="#7c7f86" stroke-width="12" stroke-linecap="round"/>
+    <!-- body -->
+    <ellipse cx="340" cy="328" rx="72" ry="30" fill="#8e9199"/>
+    <path d="M300,312 C330,298 370,298 395,312" fill="none" stroke="#a3a6ad" stroke-width="5" stroke-linecap="round" opacity="0.8"/>
+    <!-- stripes -->
+    <g stroke="#767980" stroke-width="4" stroke-linecap="round">
+      <path d="M345,300 q4,9 0,16"/>
+      <path d="M362,302 q4,9 0,16"/>
+      <path d="M379,307 q4,8 0,14"/>
+    </g>
+    <!-- front paws -->
+    <ellipse cx="290" cy="354" rx="14" ry="6" fill="#a3a6ad"/>
+    <!-- head -->
+    <polygon points="252,312 258,288 274,304" fill="#8e9199"/>
+    <polygon points="286,304 300,290 302,316" fill="#8e9199"/>
+    <polygon points="257,305 260,294 268,303" fill="#d9a6a0"/>
+    <polygon points="290,304 298,296 298,312" fill="#d9a6a0"/>
+    <ellipse cx="278" cy="330" rx="30" ry="24" fill="#959aa1"/>
+    <!-- closed eyes -->
+    <g fill="none" stroke="#3f4147" stroke-width="2.2" stroke-linecap="round">
+      <path d="M262,328 q6,5 12,0"/>
+      <path d="M283,328 q6,5 12,0"/>
+    </g>
+    <path d="M276,337 l3,3 l3,-3 z" fill="#c98b86"/>
+    <g stroke="#c9ccd2" stroke-width="1" opacity="0.8">
+      <line x1="262" y1="341" x2="244" y2="339"/>
+      <line x1="262" y1="344" x2="245" y2="346"/>
+      <line x1="295" y1="341" x2="313" y2="339"/>
+      <line x1="295" y1="344" x2="312" y2="346"/>
+    </g>
+    <!-- sleep "z"s -->
+    <g fill="#8a7d6c" font-family="Georgia, serif" font-style="italic">
+      <text x="236" y="286" font-size="16">z</text>
+      <text x="222" y="268" font-size="12">z</text>
+    </g>
+  </g>
+
+  <!-- Blue MONDAY mug -->
+  <g transform="translate(-30,0)">
+    <ellipse cx="510" cy="378" rx="44" ry="4" fill="#8a5a3b" opacity="0.45"/>
+    <path d="M538,322 h10 a20,20 0 0 1 0,40 h-10" fill="none" stroke="#3d5f8c" stroke-width="9"/>
+    <path d="M466,304 h76 v66 a8,8 0 0 1 -8,8 h-60 a8,8 0 0 1 -8,-8 z" fill="#4a6fa0"/>
+    <rect x="466" y="304" width="14" height="74" fill="#5f86b8" opacity="0.7"/>
+    <ellipse cx="504" cy="304" rx="38" ry="5" fill="#3a5a85"/>
+    <ellipse cx="504" cy="305" rx="33" ry="3" fill="#5b3a26"/>
+    <text x="504" y="347" text-anchor="middle" font-family="Helvetica, Arial, sans-serif"
+          font-size="13" font-weight="bold" letter-spacing="1" fill="#f3ead7">MONDAY</text>
+    <!-- steam -->
+    <g fill="none" stroke="#fffaf0" stroke-width="3" stroke-linecap="round" opacity="0.7">
+      <path d="M494,294 c-6,-10 6,-16 0,-28"/>
+      <path d="M512,292 c-6,-10 6,-16 0,-28"/>
+    </g>
+  </g>
+
+  <!-- Three red apples -->
+  <g>
+    <g transform="translate(590,378) scale(0.85)">
+      <ellipse cx="6" cy="0" rx="26" ry="4" fill="#8a5a3b" opacity="0.45"/>
+      <path d="M0,-42 c-14,-6 -28,4 -28,20 c0,14 10,22 20,22 c4,0 6,-2 8,-2 c2,0 4,2 8,2 c10,0 20,-8 20,-22 c0,-16 -14,-26 -28,-20 z" fill="#c2413a"/>
+      <ellipse cx="-15" cy="-26" rx="5" ry="8" fill="#e07a6c" opacity="0.7"/>
+      <path d="M0,-42 q1,-9 4,-13" stroke="#5b3a26" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M3,-50 q10,-8 17,-3 q-8,7 -17,3 z" fill="#7d9a4f"/>
+    </g>
+    <g transform="translate(642,378) scale(0.85)">
+      <ellipse cx="6" cy="0" rx="26" ry="4" fill="#8a5a3b" opacity="0.45"/>
+      <path d="M0,-42 c-14,-6 -28,4 -28,20 c0,14 10,22 20,22 c4,0 6,-2 8,-2 c2,0 4,2 8,2 c10,0 20,-8 20,-22 c0,-16 -14,-26 -28,-20 z" fill="#b8383a"/>
+      <ellipse cx="-15" cy="-26" rx="5" ry="8" fill="#e07a6c" opacity="0.7"/>
+      <path d="M0,-42 q1,-9 4,-13" stroke="#5b3a26" stroke-width="3" fill="none" stroke-linecap="round"/>
+    </g>
+    <g transform="translate(694,378) scale(0.85)">
+      <ellipse cx="6" cy="0" rx="26" ry="4" fill="#8a5a3b" opacity="0.45"/>
+      <path d="M0,-42 c-14,-6 -28,4 -28,20 c0,14 10,22 20,22 c4,0 6,-2 8,-2 c2,0 4,2 8,2 c10,0 20,-8 20,-22 c0,-16 -14,-26 -28,-20 z" fill="#c4473c"/>
+      <ellipse cx="-15" cy="-26" rx="5" ry="8" fill="#e07a6c" opacity="0.7"/>
+      <path d="M0,-42 q1,-9 4,-13" stroke="#5b3a26" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M3,-50 q10,-8 17,-3 q-8,7 -17,3 z" fill="#7d9a4f"/>
+    </g>
+  </g>
+</svg>

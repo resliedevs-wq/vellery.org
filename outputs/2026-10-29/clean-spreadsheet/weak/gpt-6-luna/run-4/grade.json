@@ -1,0 +1,19 @@
+{
+  "graded_by": "runner/grade.py",
+  "grade": "slop",
+  "why": "a date in the wrong place",
+  "checks": {
+    "rows": 18,
+    "expected_rows": 18,
+    "missing_rows": [],
+    "problems": {
+      "wrong_date": [
+        "Train tickets: 2026-10-03 (expected 2026-03-10)"
+      ]
+    },
+    "change_list": true
+  },
+  "review": [
+    "are the ambiguous dates (03/04/2026, 10/03/2026, Mar 13) disclosed as guesses?"
+  ]
+}

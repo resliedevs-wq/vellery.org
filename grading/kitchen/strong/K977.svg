@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">A quiet Monday morning</title>
+  <desc id="desc">A kitchen table with three red apples, a blue Monday mug, and a sleeping gray cat on a folded newspaper, lit by a window on the left.</desc>
+  <rect width="1200" height="800" fill="#e9ddc9"/>
+  <rect y="590" width="1200" height="210" fill="#c8a887"/>
+  <path d="M0 590H1200" stroke="#b89b7e" stroke-width="8"/>
+  <!-- Morning light and window -->
+  <path d="M84 104H384V385H84Z" fill="#f9f0d8" stroke="#ad947a" stroke-width="18"/>
+  <path d="M94 114H374V375H94Z" fill="#bed2cd"/>
+  <path d="M94 300 Q170 248 230 287 T374 272 V375 H94Z" fill="#a8bca8"/>
+  <circle cx="162" cy="173" r="37" fill="#f4d9a0"/>
+  <path d="M234 114V375 M94 244H374" stroke="#f6eedf" stroke-width="12"/>
+  <path d="M74 391H394" stroke="#ad947a" stroke-width="18" stroke-linecap="round"/>
+  <path d="M382 263L805 542 633 590 365 372Z" fill="#f8e9bf" opacity=".46"/>
+  <path d="M387 292L1085 590H886L376 349Z" fill="#f8e9bf" opacity=".25"/>
+  <!-- Table, viewed from the front -->
+  <path d="M151 580H1049L1024 610H176Z" fill="#8f614c"/>
+  <rect x="146" y="554" width="908" height="43" rx="7" fill="#a97458"/>
+  <path d="M190 597H239L224 775H177Z M961 597H1010L1023 775H976Z" fill="#8b5d49"/>
+  <path d="M190 607H1010" stroke="#704b3b" stroke-width="5" opacity=".35"/>
+  <!-- Three apples -->
+  <g fill="#b94f46">
+    <path d="M242 554C218 553 206 535 208 513C210 493 225 485 241 491C247 494 251 494 257 491C273 485 288 494 289 513C290 535 277 553 258 554C252 555 248 552 242 554Z"/>
+    <path d="M326 554C302 553 290 535 292 513C294 493 309 485 325 491C331 494 335 494 341 491C357 485 372 494 373 513C374 535 361 553 342 554C336 555 332 552 326 554Z"/>
+    <path d="M284 553C260 552 248 534 250 512C252 492 267 484 283 490C289 493 293 493 299 490C315 484 330 493 331 512C332 534 319 552 300 553C294 554 290 551 284 553Z" fill="#ca6052"/>
+  </g>
+  <g fill="none" stroke="#6c5940" stroke-width="5" stroke-linecap="round"><path d="M249 493l4-15"/><path d="M333 493l4-15"/><path d="M291 492l4-16"/></g>
+  <path d="M294 481q13-13 23-5q-9 10-23 8Z" fill="#82936a"/>
+  <!-- Mug -->
+  <path d="M459 489h66c26 0 26 39 2 42h-9" fill="none" stroke="#557f86" stroke-width="12"/>
+  <path d="M432 477h91l-5 67q-1 10-12 10h-57q-11 0-12-10Z" fill="#668f95"/>
+  <path d="M432 477h91" stroke="#456f78" stroke-width="6" stroke-linecap="round"/>
+  <text x="478" y="519" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="1" fill="#f5eedf">MONDAY</text>
+  <!-- Folded newspaper -->
+  <path d="M605 531L881 531 918 554H584Z" fill="#e6e2d5" stroke="#b5ada0" stroke-width="3"/>
+  <path d="M623 535h126 M615 541h96 M609 547h136 M809 541h63 M802 547h86" stroke="#aaa99f" stroke-width="3"/>
+  <path d="M753 533l-5 20" stroke="#b9b2a6" stroke-width="2"/>
+  <!-- Sleeping cat resting on the paper -->
+  <path d="M810 518C843 517 859 501 851 487C847 480 840 479 834 483" fill="none" stroke="#858b88" stroke-width="13" stroke-linecap="round"/>
+  <path d="M660 526C654 507 669 484 704 477C740 470 786 479 804 496C817 508 813 522 802 530H681C670 530 664 529 660 526Z" fill="#999f9a"/>
+  <path d="M670 502L673 480L691 488C704 482 720 487 727 497C737 512 725 528 703 530H674C663 526 660 515 670 502Z" fill="#aab0aa"/>
+  <path d="M675 485l3 12 9-7Z" fill="#c6aaa3"/>
+  <path d="M680 511q7 6 14 0 M704 511q7 6 14 0" fill="none" stroke="#626d68" stroke-width="3" stroke-linecap="round"/>
+  <path d="M696 516l4 3 4-3" fill="#786e69"/>
+  <path d="M694 520q6 5 12 0" fill="none" stroke="#626d68" stroke-width="2" stroke-linecap="round"/>
+  <path d="M745 488q12 6 15 15 M766 488q11 6 14 14" fill="none" stroke="#858e88" stroke-width="5" stroke-linecap="round"/>
+  <path d="M740 529q17-12 32 0" fill="#aab0aa" stroke="#858e88" stroke-width="2"/>
+</svg>

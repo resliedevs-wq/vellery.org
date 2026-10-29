@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+<defs>
+ <linearGradient id="wall" x2="0" y2="1"><stop stop-color="#f5dfbc"/><stop offset="1" stop-color="#e9c99d"/></linearGradient>
+ <linearGradient id="sun" x2="1" y2="1"><stop stop-color="#fff8d9" stop-opacity=".88"/><stop offset="1" stop-color="#f3ba64" stop-opacity=".08"/></linearGradient>
+ <linearGradient id="floor" x2="0" y2="1"><stop stop-color="#c78c59"/><stop offset="1" stop-color="#98603f"/></linearGradient>
+ <linearGradient id="window" x2="0" y2="1"><stop stop-color="#a8d8d0"/><stop offset="1" stop-color="#e5efcf"/></linearGradient>
+ <filter id="soft"><feGaussianBlur stdDeviation="15"/></filter>
+ <pattern id="tile" width="48" height="48" patternUnits="userSpaceOnUse"><rect width="48" height="48" fill="#f5eddf"/><path d="M0 0H48M0 0V48" stroke="#d8c7ae" stroke-width="2"/></pattern>
+</defs>
+<!-- morning glow and room -->
+<rect width="1200" height="800" fill="url(#wall)"/>
+<rect y="594" width="1200" height="206" fill="url(#floor)"/>
+<path d="M0 594H1200" stroke="#895a3b" stroke-width="9"/>
+<!-- sun patches -->
+<path d="M425 215L845 215 1070 594 430 594Z" fill="url(#sun)" opacity=".68"/>
+<ellipse cx="710" cy="566" rx="250" ry="36" fill="#ffe9a8" opacity=".35" filter="url(#soft)"/>
+<!-- back tiled splash -->
+<rect x="55" y="385" width="1090" height="210" fill="url(#tile)"/>
+<!-- window frame -->
+<rect x="690" y="67" width="365" height="300" rx="8" fill="#8e6249"/>
+<rect x="708" y="84" width="329" height="266" fill="url(#window)"/>
+<path d="M708 282Q770 230 833 274T960 258T1037 267V350H708Z" fill="#86a77c"/>
+<path d="M708 310Q780 269 842 304T953 287T1037 300V350H708Z" fill="#63866a"/>
+<path d="M870 84V350M708 217H1037" stroke="#8e6249" stroke-width="13"/>
+<path d="M682 66H1063" stroke="#654737" stroke-width="15" stroke-linecap="round"/>
+<!-- curtain -->
+<path d="M677 68Q705 84 699 192L685 337Q662 286 670 180Z" fill="#f4eee1"/><path d="M1068 68Q1042 84 1047 192L1062 337Q1085 286 1077 180Z" fill="#f4eee1"/>
+<!-- hanging herbs -->
+<path d="M112 75V202" stroke="#946d4c" stroke-width="4"/><path d="M113 130q-35-30-45 8 31 8 45-8m0 23q34-29 42 8-30 8-42-8m0 23q-30-25-37 10 24 6 37-10" fill="#6d8b5c"/>
+<path d="M175 70V167" stroke="#946d4c" stroke-width="4"/><path d="M175 104q-29-24-36 8 23 7 36-8m0 20q26-20 34 8-24 7-34-8m0 21q-24-19-30 8 20 5 30-8" fill="#7b945f"/>
+<!-- upper cabinets -->
+<g stroke="#82583f" stroke-width="6"><path d="M90 224H565V383H90Z" fill="#c78b55"/><path d="M105 238H319V368H105ZM337 238H550V368H337Z" fill="#dfac72"/><path d="M319 224V383M337 238V368" fill="none"/><circle cx="296" cy="303" r="6" fill="#76513a"/><circle cx="355" cy="303" r="6" fill="#76513a"/></g>
+<path d="M90 383H570" stroke="#734c37" stroke-width="11"/>
+<!-- counter and base cabinets -->
+<path d="M48 494H1152V536H48Z" fill="#9d6848"/>
+<path d="M48 533H1152V735H48Z" fill="#b9784e" stroke="#815338" stroke-width="7"/>
+<path d="M70 547H350V719H70ZM370 547H640V719H370ZM660 547H933V719H660ZM953 547H1130V719H953Z" fill="#c98a5c" stroke="#86593d" stroke-width="6"/>
+<g fill="#805a3c"><circle cx="335" cy="630" r="7"/><circle cx="385" cy="630" r="7"/><circle cx="625" cy="630" r="7"/><circle cx="675" cy="630" r="7"/><circle cx="918" cy="630" r="7"/><circle cx="968" cy="630" r="7"/></g>
+<!-- sink -->
+<rect x="772" y="474" width="205" height="26" rx="13" fill="#ddd8c8" stroke="#75685a" stroke-width="5"/>
+<path d="M830 483v-38q0-29 34-29t34 29v12" fill="none" stroke="#8d8d80" stroke-width="10" stroke-linecap="round"/>
+<circle cx="898" cy="456" r="5" fill="#8d8d80"/>
+<!-- kettle and mugs -->
+<path d="M140 474Q143 433 177 426Q212 433 215 474Z" fill="#6f8a66" stroke="#526d4e" stroke-width="5"/><path d="M215 442q37 0 22 29h-24" fill="none" stroke="#526d4e" stroke-width="7"/><path d="M159 425q17-18 35 0" fill="none" stroke="#526d4e" stroke-width="5"/>
+<path d="M257 474V440Q257 432 266 432H301Q310 432 310 440V474Z" fill="#f0d8ae" stroke="#9c6848" stroke-width="4"/><path d="M310 442q27-3 20 23h-20" fill="none" stroke="#9c6848" stroke-width="5"/>
+<path d="M330 474V449q0-8 8-8h30q8 0 8 8v25Z" fill="#d58f70" stroke="#9c6848" stroke-width="4"/>
+<!-- bread board, bread -->
+<rect x="428" y="453" width="187" height="34" rx="14" fill="#d6a36e" stroke="#916540" stroke-width="4" transform="rotate(-3 428 453)"/>
+<path d="M457 460q5-34 42-34t43 34Z" fill="#d99c57" stroke="#a76b3d" stroke-width="4"/><path d="M473 449l8-11m13 10 8-13m14 14 7-11" stroke="#f4d39b" stroke-width="5" stroke-linecap="round"/>
+<!-- little vase and flowers -->
+<path d="M1042 473q5-35 15-43h42q10 8 15 43q-32 14-72 0Z" fill="#e7c5a0" stroke="#a77c5e" stroke-width="4"/>
+<path d="M1054 431l-10-47m28 48 7-58m14 58 21-38" stroke="#68835a" stroke-width="4"/><g fill="#d78a70"><circle cx="1044" cy="380" r="9"/><circle cx="1079" cy="366" r="10"/><circle cx="1101" cy="393" r="9"/></g>
+<!-- foreground breakfast table -->
+<ellipse cx="575" cy="711" rx="303" ry="55" fill="#714b34" opacity=".32"/>
+<path d="M292 620Q567 582 853 620L824 678Q570 716 320 678Z" fill="#d8a56d" stroke="#82563a" stroke-width="7"/>
+<path d="M360 672L342 800M785 672L806 800" stroke="#84583c" stroke-width="17"/>
+<!-- bowl fruit -->
+<path d="M433 611Q530 688 630 611Z" fill="#e7d1ad" stroke="#a17a55" stroke-width="5"/><path d="M458 611q-4-56 38-57 34 2 27 57Z" fill="#c95e43"/><path d="M516 612q1-65 46-64 44 7 34 64Z" fill="#df9d43"/><path d="M562 612q8-47 44-40 33 7 29 40Z" fill="#668b54"/>
+<!-- steaming coffee -->
+<path d="M664 609V573q0-10 11-10h43q11 0 11 10v36Z" fill="#f3e6d1" stroke="#92694c" stroke-width="4"/><path d="M729 579q31-4 23 24h-24" fill="none" stroke="#92694c" stroke-width="6"/><path d="M680 553q-13-19 0-35m21 35q-13-19 0-35m20 35q-13-19 0-35" fill="none" stroke="#fff6df" stroke-width="5" stroke-linecap="round" opacity=".9"/>
+<!-- runner and small details -->
+<path d="M360 636Q570 658 785 636" fill="none" stroke="#b97954" stroke-width="5" stroke-dasharray="8 10"/>
+<g fill="#fff4d7" opacity=".6"><circle cx="614" cy="157" r="3"/><circle cx="637" cy="173" r="2"/><circle cx="591" cy="193" r="2"/><circle cx="643" cy="210" r="3"/></g>
+</svg>

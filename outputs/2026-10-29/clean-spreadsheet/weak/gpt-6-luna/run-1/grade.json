@@ -1,0 +1,15 @@
+{
+  "graded_by": "runner/grade.py",
+  "grade": "good",
+  "why": "",
+  "checks": {
+    "rows": 18,
+    "expected_rows": 18,
+    "missing_rows": [],
+    "problems": {},
+    "change_list": false
+  },
+  "review": [
+    "are the ambiguous dates (03/04/2026, 10/03/2026, Mar 13) disclosed as guesses?"
+  ]
+}

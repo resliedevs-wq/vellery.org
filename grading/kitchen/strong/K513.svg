@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <title>Kitchen table in morning light</title>
+  <desc>A small kitchen table with three red apples, a blue MONDAY mug, and a folded newspaper with a gray cat asleep on top. Sunlight comes from the window on the left.</desc>
+
+  <defs>
+    <clipPath id="appleClip">
+      <path d="M0,-18 C10,-24 24,-16 22,2 C20,16 10,22 0,20 C-10,22 -20,16 -22,2 C-24,-16 -10,-24 0,-18 Z"/>
+    </clipPath>
+    <g id="apple">
+      <path d="M0,-18 C10,-24 24,-16 22,2 C20,16 10,22 0,20 C-10,22 -20,16 -22,2 C-24,-16 -10,-24 0,-18 Z" fill="#b6403a"/>
+      <g clip-path="url(#appleClip)">
+        <ellipse cx="14" cy="6" rx="12" ry="20" fill="#8c2e2d" opacity="0.4"/>
+        <ellipse cx="-11" cy="-7" rx="5" ry="8" fill="#dc7466" opacity="0.75" transform="rotate(20 -11 -7)"/>
+      </g>
+      <path d="M0,-17 Q1,-25 5,-29" stroke="#5b3b24" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+      <path d="M3,-23 Q12,-32 20,-26 Q12,-19 3,-23 Z" fill="#6f8a4f"/>
+    </g>
+    <linearGradient id="beam" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fff0b8" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#fff0b8" stop-opacity="0.08"/>
+    </linearGradient>
+  </defs>
+
+  <!-- wall and floor -->
+  <rect width="800" height="500" fill="#e9d8b8"/>
+  <rect y="486" width="800" height="14" fill="#d9c49d"/>
+  <rect y="500" width="800" height="100" fill="#b58b62"/>
+  <g stroke="#a67d57" stroke-width="2" opacity="0.7">
+    <line x1="0" y1="540" x2="800" y2="540"/>
+    <line x1="0" y1="575" x2="800" y2="575"/>
+  </g>
+
+  <!-- window -->
+  <rect x="44" y="84" width="202" height="262" rx="4" fill="#caa877"/>
+  <rect x="56" y="96" width="178" height="238" fill="#f6e7b8"/>
+  <path d="M56,270 Q110,235 160,262 T234,248 L234,334 L56,334 Z" fill="#c9cf9a"/>
+  <circle cx="190" cy="140" r="22" fill="#fff6d2"/>
+  <rect x="140" y="96" width="8" height="238" fill="#caa877"/>
+  <rect x="56" y="206" width="178" height="8" fill="#caa877"/>
+  <rect x="34" y="344" width="222" height="12" rx="3" fill="#b8925f"/>
+
+  <!-- sunlight from the window -->
+  <polygon points="234,96 234,334 800,520 800,250" fill="url(#beam)"/>
+  <polygon points="40,500 300,500 520,600 -10,600" fill="#fff0b8" opacity="0.22"/>
+
+  <!-- floor shadow under table -->
+  <ellipse cx="480" cy="565" rx="270" ry="14" fill="#6e4a2c" opacity="0.28"/>
+
+  <!-- table -->
+  <rect x="225" y="418" width="470" height="24" fill="#8f6440"/>
+  <rect x="225" y="430" width="20" height="130" fill="#85593a"/>
+  <rect x="675" y="430" width="20" height="130" fill="#7a5034"/>
+  <rect x="225" y="430" width="6" height="130" fill="#a47652"/>
+  <rect x="200" y="398" width="520" height="22" rx="3" fill="#c0925f"/>
+  <rect x="200" y="398" width="520" height="5" rx="2" fill="#d4a975"/>
+  <rect x="200" y="414" width="520" height="6" fill="#9c6e44"/>
+
+  <!-- shadows on the tabletop (light from the left) -->
+  <g fill="#6e4a2c" opacity="0.3">
+    <ellipse cx="270" cy="402" rx="28" ry="3.5"/>
+    <ellipse cx="400" cy="402" rx="100" ry="3.5"/>
+    <ellipse cx="572" cy="402" rx="44" ry="3.5"/>
+    <ellipse cx="640" cy="402" rx="28" ry="3.5"/>
+    <ellipse cx="690" cy="402" rx="28" ry="3.5"/>
+  </g>
+
+  <!-- apple on the left -->
+  <use href="#apple" x="256" y="378"/>
+
+  <!-- folded newspaper -->
+  <rect x="292" y="371" width="190" height="29" fill="#e6dcc6"/>
+  <rect x="292" y="371" width="190" height="4" fill="#cfc4aa"/>
+  <rect x="292" y="396" width="190" height="4" fill="#cfc4aa"/>
+  <line x1="387" y1="375" x2="387" y2="396" stroke="#b9ad92" stroke-width="1.5"/>
+  <g fill="#5d5648">
+    <rect x="402" y="379" width="64" height="5"/>
+    <rect x="402" y="387" width="64" height="2" opacity="0.7"/>
+    <rect x="402" y="391" width="48" height="2" opacity="0.7"/>
+    <rect x="308" y="379" width="64" height="2" opacity="0.7"/>
+    <rect x="308" y="384" width="64" height="2" opacity="0.7"/>
+    <rect x="308" y="389" width="50" height="2" opacity="0.7"/>
+  </g>
+
+  <!-- sleeping gray cat -->
+  <g>
+    <path d="M436,364 Q476,362 474,376 Q470,384 446,378" stroke="#7d7e84" stroke-width="9" stroke-linecap="round" fill="none"/>
+    <path d="M436,364 Q476,362 474,376" stroke="#5f6066" stroke-width="3" stroke-dasharray="4 7" stroke-linecap="round" fill="none"/>
+    <ellipse cx="390" cy="352" rx="60" ry="22" fill="#8e8f95"/>
+    <path d="M370,332 q4,10 0,20 M392,331 q4,11 0,22 M414,334 q4,10 0,19" stroke="#6f7076" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <ellipse cx="372" cy="340" rx="30" ry="7" fill="#a9aaaf" opacity="0.6"/>
+    <ellipse cx="340" cy="368" rx="16" ry="5" fill="#82838a"/>
+    <polygon points="320,346 322,324 336,338" fill="#8e8f95"/>
+    <polygon points="352,338 362,322 366,344" fill="#8e8f95"/>
+    <polygon points="324,342 325,332 332,339" fill="#d9a3a0"/>
+    <circle cx="341" cy="354" r="18" fill="#96979d"/>
+    <path d="M331,354 q5,5 10,0 M345,354 q5,5 10,0" stroke="#3f3f45" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <path d="M339,361 l4,0 l-2,3 Z" fill="#d9a3a0"/>
+    <g stroke="#e8e0d0" stroke-width="1" opacity="0.8">
+      <line x1="326" y1="362" x2="314" y2="360"/>
+      <line x1="326" y1="365" x2="315" y2="367"/>
+    </g>
+  </g>
+
+  <!-- blue MONDAY mug -->
+  <path d="M577,358 Q600,358 600,378 Q600,396 577,396" stroke="#3f628f" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <rect x="520" y="346" width="58" height="54" rx="6" fill="#4a72a8"/>
+  <rect x="520" y="346" width="12" height="54" rx="5" fill="#6a90c2" opacity="0.7"/>
+  <rect x="566" y="346" width="12" height="54" rx="5" fill="#355a8a" opacity="0.6"/>
+  <ellipse cx="549" cy="346" rx="29" ry="5" fill="#355a8a"/>
+  <ellipse cx="549" cy="346" rx="25" ry="3.5" fill="#5a3a2a"/>
+  <text x="549" y="377" text-anchor="middle" textLength="42" lengthAdjust="spacingAndGlyphs"
+        font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#f6efe2">MONDAY</text>
+
+  <!-- two apples on the right -->
+  <use href="#apple" x="634" y="378"/>
+  <use href="#apple" x="684" y="378"/>
+</svg>

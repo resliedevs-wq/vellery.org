@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">A cozy kitchen in the morning</title>
+  <desc id="desc">A warm sunlit kitchen with a little table, fresh bread, flowers, and a sleepy cat.</desc>
+  <defs>
+    <linearGradient id="wall" x2="0" y2="1"><stop stop-color="#f6dfb9"/><stop offset="1" stop-color="#f2cfa4"/></linearGradient>
+    <linearGradient id="sun" x2="0" y2="1"><stop stop-color="#fff6d7"/><stop offset="1" stop-color="#ffd782"/></linearGradient>
+    <linearGradient id="floor" x2="0" y2="1"><stop stop-color="#d49b68"/><stop offset="1" stop-color="#a96846"/></linearGradient>
+    <pattern id="tiles" width="52" height="52" patternUnits="userSpaceOnUse"><rect width="52" height="52" fill="#f7eddb"/><path d="M0 0h52v52H0z" fill="none" stroke="#dfc7a5" stroke-width="2"/></pattern>
+    <filter id="soft"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <!-- room -->
+  <rect width="1200" height="800" fill="url(#wall)"/>
+  <path d="M0 570H1200V800H0z" fill="url(#floor)"/>
+  <path d="M0 573h1200" stroke="#87563e" stroke-width="12"/>
+  <path d="M0 620h1200M0 695h1200M0 770h1200" stroke="#8e5b42" stroke-width="5" opacity=".34"/>
+  <path d="M190 620v180M470 620v180M760 620v180M1030 620v180" stroke="#8e5b42" stroke-width="4" opacity=".3"/>
+  <!-- morning glow -->
+  <ellipse cx="850" cy="405" rx="315" ry="235" fill="#ffe4a0" opacity=".48" filter="url(#soft)"/>
+  <path d="M530 90h440v340H530z" fill="#f5e5c8" stroke="#855941" stroke-width="14"/>
+  <path d="M551 111h398v298H551z" fill="url(#sun)"/>
+  <path d="M750 111v298M551 260h398" stroke="#855941" stroke-width="12"/>
+  <path d="M578 376 709 111h27L605 409h-27zm195 33L903 111h22L797 409h-24z" fill="#fff9e8" opacity=".3"/>
+  <!-- curtains -->
+  <path d="M505 75q45 18 61 53l-6 309q-30-33-65-41zm490 0q-45 18-61 53l6 309q30-33 65-41z" fill="#a8a969"/>
+  <path d="M505 75q39 13 61 53m429-53q-39 13-61 53" fill="none" stroke="#7d8150" stroke-width="8"/>
+  <!-- hanging herbs -->
+  <path d="M257 0v116m-31-47q31 17 62 0m-57 21q26 15 52 0" fill="none" stroke="#7c6846" stroke-width="5"/>
+  <g fill="#72804d"><ellipse cx="225" cy="63" rx="12" ry="25" transform="rotate(-45 225 63)"/><ellipse cx="249" cy="47" rx="12" ry="24" transform="rotate(-20 249 47)"/><ellipse cx="279" cy="61" rx="12" ry="25" transform="rotate(40 279 61)"/><ellipse cx="232" cy="94" rx="12" ry="23" transform="rotate(-50 232 94)"/><ellipse cx="267" cy="91" rx="12" ry="24" transform="rotate(45 267 91)"/></g>
+  <!-- cupboards -->
+  <path d="M40 160h330v250H40z" fill="#c67f52" stroke="#754c3a" stroke-width="10"/>
+  <path d="M55 175h145v220H55zm160 0h140v220H215z" fill="#e5b47e" stroke="#8b5b3e" stroke-width="7"/>
+  <path d="M76 195h103v180H76zm159 0h99v180h-99z" fill="#d79b63" stroke="#b6764b" stroke-width="4"/>
+  <circle cx="166" cy="286" r="7" fill="#704c39"/><circle cx="249" cy="286" r="7" fill="#704c39"/>
+  <!-- tiled backsplash and counter -->
+  <path d="M0 421h1200v154H0z" fill="url(#tiles)"/>
+  <path d="M0 405h1200v29H0z" fill="#80563e"/>
+  <path d="M0 434h1200v20H0z" fill="#b77b53"/>
+  <!-- lower cabinets -->
+  <path d="M0 454h1200v126H0z" fill="#81906a"/>
+  <path d="M30 472h225v96H30zm250 0h225v96H280zm250 0h225v96H530zm250 0h225v96H780zm250 0h140v96h-140z" fill="#9baa7f" stroke="#687650" stroke-width="7"/>
+  <path d="M131 480v82m250-82v82m250-82v82m250-82v82m250-82v82" stroke="#6d7958" stroke-width="4"/>
+  <circle cx="239" cy="520" r="5" fill="#f2d19c"/><circle cx="464" cy="520" r="5" fill="#f2d19c"/><circle cx="714" cy="520" r="5" fill="#f2d19c"/><circle cx="964" cy="520" r="5" fill="#f2d19c"/><circle cx="1107" cy="520" r="5" fill="#f2d19c"/>
+  <!-- stove -->
+  <rect x="75" y="356" width="222" height="54" rx="8" fill="#f5e8d0" stroke="#78513c" stroke-width="7"/>
+  <path d="M94 357v-96h183v96" fill="#e9ddc7" stroke="#78513c" stroke-width="7"/>
+  <rect x="115" y="276" width="140" height="69" rx="6" fill="#98745b"/>
+  <path d="M130 294h110v35H130z" fill="#61483b"/>
+  <circle cx="117" cy="376" r="9" fill="#d49a5d"/><circle cx="153" cy="376" r="9" fill="#d49a5d"/><circle cx="217" cy="376" r="9" fill="#d49a5d"/><circle cx="254" cy="376" r="9" fill="#d49a5d"/>
+  <path d="M139 259q12-20 23 0m22-4q12-20 23 0" fill="none" stroke="#fff1d2" stroke-width="8" stroke-linecap="round" opacity=".8"/>
+  <!-- kettle and mug -->
+  <path d="M365 375q0-56 55-56t55 56z" fill="#b96d52" stroke="#744b3b" stroke-width="6"/><path d="M475 336q38-10 27 25-8 20-29 10" fill="none" stroke="#744b3b" stroke-width="8"/>
+  <path d="M414 312q12-13 25 0" fill="none" stroke="#744b3b" stroke-width="6"/><path d="M380 375h60" stroke="#e2aa78" stroke-width="5"/>
+  <path d="M475 397h49v-35h-49z" fill="#f6e1b9" stroke="#78513c" stroke-width="5"/><path d="M524 368q26-5 16 18-5 10-17 7" fill="none" stroke="#78513c" stroke-width="5"/>
+  <!-- sink -->
+  <path d="M860 405q0-34 32-34h151q32 0 32 34" fill="#d8d4bf" stroke="#77513b" stroke-width="7"/>
+  <path d="M922 367v-40q0-25 28-25h17v18h-13q-13 0-13 12v35" fill="none" stroke="#786451" stroke-width="9"/>
+  <path d="M944 324q0 34-14 49" fill="none" stroke="#8eb5b3" stroke-width="5"/>
+  <!-- flowers in sunlight -->
+  <path d="M697 400v-89m22 89v-66m21 66v-100" stroke="#687b4f" stroke-width="6"/>
+  <path d="M681 401h76l-8 38h-60z" fill="#d98669" stroke="#80503e" stroke-width="5"/>
+  <g fill="#df9d54"><circle cx="697" cy="307" r="13"/><circle cx="719" cy="329" r="12"/><circle cx="740" cy="294" r="14"/></g><g fill="#f3d27f"><circle cx="697" cy="307" r="5"/><circle cx="719" cy="329" r="5"/><circle cx="740" cy="294" r="5"/></g>
+  <!-- small table -->
+  <ellipse cx="784" cy="666" rx="245" ry="32" fill="#704832" opacity=".22"/>
+  <path d="M552 535h447l-26 50H579z" fill="#d79c68" stroke="#744b39" stroke-width="8"/>
+  <path d="M605 585h23l-17 161h-27zm316 0h23l20 161h-27z" fill="#8c5a3f"/>
+  <path d="M578 554h396" stroke="#f0c18a" stroke-width="7"/>
+  <!-- bread and plate -->
+  <ellipse cx="738" cy="532" rx="101" ry="24" fill="#f2e2c6" stroke="#9a7656" stroke-width="5"/>
+  <path d="M664 520q8-52 74-52 68 0 76 52z" fill="#c47a46" stroke="#8d5437" stroke-width="5"/>
+  <path d="M690 507q7-22 22-28m22 27q7-22 22-28m19 29q7-22 22-27" fill="none" stroke="#f1c789" stroke-width="8" stroke-linecap="round"/>
+  <!-- jam jar -->
+  <rect x="839" y="483" width="44" height="51" rx="8" fill="#bc6652" stroke="#794b3b" stroke-width="4"/><rect x="834" y="477" width="54" height="11" rx="3" fill="#dec08c"/><path d="M850 493v32" stroke="#e8a17d" stroke-width="4"/>
+  <!-- sleepy cat on chair -->
+  <path d="M1002 595h151v20h-151z" fill="#d69a65" stroke="#704c3b" stroke-width="6"/>
+  <path d="M1020 615v129m118-129v129" stroke="#704c3b" stroke-width="13"/>
+  <path d="M1040 552q7-47 50-47 50 0 55 51l-15 38h-79z" fill="#e3aa70" stroke="#805540" stroke-width="6"/>
+  <path d="m1044 523-1-32 30 19m54 0 29-21-3 37" fill="#e3aa70" stroke="#805540" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M1066 546q9 8 18 0m31 0q9 8 18 0" fill="none" stroke="#624b3f" stroke-width="5" stroke-linecap="round"/>
+  <path d="M1094 562q8 7 16 0m-14 13q-18 11-34 1m54-1q17 10 33 0" fill="none" stroke="#98674d" stroke-width="3" stroke-linecap="round"/>
+  <path d="M1133 581q40 9 43 36" fill="none" stroke="#e3aa70" stroke-width="15" stroke-linecap="round"/>
+  <!-- scattered sunlight flecks -->
+  <g fill="#fff2c6" opacity=".7"><circle cx="515" cy="494" r="5"/><circle cx="559" cy="480" r="3"/><circle cx="1005" cy="458" r="4"/><circle cx="1070" cy="477" r="3"/><circle cx="934" cy="510" r="5"/><circle cx="546" cy="518" r="3"/></g>
+</svg>

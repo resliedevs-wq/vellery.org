@@ -1,0 +1,17 @@
+{
+  "graded_by": "runner/grade.py",
+  "grade": "slop",
+  "why": "fact missing or invented",
+  "checks": {
+    "words": 121,
+    "original_words": 281,
+    "missing": [
+      "Priya"
+    ],
+    "invented": [],
+    "text_outside_email": false
+  },
+  "review": [
+    "any other fact changed or added (e.g. who spoke to whom, the RSVP count)?"
+  ]
+}
