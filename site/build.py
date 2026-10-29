@@ -94,7 +94,16 @@ def load_runs():
 
 
 def prompt_text(task, variant):
-    return re.sub(r"\{\{(.+?)\}\}", r"[\1]", task["prompts"][variant]).strip()
+    """The prompt as sent, with line breaks inside a paragraph joined for display."""
+    text = re.sub(r"\{\{(.+?)\}\}", r"[\1]", task["prompts"][variant]).strip()
+    out = []
+    for line in text.splitlines():
+        joins = out and out[-1] and not line.startswith(("-", "[")) and not out[-1].startswith("-") and line
+        if joins:
+            out[-1] += " " + line
+        else:
+            out.append(line)
+    return "\n".join(out)
 
 
 def sheet_parts(run):
