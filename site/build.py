@@ -376,7 +376,7 @@ def build_task_page(task, runs, models, items):
                         votable[r["item"]] = {}
         note = ('<p class="note">Usable runs can be upvoted or downvoted by logged-in visitors. '
                 'Their order is shuffled on every visit.</p>')
-    body += f'<section class="block"><h2>Outputs</h2>{note}{board(tiles)}</section><section id="detail" class="block" hidden></section>'
+    body += f'<section class="block"><h2>Outputs</h2>{note}{board(tiles)}</section>'
     data = {"slug": slug, "mode": "gallery" if task["kind"] == "svg" else "grid", "detail": detail,
             "votable": votable, "rules": RULES, "buckets": BUCKETS}
     body += f'<script id="data" type="application/json">{blob(data)}</script>'

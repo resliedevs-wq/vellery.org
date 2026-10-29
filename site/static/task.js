@@ -3,17 +3,15 @@
   const prompts = [...document.querySelectorAll(".prompt")];
   const tiles = [...document.querySelectorAll(".tile")];
   const groups = Object.fromEntries([...document.querySelectorAll(".group")].map((g) => [g.dataset.g, g]));
-  const detail = document.getElementById("detail");
   const rules = data.rules;
   const byId = Object.fromEntries(tiles.map((t) => [t.dataset.id, t]));
   const cacheKey = `vellery.votes.${data.slug}`;
   const pending = {};
-  const spacer = document.createElement("div");
-  document.querySelector("footer").before(spacer);
   let votes = {};
   let variant = "strong";
   let selected = null;
   let placed = false;
+  let order = [];
 
   const el = (tag, cls, text) => {
     const e = document.createElement(tag);
@@ -22,6 +20,15 @@
     return e;
   };
   const tally = (id) => votes[id] || { up: 0, down: 0, basic: 0, mine: null };
+
+  // The viewer: one open item over the page, with arrows to step through the grid.
+  const viewer = el("dialog", "viewer");
+  viewer.innerHTML =
+    '<div class="vwrap"><button class="vnav prev" aria-label="Previous">‹</button>' +
+    '<div class="vpanel"><div class="vtop"><span class="num vpos"></span><button class="vclose" aria-label="Close">✕</button></div>' +
+    '<div class="vbody"></div></div><button class="vnav next" aria-label="Next">›</button></div>';
+  document.body.append(viewer);
+  const body = viewer.querySelector(".vbody");
 
   // Last tallies this browser saw, so the page can order itself before the server answers.
   try {
@@ -67,12 +74,12 @@
     tiles.forEach((t) => (t.dataset.g = wanted[t.dataset.id]));
   }
 
-    function refresh() {
+  function refresh() {
     tiles.forEach((t) => {
       t.hidden = t.dataset.variant !== variant;
       t.classList.toggle("on", t.dataset.id === selected);
       const v = tally(t.dataset.id);
-      t.querySelector(".score").textContent = [v.up && `▲ ${v.up}`, v.down && `▼ ${v.down}`, v.basic && `▼▼ ${v.basic}`]
+      t.querySelector(".score").textContent = [v.up && `▲ ${v.up}`, v.down - v.basic && `▼ ${v.down - v.basic}`, v.basic && `▼▼ ${v.basic}`]
         .filter(Boolean).join("  ");
     });
     Object.values(groups).forEach((box) => {
@@ -82,22 +89,18 @@
     });
   }
 
-  // The open item sits right under the row of its tile, like a line break in the grid.
-  function dock() {
-    const tile = selected && byId[selected];
-    if (!tile || tile.hidden) {
-      detail.hidden = true;
-      return;
-    }
-    const row = [...tile.parentNode.children].filter(
-      (c) => c.classList.contains("tile") && !c.hidden && Math.abs(c.offsetTop - tile.offsetTop) < 4,
-    );
-    row[row.length - 1].after(detail);
-    detail.hidden = false;
+  function paintStatus() {
+    const chip = body.querySelector(".verdict.status");
+    if (!chip) return;
+    const v = tally(selected);
+    const b = bucketOf(byId[selected]);
+    chip.className = `verdict status ${b}`;
+    chip.replaceChildren(document.createTextNode(data.buckets[b]));
+    if (v.up + v.down) chip.append(el("small", "", `${v.up} of ${v.up + v.down} up`));
   }
 
   function paintVotes() {
-    const slot = detail.querySelector(".votes");
+    const slot = body.querySelector(".votes");
     if (!slot || !selected || !data.votable[selected]) return;
     const v = tally(selected);
     const mine = v.mine;
@@ -110,25 +113,23 @@
       return b;
     };
     const bar = el("div", "votebar");
+    // ▼▼ replaces ▼: one voter is one vote, counted at whichever level they chose.
     bar.append(
       button("up", `▲ ${v.up}`, "Upvote", mine && mine.vote === 1, mine && mine.vote === 1 ? null : { vote: 1, basic: false }),
-      button("down", `▼ ${v.down}`, "Downvote", downed, downed ? null : { vote: -1, basic: false }),
+      button("down", `▼ ${v.down - v.basic}`, "Downvote", downed && !mine.basic, downed && !mine.basic ? null : { vote: -1, basic: false }),
     );
-    // A deeper level of the downvote, offered once you have downvoted.
     if (downed && data.votable[selected].basic)
       bar.append(button("basic", `▼▼ ${v.basic}`, "Not meeting basic standard", mine.basic, { vote: -1, basic: !mine.basic }));
     slot.replaceChildren(bar);
     if (!window.vellery.me) slot.append(el("span", "note", "Log in to vote"));
   }
 
-  // Redraw everything from `votes`, keeping the open item where it is on screen.
+  // While the viewer is open the grid stays put; it reorders when the viewer closes.
   function render() {
-    const before = !detail.hidden ? detail.getBoundingClientRect().top : null;
-    place();
+    if (!viewer.open) place();
     refresh();
-    dock();
     paintVotes();
-    if (before !== null && !detail.hidden) scrollBy(0, detail.getBoundingClientRect().top - before);
+    paintStatus();
   }
 
   function applyLocal(v, next) {
@@ -175,62 +176,57 @@
     render();
   }
 
-  // Glide the page to `target`. The time grows with the distance, so a long trip
-  // still leaves the eye time to follow the tile.
-  let glide = 0;
-  function scrollSlowly(target) {
-    const from = scrollY;
-    const distance = target - from;
-    const stop = () => {
-      glide++;
-      removeEventListener("wheel", stop);
-      removeEventListener("touchstart", stop);
-      removeEventListener("keydown", stop);
-    };
-    glide++;
-    const mine = glide;
-    if (matchMedia("(prefers-reduced-motion: reduce)").matches || Math.abs(distance) < 2) return scrollTo(0, target);
-    const duration = Math.min(1600, 700 + Math.abs(distance) * 0.5);
-    const start = performance.now();
-    for (const type of ["wheel", "touchstart", "keydown"]) addEventListener(type, stop, { passive: true, once: true });
-    const step = (now) => {
-      if (glide !== mine) return;
-      const t = Math.min(1, (now - start) / duration);
-      scrollTo(0, from + distance * (t < 0.5 ? 4 * t ** 3 : 1 - (-2 * t + 2) ** 3 / 2));
-      if (t < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  }
-
-  // Bring the clicked tile's row to the top of the screen. Near the end of the
-  // page there may not be room to scroll that far, so pad the bottom to make it.
-  function lift(tile) {
-    const room = document.documentElement.scrollHeight - spacer.offsetHeight - innerHeight;
-    const target = tile.getBoundingClientRect().top + scrollY - 16;
-    spacer.style.height = `${Math.max(0, target - room, scrollY - room)}px`;
-    scrollSlowly(target);
-  }
-
   function show(id) {
     selected = id;
-    detail.innerHTML = data.detail[id];
-    if (data.votable[id]) detail.querySelector(".dhead").after(el("div", "votes"));
-    dock();
+    body.innerHTML = data.detail[id];
+    const head = body.querySelector(".dhead");
+    if (data.mode === "gallery") head.append(el("span", "verdict status"));
+    if (data.votable[id]) head.after(el("div", "votes"));
+    viewer.querySelector(".vpos").textContent = `${order.indexOf(byId[id]) + 1} of ${order.length}`;
+    viewer.querySelector(".vpanel").scrollTop = 0;
+    if (!viewer.open) viewer.showModal();
+    byId[id].scrollIntoView({ block: "nearest" });
     refresh();
     paintVotes();
+    paintStatus();
   }
+
+  function open(id) {
+    order = [...document.querySelectorAll(".tile")].filter((t) => !t.hidden);
+    document.documentElement.classList.add("locked");
+    show(id);
+  }
+
+  function step(by) {
+    const at = order.indexOf(byId[selected]);
+    show(order[(at + by + order.length) % order.length].dataset.id);
+  }
+
+  viewer.addEventListener("close", () => {
+    document.documentElement.classList.remove("locked");
+    const tile = byId[selected];
+    selected = null;
+    place();
+    refresh();
+    if (tile) tile.scrollIntoView({ block: "nearest" });
+  });
+  // Only a click on the empty space around the panel closes it. (Buttons inside get
+  // rebuilt while handling their own click, so they can't be tested with `closest`.)
+  viewer.addEventListener("click", (e) => {
+    if (e.target === viewer || e.target.classList.contains("vwrap")) viewer.close();
+  });
+  viewer.querySelector(".vclose").addEventListener("click", () => viewer.close());
+  viewer.querySelector(".prev").addEventListener("click", () => step(-1));
+  viewer.querySelector(".next").addEventListener("click", () => step(1));
+  viewer.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") step(-1);
+    else if (e.key === "ArrowRight") step(1);
+  });
 
   function pick(next) {
     variant = next;
     prompts.forEach((p) => p.classList.toggle("on", p.dataset.variant === variant));
-    selected = null;
-    detail.hidden = true;
-    spacer.style.height = "0px";
     refresh();
-    if (data.mode !== "gallery") {
-      const first = ["fix", "slop"].map((g) => tiles.find((t) => !t.hidden && t.dataset.g === g)).find(Boolean);
-      if (first) show(first.dataset.id);
-    }
   }
 
   async function load() {
@@ -243,29 +239,7 @@
   }
 
   prompts.forEach((p) => p.addEventListener("click", () => pick(p.dataset.variant)));
-  tiles.forEach((t) =>
-    t.addEventListener("click", () => {
-      if (selected === t.dataset.id) {
-        selected = null;
-        detail.hidden = true;
-        spacer.style.height = "0px";
-        refresh();
-      } else {
-        // Opening one image closes the previous one, which can shift this tile.
-        // Put it back where the eye left it, then glide it to the top.
-        const seen = t.getBoundingClientRect().top;
-        spacer.style.height = `${innerHeight * 2}px`;
-        show(t.dataset.id);
-        scrollBy(0, t.getBoundingClientRect().top - seen);
-        lift(t);
-      }
-    }),
-  );
-  let resizing;
-  addEventListener("resize", () => {
-    clearTimeout(resizing);
-    resizing = setTimeout(dock, 100);
-  });
+  tiles.forEach((t) => t.addEventListener("click", () => open(t.dataset.id)));
   document.addEventListener("vellery:auth", load);
 
   place();
