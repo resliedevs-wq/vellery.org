@@ -175,14 +175,40 @@
     render();
   }
 
+  // Glide the page to `target`. The time grows with the distance, so a long trip
+  // still leaves the eye time to follow the tile.
+  let glide = 0;
+  function scrollSlowly(target) {
+    const from = scrollY;
+    const distance = target - from;
+    const stop = () => {
+      glide++;
+      removeEventListener("wheel", stop);
+      removeEventListener("touchstart", stop);
+      removeEventListener("keydown", stop);
+    };
+    glide++;
+    const mine = glide;
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches || Math.abs(distance) < 2) return scrollTo(0, target);
+    const duration = Math.min(1600, 700 + Math.abs(distance) * 0.5);
+    const start = performance.now();
+    for (const type of ["wheel", "touchstart", "keydown"]) addEventListener(type, stop, { passive: true, once: true });
+    const step = (now) => {
+      if (glide !== mine) return;
+      const t = Math.min(1, (now - start) / duration);
+      scrollTo(0, from + distance * (t < 0.5 ? 4 * t ** 3 : 1 - (-2 * t + 2) ** 3 / 2));
+      if (t < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+
   // Bring the clicked tile's row to the top of the screen. Near the end of the
   // page there may not be room to scroll that far, so pad the bottom to make it.
   function lift(tile) {
-    spacer.style.height = "0px";
+    const room = document.documentElement.scrollHeight - spacer.offsetHeight - innerHeight;
     const target = tile.getBoundingClientRect().top + scrollY - 16;
-    const room = document.documentElement.scrollHeight - innerHeight;
-    spacer.style.height = `${Math.max(0, target - room)}px`;
-    scrollTo({ top: target, behavior: "smooth" });
+    spacer.style.height = `${Math.max(0, target - room, scrollY - room)}px`;
+    scrollSlowly(target);
   }
 
   function show(id) {
@@ -225,7 +251,12 @@
         spacer.style.height = "0px";
         refresh();
       } else {
+        // Opening one image closes the previous one, which can shift this tile.
+        // Put it back where the eye left it, then glide it to the top.
+        const seen = t.getBoundingClientRect().top;
+        spacer.style.height = `${innerHeight * 2}px`;
         show(t.dataset.id);
+        scrollBy(0, t.getBoundingClientRect().top - seen);
         lift(t);
       }
     }),
