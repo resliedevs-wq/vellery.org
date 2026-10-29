@@ -106,7 +106,8 @@ footer{border-top:1px solid var(--line);padding:22px 32px;font-size:13px;color:v
 .vote:hover{background:var(--soft)}
 .vote.up.on{background:var(--good);color:#fff}
 .vote.down.on{background:var(--slop);color:#fff}
-.vote.basic{color:var(--slop);letter-spacing:-.15em;padding-right:20px}
+.vote.basic{color:var(--slop);letter-spacing:-.15em;padding-right:20px;animation:deeper .2s ease-out}
+@keyframes deeper{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:none}}
 .vote.basic.on{background:#8f2a18;color:#fff}
 .art{display:flex;gap:12px;flex-wrap:wrap}
 .art img{width:100%;max-width:900px;border:1px solid var(--line);border-radius:12px;background:#fff}

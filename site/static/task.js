@@ -8,6 +8,8 @@
   const byId = Object.fromEntries(tiles.map((t) => [t.dataset.id, t]));
   const cacheKey = `vellery.votes.${data.slug}`;
   const pending = {};
+  const spacer = document.createElement("div");
+  document.querySelector("footer").before(spacer);
   let votes = {};
   let variant = "strong";
   let selected = null;
@@ -65,14 +67,12 @@
     tiles.forEach((t) => (t.dataset.g = wanted[t.dataset.id]));
   }
 
-  const plain = (v) => v.down - v.basic;
-
-  function refresh() {
+    function refresh() {
     tiles.forEach((t) => {
       t.hidden = t.dataset.variant !== variant;
       t.classList.toggle("on", t.dataset.id === selected);
       const v = tally(t.dataset.id);
-      t.querySelector(".score").textContent = [v.up && `▲ ${v.up}`, plain(v) && `▼ ${plain(v)}`, v.basic && `▼▼ ${v.basic}`]
+      t.querySelector(".score").textContent = [v.up && `▲ ${v.up}`, v.down && `▼ ${v.down}`, v.basic && `▼▼ ${v.basic}`]
         .filter(Boolean).join("  ");
     });
     Object.values(groups).forEach((box) => {
@@ -101,20 +101,22 @@
     if (!slot || !selected || !data.votable[selected]) return;
     const v = tally(selected);
     const mine = v.mine;
+    const downed = !!mine && mine.vote === -1;
     const button = (cls, label, title, on, next) => {
       const b = el("button", `vote ${cls}${on ? " on" : ""}`, label);
       b.title = title;
       b.setAttribute("aria-label", title);
-      b.addEventListener("click", () => vote(selected, on ? null : next));
+      b.addEventListener("click", () => vote(selected, next));
       return b;
     };
     const bar = el("div", "votebar");
     bar.append(
-      button("up", `▲ ${v.up}`, "Upvote", mine && mine.vote === 1, { vote: 1, basic: false }),
-      button("down", `▼ ${plain(v)}`, "Downvote", mine && mine.vote === -1 && !mine.basic, { vote: -1, basic: false }),
+      button("up", `▲ ${v.up}`, "Upvote", mine && mine.vote === 1, mine && mine.vote === 1 ? null : { vote: 1, basic: false }),
+      button("down", `▼ ${v.down}`, "Downvote", downed, downed ? null : { vote: -1, basic: false }),
     );
-    if (data.votable[selected].basic)
-      bar.append(button("basic", `▼▼ ${v.basic}`, "Not meeting basic standard", mine && mine.basic, { vote: -1, basic: true }));
+    // A deeper level of the downvote, offered once you have downvoted.
+    if (downed && data.votable[selected].basic)
+      bar.append(button("basic", `▼▼ ${v.basic}`, "Not meeting basic standard", mine.basic, { vote: -1, basic: !mine.basic }));
     slot.replaceChildren(bar);
     if (!window.vellery.me) slot.append(el("span", "note", "Log in to vote"));
   }
@@ -173,6 +175,16 @@
     render();
   }
 
+  // Bring the clicked tile's row to the top of the screen. Near the end of the
+  // page there may not be room to scroll that far, so pad the bottom to make it.
+  function lift(tile) {
+    spacer.style.height = "0px";
+    const target = tile.getBoundingClientRect().top + scrollY - 16;
+    const room = document.documentElement.scrollHeight - innerHeight;
+    spacer.style.height = `${Math.max(0, target - room)}px`;
+    scrollTo({ top: target, behavior: "smooth" });
+  }
+
   function show(id) {
     selected = id;
     detail.innerHTML = data.detail[id];
@@ -187,6 +199,7 @@
     prompts.forEach((p) => p.classList.toggle("on", p.dataset.variant === variant));
     selected = null;
     detail.hidden = true;
+    spacer.style.height = "0px";
     refresh();
     if (data.mode !== "gallery") {
       const first = ["fix", "slop"].map((g) => tiles.find((t) => !t.hidden && t.dataset.g === g)).find(Boolean);
@@ -209,8 +222,12 @@
       if (selected === t.dataset.id) {
         selected = null;
         detail.hidden = true;
+        spacer.style.height = "0px";
         refresh();
-      } else show(t.dataset.id);
+      } else {
+        show(t.dataset.id);
+        lift(t);
+      }
     }),
   );
   let resizing;
