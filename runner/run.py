@@ -130,6 +130,9 @@ def run_codex(model, prompt, workdir):
         # The built-in image generator calls a separate image model; runs
         # should show what the tested model makes itself.
         "--disable", "image_generation",
+        # Its skill would otherwise tell the model the tool is missing and
+        # to ask the user before using a fallback.
+        "-c", f'skills.config=[{{path="{Path.home()}/.codex/skills/.system/imagegen/SKILL.md",enabled=false}}]',
         "-c", 'web_search="disabled"',
         "--cd", str(workdir),
         "--model", model["id"],
