@@ -6,6 +6,8 @@
   const detail = document.getElementById("detail");
   const rules = data.rules;
   const byId = Object.fromEntries(tiles.map((t) => [t.dataset.id, t]));
+  const cacheKey = `vellery.votes.${data.slug}`;
+  const pending = {};
   let votes = {};
   let variant = "strong";
   let selected = null;
@@ -19,15 +21,25 @@
   };
   const tally = (id) => votes[id] || { up: 0, down: 0, basic: 0, mine: null };
 
+  // Last tallies this browser saw, so the page can order itself before the server answers.
+  try {
+    const saved = JSON.parse(localStorage.getItem(cacheKey) || "{}");
+    for (const [id, v] of Object.entries(saved)) votes[id] = { ...v, mine: null };
+  } catch {}
+  const remember = () => {
+    try {
+      localStorage.setItem(cacheKey, JSON.stringify(Object.fromEntries(Object.entries(votes).map(([id, v]) => [id, { up: v.up, down: v.down, basic: v.basic }]))));
+    } catch {}
+  };
+
   // Scripted tasks keep their grade. Drawings take theirs from votes.
   function bucketOf(tile) {
     if (data.mode !== "gallery") return tile.dataset.g || tile.closest(".group").dataset.g;
     const v = tally(tile.dataset.id);
     const total = v.up + v.down;
     if (total < rules.min) return "none";
-    const share = v.up / total;
-    if (share >= rules.green) return "good";
-    if (share < rules.red && v.basic > v.down - v.basic) return "slop";
+    if (v.up / total >= rules.green) return "good";
+    if (v.up / total < rules.red && v.basic > v.down - v.basic) return "slop";
     return "fix";
   }
 
@@ -41,28 +53,27 @@
 
   // Green runs get a new random order on every visit; the others keep theirs.
   function place() {
-    const home = {};
-    tiles.forEach((t) => (home[t.dataset.id] = bucketOf(t)));
-    Object.entries(groups).forEach(([g, box]) => {
-      let mine = tiles.filter((t) => home[t.dataset.id] === g);
+    const wanted = {};
+    tiles.forEach((t) => (wanted[t.dataset.id] = bucketOf(t)));
+    for (const [g, box] of Object.entries(groups)) {
+      const holder = box.querySelector(".tiles");
+      let mine = tiles.filter((t) => wanted[t.dataset.id] === g);
       if (g === "good" && !placed) mine = shuffle(mine);
-      mine.forEach((t) => {
-        if (!placed || t.parentNode !== box.querySelector(".tiles")) box.querySelector(".tiles").append(t);
-      });
-    });
+      for (const t of mine) if (!placed || t.parentNode !== holder) holder.append(t);
+    }
     placed = true;
-    tiles.forEach((t) => {
-      t.dataset.g = home[t.dataset.id];
-      t.classList.toggle("on", t.dataset.id === selected);
-    });
+    tiles.forEach((t) => (t.dataset.g = wanted[t.dataset.id]));
   }
+
+  const plain = (v) => v.down - v.basic;
 
   function refresh() {
     tiles.forEach((t) => {
       t.hidden = t.dataset.variant !== variant;
+      t.classList.toggle("on", t.dataset.id === selected);
       const v = tally(t.dataset.id);
-      const score = t.querySelector(".score");
-      score.textContent = v.up || v.down ? `▲ ${v.up}  ▼ ${v.down}` : "";
+      t.querySelector(".score").textContent = [v.up && `▲ ${v.up}`, plain(v) && `▼ ${plain(v)}`, v.basic && `▼▼ ${v.basic}`]
+        .filter(Boolean).join("  ");
     });
     Object.values(groups).forEach((box) => {
       const n = [...box.querySelectorAll(".tile")].filter((t) => !t.hidden).length;
@@ -71,64 +82,112 @@
     });
   }
 
-  async function vote(id, body) {
-    if (!window.vellery.me) return window.vellery.openLogin();
-    const res = await fetch("/api/vote", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({ item: id, ...body }),
-    });
-    if (res.status === 401) return window.vellery.openLogin();
-    if (!res.ok) return;
-    votes[id] = await res.json();
-    refresh();
-    paintVotes();
-    // Drawings can change color; move them only when the bucket changes.
-    if (data.mode === "gallery") place();
-    refresh();
+  // The open item sits right under the row of its tile, like a line break in the grid.
+  function dock() {
+    const tile = selected && byId[selected];
+    if (!tile || tile.hidden) {
+      detail.hidden = true;
+      return;
+    }
+    const row = [...tile.parentNode.children].filter(
+      (c) => c.classList.contains("tile") && !c.hidden && Math.abs(c.offsetTop - tile.offsetTop) < 4,
+    );
+    row[row.length - 1].after(detail);
+    detail.hidden = false;
   }
 
   function paintVotes() {
     const slot = detail.querySelector(".votes");
     if (!slot || !selected || !data.votable[selected]) return;
     const v = tally(selected);
-    const mine = v.mine ? v.mine.vote : 0;
+    const mine = v.mine;
+    const button = (cls, label, title, on, next) => {
+      const b = el("button", `vote ${cls}${on ? " on" : ""}`, label);
+      b.title = title;
+      b.setAttribute("aria-label", title);
+      b.addEventListener("click", () => vote(selected, on ? null : next));
+      return b;
+    };
     const bar = el("div", "votebar");
-    const up = el("button", "vote up" + (mine === 1 ? " on" : ""), `▲ ${v.up}`);
-    const down = el("button", "vote down" + (mine === -1 ? " on" : ""), `▼ ${v.down}`);
-    up.setAttribute("aria-label", "Upvote");
-    down.setAttribute("aria-label", "Downvote");
-    up.addEventListener("click", () => vote(selected, { vote: mine === 1 ? 0 : 1 }));
-    down.addEventListener("click", () => vote(selected, { vote: mine === -1 ? 0 : -1 }));
-    bar.append(up, down);
-    if (mine === -1 && data.votable[selected].basic) {
-      const basic = el("button", "vote basic" + (v.mine.basic ? " on" : ""), "Not meeting basic standard");
-      basic.addEventListener("click", () => vote(selected, { vote: -1, basic: !v.mine.basic }));
-      bar.append(basic);
-    }
-    if (!window.vellery.me) bar.append(el("span", "note", "Log in to vote"));
+    bar.append(
+      button("up", `▲ ${v.up}`, "Upvote", mine && mine.vote === 1, { vote: 1, basic: false }),
+      button("down", `▼ ${plain(v)}`, "Downvote", mine && mine.vote === -1 && !mine.basic, { vote: -1, basic: false }),
+    );
+    if (data.votable[selected].basic)
+      bar.append(button("basic", `▼▼ ${v.basic}`, "Not meeting basic standard", mine && mine.basic, { vote: -1, basic: true }));
     slot.replaceChildren(bar);
+    if (!window.vellery.me) slot.append(el("span", "note", "Log in to vote"));
+  }
+
+  // Redraw everything from `votes`, keeping the open item where it is on screen.
+  function render() {
+    const before = !detail.hidden ? detail.getBoundingClientRect().top : null;
+    place();
+    refresh();
+    dock();
+    paintVotes();
+    if (before !== null && !detail.hidden) scrollBy(0, detail.getBoundingClientRect().top - before);
+  }
+
+  function applyLocal(v, next) {
+    const out = { up: v.up, down: v.down, basic: v.basic, mine: next };
+    if (v.mine) {
+      if (v.mine.vote === 1) out.up--;
+      else {
+        out.down--;
+        if (v.mine.basic) out.basic--;
+      }
+    }
+    if (next) {
+      if (next.vote === 1) out.up++;
+      else {
+        out.down++;
+        if (next.basic) out.basic++;
+      }
+    }
+    return out;
+  }
+
+  // The page updates first; the server catches up. A failed save quietly puts things back.
+  async function vote(id, next) {
+    if (!window.vellery.me) return window.vellery.openLogin();
+    const before = tally(id);
+    votes[id] = applyLocal(before, next);
+    const seq = (pending[id] = (pending[id] || 0) + 1);
+    render();
+    try {
+      const res = await fetch("/api/vote", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ item: id, vote: next ? next.vote : 0, basic: !!(next && next.basic) }),
+      });
+      if (seq !== pending[id]) return;
+      if (!res.ok) throw new Error(res.status);
+      votes[id] = await res.json();
+      remember();
+    } catch (e) {
+      if (seq !== pending[id]) return;
+      votes[id] = before;
+      if (String(e.message) === "401") window.vellery.openLogin();
+    }
+    render();
   }
 
   function show(id) {
     selected = id;
-    tiles.forEach((t) => t.classList.toggle("on", t.dataset.id === id));
     detail.innerHTML = data.detail[id];
-    if (data.votable[id]) {
-      const slot = el("div", "votes");
-      detail.querySelector(".dhead").after(slot);
-      paintVotes();
-    }
-    detail.hidden = false;
+    if (data.votable[id]) detail.querySelector(".dhead").after(el("div", "votes"));
+    dock();
+    refresh();
+    paintVotes();
   }
 
   function pick(next) {
     variant = next;
     prompts.forEach((p) => p.classList.toggle("on", p.dataset.variant === variant));
-    refresh();
-    detail.hidden = true;
     selected = null;
-    tiles.forEach((t) => t.classList.remove("on"));
+    detail.hidden = true;
+    refresh();
     if (data.mode !== "gallery") {
       const first = ["fix", "slop"].map((g) => tiles.find((t) => !t.hidden && t.dataset.g === g)).find(Boolean);
       if (first) show(first.dataset.id);
@@ -138,25 +197,31 @@
   async function load() {
     try {
       const res = await fetch(`/api/votes?task=${data.slug}`);
-      votes = res.ok ? await res.json() : {};
-    } catch {
-      votes = {};
-    }
-    place();
-    refresh();
-    if (selected) show(selected);
+      if (res.ok) votes = await res.json();
+    } catch {}
+    remember();
+    render();
   }
 
   prompts.forEach((p) => p.addEventListener("click", () => pick(p.dataset.variant)));
   tiles.forEach((t) =>
     t.addEventListener("click", () => {
-      show(t.dataset.id);
-      if (detail.getBoundingClientRect().top > innerHeight * 0.75) detail.scrollIntoView({ behavior: "smooth", block: "start" });
+      if (selected === t.dataset.id) {
+        selected = null;
+        detail.hidden = true;
+        refresh();
+      } else show(t.dataset.id);
     }),
   );
-  document.addEventListener("vellery:auth", load);
-  window.vellery.ready.then(async () => {
-    await load();
-    pick("strong");
+  let resizing;
+  addEventListener("resize", () => {
+    clearTimeout(resizing);
+    resizing = setTimeout(dock, 100);
   });
+  document.addEventListener("vellery:auth", load);
+
+  place();
+  pick("strong");
+  load();
+  window.vellery.ready.then(paintVotes);
 })();

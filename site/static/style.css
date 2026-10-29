@@ -88,6 +88,7 @@ footer{border-top:1px solid var(--line);padding:22px 32px;font-size:13px;color:v
 .tile b{font-size:13px;font-weight:600}
 .tile span{font-size:12px;color:var(--muted)}
 .group.good .tile{border-left-color:var(--good)}.group.fix .tile{border-left-color:var(--fix)}.group.slop .tile{border-left-color:var(--slop)}
+.tiles #detail{grid-column:1/-1}
 .tile.on{border-color:var(--ink);box-shadow:0 0 0 3px var(--soft)}
 .tile .score{min-height:16px;font-variant-numeric:tabular-nums}
 .tile.shot{padding:0;border-left-width:1px;background:#fff;overflow:hidden}
@@ -98,14 +99,17 @@ footer{border-top:1px solid var(--line);padding:22px 32px;font-size:13px;color:v
 .tile.shot .score:empty{display:none}
 .group.none .tiles,.board[data-mode="gallery"] .tiles{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
 
-.votebar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.vote{padding:7px 16px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font:500 14px var(--sans);cursor:pointer;font-variant-numeric:tabular-nums}
-.vote.up.on{background:var(--good);border-color:var(--good);color:#fff}
-.vote.down.on{background:var(--slop);border-color:var(--slop);color:#fff}
-.vote.basic{border-color:var(--slop);color:var(--slop)}
-.vote.basic.on{background:var(--slop);color:#fff}
+.votes{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.votebar{display:inline-flex;border:1.5px solid var(--line);border-radius:999px;overflow:hidden;background:var(--surface)}
+.vote{padding:8px 18px;border:none;border-right:1.5px solid var(--line);background:none;color:var(--ink);font:500 14px var(--sans);cursor:pointer;font-variant-numeric:tabular-nums;transition:background .1s}
+.vote:last-child{border-right:none}
+.vote:hover{background:var(--soft)}
+.vote.up.on{background:var(--good);color:#fff}
+.vote.down.on{background:var(--slop);color:#fff}
+.vote.basic{color:var(--slop);letter-spacing:-.15em;padding-right:20px}
+.vote.basic.on{background:#8f2a18;color:#fff}
 .art{display:flex;gap:12px;flex-wrap:wrap}
-.art img{max-width:100%;border:1px solid var(--line);border-radius:12px;background:#fff}
+.art img{width:100%;max-width:900px;border:1px solid var(--line);border-radius:12px;background:#fff}
 
 .top nav{align-items:center}
 #auth{display:flex;gap:12px;align-items:center;color:var(--muted);font-size:14px}
@@ -120,7 +124,7 @@ dialog.login .actions{display:flex;gap:10px;justify-content:flex-end}
 dialog.login button{padding:9px 18px;border-radius:999px;border:1.5px solid var(--line);background:none;color:inherit;font:500 14px var(--sans);cursor:pointer}
 dialog.login button.primary{background:var(--ink);border-color:var(--ink);color:var(--bg)}
 
-#detail{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;gap:20px}
+#detail{margin:6px 0;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;gap:20px}
 .dhead{display:flex;justify-content:space-between;gap:20px;align-items:start}
 .dhead h2{font-size:26px}
 .dhead h2 span{font-family:var(--sans);font-size:15px;font-weight:400;color:var(--muted)}

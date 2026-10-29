@@ -352,7 +352,7 @@ def build_task_page(task, runs, models, items):
             votable[i["id"]] = {"basic": True}
         note = ('<p class="note">Only logged-in visitors can vote. A drawing needs '
                 f'{RULES["min"]} votes to be placed. Green: {RULES["green"]:.0%} or more upvotes. Red: under '
-                f'{RULES["red"]:.0%} upvotes and more "not meeting basic standard" than plain downvotes. Otherwise yellow.</p>')
+                f'{RULES["red"]:.0%} upvotes and more ▼▼ (not meeting basic standard) than ▼. Otherwise yellow.</p>')
     else:
         reference = (task["dir"] / task["reference"]).read_text() if task["kind"] == "text" else None
         expected = list(csv.DictReader((task["dir"] / "expected.csv").open())) if task["slug"] == "clean-spreadsheet" else None
