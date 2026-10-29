@@ -1,0 +1,13 @@
+{
+  "task": "clean-spreadsheet",
+  "variant": "strong",
+  "model": "gpt-6.1-terra",
+  "label": "GPT-6.1 Terra",
+  "harness": "codex",
+  "effort": "high",
+  "run": 3,
+  "ok": true,
+  "attempts": 1,
+  "est_cost_usd": 0.004829,
+  "est_cost_usd_all_attempts": 0.004829
+}

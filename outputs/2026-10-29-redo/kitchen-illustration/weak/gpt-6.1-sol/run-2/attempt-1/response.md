@@ -1,0 +1,1 @@
+![A cozy kitchen in the morning, with warm sunlight, steaming coffee, and a sleeping cat.](cozy-kitchen.png)

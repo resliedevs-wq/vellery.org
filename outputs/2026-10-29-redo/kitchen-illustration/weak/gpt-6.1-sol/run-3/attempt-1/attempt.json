@@ -1,0 +1,58 @@
+{
+  "ok": true,
+  "error": null,
+  "started": "2026-10-29T11:40:56+00:00",
+  "duration_s": 178.2,
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "--sandbox",
+    "workspace-write",
+    "--disable",
+    "apps",
+    "--disable",
+    "plugins",
+    "--disable",
+    "image_generation",
+    "-c",
+    "skills.config=[{path=\"/root/.codex/skills/.system/imagegen/SKILL.md\",enabled=false}]",
+    "-c",
+    "web_search=\"disabled\"",
+    "--cd",
+    "/tmp/vellery-03jo3f9n/work",
+    "--model",
+    "gpt-6.1-sol",
+    "-c",
+    "model_reasoning_effort=\"high\"",
+    "--json",
+    "--output-last-message",
+    "/tmp/vellery-03jo3f9n/last-message.txt",
+    "<prompt>"
+  ],
+  "served_models": null,
+  "usage": {
+    "input_tokens": 95268,
+    "cached_input_tokens": 89600,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 6053,
+    "reasoning_output_tokens": 266
+  },
+  "est_cost_usd": 0.080826,
+  "est_cost": {
+    "gpt-6.1-sol": {
+      "input_tokens": 5668,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 89600,
+      "output_tokens": 6053,
+      "usd": 0.080826
+    }
+  },
+  "cli_reported_cost_usd": null,
+  "files": [
+    "artifacts/cozy-kitchen-morning.png",
+    "artifacts/draw_kitchen.py"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "task": "kitchen-illustration",
+  "variant": "weak",
+  "model": "claude-opus-5-5",
+  "label": "Claude Opus 5.5",
+  "harness": "claude",
+  "effort": "high",
+  "run": 1,
+  "ok": true,
+  "attempts": 1,
+  "est_cost_usd": 0.401144,
+  "est_cost_usd_all_attempts": 0.401144
+}

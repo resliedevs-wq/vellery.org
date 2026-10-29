@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+<title id="title">A cozy kitchen in the morning</title>
+<desc id="desc">Warm sunlight pours through a kitchen window onto a wooden counter, breakfast table, steaming tea, bread, and a vase of flowers.</desc>
+<defs>
+  <linearGradient id="wall" x2="0" y2="1"><stop stop-color="#f7e8c9"/><stop offset="1" stop-color="#f3dcb6"/></linearGradient>
+  <linearGradient id="sun" x2="1" y2="1"><stop stop-color="#fff4b5" stop-opacity=".78"/><stop offset="1" stop-color="#ffd77a" stop-opacity=".05"/></linearGradient>
+  <linearGradient id="floor" x2="0" y2="1"><stop stop-color="#b77b4d"/><stop offset="1" stop-color="#865337"/></linearGradient>
+  <pattern id="tile" width="82" height="66" patternUnits="userSpaceOnUse"><rect width="82" height="66" fill="#f7f0df"/><path d="M0 0H82M0 0V66" fill="none" stroke="#dfc9a4" stroke-width="2"/></pattern>
+  <filter id="shadow" x="-.3" y="-.3" width="1.6" height="1.7"><feGaussianBlur stdDeviation="8"/></filter>
+</defs>
+<!-- room -->
+<rect width="1200" height="800" fill="url(#wall)"/>
+<path d="M0 577H1200V800H0Z" fill="url(#floor)"/>
+<path d="M0 578H1200" stroke="#f4e3c1" stroke-width="12"/>
+<!-- sunlight on wall -->
+<path d="M206 235H693L1015 578H448Z" fill="url(#sun)"/>
+<!-- window -->
+<rect x="205" y="76" width="500" height="355" rx="7" fill="#fff8e9" stroke="#9b6849" stroke-width="15"/>
+<rect x="222" y="93" width="466" height="321" fill="#b8d8d5"/>
+<circle cx="585" cy="154" r="48" fill="#f6c76d"/>
+<path d="M224 333q66-71 132 0t132 0t132 0t68 1v80H224Z" fill="#89ad8c"/>
+<path d="M224 363q65-48 131 0t132 0t132 0t69 0v51H224Z" fill="#698d6d"/>
+<path d="M454 94V414M223 255H688" stroke="#fff4de" stroke-width="15"/>
+<!-- curtain -->
+<path d="M184 67q44 35 74 2l-8 220q-26-30-67-14Z" fill="#d88c70"/>
+<path d="M692 69q37 37 70 5l-8 216q-26-31-66-16Z" fill="#d88c70"/>
+<path d="M184 78q35 25 73 0M692 79q35 26 70 0" fill="none" stroke="#b76c58" stroke-width="6"/>
+<!-- upper cabinets -->
+<path d="M752 80H1138V333H752Z" fill="#b8784f" stroke="#865638" stroke-width="8"/>
+<path d="M770 98H936V315H770ZM954 98H1120V315H954Z" fill="#dca477" stroke="#8e6146" stroke-width="6"/>
+<path d="M853 108V302M1037 108V302" stroke="#c18a62" stroke-width="4"/>
+<circle cx="916" cy="211" r="6" fill="#79513c"/><circle cx="973" cy="211" r="6" fill="#79513c"/>
+<!-- hanging herbs -->
+<path d="M799 337v34m24-34v28m25-28v34" stroke="#638258" stroke-width="4"/>
+<g fill="#789264"><ellipse cx="793" cy="361" rx="8" ry="15" transform="rotate(-30 793 361)"/><ellipse cx="806" cy="373" rx="8" ry="15" transform="rotate(28 806 373)"/><ellipse cx="817" cy="353" rx="8" ry="14" transform="rotate(-26 817 353)"/><ellipse cx="835" cy="365" rx="8" ry="15" transform="rotate(27 835 365)"/><ellipse cx="848" cy="375" rx="8" ry="14" transform="rotate(-25 848 375)"/></g>
+<!-- backsplash -->
+<rect x="0" y="431" width="1200" height="145" fill="url(#tile)"/>
+<!-- counter -->
+<path d="M0 519H1200V564H0Z" fill="#805238"/><path d="M0 519H1200V539H0Z" fill="#d2a070"/>
+<!-- base cabinets -->
+<path d="M55 564H1148V730H55Z" fill="#bd8055" stroke="#87583e" stroke-width="8"/>
+<path d="M79 583H321V712H79ZM343 583H585V712H343ZM668 583H900V712H668ZM922 583H1124V712H922Z" fill="#d49a68" stroke="#8d5e41" stroke-width="6"/>
+<path d="M201 592V703M465 592V703M781 592V703M1039 592V703" stroke="#c28659" stroke-width="4"/>
+<circle cx="299" cy="646" r="7" fill="#79513c"/><circle cx="563" cy="646" r="7" fill="#79513c"/><circle cx="878" cy="646" r="7" fill="#79513c"/><circle cx="1102" cy="646" r="7" fill="#79513c"/>
+<!-- sink and faucet -->
+<path d="M747 516h220q-14 51-110 51t-110-51Z" fill="#91aaa0" stroke="#658077" stroke-width="5"/>
+<path d="M831 518v-51q0-28 29-28t29 28v20" fill="none" stroke="#8c9890" stroke-width="12" stroke-linecap="round"/>
+<!-- kettle -->
+<ellipse cx="614" cy="520" rx="43" ry="8" fill="#5b4539" opacity=".2"/>
+<path d="M578 472q4-44 42-44t42 44l-9 42h-66Z" fill="#57776d" stroke="#365d53" stroke-width="5"/>
+<path d="M583 465q-31-8-28 18t29 18M605 426q14-27 30 0" fill="none" stroke="#365d53" stroke-width="8" stroke-linecap="round"/>
+<path d="M600 414q-12-18 1-31m22 31q-9-17 4-28" fill="none" stroke="#fff9e9" stroke-width="5" stroke-linecap="round" opacity=".8"/>
+<!-- hanging pan -->
+<path d="M1011 394h100" stroke="#76513d" stroke-width="6"/><path d="M1037 397v21q-28 5-29 28t33 35q34-10 31-36t-28-27v-21" fill="#59615b" stroke="#414841" stroke-width="5"/>
+<!-- table foreground -->
+<ellipse cx="362" cy="694" rx="280" ry="35" fill="#38281f" opacity=".2" filter="url(#shadow)"/>
+<path d="M78 658q281-55 559 0l-21 47q-259 41-521 0Z" fill="#d29760" stroke="#8a5739" stroke-width="7"/>
+<path d="M127 694 111 798m449-104 21 104" stroke="#87563a" stroke-width="24"/>
+<!-- bread board + loaf -->
+<ellipse cx="278" cy="648" rx="105" ry="28" fill="#e4bc7f" stroke="#a87045" stroke-width="5"/>
+<path d="M222 632q4-46 53-48 48 4 56 48-54 24-109 0Z" fill="#bd7846" stroke="#905533" stroke-width="5"/>
+<path d="M243 599q-10 13-8 27m37-42q-10 15-8 30m39-16q-9 12-8 25" stroke="#f0c68a" stroke-width="7" stroke-linecap="round"/>
+<!-- jam -->
+<path d="M401 615h56l-5 57h-47Z" fill="#ad5548" stroke="#793c37" stroke-width="4"/><rect x="398" y="606" width="63" height="12" rx="4" fill="#8b6547"/><path d="M410 638h38" stroke="#efc485" stroke-width="4"/>
+<!-- flowers on sill/counter -->
+<path d="M1070 513v-51m17 51v-61m17 61v-46" stroke="#668557" stroke-width="5"/>
+<path d="M1050 515h75l-9 49h-56Z" fill="#d99371" stroke="#a96352" stroke-width="4"/>
+<g fill="#e9b85d"><circle cx="1070" cy="452" r="12"/><circle cx="1087" cy="441" r="13"/><circle cx="1104" cy="462" r="11"/></g>
+<g fill="#d87d6b"><circle cx="1063" cy="449" r="5"/><circle cx="1087" cy="441" r="5"/><circle cx="1104" cy="462" r="5"/></g>
+<!-- mug, saucer, breakfast -->
+<ellipse cx="505" cy="665" rx="47" ry="13" fill="#f4e4c4" stroke="#b38c62" stroke-width="4"/>
+<path d="M474 623h53v39q-23 20-48 0Z" fill="#f7efe0" stroke="#ae8e6e" stroke-width="4"/>
+<path d="M526 633q31-2 25 17t-25 9" fill="none" stroke="#ae8e6e" stroke-width="5"/>
+<path d="M486 615q-10-13 2-22m18 22q-10-14 2-22" stroke="#fff7e7" stroke-width="4" fill="none" stroke-linecap="round"/>
+<!-- sunlight stripes -->
+<path d="M437 539l35 0 102 115-34 2Zm98-2h39l105 99-36 10Z" fill="#ffe48f" opacity=".23"/>
+<!-- small warmth details -->
+<path d="M34 125q24-22 47 0m-47 20q24-22 47 0" fill="none" stroke="#d9b482" stroke-width="4" stroke-linecap="round" opacity=".7"/>
+</svg>

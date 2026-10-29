@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="title description">
+  <title id="title">A quiet kitchen morning</title>
+  <desc id="description">A front view of a small kitchen table holding three red apples, a blue mug marked MONDAY, and a folded newspaper with a sleeping gray cat. Warm sunlight enters from a window on the left.</desc>
+  <defs>
+    <linearGradient id="wall" x2="0" y2="1">
+      <stop stop-color="#eee3ca"/>
+      <stop offset="1" stop-color="#d8c6a5"/>
+    </linearGradient>
+    <linearGradient id="sunbeam" x2="1" y2="1">
+      <stop stop-color="#f8dfa0" stop-opacity=".58"/>
+      <stop offset="1" stop-color="#f8dfa0" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="tabletop" x2="0" y2="1">
+      <stop stop-color="#bd8958"/>
+      <stop offset="1" stop-color="#9e6d47"/>
+    </linearGradient>
+    <linearGradient id="apple" x2=".9" y2="1">
+      <stop stop-color="#d95845"/>
+      <stop offset="1" stop-color="#a9342d"/>
+    </linearGradient>
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="180%">
+      <feGaussianBlur stdDeviation="7"/>
+    </filter>
+  </defs>
+
+  <!-- Quiet, sunlit kitchen wall -->
+  <rect width="800" height="600" fill="url(#wall)"/>
+  <path d="M0 320H800" stroke="#c9b591" stroke-width="3"/>
+  <path d="M0 326H800" stroke="#e4d7bd" stroke-width="2"/>
+  <path d="M183 115L510 130 705 410 302 410Z" fill="url(#sunbeam)"/>
+
+  <!-- Window on the left -->
+  <g stroke="#806c53" stroke-linejoin="round">
+    <rect x="42" y="44" width="188" height="194" rx="3" fill="#8b7357" stroke-width="5"/>
+    <rect x="53" y="55" width="166" height="172" fill="#d8e0d0" stroke="none"/>
+    <path d="M54 174Q94 143 133 170T219 159V227H54Z" fill="#9aa58a" stroke="none"/>
+    <path d="M54 191Q100 167 142 191T219 180V227H54Z" fill="#77836d" stroke="none"/>
+    <path d="M136 56V227M54 141H219" fill="none" stroke="#8b7357" stroke-width="8"/>
+    <path d="M37 241H236" fill="none" stroke="#a68762" stroke-width="9" stroke-linecap="round"/>
+  </g>
+  <path d="M0 245L278 245 445 411H0Z" fill="#f7e6b6" opacity=".22"/>
+
+  <!-- Floor and table shadow -->
+  <rect y="456" width="800" height="144" fill="#cbb798"/>
+  <ellipse cx="411" cy="514" rx="278" ry="24" fill="#725b45" opacity=".18" filter="url(#softShadow)"/>
+
+  <!-- Table legs, seen straight on -->
+  <path d="M175 382H222L207 516H169Z" fill="#8d603f"/>
+  <path d="M578 382H625L633 516H595Z" fill="#8d603f"/>
+  <path d="M190 389H207L194 504H178Z" fill="#a7774e" opacity=".65"/>
+  <path d="M589 389H605L619 504H602Z" fill="#a7774e" opacity=".55"/>
+  <path d="M208 448H594V461H207Z" fill="#946642"/>
+
+  <!-- Tabletop -->
+  <path d="M117 337Q117 329 127 329H674Q684 329 684 339L669 397H133Z" fill="url(#tabletop)" stroke="#81583d" stroke-width="3"/>
+  <path d="M129 342H672" stroke="#d1a477" stroke-width="3" opacity=".7"/>
+  <path d="M143 383Q285 375 438 383T658 381" fill="none" stroke="#875b3d" stroke-width="2" opacity=".35"/>
+
+  <!-- Folded newspaper -->
+  <g>
+    <path d="M335 315L499 301 526 333 508 367 348 372 327 345Z" fill="#e9e1d1" stroke="#8c8375" stroke-width="2.5"/>
+    <path d="M335 315L355 339 348 372 327 345Z" fill="#d1c8b8" stroke="#8c8375" stroke-width="2"/>
+    <path d="M355 339L508 328M355 339L508 367" fill="none" stroke="#a49a8a" stroke-width="1.5"/>
+    <path d="M366 323L425 318M433 317L486 313" stroke="#7b766e" stroke-width="3"/>
+    <path d="M370 330L400 328M407 327L422 326M435 324L466 321M473 320L491 318" stroke="#aaa295" stroke-width="2"/>
+    <path d="M365 348L391 346M365 355L398 353M365 362L391 361M432 345L460 343M432 352L468 350M432 359L459 358" stroke="#aaa295" stroke-width="2"/>
+    <path d="M416 342L422 365" stroke="#b8aea0" stroke-width="1.5"/>
+  </g>
+
+  <!-- Sleeping gray cat curled on the paper -->
+  <g stroke="#615f5b" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M367 313Q358 300 364 285L371 269 384 282Q399 276 415 285L430 275 435 296Q448 309 436 321Q421 333 392 326Q376 324 367 313Z" fill="#999894"/>
+    <path d="M368 303Q374 285 396 285Q417 285 430 301Q439 316 424 321Q407 328 388 318Q378 314 368 303Z" fill="#a8a7a2" stroke="none"/>
+    <path d="M370 278L374 292 382 284M420 282L417 294 432 292" fill="#b9a7a0"/>
+    <path d="M388 302Q394 307 400 302M411 302Q417 307 422 301" fill="none" stroke="#555451" stroke-width="2"/>
+    <path d="M402 308L406 310 403 313" fill="#7c6662" stroke="none"/>
+    <path d="M401 314Q397 317 393 314M404 314Q408 317 412 314" fill="none" stroke="#66615d" stroke-width="1.5"/>
+    <path d="M400 322Q411 327 421 320" fill="none" stroke="#777671" stroke-width="6"/>
+    <path d="M386 292Q397 287 407 292M377 302L365 299M378 307L366 310" fill="none" stroke="#777672" stroke-width="1.5" opacity=".75"/>
+  </g>
+  <path d="M391 291q5-4 10 0M414 291q5-4 9 0" fill="none" stroke="#555451" stroke-width="1.5" stroke-linecap="round"/>
+  <text x="449" y="289" font-family="sans-serif" font-size="15" fill="#9a8a70">z</text>
+  <text x="461" y="280" font-family="sans-serif" font-size="11" fill="#9a8a70">z</text>
+
+  <!-- Exactly three red apples -->
+  <g stroke="#87372e" stroke-width="2">
+    <path d="M195 329Q180 318 184 302Q187 289 200 291Q207 292 211 298Q220 288 232 294Q245 302 238 318Q234 330 217 337Q205 339 195 329Z" fill="url(#apple)"/>
+    <path d="M209 296Q207 287 213 281" fill="none" stroke="#65533d" stroke-width="4" stroke-linecap="round"/>
+    <path d="M211 286Q222 279 228 284Q222 292 212 291Z" fill="#78805e" stroke="#596348" stroke-width="1.5"/>
+    <path d="M273 329Q259 319 264 304Q267 292 279 294Q286 295 290 301Q300 291 311 297Q324 305 317 320Q313 331 297 337Q284 339 273 329Z" fill="url(#apple)"/>
+    <path d="M289 298Q287 289 293 283" fill="none" stroke="#65533d" stroke-width="4" stroke-linecap="round"/>
+    <path d="M291 288Q302 281 308 286Q302 294 292 293Z" fill="#78805e" stroke="#596348" stroke-width="1.5"/>
+    <path d="M553 329Q540 319 544 304Q548 292 560 294Q567 295 571 301Q581 291 592 297Q605 305 598 320Q594 331 578 337Q565 339 553 329Z" fill="url(#apple)"/>
+    <path d="M569 298Q567 289 573 283" fill="none" stroke="#65533d" stroke-width="4" stroke-linecap="round"/>
+    <path d="M571 288Q582 281 588 286Q582 294 572 293Z" fill="#78805e" stroke="#596348" stroke-width="1.5"/>
+  </g>
+  <path d="M191 303Q193 297 199 297M269 306Q271 300 277 300M549 306Q551 300 557 300" fill="none" stroke="#f18a69" stroke-width="3" stroke-linecap="round" opacity=".75"/>
+
+  <!-- Blue mug with its handle and clear label -->
+  <g>
+    <path d="M637 282H653V293Q674 293 672 311Q670 327 652 327H647" fill="none" stroke="#426d7d" stroke-width="9" stroke-linecap="round"/>
+    <path d="M608 280Q608 276 614 276H654L650 326Q649 333 643 333H619Q613 333 612 327Z" fill="#527f8e" stroke="#365c68" stroke-width="2.5"/>
+    <ellipse cx="634" cy="279" rx="23" ry="6" fill="#d6e1dc" stroke="#365c68" stroke-width="2"/>
+    <ellipse cx="634" cy="280" rx="17" ry="3" fill="#796d5d" opacity=".75"/>
+    <path d="M617 288L615 319" stroke="#86a8ad" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+    <text x="632" y="307" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="700" letter-spacing=".6" fill="#fff0d1">MONDAY</text>
+  </g>
+
+  <!-- Soft foreground warmth -->
+  <path d="M0 540Q180 520 375 540T800 531V600H0Z" fill="#bca98b" opacity=".3"/>
+</svg>

@@ -1,0 +1,12 @@
+{"type":"thread.started","thread_id":"01a1877f-09f6-7212-b083-908143ddd9d8"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"I’ll create a warm morning kitchen scene with soft sunlight and lived-in details."}}
+{"type":"item.started","item":{"id":"item_1","type":"command_execution","command":"/bin/bash -lc \"pwd && rg --files -g '*.svg' -g 'README*' | head\"","aggregated_output":"","exit_code":null,"status":"in_progress"}}
+{"type":"item.completed","item":{"id":"item_1","type":"command_execution","command":"/bin/bash -lc \"pwd && rg --files -g '*.svg' -g 'README*' | head\"","aggregated_output":"/tmp/vellery-c7gbrtzm/work\n","exit_code":0,"status":"completed"}}
+{"type":"item.started","item":{"id":"item_2","type":"file_change","changes":[{"path":"/tmp/vellery-c7gbrtzm/work/cozy-morning-kitchen.svg","kind":"add"}],"status":"in_progress"}}
+{"type":"item.completed","item":{"id":"item_2","type":"file_change","changes":[{"path":"/tmp/vellery-c7gbrtzm/work/cozy-morning-kitchen.svg","kind":"add"}],"status":"completed"}}
+{"type":"item.completed","item":{"id":"item_3","type":"agent_message","text":"![A cozy kitchen in the morning](</tmp/vellery-c7gbrtzm/work/cozy-morning-kitchen.svg>)"}}
+{"type":"turn.completed","usage":{"input_tokens":62054,"cached_input_tokens":33280,"cache_write_input_tokens":0,"output_tokens":3920,"reasoning_output_tokens":196}}
+
+--- stderr ---
+Reading additional input from stdin...

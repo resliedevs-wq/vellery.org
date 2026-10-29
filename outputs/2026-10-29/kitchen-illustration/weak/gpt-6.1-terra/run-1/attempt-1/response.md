@@ -1,0 +1,1 @@
+I can’t generate the drawing here because the built-in image generation tool isn’t available. A command-line fallback is available, but it requires an `OPENAI_API_KEY`; let me know if you’d like to use it.

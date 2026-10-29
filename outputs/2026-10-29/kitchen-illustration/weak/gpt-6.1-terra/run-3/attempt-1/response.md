@@ -1,0 +1,1 @@
+I can’t generate the image here because the built-in image tool isn’t available. A command-line fallback is available, but it requires an `OPENAI_API_KEY`. If you’d like to use it, I can guide you through the setup.

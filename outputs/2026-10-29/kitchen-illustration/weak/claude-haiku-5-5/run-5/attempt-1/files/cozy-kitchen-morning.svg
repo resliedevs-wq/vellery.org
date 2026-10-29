@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fbeccd"/>
+      <stop offset="1" stop-color="#f1d3a6"/>
+    </linearGradient>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9fd3e6"/>
+      <stop offset="0.7" stop-color="#ffd9a0"/>
+      <stop offset="1" stop-color="#ffc98a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fff6d6" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#fff6d6" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="tile" width="30" height="20" patternUnits="userSpaceOnUse">
+      <rect width="30" height="20" fill="#f7f1e3"/>
+      <path d="M0 20H30M15 0V20" stroke="#e6dcc6" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Wall -->
+  <rect width="800" height="600" fill="url(#wall)"/>
+
+  <!-- Floor -->
+  <rect x="0" y="470" width="800" height="130" fill="#c49a6c"/>
+  <g stroke="#a87d52" stroke-width="2" opacity="0.45">
+    <line x1="0" y1="500" x2="800" y2="500"/>
+    <line x1="0" y1="530" x2="800" y2="530"/>
+    <line x1="0" y1="565" x2="800" y2="565"/>
+    <line x1="160" y1="470" x2="160" y2="500"/>
+    <line x1="420" y1="500" x2="420" y2="530"/>
+    <line x1="260" y1="530" x2="260" y2="565"/>
+    <line x1="600" y1="500" x2="600" y2="530"/>
+  </g>
+
+  <!-- Sunlight streaming in -->
+  <polygon points="500,344 730,344 840,600 330,600" fill="#fff3c4" opacity="0.35"/>
+  <polygon points="560,344 690,344 740,600 560,600" fill="#fff8e0" opacity="0.2"/>
+
+  <!-- Window -->
+  <rect x="500" y="90" width="220" height="240" rx="6" fill="#fffaf0" stroke="#e8dcc8" stroke-width="2"/>
+  <rect x="512" y="102" width="196" height="216" fill="url(#sky)"/>
+  <circle cx="610" cy="200" r="70" fill="#ffe89a" opacity="0.35"/>
+  <circle cx="610" cy="200" r="34" fill="#ffe89a"/>
+  <path d="M512 290 Q570 250 630 280 T708 270 L708 318 L512 318 Z" fill="#9cc9a0"/>
+  <path d="M512 306 Q580 288 640 300 T708 296 L708 318 L512 318 Z" fill="#7fb584"/>
+  <rect x="608" y="102" width="8" height="216" fill="#fffaf0"/>
+  <rect x="512" y="206" width="196" height="8" fill="#fffaf0"/>
+  <!-- Window sill -->
+  <rect x="488" y="330" width="244" height="14" rx="4" fill="#fffaf0"/>
+  <!-- Curtains and rod -->
+  <rect x="462" y="62" width="280" height="8" rx="4" fill="#8a6a4f"/>
+  <path d="M470 70 L505 70 Q495 200 505 340 L470 340 Z" fill="#e8a598" opacity="0.92"/>
+  <path d="M735 70 L700 70 Q712 200 700 340 L735 340 Z" fill="#e8a598" opacity="0.92"/>
+
+  <!-- Plant on sill -->
+  <path d="M544 286 Q540 300 546 312" stroke="#5e945c" stroke-width="3" fill="none"/>
+  <ellipse cx="535" cy="285" rx="10" ry="22" transform="rotate(-25 535 285)" fill="#6fa36a"/>
+  <ellipse cx="555" cy="282" rx="10" ry="24" transform="rotate(20 555 282)" fill="#7fb575"/>
+  <ellipse cx="545" cy="270" rx="9" ry="20" fill="#5e945c"/>
+  <path d="M530 300 L560 300 L556 330 L534 330 Z" fill="#c8704f"/>
+  <rect x="528" y="298" width="34" height="6" rx="2" fill="#b65f40"/>
+
+  <!-- Wall clock -->
+  <circle cx="400" cy="150" r="40" fill="#fffaf0" stroke="#8a6a4f" stroke-width="6"/>
+  <line x1="400" y1="150" x2="400" y2="125" stroke="#5a4636" stroke-width="3" stroke-linecap="round"/>
+  <line x1="400" y1="150" x2="418" y2="158" stroke="#5a4636" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="400" cy="150" r="3" fill="#5a4636"/>
+
+  <!-- Upper cabinets -->
+  <rect x="40" y="70" width="260" height="150" rx="8" fill="#8fae8b"/>
+  <line x1="170" y1="70" x2="170" y2="220" stroke="#6f8f6b" stroke-width="4"/>
+  <circle cx="160" cy="110" r="5" fill="#f5e6c8"/>
+  <circle cx="180" cy="110" r="5" fill="#f5e6c8"/>
+
+  <!-- Backsplash -->
+  <rect x="40" y="220" width="300" height="110" fill="url(#tile)"/>
+
+  <!-- Lower cabinets -->
+  <rect x="30" y="340" width="320" height="130" rx="4" fill="#7f9f7b"/>
+  <g stroke="#6a8a66" stroke-width="3">
+    <line x1="110" y1="340" x2="110" y2="470"/>
+    <line x1="190" y1="340" x2="190" y2="470"/>
+    <line x1="270" y1="340" x2="270" y2="470"/>
+  </g>
+  <g fill="#f5e6c8">
+    <rect x="98" y="372" width="6" height="22" rx="3"/>
+    <rect x="196" y="372" width="6" height="22" rx="3"/>
+    <rect x="276" y="372" width="6" height="22" rx="3"/>
+    <rect x="98" y="430" width="6" height="22" rx="3"/>
+    <rect x="196" y="430" width="6" height="22" rx="3"/>
+    <rect x="276" y="430" width="6" height="22" rx="3"/>
+  </g>
+
+  <!-- Counter -->
+  <rect x="24" y="326" width="332" height="16" rx="4" fill="#d8b98f" stroke="#b8956a" stroke-width="2"/>
+
+  <!-- Kettle on the counter, steaming -->
+  <path d="M226 272 Q240 246 254 272" stroke="#c96a50" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M212 290 L188 270 L192 262 L218 282 Z" fill="#c96a50"/>
+  <ellipse cx="240" cy="296" rx="32" ry="30" fill="#e07a5f"/>
+  <circle cx="240" cy="266" r="4" fill="#3d3d3d"/>
+  <path d="M236 246 C228 234 244 226 236 214 S228 196 236 186" stroke="#b5a58f" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.7"/>
+  <path d="M252 244 C246 232 260 224 252 212 S246 196 254 186" stroke="#b5a58f" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.7"/>
+
+  <!-- Tea mug on the counter -->
+  <path d="M104 304 Q116 304 116 311 Q116 318 104 318" stroke="#6c9bbf" stroke-width="5" fill="none"/>
+  <rect x="74" y="296" width="30" height="30" rx="4" fill="#8fb8d6"/>
+  <ellipse cx="89" cy="296" rx="15" ry="3.5" fill="#7a4a2b"/>
+  <path d="M84 286 q-5 -6 0 -12 t0 -12" stroke="#b5a58f" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.7"/>
+
+  <!-- Table -->
+  <rect x="400" y="390" width="300" height="16" rx="5" fill="#b98a5e"/>
+  <rect x="420" y="406" width="10" height="64" fill="#9c7049"/>
+  <rect x="670" y="406" width="10" height="64" fill="#9c7049"/>
+
+  <!-- Toast on a plate -->
+  <ellipse cx="470" cy="384" rx="60" ry="10" fill="#fffaf0" stroke="#e0d3bd" stroke-width="2"/>
+  <rect x="438" y="360" width="46" height="26" rx="9" fill="#e9b96b" stroke="#c8903e" stroke-width="3" transform="rotate(-8 461 373)"/>
+  <rect x="470" y="356" width="46" height="26" rx="9" fill="#e9b96b" stroke="#c8903e" stroke-width="3" transform="rotate(6 493 369)"/>
+  <rect x="468" y="346" width="14" height="9" rx="2" fill="#fff1a8"/>
+
+  <!-- Jam jar -->
+  <rect x="530" y="344" width="30" height="46" rx="6" fill="#d9575f"/>
+  <rect x="528" y="332" width="34" height="12" rx="3" fill="#c9a46a"/>
+
+  <!-- Coffee mug -->
+  <path d="M626 362 Q640 362 640 374 Q640 386 626 386" stroke="#6c9bbf" stroke-width="5" fill="none"/>
+  <rect x="590" y="352" width="36" height="38" rx="6" fill="#6c9bbf"/>
+  <ellipse cx="608" cy="352" rx="16" ry="4" fill="#7a4a2b"/>
+  <path d="M600 338 q-6 -8 0 -16 t0 -16" stroke="#b5a58f" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.7"/>
+  <path d="M614 336 q-6 -8 0 -16 t0 -14" stroke="#b5a58f" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.7"/>
+
+  <!-- Sleepy cat on a rug -->
+  <ellipse cx="330" cy="530" rx="170" ry="40" fill="#e3a58a" opacity="0.6"/>
+  <path d="M370 522 Q410 512 400 472" stroke="#6b5447" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <ellipse cx="310" cy="520" rx="62" ry="24" fill="#6b5447"/>
+  <circle cx="258" cy="508" r="22" fill="#6b5447"/>
+  <polygon points="242,494 244,474 256,488" fill="#6b5447"/>
+  <polygon points="262,488 274,474 276,494" fill="#6b5447"/>
+  <path d="M248 508 q4 4 8 0" stroke="#3a2e28" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M262 506 q4 4 8 0" stroke="#3a2e28" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <ellipse cx="254" cy="516" rx="3" ry="2" fill="#e3a58a"/>
+
+  <!-- Warm morning glow over the room -->
+  <circle cx="600" cy="250" r="380" fill="url(#glow)"/>
+</svg>

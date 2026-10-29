@@ -1,0 +1,13 @@
+{
+  "task": "kitchen-illustration",
+  "variant": "strong",
+  "model": "claude-sonnet-5-5",
+  "label": "Claude Sonnet 5.5",
+  "harness": "claude",
+  "effort": "high",
+  "run": 1,
+  "ok": true,
+  "attempts": 1,
+  "est_cost_usd": 0.100013,
+  "est_cost_usd_all_attempts": 0.100013
+}

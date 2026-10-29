@@ -1,0 +1,1 @@
+I can’t generate an image in this session because the built-in image tool isn’t available. The fallback uses the image generation CLI and requires an `OPENAI_API_KEY`; tell me if you want to use that.

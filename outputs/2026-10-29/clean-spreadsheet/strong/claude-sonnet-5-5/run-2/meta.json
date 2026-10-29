@@ -1,0 +1,13 @@
+{
+  "task": "clean-spreadsheet",
+  "variant": "strong",
+  "model": "claude-sonnet-5-5",
+  "label": "Claude Sonnet 5.5",
+  "harness": "claude",
+  "effort": "high",
+  "run": 2,
+  "ok": true,
+  "attempts": 1,
+  "est_cost_usd": 0.042298,
+  "est_cost_usd_all_attempts": 0.042298
+}

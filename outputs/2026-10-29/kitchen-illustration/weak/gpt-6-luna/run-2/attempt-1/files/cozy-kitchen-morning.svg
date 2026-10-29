@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Cozy kitchen in the morning</title>
+  <desc id="desc">A warm illustrated kitchen with morning sunlight, a checked table, fresh flowers, and a steaming cup of coffee.</desc>
+  <defs>
+    <linearGradient id="wall" x2="0" y2="1"><stop stop-color="#f7dfb6"/><stop offset="1" stop-color="#f1c997"/></linearGradient>
+    <linearGradient id="sun" x2="1" y2="1"><stop stop-color="#fff3bd" stop-opacity=".85"/><stop offset="1" stop-color="#ffd882" stop-opacity=".08"/></linearGradient>
+    <linearGradient id="floor" x2="0" y2="1"><stop stop-color="#c58b5d"/><stop offset="1" stop-color="#a96845"/></linearGradient>
+    <pattern id="checks" width="44" height="44" patternUnits="userSpaceOnUse"><rect width="44" height="44" fill="#f5e7c9"/><rect width="22" height="22" fill="#d98268"/><rect x="22" y="22" width="22" height="22" fill="#d98268"/></pattern>
+    <filter id="soft"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <!-- room -->
+  <rect width="1200" height="570" fill="url(#wall)"/>
+  <rect y="570" width="1200" height="230" fill="url(#floor)"/>
+  <path d="M0 570H1200" stroke="#9a6446" stroke-width="8"/>
+  <path d="M0 690H1200M0 770H1200M220 570L160 800M500 570L470 800M800 570L820 800M1060 570L1120 800" stroke="#8f5c40" stroke-width="4" opacity=".45"/>
+  <!-- morning light -->
+  <path d="M95 68H510V420L90 555Z" fill="url(#sun)"/>
+  <ellipse cx="335" cy="465" rx="250" ry="85" fill="#ffe9a8" opacity=".28" filter="url(#soft)"/>
+  <!-- window -->
+  <rect x="75" y="55" width="440" height="370" rx="10" fill="#fff0d5" stroke="#8b5b43" stroke-width="15"/>
+  <rect x="96" y="76" width="398" height="328" fill="#a9d5d2"/>
+  <path d="M96 300Q180 240 260 302T494 280V404H96Z" fill="#88b58c"/>
+  <path d="M96 345Q180 300 280 347T494 324V404H96Z" fill="#739c71"/>
+  <path d="M295 76V404M96 240H494" stroke="#fff0d5" stroke-width="16"/>
+  <path d="M58 50Q295 0 532 50L513 80Q298 35 78 82Z" fill="#b86e55"/>
+  <path d="M75 427H515" stroke="#8b5b43" stroke-width="18" stroke-linecap="round"/>
+  <!-- cabinets -->
+  <rect x="650" y="95" width="470" height="275" rx="12" fill="#789080" stroke="#526c60" stroke-width="8"/>
+  <path d="M885 100V365" stroke="#526c60" stroke-width="8"/>
+  <rect x="676" y="120" width="190" height="220" rx="5" fill="#8ea293" stroke="#d8c29c" stroke-width="5"/>
+  <rect x="910" y="120" width="183" height="220" rx="5" fill="#8ea293" stroke="#d8c29c" stroke-width="5"/>
+  <circle cx="842" cy="235" r="8" fill="#e5c18a"/><circle cx="930" cy="235" r="8" fill="#e5c18a"/>
+  <!-- shelf and jars -->
+  <path d="M610 390H1145" stroke="#875b43" stroke-width="18" stroke-linecap="round"/>
+  <rect x="705" y="320" width="58" height="64" rx="9" fill="#f1d89e" stroke="#a87556" stroke-width="4"/>
+  <path d="M713 320V308H755V320" fill="#a87556"/>
+  <rect x="780" y="337" width="48" height="47" rx="8" fill="#c8a77f" stroke="#a87556" stroke-width="4"/>
+  <path d="M785 337V327H823V337" fill="#a87556"/>
+  <rect x="1010" y="315" width="68" height="69" rx="9" fill="#fff2da" stroke="#a87556" stroke-width="4"/>
+  <path d="M1017 315V303H1070V315" fill="#a87556"/>
+  <!-- counter -->
+  <rect x="580" y="410" width="590" height="28" rx="8" fill="#f0d9b0"/>
+  <rect x="600" y="438" width="550" height="132" fill="#d9b98d"/>
+  <path d="M625 455V555M1125 455V555" stroke="#b48c67" stroke-width="7"/>
+  <rect x="855" y="452" width="140" height="84" rx="35" fill="#e7eee4" stroke="#8a9a87" stroke-width="7"/>
+  <path d="M925 452V427Q925 408 945 408" fill="none" stroke="#8a9a87" stroke-width="9" stroke-linecap="round"/>
+  <!-- kettle -->
+  <path d="M655 365Q665 330 700 330Q735 330 742 365V405H655Z" fill="#d77757" stroke="#9e573f" stroke-width="5"/>
+  <path d="M668 332Q700 298 730 332" fill="none" stroke="#9e573f" stroke-width="7"/>
+  <path d="M742 370Q775 357 768 390L742 393" fill="#d77757" stroke="#9e573f" stroke-width="5"/>
+  <!-- plant -->
+  <path d="M1095 410V350M1095 390Q1060 372 1063 346Q1090 350 1095 382M1097 375Q1115 338 1142 343Q1135 371 1097 390M1095 359Q1074 326 1087 310Q1110 332 1095 359" fill="#688766" stroke="#557256" stroke-width="5"/>
+  <path d="M1074 397H1120L1114 420H1080Z" fill="#c87859"/>
+  <!-- table -->
+  <path d="M105 565H825L765 635H165Z" fill="#9a6548"/>
+  <path d="M150 596H790L755 635H185Z" fill="url(#checks)"/>
+  <path d="M180 633L155 785M740 633L780 785" stroke="#87583f" stroke-width="24" stroke-linecap="round"/>
+  <!-- bread and plate -->
+  <ellipse cx="370" cy="584" rx="115" ry="29" fill="#f4ead1" stroke="#c5ac82" stroke-width="5"/>
+  <path d="M292 578Q295 532 330 538Q350 505 381 531Q417 518 432 550Q458 557 451 578Z" fill="#c9854e" stroke="#a6653b" stroke-width="5"/>
+  <path d="M328 550L342 571M372 540L384 570M412 548L419 571" stroke="#f0c17e" stroke-width="6" stroke-linecap="round"/>
+  <!-- coffee cup -->
+  <ellipse cx="605" cy="577" rx="58" ry="17" fill="#f8f0dc" stroke="#c9b58c" stroke-width="5"/>
+  <path d="M548 575V615Q605 645 662 615V575" fill="#f7f0df" stroke="#c9b58c" stroke-width="5"/>
+  <path d="M661 584Q708 579 699 610Q692 628 662 618" fill="none" stroke="#f7f0df" stroke-width="12"/>
+  <ellipse cx="605" cy="578" rx="42" ry="10" fill="#78513d"/>
+  <path d="M584 548Q568 530 585 513M611 545Q598 524 616 502" fill="none" stroke="#fff7e5" stroke-width="6" stroke-linecap="round" opacity=".85"/>
+  <!-- little flowers -->
+  <path d="M215 577V514M235 580V500M255 581V522" stroke="#6e8a61" stroke-width="5"/>
+  <g fill="#e6a276"><circle cx="215" cy="510" r="10"/><circle cx="235" cy="496" r="11"/><circle cx="255" cy="518" r="9"/></g>
+  <g fill="#f1d18d"><circle cx="215" cy="510" r="3"/><circle cx="235" cy="496" r="3"/><circle cx="255" cy="518" r="3"/></g>
+  <!-- hanging lamp -->
+  <path d="M930 0V95" stroke="#725b4d" stroke-width="6"/>
+  <path d="M865 100Q930 70 995 100L975 139H885Z" fill="#d78c5e" stroke="#9e634a" stroke-width="5"/>
+  <ellipse cx="930" cy="140" rx="47" ry="8" fill="#ffe7a3" opacity=".9"/>
+  <path d="M890 150L850 265M970 150L1010 265" stroke="#ffd979" stroke-width="3" opacity=".22"/>
+</svg>

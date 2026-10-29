@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="800" viewBox="0 0 1000 800" role="img" aria-labelledby="title description">
+  <title id="title">A quiet Monday morning</title>
+  <desc id="description">Flat vector illustration of a small kitchen table viewed from the front. Exactly three red apples, a blue mug labeled MONDAY, and a folded newspaper with a sleeping gray cat sit on the table. Morning sunlight enters through a window on the left. There are no people.</desc>
+
+  <!-- Warm plaster wall and floor. -->
+  <path fill="#f1e5d0" d="M0 0h1000v800H0z"/>
+  <path fill="#ded0b7" d="M0 608h1000v192H0z"/>
+  <path fill="#cbb99c" d="M0 603h1000v9H0z"/>
+
+  <!-- The morning light falls from the left window across the room. -->
+  <path fill="#f9edc7" d="m113 177 198-58 480 489H343z"/>
+  <path fill="#eee0b9" d="m343 612 448 0 190 188H490z"/>
+  <path fill="#e0d1b0" d="m416 612 15 0 153 188h-19z"/>
+
+  <!-- Recessed window, pale sky, and a broad wooden sill. -->
+  <rect x="85" y="93" width="251" height="282" rx="5" fill="#d9c8ac"/>
+  <rect x="96" y="103" width="228" height="255" rx="2" fill="#fff4de"/>
+  <path fill="#c6d4cd" d="M109 116h202v229H109z"/>
+  <path fill="#e2e3cd" d="M109 261c43-27 65-10 98-27 36-18 70-13 104 2v109H109z"/>
+  <circle cx="157" cy="164" r="25" fill="#f5e6ac"/>
+  <path fill="#fff4de" d="M203 110h13v242h-13zM103 223h214v12H103z"/>
+  <path fill="#c4ad89" d="M78 370h267v14H78z"/>
+  <rect x="75" y="357" width="273" height="15" rx="3" fill="#e9d8b9"/>
+
+  <!-- Front-facing table, with a narrow visible tabletop. -->
+  <ellipse cx="509" cy="715" rx="337" ry="29" fill="#cdbb9e"/>
+  <path fill="#a57653" d="M200 520h34l-9 192h-27zM777 520h34l4 192h-27z"/>
+  <path fill="#bd8c60" d="M200 538h12l-6 174h-8zM777 538h12l9 174h-10z"/>
+  <rect x="211" y="526" width="590" height="40" rx="3" fill="#a67651"/>
+  <path fill="#bc8b5f" d="M211 526h590v12H211z"/>
+  <path fill="#d6ab77" d="m185 477 630 0 30 30H155z"/>
+  <rect x="155" y="504" width="690" height="24" rx="5" fill="#bd8b5e"/>
+  <path fill="#e5bc87" d="M161 504h678v6H161z"/>
+
+  <!-- Exactly three apples, each with its own stem and silhouette. -->
+  <g id="apple-one">
+    <ellipse cx="265" cy="486" rx="32" ry="7" fill="#bd925f"/>
+    <path d="M265 436q-4-13 3-19" fill="none" stroke="#745d42" stroke-width="5" stroke-linecap="round"/>
+    <path fill="#8e9b65" d="M267 430q6-18 22-14-4 16-22 14"/>
+    <path fill="#b95043" d="M264 437c-18-12-36 1-32 20 3 19 15 32 29 29 4-1 7-1 11 0 14 1 27-18 27-34 0-17-20-25-35-15"/>
+    <path d="M245 447q-7 10-1 20" fill="none" stroke="#d77a61" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <g id="apple-two">
+    <ellipse cx="334" cy="468" rx="31" ry="6" fill="#bd925f"/>
+    <path d="M333 418q4-13 0-20" fill="none" stroke="#745d42" stroke-width="5" stroke-linecap="round"/>
+    <path fill="#c15a49" d="M333 419c-15-11-35-3-34 15 1 19 15 36 29 33 4-1 8-1 12 0 16 2 29-16 28-34-1-18-21-25-35-14"/>
+    <path d="M311 428q-5 7-2 15" fill="none" stroke="#dc876b" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <g id="apple-three">
+    <ellipse cx="397" cy="490" rx="32" ry="6" fill="#bd925f"/>
+    <path d="M395 441q-4-11 2-19" fill="none" stroke="#745d42" stroke-width="5" stroke-linecap="round"/>
+    <path fill="#b64b40" d="M395 443c-14-12-35-5-35 13 0 19 15 36 30 33 4-1 7-1 11 0 15 3 30-15 30-33 0-18-20-25-36-13"/>
+    <path d="M373 453q-4 7-1 15" fill="none" stroke="#d57a60" stroke-width="5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Blue ceramic mug. The lettering remains editable SVG text. -->
+  <ellipse cx="508" cy="489" rx="53" ry="8" fill="#bd925f"/>
+  <path d="M548 414h12c30 0 30 47 0 47h-12" fill="none" stroke="#527b8b" stroke-width="14"/>
+  <path fill="#618b9b" d="M460 401h91v69q0 17-18 17h-55q-18 0-18-17z"/>
+  <path fill="#739ba8" d="M460 402h12v67q0 12 10 18h-4q-18 0-18-17z"/>
+  <ellipse cx="505.5" cy="402" rx="45.5" ry="9" fill="#a1bac0"/>
+  <ellipse cx="505.5" cy="402" rx="36.5" ry="5" fill="#635647"/>
+  <text x="506" y="450" text-anchor="middle" fill="#fff1d8" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" letter-spacing="1">MONDAY</text>
+
+  <!-- A folded newspaper with offset page edges and printed columns. -->
+  <path fill="#bd925f" d="m585 485 226-8 12 14-227 9z"/>
+  <path fill="#c9c4af" d="m586 470 218-9 17 25-225 10z"/>
+  <path fill="#eee9d8" d="m584 465 219-8 16 23-225 11z"/>
+  <path fill="#f7efdb" d="m584 465 219-8 12 18-223 11z"/>
+  <path d="m595 489 220-10m-216 13 218-9" fill="none" stroke="#aaa998" stroke-width="1.5"/>
+  <path d="m610 472 63-3m-60 7 63-3m10-4 48-2m-45 6 48-2m14-4 35-2m-32 6 35-2" fill="none" stroke="#a5a697" stroke-width="2"/>
+  <path d="m680 466 6 15" fill="none" stroke="#c6c2af" stroke-width="1.5"/>
+
+  <!-- Gray cat curled asleep on the newspaper. -->
+  <ellipse cx="702" cy="462" rx="91" ry="8" fill="#c3c1af"/>
+  <path fill="#929793" d="M645 441c-4-29 22-52 63-52 42 0 75 21 75 47 0 20-25 29-62 29h-54c-15 0-23-9-22-24"/>
+  <path fill="#a6aaa4" d="M670 409c20-17 58-17 82 2-20-6-48-1-58 15-6 8-21 3-24-17"/>
+  <path d="M765 430c28 18 11 35-20 35h-43" fill="none" stroke="#7b827f" stroke-width="18" stroke-linecap="round"/>
+  <path d="M761 432c16 10 13 20-3 24" fill="none" stroke="#989e97" stroke-width="5" stroke-linecap="round"/>
+  <path fill="#a4a8a1" d="m612 426-2-29 25 16q14-5 26 2l23-16-3 33c4 18-10 31-33 31-24 0-40-14-36-37"/>
+  <path fill="#c3b0a5" d="m617 407 2 18 11-7zM677 408l-12 12 11 7z"/>
+  <path fill="#b7bbb2" d="M621 443c4 13 18 18 31 17 15-1 24-6 27-17-14 4-22 1-29-2-8 5-18 7-29 2"/>
+  <g fill="none" stroke="#5c6662" stroke-width="2.5" stroke-linecap="round">
+    <path d="M624 435q6 6 12 0M655 435q6 6 12 0"/>
+    <path d="m645 445 0 4m0 0q-4 4-7 0m7 0q4 4 7 0"/>
+  </g>
+  <path fill="#9b7e74" d="M640 441h10l-5 6z"/>
+  <path d="m628 447-22-3m22 8-20 2m56-7 19-4m-19 9 19 1" fill="none" stroke="#727c75" stroke-width="1.5" stroke-linecap="round"/>
+  <ellipse cx="676" cy="460" rx="18" ry="7" fill="#b7bbb2"/>
+  <path d="m673 459 1 4m5-4 1 4" fill="none" stroke="#8e9690" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

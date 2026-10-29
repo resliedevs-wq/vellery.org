@@ -1,0 +1,1 @@
+Created [kitchen.svg](/tmp/vellery-41m0oz5q/work/kitchen.svg) with the three apples, MONDAY mug, sleeping gray cat on a folded newspaper, and morning light from the left.

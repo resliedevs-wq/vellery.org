@@ -1,0 +1,53 @@
+{
+  "ok": true,
+  "error": null,
+  "started": "2026-10-29T11:24:26+00:00",
+  "duration_s": 17.3,
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "--sandbox",
+    "workspace-write",
+    "--disable",
+    "apps",
+    "--disable",
+    "plugins",
+    "--disable",
+    "image_generation",
+    "-c",
+    "web_search=\"disabled\"",
+    "--cd",
+    "/tmp/vellery-q_0zn4zc/work",
+    "--model",
+    "gpt-6-astra",
+    "-c",
+    "model_reasoning_effort=\"high\"",
+    "--json",
+    "--output-last-message",
+    "/tmp/vellery-q_0zn4zc/last-message.txt",
+    "<prompt>"
+  ],
+  "served_models": null,
+  "usage": {
+    "input_tokens": 26462,
+    "cached_input_tokens": 19712,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 267,
+    "reasoning_output_tokens": 103
+  },
+  "est_cost_usd": 0.100562,
+  "est_cost": {
+    "gpt-6-astra": {
+      "input_tokens": 6750,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 19712,
+      "output_tokens": 267,
+      "usd": 0.100562
+    }
+  },
+  "cli_reported_cost_usd": null,
+  "files": []
+}

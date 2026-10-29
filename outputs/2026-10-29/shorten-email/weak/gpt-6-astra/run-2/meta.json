@@ -1,0 +1,13 @@
+{
+  "task": "shorten-email",
+  "variant": "weak",
+  "model": "gpt-6-astra",
+  "label": "GPT-6 Astra",
+  "harness": "codex",
+  "effort": "high",
+  "run": 2,
+  "ok": true,
+  "attempts": 1,
+  "est_cost_usd": 0.03909,
+  "est_cost_usd_all_attempts": 0.03909
+}

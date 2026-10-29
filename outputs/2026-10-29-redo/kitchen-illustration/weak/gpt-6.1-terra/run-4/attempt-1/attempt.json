@@ -1,0 +1,57 @@
+{
+  "ok": true,
+  "error": null,
+  "started": "2026-10-29T11:44:36+00:00",
+  "duration_s": 39.1,
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "--sandbox",
+    "workspace-write",
+    "--disable",
+    "apps",
+    "--disable",
+    "plugins",
+    "--disable",
+    "image_generation",
+    "-c",
+    "skills.config=[{path=\"/root/.codex/skills/.system/imagegen/SKILL.md\",enabled=false}]",
+    "-c",
+    "web_search=\"disabled\"",
+    "--cd",
+    "/tmp/vellery-nwnl1p7u/work",
+    "--model",
+    "gpt-6.1-terra",
+    "-c",
+    "model_reasoning_effort=\"high\"",
+    "--json",
+    "--output-last-message",
+    "/tmp/vellery-nwnl1p7u/last-message.txt",
+    "<prompt>"
+  ],
+  "served_models": null,
+  "usage": {
+    "input_tokens": 35164,
+    "cached_input_tokens": 21248,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 2582,
+    "reasoning_output_tokens": 29
+  },
+  "est_cost_usd": 0.027888,
+  "est_cost": {
+    "gpt-6.1-terra": {
+      "input_tokens": 13916,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 21248,
+      "output_tokens": 2582,
+      "usd": 0.027888
+    }
+  },
+  "cli_reported_cost_usd": null,
+  "files": [
+    "cozy-kitchen.svg"
+  ]
+}

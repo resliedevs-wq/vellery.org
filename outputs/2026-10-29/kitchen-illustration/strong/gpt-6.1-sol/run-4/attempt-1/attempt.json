@@ -1,0 +1,55 @@
+{
+  "ok": true,
+  "error": null,
+  "started": "2026-10-29T11:29:16+00:00",
+  "duration_s": 106.5,
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "--sandbox",
+    "workspace-write",
+    "--disable",
+    "apps",
+    "--disable",
+    "plugins",
+    "--disable",
+    "image_generation",
+    "-c",
+    "web_search=\"disabled\"",
+    "--cd",
+    "/tmp/vellery-a64xtpr0/work",
+    "--model",
+    "gpt-6.1-sol",
+    "-c",
+    "model_reasoning_effort=\"high\"",
+    "--json",
+    "--output-last-message",
+    "/tmp/vellery-a64xtpr0/last-message.txt",
+    "<prompt>"
+  ],
+  "served_models": null,
+  "usage": {
+    "input_tokens": 52503,
+    "cached_input_tokens": 39808,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 4263,
+    "reasoning_output_tokens": 177
+  },
+  "est_cost_usd": 0.072001,
+  "est_cost": {
+    "gpt-6.1-sol": {
+      "input_tokens": 12695,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 39808,
+      "output_tokens": 4263,
+      "usd": 0.072001
+    }
+  },
+  "cli_reported_cost_usd": null,
+  "files": [
+    "kitchen.svg"
+  ]
+}

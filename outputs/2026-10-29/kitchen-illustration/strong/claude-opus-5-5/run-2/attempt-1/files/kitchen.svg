@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff4d2"/>
+      <stop offset="1" stop-color="#f6d79a"/>
+    </linearGradient>
+    <linearGradient id="beam" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff2c8" stop-opacity="0.75"/>
+      <stop offset="1" stop-color="#fff2c8" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.15" cy="0.15" r="0.9">
+      <stop offset="0" stop-color="#fffbe9"/>
+      <stop offset="1" stop-color="#fffbe9" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Wall and floor -->
+  <rect width="800" height="600" fill="#efdcbc"/>
+  <rect y="510" width="800" height="90" fill="#b98f6b"/>
+  <rect y="502" width="800" height="10" fill="#d9c3a0"/>
+  <g stroke="#a98060" stroke-width="2">
+    <line x1="0" y1="545" x2="800" y2="545"/>
+    <line x1="0" y1="580" x2="800" y2="580"/>
+  </g>
+
+  <!-- Window (left) -->
+  <rect x="44" y="64" width="166" height="246" rx="4" fill="#f7efe0"/>
+  <rect x="58" y="78" width="138" height="218" fill="url(#sky)"/>
+  <circle cx="92" cy="112" r="26" fill="#fff6d8"/>
+  <rect x="58" y="78" width="138" height="218" fill="url(#glow)"/>
+  <rect x="123" y="78" width="8" height="218" fill="#f7efe0"/>
+  <rect x="58" y="183" width="138" height="8" fill="#f7efe0"/>
+  <rect x="36" y="306" width="182" height="12" rx="3" fill="#e8d9c0"/>
+  <!-- Curtain -->
+  <path d="M30 52 H70 C64 120 76 200 60 330 H30 Z" fill="#d98e6a"/>
+  <path d="M44 60 C40 140 50 220 42 326" stroke="#c47a58" stroke-width="3" fill="none"/>
+  <rect x="22" y="46" width="210" height="8" rx="4" fill="#9a6b4c"/>
+
+  <!-- Sunbeam -->
+  <polygon points="210,70 210,310 800,600 800,330" fill="url(#beam)"/>
+
+  <!-- Floor shadow under table (cast right, away from window) -->
+  <ellipse cx="460" cy="572" rx="280" ry="14" fill="#7d5a40" opacity="0.25"/>
+
+  <!-- Table -->
+  <rect x="192" y="404" width="22" height="160" fill="#8f5f3e"/>
+  <rect x="646" y="404" width="22" height="160" fill="#7c5134"/>
+  <rect x="192" y="404" width="7" height="160" fill="#a8744f"/>
+  <polygon points="190,364 670,364 692,388 168,388" fill="#c48a5e"/>
+  <polygon points="190,364 400,364 330,388 168,388" fill="#d59d70" opacity="0.6"/>
+  <rect x="168" y="388" width="524" height="20" fill="#9c6a45"/>
+  <rect x="168" y="388" width="524" height="4" fill="#b07a52"/>
+
+  <!-- Object shadows on tabletop -->
+  <g fill="#7a4e30" opacity="0.28">
+    <ellipse cx="248" cy="381" rx="22" ry="4"/>
+    <ellipse cx="292" cy="381" rx="22" ry="4"/>
+    <ellipse cx="336" cy="381" rx="22" ry="4"/>
+    <ellipse cx="438" cy="381" rx="40" ry="5"/>
+    <ellipse cx="584" cy="388" rx="104" ry="4"/>
+  </g>
+
+  <!-- Three apples -->
+  <g id="apple">
+    <path transform="translate(240 362)" d="M0 -14 C-10 -22 -24 -16 -22 0 C-20 16 -8 21 0 18 C8 21 20 16 22 0 C24 -16 10 -22 0 -14 Z" fill="#b8473a"/>
+    <path transform="translate(240 362)" d="M6 -16 C18 -18 24 -6 21 4 C18 14 10 19 4 18 C14 10 16 -4 6 -16 Z" fill="#9c3a30"/>
+    <ellipse cx="232" cy="354" rx="5" ry="7" fill="#e07e6c" opacity="0.8"/>
+    <path d="M240 349 C240 343 242 339 245 336" stroke="#5e3b24" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M243 340 C250 333 258 335 260 338 C254 343 248 343 243 340 Z" fill="#7d9a52"/>
+  </g>
+  <use href="#apple" x="44"/>
+  <use href="#apple" x="88"/>
+
+  <!-- Blue MONDAY mug -->
+  <path d="M452 326 C478 326 478 368 450 366" stroke="#3d5f8f" stroke-width="9" fill="none"/>
+  <path d="M396 314 H456 V366 C456 376 450 380 442 380 H410 C402 380 396 376 396 366 Z" fill="#4c72a6"/>
+  <rect x="402" y="320" width="7" height="50" rx="3.5" fill="#7d9cc6" opacity="0.7"/>
+  <ellipse cx="426" cy="314" rx="30" ry="4" fill="#3d5f8f"/>
+  <ellipse cx="426" cy="314" rx="26" ry="2.6" fill="#5b3a26"/>
+  <text x="427" y="352" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" letter-spacing="0.8" text-anchor="middle" fill="#f6efe2">MONDAY</text>
+  <g stroke="#ffffff" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.55">
+    <path d="M418 304 C412 296 424 290 418 280"/>
+    <path d="M432 304 C426 296 438 290 432 282"/>
+  </g>
+
+  <!-- Folded newspaper -->
+  <polygon points="478,364 668,364 676,380 470,380" fill="#ece5d3"/>
+  <rect x="470" y="380" width="206" height="8" fill="#ddd4bf"/>
+  <g stroke="#c3b9a2" stroke-width="1">
+    <line x1="470" y1="383" x2="676" y2="383"/>
+    <line x1="470" y1="386" x2="676" y2="386"/>
+  </g>
+  <path d="M470 380 C464 380 464 388 470 388" fill="#d2c8b1"/>
+  <g stroke="#8c8577" stroke-width="2" stroke-linecap="round">
+    <line x1="482" y1="368" x2="510" y2="368"/>
+    <line x1="480" y1="372" x2="508" y2="372"/>
+    <line x1="478" y1="376" x2="500" y2="376"/>
+    <line x1="644" y1="368" x2="664" y2="368"/>
+    <line x1="648" y1="372" x2="667" y2="372"/>
+    <line x1="652" y1="376" x2="670" y2="376"/>
+  </g>
+  <rect x="484" y="364.5" width="20" height="2" fill="#4a4540"/>
+
+  <!-- Sleeping gray cat -->
+  <ellipse cx="592" cy="352" rx="58" ry="24" fill="#8b8b91"/>
+  <path d="M560 336 C575 326 610 326 630 336" stroke="#9fa0a6" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.8"/>
+  <g stroke="#6f6f76" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M590 330 C594 338 594 344 590 350"/>
+    <path d="M606 331 C610 339 610 345 606 351"/>
+    <path d="M622 335 C626 342 626 348 622 354"/>
+  </g>
+  <path d="M646 360 C668 380 612 386 562 376" stroke="#77777e" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <path d="M646 360 C668 380 612 386 562 376" stroke="#8b8b91" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.6"/>
+  <ellipse cx="556" cy="374" rx="11" ry="5" fill="#a3a3a9"/>
+  <polygon points="522,346 519,326 535,339" fill="#8b8b91"/>
+  <polygon points="541,338 555,327 556,346" fill="#8b8b91"/>
+  <polygon points="524,342 523,332 531,339" fill="#d9a7a0"/>
+  <polygon points="544,339 552,333 552,343" fill="#d9a7a0"/>
+  <circle cx="538" cy="357" r="20" fill="#9a9aa0"/>
+  <ellipse cx="531" cy="350" rx="6" ry="4" fill="#b2b2b8" opacity="0.7"/>
+  <g stroke="#3e3e44" stroke-width="2" fill="none" stroke-linecap="round">
+    <path d="M526 357 q4 3 8 0"/>
+    <path d="M542 357 q4 3 8 0"/>
+  </g>
+  <path d="M535 362 h6 l-3 3 z" fill="#c98b84"/>
+  <g stroke="#d8d8dc" stroke-width="1" stroke-linecap="round" opacity="0.8">
+    <line x1="524" y1="364" x2="510" y2="362"/>
+    <line x1="524" y1="366" x2="511" y2="368"/>
+    <line x1="552" y1="364" x2="566" y2="362"/>
+    <line x1="552" y1="366" x2="565" y2="368"/>
+  </g>
+  <g font-family="Helvetica, Arial, sans-serif" font-weight="700" fill="#8a7a68" opacity="0.75">
+    <text x="560" y="318" font-size="11">z</text>
+    <text x="570" y="306" font-size="14">z</text>
+    <text x="583" y="292" font-size="17">Z</text>
+  </g>
+</svg>

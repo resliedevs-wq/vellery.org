@@ -1,0 +1,13 @@
+{
+  "task": "clean-spreadsheet",
+  "variant": "strong",
+  "model": "claude-opus-5-5",
+  "label": "Claude Opus 5.5",
+  "harness": "claude",
+  "effort": "high",
+  "run": 5,
+  "ok": true,
+  "attempts": 1,
+  "est_cost_usd": 0.089759,
+  "est_cost_usd_all_attempts": 0.089759
+}

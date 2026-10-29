@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">A quiet Monday morning</title>
+  <desc id="desc">Flat vector illustration of a small kitchen table viewed from the front. Exactly three red apples and a blue mug labeled MONDAY sit beside a folded newspaper with a gray cat sleeping on top. Morning sunlight enters through a window on the left. No people.</desc>
+  <defs>
+    <clipPath id="room"><rect x="40" y="40" width="1120" height="820" rx="28"/></clipPath>
+  </defs>
+
+  <!-- Warm room and broad, flat shapes of morning light. -->
+  <rect width="1200" height="900" fill="#f4eddf"/>
+  <g clip-path="url(#room)">
+    <rect x="40" y="40" width="1120" height="820" fill="#e9ddc9"/>
+    <path d="M40 691H1160V860H40Z" fill="#d3bea3"/>
+    <path d="M40 687H1160" stroke="#c5ad90" stroke-width="8"/>
+    <path d="M125 179L309 175L1069 690H573Z" fill="#f4e8c5"/>
+    <path d="M573 695H1069L1160 770V831Z" fill="#e4d2ae"/>
+    <path d="M40 786H1160M245 695L179 860M789 695L860 860" fill="none" stroke="#c3aa8c" stroke-width="3" opacity=".45"/>
+
+    <!-- Left window, with a simple pale morning sky. -->
+    <rect x="104" y="115" width="242" height="320" rx="9" fill="#d5c4ab"/>
+    <rect x="113" y="107" width="224" height="310" rx="6" fill="#faf2df"/>
+    <rect x="129" y="123" width="192" height="278" fill="#bbced0"/>
+    <circle cx="175" cy="190" r="33" fill="#f7e7b8"/>
+    <path d="M129 330Q180 294 228 326T321 314V401H129Z" fill="#aabdb1"/>
+    <path d="M129 365Q191 335 245 364T321 352V401H129Z" fill="#96afa3"/>
+    <path d="M225 122V401M129 258H321" stroke="#faf2df" stroke-width="12"/>
+    <rect x="96" y="409" width="258" height="18" rx="5" fill="#b49a78"/>
+    <rect x="96" y="405" width="258" height="10" rx="4" fill="#f9eed6"/>
+
+    <!-- Small domestic details, kept subordinate to the table. -->
+    <rect x="837" y="151" width="124" height="152" rx="3" fill="#b89b7b"/>
+    <rect x="847" y="161" width="104" height="132" fill="#f4e9d3"/>
+    <path d="M899 266V198M899 235Q872 233 873 211Q896 210 899 235M899 221Q923 216 926 193Q902 193 899 221M899 252Q920 251 924 231Q902 231 899 252" fill="#8e9d80" stroke="#8e9d80" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Table is presented straight on, with a shallow visible top. -->
+    <ellipse cx="650" cy="797" rx="392" ry="32" fill="#b39b80" opacity=".35"/>
+    <path d="M292 590H337L327 793Q326 800 319 800H303Q296 800 296 793Z" fill="#997050"/>
+    <path d="M952 590H997L992 793Q992 800 985 800H969Q962 800 962 793Z" fill="#997050"/>
+    <path d="M302 610H321L315 785H305Z" fill="#b48a61"/>
+    <path d="M963 610H982L982 785H973Z" fill="#b48a61"/>
+    <rect x="283" y="577" width="723" height="58" rx="5" fill="#ae8058"/>
+    <path d="M309 618H980" stroke="#956c4c" stroke-width="3" stroke-linecap="round"/>
+    <path d="M285 538H1003L1038 572H249Z" fill="#d2a577"/>
+    <rect x="249" y="570" width="789" height="23" rx="7" fill="#bb8b60"/>
+    <path d="M261 575H1026" stroke="#e0b68a" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- Exactly three individual red apples. -->
+    <g id="three-red-apples">
+      <ellipse cx="377" cy="551" rx="77" ry="10" fill="#b88d64"/>
+      <g id="apple-1">
+        <path d="M337 493C321 482 302 491 301 510C300 531 311 550 326 549Q337 546 346 549C361 551 373 529 370 510C368 491 352 483 337 493Z" fill="#b95445"/>
+        <path d="M337 494Q333 480 341 473" fill="none" stroke="#755a3f" stroke-width="5" stroke-linecap="round"/>
+        <path d="M340 482Q355 465 367 477Q356 488 340 482" fill="#879363"/>
+        <path d="M314 507Q316 499 322 498" fill="none" stroke="#d67c60" stroke-width="6" stroke-linecap="round"/>
+      </g>
+      <g id="apple-2">
+        <path d="M390 481C374 470 357 480 356 497C355 518 366 536 380 535Q390 532 398 535C413 538 426 517 424 499C423 481 406 471 390 481Z" fill="#a9443b"/>
+        <path d="M390 482Q386 470 392 462" fill="none" stroke="#755a3f" stroke-width="5" stroke-linecap="round"/>
+        <path d="M367 494Q368 486 375 484" fill="none" stroke="#cb6c55" stroke-width="6" stroke-linecap="round"/>
+      </g>
+      <g id="apple-3">
+        <path d="M423 507C408 496 390 504 389 522C388 541 399 557 413 556Q423 553 432 556C446 558 458 540 456 522C454 504 438 497 423 507Z" fill="#c2604d"/>
+        <path d="M423 508Q420 495 427 487" fill="none" stroke="#755a3f" stroke-width="5" stroke-linecap="round"/>
+        <path d="M401 520Q402 513 408 512" fill="none" stroke="#dd8970" stroke-width="6" stroke-linecap="round"/>
+      </g>
+    </g>
+
+    <!-- Blue mug, with legible printed lettering. -->
+    <g id="monday-mug">
+      <ellipse cx="556" cy="552" rx="66" ry="10" fill="#b88d64"/>
+      <path d="M599 479H615C648 479 647 526 618 528H599" fill="none" stroke="#547e92" stroke-width="13"/>
+      <path d="M499 464H608V533Q608 551 589 552H518Q499 551 499 533Z" fill="#658fa2"/>
+      <path d="M501 471H513V530Q513 540 519 544" fill="none" stroke="#80a6b4" stroke-width="6" stroke-linecap="round"/>
+      <ellipse cx="553.5" cy="464" rx="54.5" ry="11" fill="#94b2bc"/>
+      <ellipse cx="553.5" cy="465" rx="45.5" ry="6" fill="#64574b"/>
+      <text x="554" y="513" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="1" fill="#faf1da">MONDAY</text>
+      <path d="M536 441C524 426 545 417 537 402M567 439C556 426 577 414 569 400" fill="none" stroke="#f8efdc" stroke-width="5" stroke-linecap="round"/>
+    </g>
+
+    <!-- Folded newspaper: visible layered edges, central fold, and columns. -->
+    <g id="folded-newspaper">
+      <path d="M676 516L929 518L976 553L702 560Z" fill="#a98968" opacity=".45"/>
+      <path d="M666 513L917 511L966 547L695 554Z" fill="#c1b9a5"/>
+      <path d="M666 506L917 505L966 540V547L695 549L666 513Z" fill="#eee5ce"/>
+      <path d="M668 506L916 504L963 539L695 543Z" fill="#f7efd9"/>
+      <path d="M695 543L696 549L963 544M698 546L959 542" fill="none" stroke="#b5ae9c" stroke-width="1.5"/>
+      <path d="M802 506L836 541" stroke="#c3baa5" stroke-width="2"/>
+      <path d="M689 515L777 514M694 520L782 519M699 525L736 524M705 530L742 529M711 535L748 534M747 524L787 523M753 529L793 528M759 534L799 533M851 525L913 524M858 530L923 529M864 535L934 533" stroke="#aaa797" stroke-width="2"/>
+    </g>
+
+    <!-- Sleeping gray cat curled comfortably on top of the paper. -->
+    <g id="sleeping-gray-cat">
+      <ellipse cx="817" cy="517" rx="107" ry="13" fill="#aba89a"/>
+      <path d="M765 505C745 482 768 447 804 441C844 434 883 448 905 478C916 493 914 510 901 516C879 527 810 521 787 519Z" fill="#929693"/>
+      <path d="M837 444Q828 460 835 473M859 449Q848 466 858 477M881 461Q870 474 879 487" fill="none" stroke="#7c8380" stroke-width="8" stroke-linecap="round"/>
+      <path d="M882 488C917 484 931 507 913 521C899 533 865 532 845 527C830 523 834 509 848 511C866 514 885 517 894 511" fill="none" stroke="#7f8783" stroke-width="18" stroke-linecap="round"/>
+      <path d="M789 510Q804 499 824 506Q837 509 832 519Q813 527 785 521Z" fill="#a6aaa6"/>
+      <path d="M721 477L720 447Q721 441 727 445L747 461Q761 458 774 463L794 448Q799 444 799 451L795 480C806 498 795 516 776 520L744 519C725 517 712 498 721 477Z" fill="#a0a5a1"/>
+      <path d="M726 452L729 472L741 464Z" fill="#c5aaa2"/>
+      <path d="M791 456L780 467L791 474Z" fill="#c5aaa2"/>
+      <path d="M748 462L751 474M763 462L762 474" fill="none" stroke="#858d87" stroke-width="5" stroke-linecap="round"/>
+      <path d="M733 490Q740 497 747 490M768 490Q775 497 782 490" fill="none" stroke="#515f59" stroke-width="3" stroke-linecap="round"/>
+      <path d="M751 500Q757 497 762 500L757 505Z" fill="#ad837c"/>
+      <path d="M757 505Q754 510 750 507M757 505Q760 510 764 507" fill="none" stroke="#68716b" stroke-width="2" stroke-linecap="round"/>
+      <path d="M738 502L715 498M738 507L714 509M778 502L800 498M778 507L802 510" fill="none" stroke="#747d76" stroke-width="2" stroke-linecap="round"/>
+      <ellipse cx="748" cy="518" rx="22" ry="7" fill="#b2b5ae"/>
+      <path d="M737 517L739 521M744 517L746 522" stroke="#949d94" stroke-width="2" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>

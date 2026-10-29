@@ -1,0 +1,13 @@
+{
+  "task": "kitchen-illustration",
+  "variant": "strong",
+  "model": "gpt-6.1-sol",
+  "label": "GPT-6.1 Sol",
+  "harness": "codex",
+  "effort": "high",
+  "run": 3,
+  "ok": true,
+  "attempts": 1,
+  "est_cost_usd": 0.053802,
+  "est_cost_usd_all_attempts": 0.053802
+}

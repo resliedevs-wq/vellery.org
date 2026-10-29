@@ -1,0 +1,1 @@
+Created [kitchen.svg](/tmp/vellery-no82qdr5/work/kitchen.svg).

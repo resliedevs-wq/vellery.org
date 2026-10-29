@@ -1,0 +1,10 @@
+{
+  "batch": "2026-10-29",
+  "runs": [
+    "kitchen-illustration/weak/gpt-6.1-sol",
+    "kitchen-illustration/weak/gpt-6.1-terra",
+    "kitchen-illustration/weak/gpt-6-astra",
+    "kitchen-illustration/weak/gpt-6-luna"
+  ],
+  "reason": "The runner disabled Codex's image generator but not its image skill, which told the models the tool was missing and to ask the user before using a fallback. 19 of 20 runs produced no file. Fixed in a9b2003; the original runs are kept unchanged."
+}

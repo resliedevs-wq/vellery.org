@@ -1,0 +1,1 @@
+![A cozy kitchen in morning light, with warm coffee, croissants, sage-green cabinets, and a sleeping cat.](/tmp/vellery-pkb7_xns/work/artwork/cozy-kitchen-morning.png)

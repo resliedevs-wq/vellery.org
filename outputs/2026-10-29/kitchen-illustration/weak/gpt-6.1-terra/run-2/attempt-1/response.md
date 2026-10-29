@@ -1,0 +1,1 @@
+I couldn’t draw the kitchen because the image-generation tool isn’t available in this session. A command-line fallback is available, but it requires an `OPENAI_API_KEY`.

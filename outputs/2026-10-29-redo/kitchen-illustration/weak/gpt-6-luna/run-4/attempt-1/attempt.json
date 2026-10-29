@@ -1,0 +1,57 @@
+{
+  "ok": true,
+  "error": null,
+  "started": "2026-10-29T11:50:18+00:00",
+  "duration_s": 31.8,
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "--sandbox",
+    "workspace-write",
+    "--disable",
+    "apps",
+    "--disable",
+    "plugins",
+    "--disable",
+    "image_generation",
+    "-c",
+    "skills.config=[{path=\"/root/.codex/skills/.system/imagegen/SKILL.md\",enabled=false}]",
+    "-c",
+    "web_search=\"disabled\"",
+    "--cd",
+    "/tmp/vellery-ez0087ff/work",
+    "--model",
+    "gpt-6-luna",
+    "-c",
+    "model_reasoning_effort=\"high\"",
+    "--json",
+    "--output-last-message",
+    "/tmp/vellery-ez0087ff/last-message.txt",
+    "<prompt>"
+  ],
+  "served_models": null,
+  "usage": {
+    "input_tokens": 45467,
+    "cached_input_tokens": 35072,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 3143,
+    "reasoning_output_tokens": 219
+  },
+  "est_cost_usd": 0.002962,
+  "est_cost": {
+    "gpt-6-luna": {
+      "input_tokens": 10395,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 35072,
+      "output_tokens": 3143,
+      "usd": 0.002962
+    }
+  },
+  "cli_reported_cost_usd": null,
+  "files": [
+    "cozy-kitchen-morning.svg"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "task": "kitchen-illustration",
+  "variant": "weak",
+  "model": "gpt-6-luna",
+  "label": "GPT-6 Luna",
+  "harness": "codex",
+  "effort": "high",
+  "run": 4,
+  "ok": true,
+  "attempts": 1,
+  "est_cost_usd": 0.001424,
+  "est_cost_usd_all_attempts": 0.001424
+}

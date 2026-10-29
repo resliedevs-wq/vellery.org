@@ -1,0 +1,1 @@
+[View the cozy morning kitchen](./cozy-kitchen.svg)

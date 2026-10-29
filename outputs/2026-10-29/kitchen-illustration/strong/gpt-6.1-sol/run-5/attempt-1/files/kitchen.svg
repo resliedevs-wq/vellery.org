@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">A quiet Monday morning in the kitchen</title>
+  <desc id="desc">A flat vector illustration seen from the front: a small wooden kitchen table holds exactly three red apples, a blue mug printed with MONDAY, and a folded newspaper with a sleeping gray cat on top. Morning sunlight enters through a window on the left. There are no people.</desc>
+
+  <!-- Warm plaster wall and floor. -->
+  <path fill="#eee3d2" d="M0 0h1200v900H0z"/>
+  <path fill="#ddd0b9" d="M0 714h1200v186H0z"/>
+  <path fill="#cbbb9f" d="M0 708h1200v8H0z"/>
+
+  <!-- Morning light falls from the left-hand window. -->
+  <path fill="#f5e8bf" d="m113 168 203-48 476 588H361Z"/>
+  <path fill="#f7eccf" d="m118 297 187-75 606 486H571Z"/>
+  <path fill="#e9d9b1" d="M361 716h431l233 184H536Z"/>
+
+  <!-- Window, with a simple view of a pale morning sky. -->
+  <rect x="67" y="91" width="295" height="347" rx="8" fill="#d5c5aa"/>
+  <rect x="78" y="101" width="273" height="323" rx="3" fill="#faf3e4"/>
+  <path fill="#c7d6d0" d="M91 114h247v296H91z"/>
+  <path fill="#e3e6ce" d="M91 310c49-22 82-12 122-27 41-16 77-10 125 5v122H91Z"/>
+  <circle cx="139" cy="171" r="30" fill="#f4e6b3"/>
+  <path fill="#faf3e4" d="M207 110h14v305h-14zM86 251h257v13H86z"/>
+  <rect x="61" y="418" width="308" height="18" rx="4" fill="#f9f0de"/>
+  <path fill="#c8b89b" d="M73 436h282v7H73z"/>
+
+  <!-- Ground shadow and the front-facing table. -->
+  <ellipse cx="612" cy="824" rx="454" ry="30" fill="#cbbba2"/>
+  <path fill="#a77d59" d="M202 583h67l-13 235h-41zM934 583h67l-13 235h-41z"/>
+  <path fill="#bf9369" d="M202 583h21l10 235h-18zM934 583h21l10 235h-18z"/>
+  <rect x="185" y="582" width="830" height="72" rx="7" fill="#b68b62"/>
+  <path fill="#a77d59" d="M185 625h830v23H185z"/>
+  <rect x="142" y="540" width="916" height="55" rx="13" fill="#ae8058"/>
+  <rect x="142" y="540" width="916" height="37" rx="12" fill="#d3ac7c"/>
+  <path d="M169 566h862" fill="none" stroke="#c49b6d" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Exactly three apples. -->
+  <g id="apple-1">
+    <ellipse cx="252" cy="540" rx="39" ry="7" fill="#ba936c"/>
+    <path d="M250 486c-17-13-38-3-39 16-2 21 12 42 27 42 7 0 10-3 14-3 5 0 9 3 15 2 17-3 28-26 24-44-4-18-26-24-41-13Z" fill="#b95849"/>
+    <path d="M251 487c-2-9 0-16 5-22" fill="none" stroke="#735b42" stroke-width="5" stroke-linecap="round"/>
+    <path d="M254 475c10-14 23-12 29-9-5 11-17 14-29 9Z" fill="#83906b"/>
+    <path d="M225 499c-3 5-3 12-1 17" fill="none" stroke="#d77b65" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <g id="apple-2">
+    <ellipse cx="341" cy="541" rx="38" ry="6" fill="#ba936c"/>
+    <path d="M340 492c-15-12-35-7-39 11-5 19 8 40 23 42 7 1 12-3 17-3 4 0 9 3 15 2 16-2 29-24 24-43-4-16-25-22-40-9Z" fill="#c26350"/>
+    <path d="M340 492c2-9 0-15-4-21" fill="none" stroke="#735b42" stroke-width="5" stroke-linecap="round"/>
+    <path d="M335 481c-10-10-19-9-25-6 6 9 16 11 25 6Z" fill="#8a956f"/>
+    <path d="M313 504c-2 5-2 10 0 14" fill="none" stroke="#dd8a71" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <g id="apple-3">
+    <ellipse cx="428" cy="541" rx="38" ry="6" fill="#ba936c"/>
+    <path d="M427 485c-16-12-36-5-39 13-4 21 9 44 25 46 7 1 10-3 15-3s9 3 15 2c16-2 29-25 25-44-4-19-24-26-41-14Z" fill="#ae5145"/>
+    <path d="M428 486c-2-8 0-15 5-21" fill="none" stroke="#735b42" stroke-width="5" stroke-linecap="round"/>
+    <path d="M432 475c9-10 20-9 26-5-7 9-17 11-26 5Z" fill="#7f8d66"/>
+    <path d="M401 499c-3 5-3 11-1 16" fill="none" stroke="#d17a64" stroke-width="6" stroke-linecap="round"/>
+  </g>
+
+  <!-- Blue mug, with clear printed lettering. -->
+  <ellipse cx="557" cy="543" rx="66" ry="8" fill="#ba936c"/>
+  <path d="M609 473h14c34 0 35 48 1 49h-15" fill="none" stroke="#5e8595" stroke-width="15" stroke-linecap="round"/>
+  <path d="M497 459h117v67c0 14-12 20-28 20h-60c-17 0-29-6-29-20Z" fill="#7199a7"/>
+  <path d="M497 459h18v67c0 10 5 16 14 20h-3c-17 0-29-6-29-20Z" fill="#618796"/>
+  <ellipse cx="555.5" cy="459" rx="58.5" ry="10" fill="#a1bac0"/>
+  <ellipse cx="555.5" cy="459" rx="49" ry="5.5" fill="#65574a"/>
+  <text x="556" y="508" text-anchor="middle" fill="#fcf2dc" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" letter-spacing="1">MONDAY</text>
+
+  <!-- Folded newspaper; its layered edge is visible beneath the cat. -->
+  <path fill="#b58f68" d="m681 547 80-34 264 21 12 15-92 11Z"/>
+  <path fill="#d8d4c5" d="m688 537 77-30 263 22-2 17-279 11Z"/>
+  <path fill="#f3eedf" d="m680 531 80-30 272 23-84 25Z"/>
+  <path fill="#e7e2d3" d="m680 531 268 18-1 7-262-17Z"/>
+  <path d="m761 506 257 21M706 531l230 16M704 535l174 12" fill="none" stroke="#b9b7aa" stroke-width="2"/>
+  <path d="m721 521 36-13 49 4-36 12Z" fill="#a9ada2"/>
+  <path d="m782 526 28-10m-16 11 28-10m-16 11 28-10m-16 11 28-10m-16 11 28-10m-16 11 28-10m-16 11 28-10m-16 11 28-10" fill="none" stroke="#a8aaa0" stroke-width="2"/>
+
+  <!-- Sleeping gray cat, curled on the folded newspaper. -->
+  <ellipse cx="865" cy="518" rx="113" ry="13" fill="#b4b3a6"/>
+  <path d="M790 492c5-34 34-61 83-61 52 0 100 21 111 54 5 16-4 34-24 37H817c-20 0-29-13-27-30Z" fill="#92958f"/>
+  <path d="M925 447c26 10 45 26 49 44 4 15-8 24-27 24h-62" fill="none" stroke="#7c817c" stroke-width="19" stroke-linecap="round"/>
+  <path d="M845 445c-5 8-8 17-7 25m26-33c-4 8-6 16-5 24" fill="none" stroke="#7d827d" stroke-width="9" stroke-linecap="round"/>
+  <path d="m754 475-2-37c0-4 3-5 6-3l27 22 22-19c3-3 6-1 6 3l-1 38Z" fill="#8b908a"/>
+  <path d="m760 448 2 22 14-12Zm43 2-15 13 15 6Z" fill="#bfaaa0"/>
+  <path d="M745 483c0-24 17-36 38-34 24 1 41 16 40 39-1 22-17 35-40 35-24 0-38-17-38-40Z" fill="#a0a39b"/>
+  <path d="M764 486q7 8 14 0m15 0q7 8 14 0" fill="none" stroke="#555e58" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="m781 496 8 1-4 5Z" fill="#766f69"/>
+  <path d="M785 502q-3 5-8 2m8-2q3 5 8 2" fill="none" stroke="#666b62" stroke-width="2" stroke-linecap="round"/>
+  <path d="m758 496-21-4m22 11-21 3m67-9 20-3m-20 10 20 3" fill="none" stroke="#6f766d" stroke-width="2" stroke-linecap="round"/>
+  <path d="M812 510c13-5 30-2 34 4 3 6-3 10-12 10h-28c-8 0-10-9 6-14Z" fill="#afb1a8"/>
+  <path d="M822 517v5m7-5v5" fill="none" stroke="#8b9187" stroke-width="2" stroke-linecap="round"/>
+</svg>

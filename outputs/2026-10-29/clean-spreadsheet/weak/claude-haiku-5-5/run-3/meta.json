@@ -1,0 +1,13 @@
+{
+  "task": "clean-spreadsheet",
+  "variant": "weak",
+  "model": "claude-haiku-5-5",
+  "label": "Claude Haiku 5.5",
+  "harness": "claude",
+  "effort": "high",
+  "run": 3,
+  "ok": true,
+  "attempts": 1,
+  "est_cost_usd": 0.003299,
+  "est_cost_usd_all_attempts": 0.003299
+}

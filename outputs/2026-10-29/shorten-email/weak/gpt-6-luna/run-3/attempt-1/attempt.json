@@ -1,0 +1,53 @@
+{
+  "ok": true,
+  "error": null,
+  "started": "2026-10-29T11:36:53+00:00",
+  "duration_s": 4.8,
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "--sandbox",
+    "workspace-write",
+    "--disable",
+    "apps",
+    "--disable",
+    "plugins",
+    "--disable",
+    "image_generation",
+    "-c",
+    "web_search=\"disabled\"",
+    "--cd",
+    "/tmp/vellery-x734rhtc/work",
+    "--model",
+    "gpt-6-luna",
+    "-c",
+    "model_reasoning_effort=\"high\"",
+    "--json",
+    "--output-last-message",
+    "/tmp/vellery-x734rhtc/last-message.txt",
+    "<prompt>"
+  ],
+  "served_models": null,
+  "usage": {
+    "input_tokens": 10505,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 198,
+    "reasoning_output_tokens": 28
+  },
+  "est_cost_usd": 0.001149,
+  "est_cost": {
+    "gpt-6-luna": {
+      "input_tokens": 10505,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 0,
+      "output_tokens": 198,
+      "usd": 0.001149
+    }
+  },
+  "cli_reported_cost_usd": null,
+  "files": []
+}

@@ -1,0 +1,117 @@
+{
+  "ok": true,
+  "error": null,
+  "started": "2026-10-29T11:35:52+00:00",
+  "duration_s": 11.4,
+  "command": [
+    "claude",
+    "-p",
+    "<prompt>",
+    "--model",
+    "claude-sonnet-5-5",
+    "--effort",
+    "high",
+    "--setting-sources",
+    "project",
+    "--strict-mcp-config",
+    "--no-session-persistence",
+    "--permission-mode",
+    "acceptEdits",
+    "--disallowedTools",
+    "WebSearch",
+    "WebFetch",
+    "--settings",
+    "{\"sandbox\": {\"enabled\": true, \"autoAllowBashIfSandboxed\": true, \"allowUnsandboxedCommands\": false}}",
+    "--output-format",
+    "json"
+  ],
+  "served_models": [
+    "claude-haiku-5-5",
+    "claude-sonnet-5-5"
+  ],
+  "usage": {
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 4947,
+      "cache_read_input_tokens": 11097,
+      "output_tokens": 530,
+      "output_tokens_details": {
+        "thinking_tokens": 60
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 4947,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 530,
+          "cache_read_input_tokens": 11097,
+          "cache_creation_input_tokens": 4947,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 4947
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-haiku-5-5": {
+        "inputTokens": 1617,
+        "outputTokens": 19,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.0001712,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-haiku-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      },
+      "claude-sonnet-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 530,
+        "cacheReadInputTokens": 11097,
+        "cacheCreationInputTokens": 4947,
+        "webSearchRequests": 0,
+        "costUSD": 0.0262017,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 60,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    }
+  },
+  "est_cost_usd": 0.026373,
+  "est_cost": {
+    "claude-haiku-5-5": {
+      "input_tokens": 1617,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 0,
+      "output_tokens": 19,
+      "usd": 0.000171
+    },
+    "claude-sonnet-5-5": {
+      "input_tokens": 2,
+      "cache_write_tokens": 4947,
+      "cache_read_tokens": 11097,
+      "output_tokens": 530,
+      "usd": 0.026202
+    }
+  },
+  "cli_reported_cost_usd": 0.0263729,
+  "files": []
+}

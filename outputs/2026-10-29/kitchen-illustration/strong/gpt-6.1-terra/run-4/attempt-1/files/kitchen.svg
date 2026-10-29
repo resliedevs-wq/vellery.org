@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">A quiet Monday morning</title>
+  <desc id="desc">A front view of a small kitchen table with three red apples, a blue Monday mug, and a gray cat sleeping on a folded newspaper in warm light from a window on the left.</desc>
+  <rect width="1200" height="800" fill="#eee5d4"/>
+  <rect y="623" width="1200" height="177" fill="#c5aa8d"/>
+  <path d="M0 623h1200" stroke="#b89b7f" stroke-width="5"/>
+  <!-- Window and the soft shapes of the morning outside -->
+  <rect x="68" y="75" width="303" height="337" rx="5" fill="#b89a77"/>
+  <rect x="80" y="87" width="279" height="311" fill="#dbe4d5"/>
+  <path d="M80 295c44-35 78-27 112-2 46-55 105-45 167-12v117H80z" fill="#b9c8ad"/>
+  <path d="M80 333c44-29 88-28 133-3 47-27 97-24 146-3v71H80z" fill="#a9bca3"/>
+  <circle cx="137" cy="145" r="29" fill="#f4dfaa"/>
+  <path d="M219 87v311M80 241h279" fill="none" stroke="#f5eee0" stroke-width="13"/>
+  <path d="M67 407h305" stroke="#9d8065" stroke-width="15" stroke-linecap="round"/>
+  <!-- Sunlight across the wall and floor -->
+  <path d="M376 221 1005 623H482z" fill="#f7dfad" opacity=".25"/>
+  <path d="M485 623h414l184 177H604z" fill="#f6dfb7" opacity=".32"/>
+  <!-- Background details -->
+  <path d="M1010 151h83v124h-83z" fill="#b9997d"/>
+  <path d="M1018 159h67v108h-67z" fill="#e4d9c7"/>
+  <path d="M1033 242c11-25 17-40 18-60m0 36c-10-5-13-13-13-19m13 28c11-4 15-11 16-19" fill="none" stroke="#97a68e" stroke-width="4" stroke-linecap="round"/>
+  <!-- Table, viewed straight on -->
+  <path d="M241 557h718v42H241z" fill="#a97755"/>
+  <path d="M264 596h48l-19 204h-38zm626 0h48l13 204h-38z" fill="#987053"/>
+  <path d="M228 543q0-10 12-10h720q12 0 12 10v16H228z" fill="#c3946d"/>
+  <path d="M242 543h714" stroke="#d4ac86" stroke-width="4" stroke-linecap="round"/>
+  <!-- Three apples -->
+  <g stroke-linecap="round">
+    <path d="M309 492c-17-12-33-3-34 15-1 18 13 32 25 32 6 0 8-3 13-3s8 3 13 3c13-1 24-15 23-32-1-18-17-27-34-15z" fill="#b94f45"/>
+    <path d="M312 492q-1-12 5-19" fill="none" stroke="#6f6048" stroke-width="4"/>
+    <path d="M315 481q9-10 20-5-6 10-20 9z" fill="#869a76"/>
+    <path d="M378 500c-15-11-30-3-31 14-1 15 12 27 23 27 5 0 7-2 12-2s7 2 12 2c12-1 22-13 21-28-1-17-15-24-31-13z" fill="#c76050"/>
+    <path d="M381 501q0-11 5-17" fill="none" stroke="#6f6048" stroke-width="4"/>
+    <path d="M384 490q9-9 18-4-6 8-18 8z" fill="#899a76"/>
+    <path d="M333 514c-14-10-27-3-28 12-1 12 9 18 20 18 5 0 7-2 11-2s7 2 11 2c11 0 20-7 19-19-1-15-14-21-28-11z" fill="#a94740"/>
+    <path d="M336 515q-1-9 4-15" fill="none" stroke="#6f6048" stroke-width="4"/>
+    <path d="M339 505q8-7 16-3-5 7-16 7z" fill="#84956f"/>
+  </g>
+  <!-- Mug -->
+  <path d="M504 460h31c27 0 27 48 0 48h-23" fill="none" stroke="#527b87" stroke-width="13"/>
+  <path d="M433 454h82v64q0 23-19 23h-43q-20 0-20-23z" fill="#638e9b"/>
+  <path d="M433 455q41 8 82 0" fill="none" stroke="#86a9ad" stroke-width="4"/>
+  <text x="474" y="502" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" letter-spacing="1" fill="#f7eee0">MONDAY</text>
+  <!-- Folded newspaper -->
+  <path d="M636 519l186-4 61 21-211 7-50-12z" fill="#d1c8b7"/>
+  <path d="M622 531l50 12 211-7-5 8-207 8-49-13z" fill="#bdb4a4"/>
+  <path d="M657 529l49 8m-34-12 54 8m99-4 26 6m-57-7 18 4" stroke="#9f9b91" stroke-width="2" stroke-linecap="round"/>
+  <!-- Sleeping cat curled on the paper -->
+  <path d="M791 502c36-2 52 4 48 17-3 11-25 14-47 10" fill="none" stroke="#858985" stroke-width="14" stroke-linecap="round"/>
+  <path d="M685 514c-4-29 24-55 66-55 39 0 65 18 65 42 0 18-14 27-43 27h-60c-17 0-26-4-28-14z" fill="#959b97"/>
+  <path d="M729 470c11-7 24-10 37-9m-38 19c13-6 27-8 40-6m-32 15c11-4 23-5 34-3" fill="none" stroke="#858c88" stroke-width="4" stroke-linecap="round"/>
+  <path d="M686 490l5-21 17 12q12-4 25 0l16-12 2 24c8 20-3 34-31 34-27 0-43-12-34-37z" fill="#a3a9a4"/>
+  <path d="M693 478l3-4 7 7m34 0 8-7 1 8" fill="#c5aaa6"/>
+  <path d="M699 503q5 5 10 0m19 0q5 5 10 0" fill="none" stroke="#68716d" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M716 509l4 3 4-3z" fill="#ae8581"/>
+  <path d="M720 512v3m0 0q-3 4-7 1m7-1q3 4 7 1" fill="none" stroke="#737a75" stroke-width="2" stroke-linecap="round"/>
+  <path d="M692 509l-12-2m12 7-12 2m68-7 12-2m-12 7 12 2" stroke="#7f8781" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,1 @@
+Here’s a cozy kitchen in the morning: [View the illustration](cozy_morning_kitchen.svg).

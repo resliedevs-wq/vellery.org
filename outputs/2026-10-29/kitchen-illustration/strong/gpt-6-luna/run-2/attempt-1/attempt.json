@@ -1,0 +1,55 @@
+{
+  "ok": true,
+  "error": null,
+  "started": "2026-10-29T11:34:32+00:00",
+  "duration_s": 34.9,
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "--sandbox",
+    "workspace-write",
+    "--disable",
+    "apps",
+    "--disable",
+    "plugins",
+    "--disable",
+    "image_generation",
+    "-c",
+    "web_search=\"disabled\"",
+    "--cd",
+    "/tmp/vellery-fsu60dp3/work",
+    "--model",
+    "gpt-6-luna",
+    "-c",
+    "model_reasoning_effort=\"high\"",
+    "--json",
+    "--output-last-message",
+    "/tmp/vellery-fsu60dp3/last-message.txt",
+    "<prompt>"
+  ],
+  "served_models": null,
+  "usage": {
+    "input_tokens": 48493,
+    "cached_input_tokens": 42240,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 3695,
+    "reasoning_output_tokens": 237
+  },
+  "est_cost_usd": 0.002895,
+  "est_cost": {
+    "gpt-6-luna": {
+      "input_tokens": 6253,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 42240,
+      "output_tokens": 3695,
+      "usd": 0.002895
+    }
+  },
+  "cli_reported_cost_usd": null,
+  "files": [
+    "kitchen.svg"
+  ]
+}

@@ -1,0 +1,1 @@
+![A cozy kitchen in the morning](</tmp/vellery-wqyf5ik9/work/cozy-kitchen-morning.svg>)

@@ -1,0 +1,1 @@
+I can’t generate the image right now because the built-in image generator isn’t available. The fallback uses the image API and requires an API key. If you want that route, tell me and I’ll continue.

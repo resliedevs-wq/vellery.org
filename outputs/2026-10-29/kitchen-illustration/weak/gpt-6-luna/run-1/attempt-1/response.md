@@ -1,0 +1,1 @@
+I can’t generate the image here because the built in image tool isn’t available. The fallback requires an API key and your explicit request to use it.
