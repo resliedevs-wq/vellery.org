@@ -1,6 +1,10 @@
 name = "vellery"
 main = "site/worker.js"
 compatibility_date = "2026-10-01"
+routes = [
+  { pattern = "vellery.org", custom_domain = true },
+  { pattern = "www.vellery.org", custom_domain = true },
+]
 
 [assets]
 directory = "dist"
@@ -10,3 +14,4 @@ run_worker_first = ["/api/*"]
 [[d1_databases]]
 binding = "DB"
 database_name = "vellery-ratings"
+database_id = "241a2352-814e-4def-8c2d-775c118bec6c"
