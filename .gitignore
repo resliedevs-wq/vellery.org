@@ -3,3 +3,4 @@ grading/kitchen/key.json
 dist/
 node_modules/
 .wrangler/
+site/reveal.generated.js

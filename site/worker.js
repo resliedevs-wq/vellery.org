@@ -3,6 +3,8 @@
 // a session is one voter. Anyone who knows the password can vote, and can
 // log in again to vote again, so these numbers are a test.
 
+import REVEAL from "./reveal.generated.js";
+
 const COOKIE = "vellery_session";
 const MONTH = 60 * 60 * 24 * 30;
 const PER_HOUR = 300;
@@ -142,6 +144,15 @@ export default {
       const { results: mine } = await env.DB.prepare("SELECT item, vote, basic FROM votes WHERE item = ? AND voter = ?")
         .bind(item, voter).all();
       return json(fold(results, mine)[item] ?? { up: 0, down: 0, basic: 0, mine: null });
+    }
+
+    // Which model made each blind drawing. Only the Worker holds this; pages never contain it.
+    if (path === "/api/reveal" && request.method === "GET") {
+      const task = url.searchParams.get("task") ?? "";
+      if (!PREFIX.test(task)) return json({ error: "bad task" }, 400);
+      const out = {};
+      for (const [id, who] of Object.entries(REVEAL)) if (id.startsWith(`${task}.`)) out[id] = who;
+      return json(out);
     }
 
     if (path === "/api/votes" && request.method === "GET") {

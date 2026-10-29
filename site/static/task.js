@@ -3,9 +3,19 @@
   const prompts = [...document.querySelectorAll(".prompt")];
   const tiles = [...document.querySelectorAll(".tile")];
   const groups = Object.fromEntries([...document.querySelectorAll(".group")].map((g) => [g.dataset.g, g]));
+  const board = document.getElementById("board");
+  const matrixBox = document.getElementById("matrix");
+  const legend = document.getElementById("legend");
+  const revealBar = document.getElementById("revealbar");
   const rules = data.rules;
   const byId = Object.fromEntries(tiles.map((t) => [t.dataset.id, t]));
   const cacheKey = `vellery.votes.${data.slug}`;
+  const revealKey = `vellery.reveal.${data.slug}`;
+  const rank = { good: 0, fix: 1, slop: 2, none: 3 };
+  const rowsPlaced = new Set();
+  let meta = {};
+  let revealed = false;
+  let revealing = false;
   const pending = {};
   let votes = {};
   let variant = "strong";
@@ -43,7 +53,7 @@
 
   // Scripted tasks keep their grade. Drawings take theirs from votes.
   function bucketOf(tile) {
-    if (data.mode !== "gallery") return tile.dataset.g || tile.closest(".group").dataset.g;
+    if (data.mode !== "gallery") return tile.dataset.g;
     const v = tally(tile.dataset.id);
     const total = v.up + v.down;
     if (total < rules.min) return "none";
@@ -60,18 +70,65 @@
     return list;
   }
 
-  // Green runs get a new random order on every visit; the others keep theirs.
-  function place() {
-    const wanted = {};
-    tiles.forEach((t) => (wanted[t.dataset.id] = bucketOf(t)));
+  const inMatrix = () => data.mode !== "gallery" || revealed;
+  const rowOf = (model) => matrixBox.querySelector(`.mrow[data-model="${model}"]`);
+
+  // Drawings get model rows once the models are revealed.
+  function buildRows() {
+    for (const m of data.models) {
+      if (rowOf(m.id)) continue;
+      const row = el("div", "mrow");
+      row.dataset.model = m.id;
+      row.append(el("div", "mlabel", m.label));
+      matrixBox.append(row);
+    }
+    tiles.forEach((t) => {
+      const who = meta[t.dataset.id];
+      if (who) {
+        t.dataset.model = who.id;
+        t.dataset.run = who.run;
+        t.setAttribute("aria-label", `${who.label}, run ${who.run}`);
+        rowOf(who.id).append(t);
+      }
+    });
+  }
+
+  // In each model's row: usable runs first, in a new random order on every visit,
+  // then needs-a-fix, then slop, each in run order.
+  function placeRows() {
+    matrixBox.querySelectorAll(".mrow").forEach((row) => {
+      const model = row.dataset.model;
+      const mine = [...row.querySelectorAll(".tile")];
+      const good = mine.filter((t) => t.dataset.g === "good");
+      if (!rowsPlaced.has(model)) shuffle(good);
+      const rest = mine
+        .filter((t) => t.dataset.g !== "good")
+        .sort((a, b) => rank[a.dataset.g] - rank[b.dataset.g] || a.dataset.run - b.dataset.run);
+      [...good, ...rest].forEach((t) => row.append(t));
+      rowsPlaced.add(model);
+    });
+  }
+
+  function placeFlat(wanted) {
     for (const [g, box] of Object.entries(groups)) {
       const holder = box.querySelector(".tiles");
       let mine = tiles.filter((t) => wanted[t.dataset.id] === g);
       if (g === "good" && !placed) mine = shuffle(mine);
       for (const t of mine) if (!placed || t.parentNode !== holder) holder.append(t);
     }
-    placed = true;
+  }
+
+  function place() {
+    const wanted = {};
+    tiles.forEach((t) => (wanted[t.dataset.id] = bucketOf(t)));
     tiles.forEach((t) => (t.dataset.g = wanted[t.dataset.id]));
+    const rows = inMatrix();
+    if (board) board.hidden = rows;
+    matrixBox.hidden = !rows;
+    if (legend) legend.hidden = !rows;
+    if (rows) placeRows();
+    else placeFlat(wanted);
+    placed = true;
   }
 
   function refresh() {
@@ -87,6 +144,52 @@
       box.hidden = n === 0;
       box.querySelector(".count").textContent = n;
     });
+    matrixBox.querySelectorAll(".mrow").forEach((row) => {
+      row.hidden = ![...row.querySelectorAll(".tile")].some((t) => !t.hidden);
+    });
+  }
+
+  // Revealing: the Worker hands over which model made each drawing. Rating every
+  // drawing reveals them automatically; the button skips ahead.
+  async function reveal() {
+    if (revealed || revealing || !data.reveal) return;
+    revealing = true;
+    try {
+      const res = await fetch(`/api/reveal?task=${data.slug}`);
+      if (res.ok) meta = await res.json();
+    } catch {}
+    revealing = false;
+    if (!Object.keys(meta).length) return;
+    try {
+      localStorage.setItem(revealKey, JSON.stringify(meta));
+    } catch {}
+    adopt();
+  }
+
+  function adopt() {
+    revealed = true;
+    if (revealBar) revealBar.hidden = true;
+    buildRows();
+    render();
+  }
+
+  function paintReveal() {
+    if (!revealBar || revealed) return;
+    const rated = tiles.filter((t) => votes[t.dataset.id] && votes[t.dataset.id].mine).length;
+    revealBar.querySelector(".num").textContent = window.vellery.me ? `${rated} of ${tiles.length} rated` : "";
+    if (window.vellery.me && rated === tiles.length) reveal();
+  }
+
+  function paintHeader() {
+    const who = revealed && selected && meta[selected];
+    if (!who) return;
+    const head = body.querySelector(".dhead");
+    if (!head || head.dataset.revealed) return;
+    head.dataset.revealed = "1";
+    const title = head.querySelector("h2");
+    const kid = title.textContent;
+    title.replaceChildren(document.createTextNode(`${who.label} `), el("span", "", `run ${who.run}`));
+    head.querySelector(".note").textContent = `Drawing ${kid}`;
   }
 
   function paintStatus() {
@@ -130,6 +233,8 @@
     refresh();
     paintVotes();
     paintStatus();
+    paintHeader();
+    paintReveal();
   }
 
   function applyLocal(v, next) {
@@ -189,6 +294,7 @@
     refresh();
     paintVotes();
     paintStatus();
+    paintHeader();
   }
 
   function open(id) {
@@ -242,8 +348,23 @@
   tiles.forEach((t) => t.addEventListener("click", () => open(t.dataset.id)));
   document.addEventListener("vellery:auth", load);
 
+  const revealButton = document.getElementById("reveal");
+  if (revealButton) revealButton.addEventListener("click", reveal);
+  try {
+    meta = JSON.parse(localStorage.getItem(revealKey) || "{}");
+  } catch {
+    meta = {};
+  }
+  if (data.reveal && Object.keys(meta).length) {
+    revealed = true;
+    if (revealBar) revealBar.hidden = true;
+    buildRows();
+  }
   place();
   pick("strong");
   load();
-  window.vellery.ready.then(paintVotes);
+  window.vellery.ready.then(() => {
+    paintVotes();
+    paintReveal();
+  });
 })();

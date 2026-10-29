@@ -318,19 +318,47 @@ def prompt_cards(task):
 BUCKETS = {"good": "Usable as is", "fix": "Needs a fix", "slop": "Slop", "none": "Waiting for votes"}
 # Personal-call tasks (no scripted check) take their color from votes.
 RULES = {"min": 3, "green": 0.8, "red": 0.3}
+REVEAL_MODULE = ROOT / "site" / "reveal.generated.js"
 
 
-def board(tiles):
-    """tiles: list of (bucket, html). Groups are filled here and moved by task.js."""
+def flat_board(tiles):
+    """Drawings with their models hidden: grouped by color, no model rows."""
     groups = []
     for bucket, label in BUCKETS.items():
-        mine = "".join(h for b, h in tiles if b == bucket)
         groups.append(f'<div class="group {bucket}" data-g="{bucket}"><h3>{label} <span class="count"></span></h3>'
-                      f'<div class="tiles">{mine}</div></div>')
+                      f'<div class="tiles">{"".join(t for b, t in tiles if b == bucket)}</div></div>')
     return f'<div class="board" id="board">{"".join(groups)}</div>'
 
 
-def build_task_page(task, runs, models, items):
+def matrix(models, tiles_by_model):
+    """One row per model; task.js orders each row green, yellow, red."""
+    rows = []
+    for m in models:
+        mine = tiles_by_model.get(m["id"])
+        if mine:
+            rows.append(f'<div class="mrow" data-model="{m["id"]}"><div class="mlabel">{esc(m["label"])}</div>{"".join(mine)}</div>')
+    return f'<div class="matrix" id="matrix">{"".join(rows)}</div>'
+
+
+def legend(waiting):
+    names = {**GRADES, **({"none": BUCKETS["none"]} if waiting else {})}
+    return '<div class="legend" id="legend">' + "".join(f'<span class="{g}">{label}</span>' for g, label in names.items()) + "</div>"
+
+
+def reveal_key(models):
+    """id -> model and run for the blind drawings. Never written into the pages: only
+    the Worker holds it, and hands it out when a visitor asks to see the models."""
+    key_file = KITCHEN / "key.json"
+    labels = {m["id"]: m["label"] for m in models}
+    out = {}
+    if key_file.exists():
+        for kid, k in json.loads(key_file.read_text()).items():
+            out[f"kitchen-illustration.{kid}"] = {"id": k["model"], "label": labels[k["model"]], "run": k["run"]}
+    REVEAL_MODULE.write_text(f"export default {json.dumps(out)};\n")
+    return bool(out)
+
+
+def build_task_page(task, runs, models, items, can_reveal):
     slug = task["slug"]
     head = (f'<section class="hero task"><div><p class="eyebrow">{esc(task["category"])}</p>'
             f'<h1>{esc(task["title"])}</h1></div>{summary(runs, len(items) // 2)}</section>')
@@ -338,24 +366,32 @@ def build_task_page(task, runs, models, items):
     (DIST / "tasks" / slug).mkdir(parents=True, exist_ok=True)
     body += input_section(task)
     body += f'<section class="block"><h2>Prompt</h2>{prompt_cards(task)}</section>'
-    votable, detail, tiles = {}, {}, []
-    if task["kind"] == "svg":
+    votable, detail = {}, {}
+    gallery = task["kind"] == "svg"
+    if gallery:
+        tiles = []
         for i in items:
+            kid = i["id"].split(".")[1]
             tiles.append(("none",
-                f'<button class="tile shot" data-id="{i["id"]}" data-variant="{i["variant"]}" '
-                f'aria-label="Drawing {i["id"].split(".")[1]}"><img src="{i["srcs"][0]}" alt="" loading="lazy">'
-                f'<span class="sid">{i["id"].split(".")[1]}</span><span class="score"></span></button>'))
+                f'<button class="tile shot" data-id="{i["id"]}" data-variant="{i["variant"]}" data-g="none" '
+                f'aria-label="Drawing {kid}"><img src="{i["srcs"][0]}" alt="" loading="lazy">'
+                f'<span class="sid">{kid}</span><span class="score"></span></button>'))
             detail[i["id"]] = (
-                f'<div class="dhead"><div><h2>{i["id"].split(".")[1]}</h2>'
-                '<p class="note">Model hidden until the drawings are graded.</p></div></div>'
+                f'<div class="dhead"><div><h2>{kid}</h2>'
+                '<p class="note">Model hidden until you have rated every drawing or reveal it.</p></div></div>'
                 f'<div class="art">{"".join(f"<img src={chr(34)}{src}{chr(34)} alt={chr(34)}{chr(34)}>" for src in i["srcs"])}</div>')
             votable[i["id"]] = {"basic": True}
         note = ('<p class="note">Only logged-in visitors can vote. A drawing needs '
                 f'{RULES["min"]} votes to be placed. Green: {RULES["green"]:.0%} or more upvotes. Red: under '
                 f'{RULES["red"]:.0%} upvotes and most downvoters going on to ▼▼ (not meeting basic standard). Otherwise yellow.</p>')
+        reveal = ('<div class="revealbar" id="revealbar"><button class="ghost" id="reveal">Reveal models</button>'
+                  '<span class="num"></span></div>' if can_reveal else "")
+        outputs = (f'{note}{reveal}{legend(True)}{flat_board(tiles)}'
+                   f'<div class="matrix" id="matrix" hidden></div>')
     else:
         reference = (task["dir"] / task["reference"]).read_text() if task["kind"] == "text" else None
         expected = list(csv.DictReader((task["dir"] / "expected.csv").open())) if task["slug"] == "clean-spreadsheet" else None
+        by_model = {}
         for m in models:
             for variant in VARIANTS:
                 for r in sorted((r for r in runs if r["variant"] == variant and r["model"] == m["id"]), key=lambda r: r["run"]):
@@ -368,17 +404,19 @@ def build_task_page(task, runs, models, items):
                         f'<div class="dhead"><div><h2>{esc(m["label"])} <span>run {r["run"]}</span></h2>'
                         f'<p class="note"><a href="{r["source"]}">Raw output</a>{cost}</p></div>'
                         f'<span class="verdict {g["grade"]}">{GRADES[g["grade"]]}{why}</span></div>' + compare)
-                    tiles.append((g["grade"],
-                        f'<button class="tile" data-id="{r["item"]}" data-variant="{variant}" '
-                        f'aria-label="{esc(m["label"])}, run {r["run"]}: {GRADES[g["grade"]]}">'
-                        f'<b>{esc(m["label"])}</b><span>run {r["run"]}</span><span class="score"></span></button>'))
+                    by_model.setdefault(m["id"], []).append(
+                        f'<button class="tile" data-id="{r["item"]}" data-variant="{variant}" data-run="{r["run"]}" '
+                        f'data-g="{g["grade"]}" aria-label="{esc(m["label"])}, run {r["run"]}: {GRADES[g["grade"]]}">'
+                        f'<span class="run">run {r["run"]}</span><span class="score"></span></button>')
                     if g["grade"] == "good":
                         votable[r["item"]] = {}
         note = ('<p class="note">Usable runs can be upvoted or downvoted by logged-in visitors. '
-                'Their order is shuffled on every visit.</p>')
-    body += f'<section class="block"><h2>Outputs</h2>{note}{board(tiles)}</section>'
-    data = {"slug": slug, "mode": "gallery" if task["kind"] == "svg" else "grid", "detail": detail,
-            "votable": votable, "rules": RULES, "buckets": BUCKETS}
+                'Within each model, usable runs are shuffled on every visit.</p>')
+        outputs = f'{note}{legend(False)}{matrix(models, by_model)}'
+    body += f'<section class="block"><h2>Outputs</h2>{outputs}</section>'
+    data = {"slug": slug, "mode": "gallery" if gallery else "grid", "detail": detail, "votable": votable,
+            "rules": RULES, "buckets": BUCKETS, "reveal": bool(gallery and can_reveal),
+            "models": [{"id": m["id"], "label": m["label"]} for m in models]}
     body += f'<script id="data" type="application/json">{blob(data)}</script>'
     write(f"tasks/{slug}/index.html", page(task["title"], body, ["task.js"]))
     return votable
@@ -390,12 +428,13 @@ def main():
     tasks = load_tasks()
     models = yaml.safe_load((ROOT / "models.yaml").read_text())["models"]
     all_runs = load_runs()
+    can_reveal = reveal_key(models)
     known, cards = {}, []
     for task in tasks:
         slug = task["slug"]
         runs = [r for r in all_runs if r["task"] == slug]
         items = kitchen_items() if task["kind"] == "svg" else [{"id": r["item"], "variant": r["variant"]} for r in runs]
-        known.update(build_task_page(task, runs, models, items))
+        known.update(build_task_page(task, runs, models, items, can_reveal))
         field = "".join(f'<div class="field"><span>{v.capitalize()}</span><div class="dots">{dots(runs, v)}</div></div>'
                         for v in VARIANTS)
         cards.append(
