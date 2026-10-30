@@ -99,6 +99,7 @@ def load_runs():
         runs.append({
             **meta,
             "batch": batch,
+            "tested": json.loads((attempt / "attempt.json").read_text())["started"][:10],
             "item": f"{meta['task']}.{digest.hexdigest()[:6]}",
             "response": (attempt / "response.md").read_text(),
             "grade": json.loads(grade_file.read_text()) if grade_file.exists() else None,
@@ -364,6 +365,20 @@ def reveal_key(models):
     return bool(out)
 
 
+def model_stats(runs, model):
+    out = {}
+    for variant in VARIANTS:
+        selected = [r for r in runs if r["model"] == model and r["variant"] == variant]
+        dates = sorted({r["tested"] for r in selected})
+        costs = [r.get("est_cost_usd_all_attempts", r.get("est_cost_usd")) for r in selected]
+        average = sum(costs) / len(costs) if costs and all(c is not None for c in costs) else None
+        out[variant] = {
+            "date": " – ".join(dict.fromkeys([dates[0], dates[-1]])) if dates else "Unavailable",
+            "cost": f"${average:.4f} avg/run" if average is not None else "Cost unavailable",
+        }
+    return out
+
+
 def build_task_page(task, runs, models, items, can_reveal):
     slug = task["slug"]
     head = (f'<section class="hero task"><div><p class="eyebrow">{esc(task["category"])}</p>'
@@ -413,14 +428,12 @@ def build_task_page(task, runs, models, items, can_reveal):
                         f'<span class="run">run {r["run"]}</span><span class="score"></span></button>')
                     if g["grade"] == "good":
                         votable[r["item"]] = {}
-        note = ('<p class="note">Usable runs can be upvoted or downvoted by logged-in visitors. '
-                'Within each model, usable runs are shuffled on every visit.</p>')
-        outputs = f'{note}{legend(False)}{matrix(models, by_model)}'
+        outputs = matrix(models, by_model)
     output_class = "block gallery-outputs" if gallery else "block"
     body += f'<section class="{output_class}"><h2>Outputs</h2>{outputs}</section>'
     data = {"slug": slug, "mode": "gallery" if gallery else "grid", "detail": detail, "votable": votable,
             "rules": RULES, "buckets": BUCKETS, "reveal": bool(gallery and can_reveal),
-            "models": [{"id": m["id"], "label": m["label"]} for m in models]}
+            "models": [{"id": m["id"], "label": m["label"], "stats": model_stats(runs, m["id"])} for m in models]}
     body += f'<script id="data" type="application/json">{blob(data)}</script>'
     write(f"tasks/{slug}/index.html", page(task["title"], body, ["task.js"]))
     return votable

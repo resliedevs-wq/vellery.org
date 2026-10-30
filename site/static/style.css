@@ -91,6 +91,7 @@ footer{border-top:1px solid var(--line);padding:22px 32px;font-size:13px;color:v
 .tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}
 .mrow{display:grid;grid-template-columns:150px repeat(5,minmax(0,1fr));gap:8px;align-items:stretch}
 .mlabel{align-self:center;font-size:14px;font-weight:500}
+.mmeta{display:flex;flex-direction:column;margin-top:4px;font-size:11px;line-height:1.5;font-weight:400;color:var(--muted)}
 .revealbar{display:flex;gap:14px;align-items:center}
 .ghost{padding:8px 16px;border-radius:999px;border:1.5px solid var(--line);background:none;color:var(--ink);font:500 13px var(--sans);cursor:pointer}
 .ghost:hover{background:var(--soft)}
@@ -109,7 +110,7 @@ footer{border-top:1px solid var(--line);padding:22px 32px;font-size:13px;color:v
 .tile[data-g="slop"]{background:color-mix(in srgb,var(--slop) 15%,var(--surface));border-color:color-mix(in srgb,var(--slop) 40%,var(--line))}
 .tile[data-g="good"]::after{content:"✓";color:var(--good)}.tile[data-g="fix"]::after{content:"~";color:var(--fix)}.tile[data-g="slop"]::after{content:"✕";color:var(--slop)}
 .tile.on{border-color:var(--ink)!important;box-shadow:0 0 0 3px var(--soft)}
-.tile.shot{aspect-ratio:4/3;padding:0;overflow:hidden;background:#fff!important;border-width:3px}
+.tile.shot{min-width:0;align-self:center;aspect-ratio:4/3;padding:0;overflow:hidden;background:#fff!important;border-width:3px}
 .tile.shot[data-g="none"]{border-width:1px;border-color:var(--line)}
 .tile.shot[data-g="good"]{border-color:var(--good)}.tile.shot[data-g="fix"]{border-color:var(--fix)}.tile.shot[data-g="slop"]{border-color:var(--slop)}
 .tile.shot::after{left:8px;right:auto;top:6px;background:rgba(255,255,255,.9);border-radius:50%;width:20px;height:20px;display:grid;place-items:center;font-size:12px}
@@ -213,3 +214,6 @@ dialog.viewer::backdrop{background:rgba(20,19,16,.62)}
   .hero.task,.prompts,.pair{grid-template-columns:1fr}
   .dhead{flex-direction:column}.verdict{align-items:start;text-align:left}
 }
+
+.tile:not(.shot)[data-g]::after{top:50%;bottom:auto;transform:translateY(-50%);line-height:1}
+.tile:not(.shot){padding-right:28px}

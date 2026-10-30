@@ -157,6 +157,17 @@
       box.querySelector(".count").textContent = n;
     });
     matrixBox.querySelectorAll(".mrow").forEach((row) => {
+      const stats = data.models.find((m) => m.id === row.dataset.model)?.stats?.[variant];
+      if (stats) {
+        const label = row.querySelector(".mlabel");
+        let info = label.querySelector(".mmeta");
+        if (!info) {
+          info = el("span", "mmeta");
+          label.append(info);
+        }
+        info.replaceChildren(el("span", "", stats.date), el("span", "", stats.cost));
+        info.title = "Test date (UTC) · Average estimated API cost per run, including retries";
+      }
       row.hidden = ![...row.querySelectorAll(".tile")].some((t) => !t.hidden);
     });
   }
