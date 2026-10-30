@@ -1,0 +1,1 @@
+![A pelican wearing a coral scarf rides a teal bicycle.](/tmp/vellery-_3jeoy7l/work/pelican.png)

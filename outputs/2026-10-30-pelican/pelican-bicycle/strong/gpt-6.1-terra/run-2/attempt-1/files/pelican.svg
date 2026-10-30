@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 540" role="img" aria-labelledby="title desc">
+  <title id="title">A pelican riding a bicycle</title>
+  <desc id="desc">A pelican pedals a bicycle as its wheels spin and the landscape passes by.</desc>
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#d9f3f5"/><stop offset="1" stop-color="#f7f3df"/></linearGradient>
+    <linearGradient id="feathers" x2="0.8" y2="1"><stop stop-color="#fffdf2"/><stop offset="1" stop-color="#d6dcd3"/></linearGradient>
+    <g id="wheel">
+      <circle r="85" fill="#fffaf0" stroke="#263b40" stroke-width="9"/>
+      <circle r="76" fill="none" stroke="#c1d2cb" stroke-width="2"/>
+      <g stroke="#a8bdb7" stroke-width="2">
+        <path d="M-76 0H76 M0-76V76 M-54-54 54 54 M54-54 -54 54"/>
+      </g>
+      <circle r="7" fill="#263b40"/>
+    </g>
+  </defs>
+  <rect width="720" height="540" fill="url(#sky)"/>
+  <circle cx="595" cy="100" r="37" fill="#f8d879"/>
+  <g fill="#fff" opacity=".7"><path d="M71 110q8-20 28-12 12-22 33-9 15-4 21 11 20 0 21 15H71z"/><path d="M432 68q7-17 24-10 11-19 29-8 14-3 19 10 17 0 18 13h-90z"/></g>
+  <path d="M0 426 Q100 397 195 423 T390 421 T590 419 T720 426V540H0Z" fill="#c5dfc8"/>
+  <path d="M0 474H720V540H0Z" fill="#e9d8b9"/>
+  <path d="M0 474H720" stroke="#b9aa8d" stroke-width="3"/>
+  <g stroke="#cbb99a" stroke-width="3" stroke-linecap="round" opacity=".7">
+    <path d="M40 502h65 M180 521h85 M365 499h54 M535 519h100">
+      <animateTransform attributeName="transform" type="translate" values="0 0;-140 0" dur="1.3s" repeatCount="indefinite"/>
+    </path>
+    <path d="M180 502h65 M320 521h85 M505 499h54 M675 519h100">
+      <animateTransform attributeName="transform" type="translate" values="0 0;-140 0" dur="1.3s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  <!-- Wheels turn around their own hubs. -->
+  <g transform="translate(220 420)"><use href="#wheel"><animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="1.3s" repeatCount="indefinite"/></use></g>
+  <g transform="translate(500 420)"><use href="#wheel"><animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="1.3s" repeatCount="indefinite"/></use></g>
+  <!-- Bicycle frame and fittings. -->
+  <g fill="none" stroke="#e36e55" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M220 420 294 320 355 390 220 420 275 375 453 330 355 390"/>
+    <path d="M500 420 453 330 442 305"/>
+  </g>
+  <path d="M294 320 286 301" fill="none" stroke="#33484b" stroke-width="6"/>
+  <path d="M264 300q20-8 43 0" fill="none" stroke="#33484b" stroke-width="10" stroke-linecap="round"/>
+  <path d="M442 305q-4-18 15-18h15" fill="none" stroke="#33484b" stroke-width="6" stroke-linecap="round"/>
+  <path d="M469 287h15" stroke="#33484b" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="355" cy="390" r="24" fill="#f7f1df" stroke="#aabdb5" stroke-width="3"/>
+  <!-- The crank and pedals rotate together. -->
+  <g transform="translate(355 390)"><g><path d="M-28 0H28" stroke="#344a4b" stroke-width="5"/><path d="M-33-5v10 M33-5v10" stroke="#344a4b" stroke-width="6" stroke-linecap="round"/><circle r="5" fill="#344a4b"/><animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="1.3s" repeatCount="indefinite"/></g></g>
+  <!-- Far leg follows the opposite pedal. -->
+  <polyline points="305,307 309,350 327,390" fill="none" stroke="#d78c51" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+    <animate attributeName="points" dur="1.3s" repeatCount="indefinite" values="305,307 309,350 327,390;305,307 326,342 355,362;305,307 361,346 383,390;305,307 339,370 355,418;305,307 309,350 327,390"/>
+  </polyline>
+  <!-- Pelican body rests above the saddle. -->
+  <path d="M245 268q-24 3-37-13 3 30 30 43l36-4z" fill="#b9c7bd"/>
+  <path d="M231 256q15-48 77-53 57-4 81 37 15 27-7 52-25 29-80 29-60 0-73-34-6-16 2-31z" fill="url(#feathers)" stroke="#778f88" stroke-width="3"/>
+  <path d="M243 259q33-35 89-21 28 7 36 27-12 30-56 37-47 7-69-18 27 9 54-2-34 1-54-23z" fill="#c4d0c8" stroke="#9aac9f" stroke-width="2"/>
+  <path d="M357 251q23-14 20-45-2-27 9-46 10-17 29-15 21 2 25 22 3 17-10 29-11 10-17 23-7 18-14 37" fill="url(#feathers)" stroke="#778f88" stroke-width="3"/>
+  <!-- Long bill and hanging pouch are the pelican's distinctive silhouette. -->
+  <path d="M421 174q33 6 96 21-34 44-71 43-23-1-31-28z" fill="#f1b65d" stroke="#c47d45" stroke-width="3"/>
+  <path d="M425 173q52 2 119 13 7 2 0 6-65 6-121-5z" fill="#e79a4e" stroke="#b96e3e" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="416" cy="163" r="4" fill="#243b3b"/><circle cx="417" cy="162" r="1.2" fill="white"/>
+  <!-- Near leg cycles with the crank. -->
+  <polyline points="321,310 360,345 383,390" fill="none" stroke="#e3a05c" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <animate attributeName="points" dur="1.3s" repeatCount="indefinite" values="321,310 360,345 383,390;321,310 345,370 355,418;321,310 310,350 327,390;321,310 329,342 355,362;321,310 360,345 383,390"/>
+  </polyline>
+  <path d="M371 270q28 10 68 21" fill="none" stroke="#d4ddd3" stroke-width="13" stroke-linecap="round"/>
+  <path d="M436 289q10-4 17 1" fill="none" stroke="#d8a16d" stroke-width="7" stroke-linecap="round"/>
+  <path d="M66 460q25-5 47 0 M572 457q20-4 39 0" stroke="#91b9a0" stroke-width="3" fill="none" stroke-linecap="round"/>
+</svg>

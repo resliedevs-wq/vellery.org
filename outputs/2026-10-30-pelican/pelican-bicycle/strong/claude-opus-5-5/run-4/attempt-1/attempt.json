@@ -1,0 +1,119 @@
+{
+  "ok": true,
+  "error": null,
+  "started": "2026-10-30T01:40:34+00:00",
+  "duration_s": 220.7,
+  "command": [
+    "claude",
+    "-p",
+    "<prompt>",
+    "--model",
+    "claude-opus-5-5",
+    "--effort",
+    "high",
+    "--setting-sources",
+    "project",
+    "--strict-mcp-config",
+    "--no-session-persistence",
+    "--permission-mode",
+    "acceptEdits",
+    "--disallowedTools",
+    "WebSearch",
+    "WebFetch",
+    "--settings",
+    "{\"sandbox\": {\"enabled\": true, \"autoAllowBashIfSandboxed\": true, \"allowUnsandboxedCommands\": false}}",
+    "--output-format",
+    "json"
+  ],
+  "served_models": [
+    "claude-haiku-5-5",
+    "claude-opus-5-5"
+  ],
+  "usage": {
+    "usage": {
+      "input_tokens": 10,
+      "cache_creation_input_tokens": 27279,
+      "cache_read_input_tokens": 97468,
+      "output_tokens": 23044,
+      "output_tokens_details": {
+        "thinking_tokens": 11219
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 27279,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 918,
+          "cache_read_input_tokens": 23996,
+          "cache_creation_input_tokens": 14078,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 14078
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-haiku-5-5": {
+        "inputTokens": 1219,
+        "outputTokens": 21,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.00013240000000000002,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-haiku-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      },
+      "claude-opus-5-5": {
+        "inputTokens": 10,
+        "outputTokens": 23044,
+        "cacheReadInputTokens": 97468,
+        "cacheCreationInputTokens": 27279,
+        "webSearchRequests": 0,
+        "costUSD": 0.6986456,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 11219,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    }
+  },
+  "est_cost_usd": 0.698778,
+  "est_cost": {
+    "claude-haiku-5-5": {
+      "input_tokens": 1219,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 0,
+      "output_tokens": 21,
+      "usd": 0.000132
+    },
+    "claude-opus-5-5": {
+      "input_tokens": 10,
+      "cache_write_tokens": 27279,
+      "cache_read_tokens": 97468,
+      "output_tokens": 23044,
+      "usd": 0.698646
+    }
+  },
+  "cli_reported_cost_usd": 0.698778,
+  "files": [
+    "pelican.svg"
+  ]
+}

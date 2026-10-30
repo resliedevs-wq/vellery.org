@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="800" viewBox="0 0 1000 800">
+  <rect width="1000" height="800" fill="#fcf4df"/>
+  <circle cx="755" cy="183" r="66" fill="#f7d67f"/>
+  <path d="M120 642H870" stroke="#d3cbb3" stroke-width="3" stroke-linecap="round"/>
+  <ellipse cx="480" cy="650" rx="287" ry="17" fill="#e9dfc6"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <g stroke="#d5c9ad" stroke-width="2">
+      <path d="M280 460V680M170 570H390M202 492L358 648M202 648L358 492M665 460V680M555 570H775M587 492L743 648M587 648L743 492"/>
+    </g>
+    <g stroke="#253d42" stroke-width="13">
+      <circle cx="280" cy="570" r="109"/><circle cx="665" cy="570" r="109"/>
+    </g>
+    <g stroke="#fff8e9" stroke-width="4">
+      <circle cx="280" cy="570" r="98"/><circle cx="665" cy="570" r="98"/>
+    </g>
+    <path d="M280 570L374 414L458 570H280L598 414H374M458 570L598 414L665 570" stroke="#253d42" stroke-width="15"/>
+    <path d="M280 570L374 414L458 570H280L598 414H374M458 570L598 414L665 570" stroke="#379e9b" stroke-width="9"/>
+    <path d="M374 414L363 382M598 414L580 363L618 349" stroke="#253d42" stroke-width="9"/>
+    <path d="M606 351L632 343" stroke="#bb6943" stroke-width="12"/>
+    <path d="M334 382Q362 374 392 382" stroke="#253d42" stroke-width="15"/>
+    <circle cx="458" cy="570" r="23" fill="#fcf4df" stroke="#253d42" stroke-width="5"/>
+    <path d="M458 570L486 536M458 570L431 604" stroke="#253d42" stroke-width="6"/>
+    <path d="M415 605H446M473 537H503" stroke="#253d42" stroke-width="8"/>
+  </g>
+  <!-- The far leg peeks around the frame. -->
+  <path d="M379 397L350 453L420 493L431 591" fill="none" stroke="#b87c3d" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M429 584L449 601Q434 612 411 602Z" fill="#e3a24a" stroke="#253d42" stroke-width="4" stroke-linejoin="round"/>
+  <!-- Tail, body, and long curved pelican neck. -->
+  <path d="M337 332Q299 328 262 292Q268 338 300 360L275 354Q295 383 329 388Z" fill="#e8ece2" stroke="#253d42" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M301 350C314 311 375 303 411 318C454 336 461 307 452 266C441 229 448 188 476 167C501 147 539 151 552 177C564 198 552 220 535 235C510 259 525 285 521 324C516 374 470 415 410 424C363 430 300 412 298 376Q296 362 301 350Z" fill="#fffef5" stroke="#253d42" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M494 248C475 286 504 321 478 353C445 397 364 416 316 386C334 425 404 439 465 407C517 380 529 333 515 288Q508 268 523 248Z" fill="#e3e8df"/>
+  <path d="M393 412L443 458L423 488L482 522" fill="none" stroke="#253d42" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M393 412L443 458L423 488L482 522" fill="none" stroke="#edb657" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M476 513Q494 515 507 530L466 532Z" fill="#edb657" stroke="#253d42" stroke-width="4" stroke-linejoin="round"/>
+  <!-- An outstretched wing holds the handlebars. -->
+  <path d="M345 338C373 315 414 326 448 344C480 359 513 362 545 347Q570 338 592 342Q600 346 590 352L575 356Q598 353 599 359Q598 365 576 368Q590 368 589 373C553 389 499 394 453 383C414 387 374 380 354 361" fill="#f7f8ed" stroke="#253d42" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M369 347Q405 353 436 369M375 360Q404 368 421 371" fill="none" stroke="#b7c9c2" stroke-width="4" stroke-linecap="round"/>
+  <!-- A great big bill, with its characteristic throat pouch. -->
+  <path d="M536 205L725 211C689 225 652 266 598 278C569 286 546 259 526 228Z" fill="#efb25f" stroke="#253d42" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M542 226Q564 267 595 268Q637 261 675 237Q631 273 598 278Q563 288 536 243Z" fill="#e99561"/>
+  <path d="M531 199C582 194 675 196 733 210Q742 213 731 219L532 224Z" fill="#f7cb62" stroke="#253d42" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M552 207L698 211" stroke="#ffe5a0" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="515" cy="186" r="12" fill="#f5d279"/>
+  <circle cx="517" cy="186" r="6" fill="#253d42"/>
+  <circle cx="519" cy="183" r="2" fill="#fff"/>
+  <path d="M500 165Q508 159 520 162" fill="none" stroke="#253d42" stroke-width="4" stroke-linecap="round"/>
+  <path d="M474 166Q463 148 469 139M481 161Q477 145 484 136" fill="none" stroke="#253d42" stroke-width="4" stroke-linecap="round"/>
+  <!-- A little scarf catches the breeze. -->
+  <path d="M460 276Q489 292 515 274L519 292Q487 308 464 294Z" fill="#d96547" stroke="#253d42" stroke-width="4"/>
+  <path d="M465 285Q416 279 386 251L384 273L362 275Q411 309 468 298Z" fill="#df7653" stroke="#253d42" stroke-width="4" stroke-linejoin="round"/>
+  <g fill="none" stroke="#a9bbb0" stroke-width="4" stroke-linecap="round">
+    <path d="M206 369H149M218 391H175M191 414H130"/>
+    <path d="M815 605Q813 593 820 586M825 606Q830 592 838 591M164 638Q156 626 159 619"/>
+  </g>
+  <g fill="#253d42"><circle cx="280" cy="570" r="7"/><circle cx="665" cy="570" r="7"/></g>
+</svg>

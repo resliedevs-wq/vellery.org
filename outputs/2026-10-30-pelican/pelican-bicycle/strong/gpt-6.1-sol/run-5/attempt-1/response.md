@@ -1,0 +1,1 @@
+Created [pelican.svg](pelican.svg) with the pelican seated on the saddle, actively pedaling as the cranks and wheels turn.

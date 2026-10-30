@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 520" width="700" height="520">
+  <!-- sky & ground -->
+  <rect width="700" height="520" fill="#bfe6ff"/>
+  <circle cx="610" cy="80" r="40" fill="#ffd94a"/>
+  <rect y="490" width="700" height="30" fill="#7cc46a"/>
+  <line x1="0" y1="490" x2="700" y2="490" stroke="#5a9a4c" stroke-width="3"/>
+
+  <!-- wheels -->
+  <g fill="none" stroke="#222" stroke-width="8">
+    <circle cx="190" cy="400" r="88"/>
+    <circle cx="510" cy="400" r="88"/>
+  </g>
+  <g stroke="#888" stroke-width="2">
+    <line x1="190" y1="312" x2="190" y2="488"/><line x1="102" y1="400" x2="278" y2="400"/>
+    <line x1="128" y1="338" x2="252" y2="462"/><line x1="128" y1="462" x2="252" y2="338"/>
+    <line x1="510" y1="312" x2="510" y2="488"/><line x1="422" y1="400" x2="598" y2="400"/>
+    <line x1="448" y1="338" x2="572" y2="462"/><line x1="448" y1="462" x2="572" y2="338"/>
+  </g>
+  <circle cx="190" cy="400" r="8" fill="#444"/>
+  <circle cx="510" cy="400" r="8" fill="#444"/>
+
+  <!-- frame -->
+  <g stroke="#d6336c" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <polyline points="190,400 340,400 300,280 190,400"/>
+    <polyline points="300,280 470,270 340,400"/>
+    <line x1="470" y1="270" x2="510" y2="400"/>
+  </g>
+  <!-- seat post, seat, handlebars -->
+  <line x1="300" y1="280" x2="292" y2="252" stroke="#333" stroke-width="7"/>
+  <path d="M262,248 Q292,238 322,250 L318,258 Q290,252 266,256 Z" fill="#333"/>
+  <line x1="470" y1="270" x2="462" y2="232" stroke="#333" stroke-width="7"/>
+  <path d="M462,232 Q478,222 492,236" stroke="#333" stroke-width="7" fill="none" stroke-linecap="round"/>
+
+  <!-- crank & pedals -->
+  <circle cx="340" cy="400" r="16" fill="none" stroke="#333" stroke-width="5"/>
+  <line x1="340" y1="400" x2="370" y2="370" stroke="#333" stroke-width="6"/>
+  <line x1="340" y1="400" x2="310" y2="430" stroke="#333" stroke-width="6"/>
+  <rect x="358" y="364" width="26" height="8" fill="#333"/>
+  <rect x="297" y="428" width="26" height="8" fill="#333"/>
+
+  <!-- back leg -->
+  <path d="M300,262 L322,350 L310,430" stroke="#f59f00" stroke-width="7" fill="none" stroke-linejoin="round"/>
+  <path d="M296,432 L326,432 L312,424 Z" fill="#f59f00"/>
+
+  <!-- tail -->
+  <path d="M232,222 L180,230 L200,210 L176,206 L236,196 Z" fill="#dee2e6" stroke="#868e96" stroke-width="2"/>
+
+  <!-- body -->
+  <ellipse cx="300" cy="215" rx="80" ry="52" fill="#fff" stroke="#868e96" stroke-width="3" transform="rotate(-12 300 215)"/>
+
+  <!-- front leg -->
+  <path d="M325,255 L380,312 L372,366" stroke="#f59f00" stroke-width="7" fill="none" stroke-linejoin="round"/>
+  <path d="M358,368 L388,368 L374,360 Z" fill="#f59f00"/>
+
+  <!-- wing reaching for the handlebars -->
+  <path d="M270,195 Q350,170 400,205 Q440,225 478,232 Q430,246 390,236 Q330,240 270,220 Z"
+        fill="#e9ecef" stroke="#868e96" stroke-width="3"/>
+  <path d="M300,212 Q340,205 380,222 M310,222 Q350,220 385,230" stroke="#adb5bd" stroke-width="2" fill="none"/>
+
+  <!-- neck -->
+  <path d="M345,185 Q385,160 370,120 Q360,95 385,80" stroke="#fff" stroke-width="34" fill="none" stroke-linecap="round"/>
+  <path d="M362,172 Q395,150 386,118 Q378,98 395,86" stroke="#868e96" stroke-width="3" fill="none"/>
+
+  <!-- head -->
+  <circle cx="395" cy="78" r="28" fill="#fff" stroke="#868e96" stroke-width="3"/>
+  <path d="M378,54 Q395,40 412,52 Q400,56 392,62 Z" fill="#ffe8a3"/>
+
+  <!-- beak & pouch -->
+  <path d="M410,72 L560,92 Q568,96 556,100 L415,92 Z" fill="#ffa94d" stroke="#d9480f" stroke-width="2"/>
+  <path d="M415,92 L552,100 Q520,150 450,138 Q420,128 415,92 Z" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+
+  <!-- eye -->
+  <circle cx="402" cy="70" r="6" fill="#222"/>
+  <circle cx="404" cy="68" r="2" fill="#fff"/>
+
+  <!-- speed lines -->
+  <g stroke="#fff" stroke-width="4" stroke-linecap="round">
+    <line x1="40" y1="200" x2="110" y2="200"/>
+    <line x1="20" y1="240" x2="100" y2="240"/>
+    <line x1="50" y1="280" x2="110" y2="280"/>
+  </g>
+</svg>

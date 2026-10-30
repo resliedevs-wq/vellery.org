@@ -1,0 +1,10 @@
+{"type":"thread.started","thread_id":"01a18a74-6db0-7b40-bc92-aaeacafe09b7"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"I’ll draw a cheerful pelican pedaling a bicycle."}}
+{"type":"item.started","item":{"id":"item_1","type":"file_change","changes":[{"path":"/tmp/vellery-enx05zro/work/pelican.svg","kind":"add"}],"status":"in_progress"}}
+{"type":"item.completed","item":{"id":"item_1","type":"file_change","changes":[{"path":"/tmp/vellery-enx05zro/work/pelican.svg","kind":"add"}],"status":"completed"}}
+{"type":"item.completed","item":{"id":"item_2","type":"agent_message","text":"![A cheerful pelican riding a bicycle](./pelican.svg)"}}
+{"type":"turn.completed","usage":{"input_tokens":36127,"cached_input_tokens":33408,"cache_write_input_tokens":0,"output_tokens":2899,"reasoning_output_tokens":196}}
+
+--- stderr ---
+Reading additional input from stdin...

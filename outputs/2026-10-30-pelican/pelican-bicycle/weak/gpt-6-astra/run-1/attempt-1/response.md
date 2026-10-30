@@ -1,0 +1,1 @@
+![A cheerful pelican riding a bicycle](./pelican.svg)

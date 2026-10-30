@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <!-- sky, sun, ground -->
+  <rect width="800" height="600" fill="#bfe6ff"/>
+  <circle cx="690" cy="90" r="45" fill="#ffd94a"/>
+  <rect x="0" y="520" width="800" height="80" fill="#7cc46a"/>
+
+  <!-- wheels -->
+  <g fill="none" stroke="#222" stroke-width="8">
+    <circle cx="240" cy="440" r="70"/>
+    <circle cx="520" cy="440" r="70"/>
+  </g>
+  <g stroke="#999" stroke-width="2">
+    <line x1="240" y1="370" x2="240" y2="510"/>
+    <line x1="170" y1="440" x2="310" y2="440"/>
+    <line x1="193" y1="393" x2="287" y2="487"/>
+    <line x1="287" y1="393" x2="193" y2="487"/>
+    <line x1="520" y1="370" x2="520" y2="510"/>
+    <line x1="450" y1="440" x2="590" y2="440"/>
+    <line x1="473" y1="393" x2="567" y2="487"/>
+    <line x1="567" y1="393" x2="473" y2="487"/>
+  </g>
+  <circle cx="240" cy="440" r="7" fill="#222"/>
+  <circle cx="520" cy="440" r="7" fill="#222"/>
+
+  <!-- bike frame -->
+  <g fill="none" stroke="#d62828" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M240 440 L330 440"/>   <!-- chain stay -->
+    <path d="M240 440 L290 300"/>   <!-- seat stay -->
+    <path d="M330 440 L290 300"/>   <!-- seat tube -->
+    <path d="M290 300 L470 300"/>   <!-- top tube -->
+    <path d="M330 440 L458 336"/>   <!-- down tube -->
+    <path d="M470 300 L458 336"/>   <!-- head tube -->
+    <path d="M458 336 L520 440"/>   <!-- fork -->
+    <path d="M470 300 L480 262 L505 258"/> <!-- stem and handlebar -->
+  </g>
+  <path d="M268 288 L305 288" stroke="#222" stroke-width="10" stroke-linecap="round"/> <!-- saddle -->
+  <circle cx="330" cy="440" r="16" fill="none" stroke="#444" stroke-width="4"/> <!-- chainring -->
+  <path d="M330 440 L362 466" stroke="#444" stroke-width="6" stroke-linecap="round"/> <!-- crank -->
+  <path d="M352 468 L374 468" stroke="#222" stroke-width="7" stroke-linecap="round"/> <!-- pedal -->
+
+  <!-- legs (behind body) -->
+  <path d="M318 282 L358 462" stroke="#f08a24" stroke-width="7" stroke-linecap="round"/>
+  <path d="M352 466 L384 462" stroke="#f08a24" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- tail -->
+  <path d="M262 262 L226 292 L256 300 Z" fill="#cfcfcf" stroke="#444" stroke-width="3" stroke-linejoin="round"/>
+
+  <!-- body -->
+  <ellipse cx="330" cy="245" rx="82" ry="44" transform="rotate(-22 330 245)" fill="#fafafa" stroke="#444" stroke-width="3"/>
+
+  <!-- wing -->
+  <path d="M280 262 Q330 196 388 222 Q340 252 300 300 Z" fill="#d9d9d9" stroke="#444" stroke-width="3" stroke-linejoin="round"/>
+
+  <!-- neck -->
+  <path d="M395 230 Q420 200 438 178" fill="none" stroke="#444" stroke-width="30" stroke-linecap="round"/>
+  <path d="M395 230 Q420 200 438 178" fill="none" stroke="#fafafa" stroke-width="25" stroke-linecap="round"/>
+
+  <!-- head -->
+  <circle cx="442" cy="172" r="22" fill="#fafafa" stroke="#444" stroke-width="3"/>
+
+  <!-- bill and pouch -->
+  <path d="M430 158 Q490 160 552 186 Q558 196 546 198 Q490 190 440 184 Z" fill="#f5a623" stroke="#444" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M440 184 Q490 190 546 198 Q520 232 486 218 Q462 206 440 184 Z" fill="#ffc857" stroke="#444" stroke-width="2" stroke-linejoin="round"/>
+
+  <!-- eye -->
+  <circle cx="440" cy="166" r="5" fill="#111"/>
+  <circle cx="441.5" cy="164.5" r="1.5" fill="#fff"/>
+</svg>

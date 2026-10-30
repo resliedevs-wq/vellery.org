@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550">
+<rect width="800" height="550" fill="#e9f8fa"/>
+<circle cx="685" cy="92" r="42" fill="#ffd775"/>
+<path d="M0 460 Q180 435 340 458 T800 450 V550 H0" fill="#b7d8b3"/>
+<path d="M0 476 Q260 460 510 475 T800 469" fill="none" stroke="#8ab18b" stroke-width="3"/>
+<!-- wheels -->
+<g fill="none" stroke="#263f4b" stroke-width="9"><circle cx="225" cy="395" r="93"/><circle cx="600" cy="395" r="93"/></g>
+<g stroke="#a6bdc1" stroke-width="2"><path d="M132 395h186 M225 302v186 M159 329l132 132 M159 461l132-132 M507 395h186 M600 302v186 M534 329l132 132 M534 461l132-132"/></g>
+<!-- bicycle -->
+<g fill="none" stroke="#dc6756" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"><path d="M225 395l108-137 75 137H225l158-107 25 107 142-137 50 137"/><path d="M333 258h-27 M550 258l-11-30h42"/></g>
+<g fill="#263f4b"><circle cx="225" cy="395" r="8"/><circle cx="600" cy="395" r="8"/><circle cx="408" cy="395" r="13"/><rect x="290" y="247" width="55" height="11" rx="5"/></g>
+<path d="M408 395l24 23h24" fill="none" stroke="#263f4b" stroke-width="7" stroke-linecap="round"/>
+<!-- feet and legs -->
+<g fill="none" stroke="#e9a447" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"><path d="M381 272l37 63 20 79"/><path d="M358 273l-11 55 46 42"/></g>
+<g fill="#e9a447"><path d="M432 407q28-5 35 8l-33 8z"/><path d="M386 365q25-8 35 3l-27 13z"/></g>
+<!-- pelican body -->
+<path d="M282 185 Q268 227 296 257 Q330 290 391 278 Q434 269 449 230 Q452 196 425 175 Z" fill="#fffdf3" stroke="#48636b" stroke-width="4"/>
+<path d="M298 209 Q340 194 400 216 Q379 258 332 255 Q308 253 298 235Z" fill="#e0e8e5" stroke="#a5b9b8" stroke-width="3"/>
+<path d="M290 220l-35-24 10 32-24 1 44 17" fill="#fffdf3" stroke="#48636b" stroke-width="4" stroke-linejoin="round"/>
+<!-- neck and head -->
+<path d="M409 206 Q431 178 423 135 Q416 104 433 84 Q448 66 472 76 Q496 86 492 112 Q488 131 474 144 Q459 159 470 183 Q482 201 498 210 Q469 230 445 218 Q429 212 409 206Z" fill="#fffdf3" stroke="#48636b" stroke-width="4"/>
+<!-- long beak and pouch -->
+<path d="M482 108 Q530 111 628 130 Q642 133 646 140 Q569 143 487 129Z" fill="#f4ad4f" stroke="#9c6734" stroke-width="3" stroke-linejoin="round"/>
+<path d="M487 129 Q514 177 568 170 Q609 164 646 140 Q557 145 487 129Z" fill="#ffd07c" stroke="#b8813f" stroke-width="3"/>
+<circle cx="470" cy="101" r="5" fill="#263f4b"/><circle cx="471.5" cy="99.5" r="1.5" fill="white"/>
+<!-- wing on handlebar -->
+<path d="M408 211 Q454 219 500 247 Q519 254 539 229" fill="none" stroke="#fffdf3" stroke-width="17" stroke-linecap="round"/><path d="M408 211 Q454 219 500 247 Q519 254 539 229" fill="none" stroke="#a5b9b8" stroke-width="3" stroke-linecap="round"/>
+<path d="M88 145q18-17 36 0m5 0q18-17 36 0 M163 97q12-11 24 0m4 0q12-11 24 0" fill="none" stroke="#a4cbd1" stroke-width="3" stroke-linecap="round"/>
+</svg>

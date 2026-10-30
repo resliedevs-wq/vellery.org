@@ -1,0 +1,57 @@
+{
+  "ok": true,
+  "error": null,
+  "started": "2026-10-30T01:37:31+00:00",
+  "duration_s": 111.5,
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "--sandbox",
+    "workspace-write",
+    "--disable",
+    "apps",
+    "--disable",
+    "plugins",
+    "--disable",
+    "image_generation",
+    "-c",
+    "skills.config=[{path=\"/root/.codex/skills/.system/imagegen/SKILL.md\",enabled=false}]",
+    "-c",
+    "web_search=\"disabled\"",
+    "--cd",
+    "/tmp/vellery-5fs_y9wx/work",
+    "--model",
+    "gpt-6-astra",
+    "-c",
+    "model_reasoning_effort=\"high\"",
+    "--json",
+    "--output-last-message",
+    "/tmp/vellery-5fs_y9wx/last-message.txt",
+    "<prompt>"
+  ],
+  "served_models": null,
+  "usage": {
+    "input_tokens": 70727,
+    "cached_input_tokens": 64512,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 3182,
+    "reasoning_output_tokens": 186
+  },
+  "est_cost_usd": 0.285762,
+  "est_cost": {
+    "gpt-6-astra": {
+      "input_tokens": 6215,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 64512,
+      "output_tokens": 3182,
+      "usd": 0.285762
+    }
+  },
+  "cli_reported_cost_usd": null,
+  "files": [
+    "pelican-riding-a-bike.png"
+  ]
+}

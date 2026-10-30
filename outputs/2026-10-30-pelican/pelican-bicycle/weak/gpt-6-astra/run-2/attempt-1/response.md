@@ -1,0 +1,1 @@
+![A pelican riding a bicycle, wearing a red scarf.](/tmp/vellery-5fs_y9wx/work/pelican-riding-a-bike.png)

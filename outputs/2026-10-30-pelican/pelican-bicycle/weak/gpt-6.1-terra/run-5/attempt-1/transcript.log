@@ -1,0 +1,7 @@
+{"type":"thread.started","thread_id":"01a18a74-3edd-7842-be91-812a8c692dd9"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"```text\n                 __\n              .-'  `-.\n             /  o     \\________________\n            |          _________________>\n             \\        /              /\n              `\\     /______________/\n                |   |\n           .----'   `---.\n          /   _          \\\n         /   / `-.        \\\n         \\  (  wing)      /\n          `-.\\___/______.-'\n                \\  \\\n                 \\  \\       __\n                  \\  \\_____/ /\n                   \\      / /\n              _____ \\____/ /\n             /     \\  /   /\n            /   O---\\/---O\n           |   / \\  /\\  / |\n           |  /   \\/  \\/  |\n            \\ \\   /\\  /\\ /\n             \\ \\_/  \\/  /\n              \\____/ \\_/\n```"}}
+{"type":"turn.completed","usage":{"input_tokens":21656,"cached_input_tokens":10496,"cache_write_input_tokens":0,"output_tokens":284,"reasoning_output_tokens":67}}
+
+--- stderr ---
+Reading additional input from stdin...

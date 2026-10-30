@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300" width="480" height="300">
+  <title>A pelican riding a bicycle</title>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7cc4f2"/>
+      <stop offset="1" stop-color="#e0f2fe"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Sky, sun, cloud -->
+  <rect x="0" y="0" width="480" height="250" fill="url(#sky)"/>
+  <circle cx="440" cy="40" r="20" fill="#fcd34d"/>
+  <g fill="#ffffff" opacity="0.9">
+    <ellipse cx="400" cy="86" rx="26" ry="10"/>
+    <ellipse cx="420" cy="80" rx="18" ry="12"/>
+    <ellipse cx="382" cy="82" rx="14" ry="8"/>
+  </g>
+
+  <!-- Road with moving lane markings (0.4s per 157px, matching 0.8s wheel revolutions) -->
+  <rect x="0" y="250" width="480" height="50" fill="#9ca3af"/>
+  <line x1="0" y1="250" x2="480" y2="250" stroke="#4b5563" stroke-width="2"/>
+  <g fill="#f8fafc">
+    <g>
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="-157 0" dur="0.4s" repeatCount="indefinite"/>
+      <rect x="-157" y="272" width="60" height="4"/>
+      <rect x="0" y="272" width="60" height="4"/>
+      <rect x="157" y="272" width="60" height="4"/>
+      <rect x="314" y="272" width="60" height="4"/>
+      <rect x="471" y="272" width="60" height="4"/>
+      <rect x="628" y="272" width="60" height="4"/>
+    </g>
+  </g>
+
+  <!-- Speed lines behind the bike -->
+  <g stroke="#ffffff" stroke-width="3" stroke-linecap="round">
+    <line x1="22" y1="176" x2="52" y2="176">
+      <animate attributeName="opacity" values="0;0.9;0" dur="0.6s" repeatCount="indefinite"/>
+    </line>
+    <line x1="18" y1="198" x2="50" y2="198">
+      <animate attributeName="opacity" values="0;0.9;0" dur="0.6s" begin="0.2s" repeatCount="indefinite"/>
+    </line>
+    <line x1="26" y1="220" x2="54" y2="220">
+      <animate attributeName="opacity" values="0;0.9;0" dur="0.6s" begin="0.4s" repeatCount="indefinite"/>
+    </line>
+  </g>
+
+  <!-- Rear wheel (hub at 120,200) -->
+  <g transform="translate(120 200)">
+    <g>
+      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="0.8s" repeatCount="indefinite"/>
+      <circle r="50" fill="none" stroke="#1f2937" stroke-width="6"/>
+      <circle r="44" fill="none" stroke="#9ca3af" stroke-width="2"/>
+      <path d="M0 0L44 0M0 0L40.66 16.84M0 0L31.11 31.11M0 0L16.84 40.66M0 0L0 44M0 0L-16.84 40.66M0 0L-31.11 31.11M0 0L-40.66 16.84M0 0L-44 0M0 0L-40.66 -16.84M0 0L-31.11 -31.11M0 0L-16.84 -40.66M0 0L0 -44M0 0L16.84 -40.66M0 0L31.11 -31.11M0 0L40.66 -16.84" stroke="#cbd5e1" stroke-width="1" fill="none"/>
+      <circle cx="0" cy="-44" r="2.5" fill="#ef4444"/>
+      <circle r="9" fill="none" stroke="#4b5563" stroke-width="2"/>
+      <circle r="5" fill="#374151"/>
+    </g>
+  </g>
+
+  <!-- Front wheel (hub at 330,200) -->
+  <g transform="translate(330 200)">
+    <g>
+      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="0.8s" repeatCount="indefinite"/>
+      <circle r="50" fill="none" stroke="#1f2937" stroke-width="6"/>
+      <circle r="44" fill="none" stroke="#9ca3af" stroke-width="2"/>
+      <path d="M0 0L44 0M0 0L40.66 16.84M0 0L31.11 31.11M0 0L16.84 40.66M0 0L0 44M0 0L-16.84 40.66M0 0L-31.11 31.11M0 0L-40.66 16.84M0 0L-44 0M0 0L-40.66 -16.84M0 0L-31.11 -31.11M0 0L-16.84 -40.66M0 0L0 -44M0 0L16.84 -40.66M0 0L31.11 -31.11M0 0L40.66 -16.84" stroke="#cbd5e1" stroke-width="1" fill="none"/>
+      <circle cx="0" cy="-44" r="2.5" fill="#ef4444"/>
+      <circle r="5" fill="#374151"/>
+    </g>
+  </g>
+
+  <!-- Far-side crank (behind the frame), same 1.6s cadence as the near side -->
+  <g transform="translate(200 200)">
+    <g>
+      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="1.6s" repeatCount="indefinite"/>
+      <line x1="0" y1="0" x2="-22" y2="0" stroke="#6b7280" stroke-width="4" stroke-linecap="round"/>
+      <rect x="-26" y="-3" width="8" height="6" fill="#9ca3af"/>
+    </g>
+  </g>
+
+  <!-- Frame -->
+  <g stroke="#c0392b" stroke-width="5" stroke-linecap="round" fill="none">
+    <line x1="200" y1="200" x2="172" y2="120"/>
+    <line x1="172" y1="120" x2="296" y2="124"/>
+    <line x1="200" y1="200" x2="304" y2="160" stroke-width="5"/>
+    <line x1="296" y1="124" x2="304" y2="160" stroke-width="8"/>
+    <line x1="304" y1="160" x2="330" y2="200" stroke-width="4.5"/>
+    <line x1="296" y1="124" x2="306" y2="110" stroke-width="5"/>
+    <line x1="172" y1="126" x2="120" y2="200" stroke-width="3.5"/>
+    <line x1="120" y1="200" x2="200" y2="200" stroke-width="4"/>
+  </g>
+  <path d="M306 110 L316 104 L326 118" stroke="#222222" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Chain: chainring (200,200) to rear cog (120,200) -->
+  <path d="M200 184 L120 191 M200 216 L120 209" stroke="#4b5563" stroke-width="1.5" fill="none"/>
+
+  <!-- Saddle and seat post -->
+  <line x1="172" y1="120" x2="170" y2="106" stroke="#374151" stroke-width="4"/>
+  <path d="M146 112 Q 150 104 170 104 L 192 101 Q 197 108 186 113 Q 160 117 146 112 Z" fill="#1f2937"/>
+
+  <!-- Pedaling leg: hip (168,104) -> knee -> ankle -> pedal, solved by IK at 45 degree crank steps -->
+  <path d="M168 104 L219.8 130 L222 194 L222 200" fill="none" stroke="#e8772e" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <animate attributeName="d" dur="1.6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.125;0.25;0.375;0.5;0.625;0.75;0.875;1"
+      values="M168 104 L219.8 130 L222 194 L222 200;M168 104 L208 146 L215.6 209.6 L215.6 215.6;M168 104 L200.6 152 L200 216 L200 222;M168 104 L204.8 148.9 L184.4 209.6 L184.4 215.6;M168 104 L213.1 140.5 L178 194 L178 200;M168 104 L221.6 126.3 L184.4 178.4 L184.4 184.4;M168 104 L225.3 113.2 L200 172 L200 178;M168 104 L224.9 115.1 L215.6 178.4 L215.6 184.4;M168 104 L219.8 130 L222 194 L222 200"/>
+  </path>
+
+  <!-- Near-side crank, chainring and pedal, rotating about the bottom bracket -->
+  <g transform="translate(200 200)">
+    <g>
+      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="1.6s" repeatCount="indefinite"/>
+      <circle r="16" fill="none" stroke="#4b5563" stroke-width="4" stroke-dasharray="3 2"/>
+      <line x1="0" y1="0" x2="22" y2="0" stroke="#374151" stroke-width="5" stroke-linecap="round"/>
+      <rect x="18" y="-3" width="8" height="6" fill="#1f2937"/>
+    </g>
+    <circle r="3" fill="#374151"/>
+  </g>
+
+  <!-- Pelican upper body, gently bobbing with the pedal rhythm -->
+  <g>
+    <animateTransform attributeName="transform" type="translate" values="0 0;0 -1.5;0 0" dur="0.8s" repeatCount="indefinite"/>
+
+    <!-- Tail -->
+    <path d="M130 76 L100 56 L108 70 L98 74 L124 86 Z" fill="#e9e6df" stroke="#3a3a3a" stroke-width="1.5" stroke-linejoin="round"/>
+
+    <!-- Body -->
+    <ellipse cx="160" cy="82" rx="42" ry="26" transform="rotate(18 160 82)" fill="#f7f5f0" stroke="#3a3a3a" stroke-width="2"/>
+
+    <!-- Folded wing -->
+    <path d="M124 74 C146 58, 178 62, 196 84 C170 80, 146 82, 124 74 Z" fill="#9aa5ad" stroke="#3a3a3a" stroke-width="1.5" stroke-linejoin="round"/>
+
+    <!-- Neck (outline layer, then fill layer) -->
+    <path d="M190 90 C 204 76, 196 60, 224 50" fill="none" stroke="#3a3a3a" stroke-width="18" stroke-linecap="round"/>
+    <path d="M190 90 C 204 76, 196 60, 224 50" fill="none" stroke="#f7f5f0" stroke-width="15" stroke-linecap="round"/>
+
+    <!-- Head -->
+    <circle cx="234" cy="46" r="12" fill="#f7f5f0" stroke="#3a3a3a" stroke-width="2"/>
+    <circle cx="237" cy="43" r="2.6" fill="#111111"/>
+    <circle cx="237.8" cy="42.2" r="0.8" fill="#ffffff"/>
+
+    <!-- Bill and pouch -->
+    <path d="M242 40 Q 280 38 306 62 Q 278 54 244 52 Z" fill="#f2b33d" stroke="#3a3a3a" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M244 50 Q 268 60 288 62 Q 296 72 284 84 Q 268 82 254 66 Q 246 58 244 50 Z" fill="#e89a2e" stroke="#3a3a3a" stroke-width="1.5" stroke-linejoin="round"/>
+  </g>
+</svg>

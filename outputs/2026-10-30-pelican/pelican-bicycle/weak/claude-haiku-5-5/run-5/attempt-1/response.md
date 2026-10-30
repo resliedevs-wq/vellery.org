@@ -1,0 +1,3 @@
+I drew the pelican as an SVG and saved it to `/tmp/vellery-007ka6v6/work/pelican_on_bike.svg`. Open it in a browser to see it. It shows a white pelican with an orange bill and pouch, sitting on the seat of a red-framed bike with its leg reaching the pedal, on a grass strip under a pale blue sky.
+
+I haven't rendered it, so I haven't checked how it looks. Tell me if you'd like the proportions or colours changed.

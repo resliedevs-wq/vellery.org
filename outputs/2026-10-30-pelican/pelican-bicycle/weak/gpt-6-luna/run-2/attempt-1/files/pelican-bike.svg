@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600">
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#b8e7f4"/><stop offset="1" stop-color="#f7f4dc"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feGaussianBlur stdDeviation="5"/></filter>
+  </defs>
+  <rect width="900" height="600" fill="url(#sky)"/>
+  <circle cx="730" cy="112" r="48" fill="#ffd66e"/>
+  <path d="M0 400 Q160 345 310 405 T620 395 T900 390 V600 H0Z" fill="#8dcf9a"/>
+  <path d="M0 470 Q180 420 380 470 T900 455 V600 H0Z" fill="#61b87a"/>
+  <ellipse cx="448" cy="505" rx="260" ry="17" fill="#316957" opacity=".18" filter="url(#shadow)"/>
+  <!-- bicycle -->
+  <g fill="none" stroke="#284b59" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="300" cy="438" r="69"/><circle cx="585" cy="438" r="69"/>
+    <path d="M300 438 L386 333 L452 438 L300 438 M386 333 L505 333 L585 438 M452 438 L493 391 L505 333"/>
+    <path d="M482 324 L522 324 M493 390 L470 382 M374 322 L407 322"/>
+  </g>
+  <g fill="#e75f48"><circle cx="300" cy="438" r="9"/><circle cx="585" cy="438" r="9"/><circle cx="452" cy="438" r="10"/></g>
+  <path d="M443 438 Q452 452 465 438 M452 438 L472 458 M452 438 L432 458" fill="none" stroke="#284b59" stroke-width="6" stroke-linecap="round"/>
+  <!-- pelican legs and feet -->
+  <path d="M456 303 Q463 335 452 369 L453 405 M484 302 Q476 337 490 365 L491 405" fill="none" stroke="#df8b39" stroke-width="11" stroke-linecap="round"/>
+  <path d="M448 405 Q430 410 418 406 M488 405 Q506 410 520 405" fill="none" stroke="#e88637" stroke-width="9" stroke-linecap="round"/>
+  <!-- body and wing -->
+  <path d="M386 194 Q417 169 464 190 Q502 209 505 266 Q502 309 469 322 Q422 330 390 301 Q366 271 371 229Z" fill="#fffdf3" stroke="#354b53" stroke-width="6"/>
+  <path d="M399 235 Q427 208 464 222 Q476 251 456 278 Q433 298 400 281 Q386 264 399 235Z" fill="#dce7df" stroke="#879a91" stroke-width="4"/>
+  <path d="M407 251 Q432 235 451 250" fill="none" stroke="#a4b5aa" stroke-width="4" stroke-linecap="round"/>
+  <!-- neck and head -->
+  <path d="M409 205 Q400 170 411 136 Q419 108 446 104 Q470 105 480 127 Q485 146 470 162 Q451 174 461 206" fill="#fffdf3" stroke="#354b53" stroke-width="6"/>
+  <ellipse cx="450" cy="112" rx="44" ry="36" fill="#fffdf3" stroke="#354b53" stroke-width="6"/>
+  <path d="M478 117 Q535 111 565 126 Q538 147 482 139Z" fill="#f1ae3f" stroke="#8c5a2c" stroke-width="5"/>
+  <path d="M485 139 Q529 144 563 128 Q555 158 508 161 Q491 156 485 139Z" fill="#ee8350" stroke="#8c5a2c" stroke-width="4"/>
+  <circle cx="461" cy="106" r="5.5" fill="#27353a"/><circle cx="463" cy="104" r="1.7" fill="#fff"/>
+  <path d="M426 83 Q443 66 461 80" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+  <!-- wing reaching to handlebars -->
+  <path d="M479 218 Q508 224 521 256 L498 280 Q479 263 463 245Z" fill="#fffdf3" stroke="#354b53" stroke-width="5"/>
+  <path d="M503 258 L514 306 Q519 316 527 310 L525 283 L519 258" fill="#fffdf3" stroke="#354b53" stroke-width="5" stroke-linejoin="round"/>
+  <!-- tiny scarf -->
+  <path d="M410 170 Q445 184 478 167 L484 180 Q450 200 412 184Z" fill="#e75f48" stroke="#9d4438" stroke-width="3"/>
+  <path d="M475 180 L490 211 L468 195Z" fill="#e75f48" stroke="#9d4438" stroke-width="3"/>
+  <!-- road dashes and flowers -->
+  <path d="M25 511 H173 M680 510 H867" stroke="#f7efbe" stroke-width="7" stroke-linecap="round" opacity=".8"/>
+  <g fill="#fff2a5"><circle cx="151" cy="385" r="6"/><circle cx="166" cy="378" r="5"/><circle cx="158" cy="394" r="5"/><circle cx="747" cy="376" r="5"/><circle cx="760" cy="383" r="5"/></g>
+  <g stroke="#39845a" stroke-width="3"><path d="M158 394v20M754 386v20"/></g>
+  <text x="450" y="562" text-anchor="middle" font-family="Trebuchet MS, sans-serif" font-size="22" font-weight="700" fill="#315b54">PEDALING BY THE POND</text>
+</svg>

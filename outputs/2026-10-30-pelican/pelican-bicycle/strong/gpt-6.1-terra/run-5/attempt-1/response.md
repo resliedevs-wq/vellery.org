@@ -1,0 +1,1 @@
+Created [pelican.svg](/tmp/vellery-njojnkt7/work/pelican.svg), with animated wheels, cranks, and pedaling legs. The SVG parsed successfully.

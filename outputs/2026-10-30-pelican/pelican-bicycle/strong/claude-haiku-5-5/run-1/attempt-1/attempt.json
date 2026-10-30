@@ -1,0 +1,97 @@
+{
+  "ok": true,
+  "error": null,
+  "started": "2026-10-30T01:47:11+00:00",
+  "duration_s": 229.9,
+  "command": [
+    "claude",
+    "-p",
+    "<prompt>",
+    "--model",
+    "claude-haiku-5-5",
+    "--effort",
+    "high",
+    "--setting-sources",
+    "project",
+    "--strict-mcp-config",
+    "--no-session-persistence",
+    "--permission-mode",
+    "acceptEdits",
+    "--disallowedTools",
+    "WebSearch",
+    "WebFetch",
+    "--settings",
+    "{\"sandbox\": {\"enabled\": true, \"autoAllowBashIfSandboxed\": true, \"allowUnsandboxedCommands\": false}}",
+    "--output-format",
+    "json"
+  ],
+  "served_models": [
+    "claude-haiku-5-5"
+  ],
+  "usage": {
+    "usage": {
+      "input_tokens": 12,
+      "cache_creation_input_tokens": 54794,
+      "cache_read_input_tokens": 233208,
+      "output_tokens": 49709,
+      "output_tokens_details": {
+        "thinking_tokens": 39208
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 54794,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 955,
+          "cache_read_input_tokens": 52815,
+          "cache_creation_input_tokens": 12970,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 12970
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-haiku-5-5": {
+        "inputTokens": 1231,
+        "outputTokens": 49730,
+        "cacheReadInputTokens": 233208,
+        "cacheCreationInputTokens": 54794,
+        "webSearchRequests": 0,
+        "costUSD": 0.038278980000000004,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 39208,
+        "canonicalModel": "claude-haiku-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    }
+  },
+  "est_cost_usd": 0.038279,
+  "est_cost": {
+    "claude-haiku-5-5": {
+      "input_tokens": 1231,
+      "cache_write_tokens": 54794,
+      "cache_read_tokens": 233208,
+      "output_tokens": 49730,
+      "usd": 0.038279
+    }
+  },
+  "cli_reported_cost_usd": 0.038278980000000004,
+  "files": [
+    "pelican.svg"
+  ]
+}

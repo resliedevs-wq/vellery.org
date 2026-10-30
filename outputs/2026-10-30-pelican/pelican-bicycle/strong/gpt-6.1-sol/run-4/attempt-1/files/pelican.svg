@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="800" viewBox="0 0 1000 800" role="img" aria-labelledby="title description">
+  <title id="title">Pelican Pedal Club</title>
+  <desc id="description">An animated white pelican sits on the saddle of a teal bicycle, actively pedaling with its orange webbed feet. Its knees bend with the rotating cranks, both wheels spin, and seaside scenery drifts past.</desc>
+  <defs>
+    <pattern id="paper" width="12" height="12" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="3" r="0.65" fill="#786e54" opacity="0.08"/>
+      <circle cx="9" cy="9" r="0.5" fill="#786e54" opacity="0.06"/>
+    </pattern>
+    <clipPath id="scene"><rect x="44" y="154" width="912" height="568" rx="36"/></clipPath>
+    <pattern id="road" width="220" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 5 10 H 64 M 151 10 H 167" fill="none" stroke="#bbb79d" stroke-width="3" stroke-linecap="round"/>
+    </pattern>
+  </defs>
+  <rect width="1000" height="800" fill="#f8f3e7"/>
+  <rect width="1000" height="800" fill="url(#paper)"/>
+  <g fill="#303f40" font-family="Arial, Helvetica, sans-serif">
+    <text x="62" y="66" font-size="12" font-weight="700" letter-spacing="4">THE COASTAL COMMUTE</text>
+    <text x="59" y="116" font-size="44" font-weight="800" letter-spacing="-2">Pelican Pedal Club<tspan fill="#d88351">.</tspan></text>
+    <g transform="translate(894 76)" fill="none" stroke="#303f40" stroke-width="2">
+      <circle r="26"/><path d="M -13 5 Q 0 -10 13 5 M -13 -3 Q 0 -18 13 -3"/>
+      <path d="M -11 13 H 11"/>
+    </g>
+  </g>
+  <g clip-path="url(#scene)">
+    <rect x="44" y="154" width="912" height="568" fill="#e5ede1"/>
+    <circle cx="735" cy="298" r="109" fill="#edba83"/>
+    <circle cx="735" cy="298" r="87" fill="#f1c693"/>
+    <path d="M 44 448 Q 150 416 263 440 T 495 435 T 731 442 T 956 423 V 590 H 44 Z" fill="#b5d2c4"/>
+    <path d="M 44 491 Q 188 470 327 491 T 603 483 T 956 488 V 614 H 44 Z" fill="#94bcae"/>
+    <g stroke="#d7e6d8" stroke-width="3" stroke-linecap="round" opacity="0.9">
+      <g>
+        <animateTransform attributeName="transform" type="translate" from="0 0" to="-180 0" dur="4s" repeatCount="indefinite"/>
+        <path d="M 88 471 H 138 M 293 458 H 325 M 744 469 H 813 M 939 454 H 1008 M 1060 486 H 1112"/>
+      </g>
+    </g>
+    <g fill="none" stroke="#607f75" stroke-width="2.5" stroke-linecap="round">
+      <path d="M 776 205 Q 785 195 794 205 Q 804 195 813 205">
+        <animateTransform attributeName="transform" type="translate" values="0 0;-12 -4;0 0" dur="5s" repeatCount="indefinite"/>
+      </path>
+      <path d="M 180 279 Q 186 273 192 279 Q 198 273 204 279"/>
+    </g>
+    <path d="M 44 589 Q 427 568 956 590 V 722 H 44 Z" fill="#e6ddbd"/>
+    <path d="M 44 608 Q 476 586 956 610" fill="none" stroke="#f6efd9" stroke-width="5"/>
+    <ellipse cx="495" cy="684" rx="294" ry="17" fill="#626f5b" opacity="0.12">
+      <animate attributeName="rx" values="294;284;294" dur="1.6s" repeatCount="indefinite"/>
+    </ellipse>
+    <g>
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="-220 0" dur="1.6s" repeatCount="indefinite"/>
+      <rect x="44" y="693" width="1132" height="20" fill="url(#road)"/>
+    </g>
+    <!-- Wheels rotate clockwise as the bicycle travels to the right. -->
+    <g>
+      <circle cx="310" cy="574" r="103" fill="#f9f4e6" stroke="#303f40" stroke-width="15"/>
+      <circle cx="310" cy="574" r="100" fill="none" stroke="#73817b" stroke-width="2"/>
+      <g>
+        <animateTransform attributeName="transform" type="rotate" from="0 310 574" to="360 310 574" dur="1.05s" repeatCount="indefinite"/>
+        <g stroke="#9da9a0" stroke-width="2"><path d="M 310 574 L 403.00 574.00"/><path d="M 310 574 L 395.92 609.59"/><path d="M 310 574 L 375.76 639.76"/><path d="M 310 574 L 345.59 659.92"/><path d="M 310 574 L 310.00 667.00"/><path d="M 310 574 L 274.41 659.92"/><path d="M 310 574 L 244.24 639.76"/><path d="M 310 574 L 224.08 609.59"/><path d="M 310 574 L 217.00 574.00"/><path d="M 310 574 L 224.08 538.41"/><path d="M 310 574 L 244.24 508.24"/><path d="M 310 574 L 274.41 488.08"/><path d="M 310 574 L 310.00 481.00"/><path d="M 310 574 L 345.59 488.08"/><path d="M 310 574 L 375.76 508.24"/><path d="M 310 574 L 395.92 538.41"/></g>
+        <rect x="367" y="569" width="18" height="10" rx="4" fill="#e7a34d" stroke="#fff8e8" stroke-width="2"/>
+        <circle cx="310" cy="574" r="12" fill="#f4e9cb" stroke="#303f40" stroke-width="4"/>
+      </g>
+    </g>
+    <g>
+      <circle cx="665" cy="574" r="103" fill="#f9f4e6" stroke="#303f40" stroke-width="15"/>
+      <circle cx="665" cy="574" r="100" fill="none" stroke="#73817b" stroke-width="2"/>
+      <g>
+        <animateTransform attributeName="transform" type="rotate" from="0 665 574" to="360 665 574" dur="1.05s" repeatCount="indefinite"/>
+        <g stroke="#9da9a0" stroke-width="2"><path d="M 665 574 L 758.00 574.00"/><path d="M 665 574 L 750.92 609.59"/><path d="M 665 574 L 730.76 639.76"/><path d="M 665 574 L 700.59 659.92"/><path d="M 665 574 L 665.00 667.00"/><path d="M 665 574 L 629.41 659.92"/><path d="M 665 574 L 599.24 639.76"/><path d="M 665 574 L 579.08 609.59"/><path d="M 665 574 L 572.00 574.00"/><path d="M 665 574 L 579.08 538.41"/><path d="M 665 574 L 599.24 508.24"/><path d="M 665 574 L 629.41 488.08"/><path d="M 665 574 L 665.00 481.00"/><path d="M 665 574 L 700.59 488.08"/><path d="M 665 574 L 730.76 508.24"/><path d="M 665 574 L 750.92 538.41"/></g>
+        <rect x="722" y="569" width="18" height="10" rx="4" fill="#e7a34d" stroke="#fff8e8" stroke-width="2"/>
+        <circle cx="665" cy="574" r="12" fill="#f4e9cb" stroke="#303f40" stroke-width="4"/>
+      </g>
+    </g>
+    <!-- Far leg and pedal are half a revolution behind the near pair. -->
+    <path d="M 426 414 L 493.80 465.27 L 430.00 537.00" fill="none" stroke="#303f40" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"><animate attributeName="d" values="M 426 414 L 493.80 465.27 L 430.00 537.00;M 426 414 L 496.02 462.18 L 430.32 532.17;M 426 414 L 498.29 458.70 L 431.26 527.42;M 426 414 L 500.56 454.82 L 432.82 522.84;M 426 414 L 502.75 450.53 L 434.96 518.50;M 426 414 L 504.80 445.87 L 437.65 514.48;M 426 414 L 506.62 440.92 L 440.84 510.84;M 426 414 L 508.16 435.81 L 444.48 507.65;M 426 414 L 509.34 430.70 L 448.50 504.96;M 426 414 L 510.17 425.82 L 452.84 502.82;M 426 414 L 510.68 421.39 L 457.42 501.26;M 426 414 L 510.92 417.62 L 462.17 500.32;M 426 414 L 511.00 414.68 L 467.00 500.00;M 426 414 L 510.99 412.67 L 471.83 500.32;M 426 414 L 510.97 411.63 L 476.58 501.26;M 426 414 L 510.96 411.56 L 481.16 502.82;M 426 414 L 510.98 412.40 L 485.50 504.96;M 426 414 L 511.00 414.08 L 489.52 507.65;M 426 414 L 510.96 416.50 L 493.16 510.84;M 426 414 L 510.82 419.57 L 496.35 514.48;M 426 414 L 510.50 423.19 L 499.04 518.50;M 426 414 L 509.96 427.24 L 501.18 522.84;M 426 414 L 509.15 431.64 L 502.74 527.42;M 426 414 L 508.03 436.27 L 503.68 532.17;M 426 414 L 506.59 441.03 L 504.00 537.00;M 426 414 L 504.81 445.84 L 503.68 541.83;M 426 414 L 502.73 450.58 L 502.74 546.58;M 426 414 L 500.37 455.16 L 501.18 551.16;M 426 414 L 497.79 459.51 L 499.04 555.50;M 426 414 L 495.08 463.53 L 496.35 559.52;M 426 414 L 492.32 467.17 L 493.16 563.16;M 426 414 L 489.63 470.35 L 489.52 566.35;M 426 414 L 487.13 473.06 L 485.50 569.04;M 426 414 L 484.93 475.26 L 481.16 571.18;M 426 414 L 483.10 476.96 L 476.58 572.74;M 426 414 L 481.71 478.19 L 471.83 573.68;M 426 414 L 480.78 478.99 L 467.00 574.00;M 426 414 L 480.28 479.41 L 462.17 573.68;M 426 414 L 480.20 479.48 L 457.42 572.74;M 426 414 L 480.48 479.25 L 452.84 571.18;M 426 414 L 481.08 478.74 L 448.50 569.04;M 426 414 L 481.96 477.98 L 444.48 566.35;M 426 414 L 483.10 476.97 L 440.84 563.16;M 426 414 L 484.45 475.71 L 437.65 559.52;M 426 414 L 486.01 474.20 L 434.96 555.50;M 426 414 L 487.74 472.42 L 432.82 551.16;M 426 414 L 489.63 470.36 L 431.26 546.58;M 426 414 L 491.66 467.98 L 430.32 541.83;M 426 414 L 493.80 465.27 L 430.00 537.00" dur="1.6s" repeatCount="indefinite" /></path><path d="M 426 414 L 493.80 465.27 L 430.00 537.00" fill="none" stroke="#cf8a53" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"><animate attributeName="d" values="M 426 414 L 493.80 465.27 L 430.00 537.00;M 426 414 L 496.02 462.18 L 430.32 532.17;M 426 414 L 498.29 458.70 L 431.26 527.42;M 426 414 L 500.56 454.82 L 432.82 522.84;M 426 414 L 502.75 450.53 L 434.96 518.50;M 426 414 L 504.80 445.87 L 437.65 514.48;M 426 414 L 506.62 440.92 L 440.84 510.84;M 426 414 L 508.16 435.81 L 444.48 507.65;M 426 414 L 509.34 430.70 L 448.50 504.96;M 426 414 L 510.17 425.82 L 452.84 502.82;M 426 414 L 510.68 421.39 L 457.42 501.26;M 426 414 L 510.92 417.62 L 462.17 500.32;M 426 414 L 511.00 414.68 L 467.00 500.00;M 426 414 L 510.99 412.67 L 471.83 500.32;M 426 414 L 510.97 411.63 L 476.58 501.26;M 426 414 L 510.96 411.56 L 481.16 502.82;M 426 414 L 510.98 412.40 L 485.50 504.96;M 426 414 L 511.00 414.08 L 489.52 507.65;M 426 414 L 510.96 416.50 L 493.16 510.84;M 426 414 L 510.82 419.57 L 496.35 514.48;M 426 414 L 510.50 423.19 L 499.04 518.50;M 426 414 L 509.96 427.24 L 501.18 522.84;M 426 414 L 509.15 431.64 L 502.74 527.42;M 426 414 L 508.03 436.27 L 503.68 532.17;M 426 414 L 506.59 441.03 L 504.00 537.00;M 426 414 L 504.81 445.84 L 503.68 541.83;M 426 414 L 502.73 450.58 L 502.74 546.58;M 426 414 L 500.37 455.16 L 501.18 551.16;M 426 414 L 497.79 459.51 L 499.04 555.50;M 426 414 L 495.08 463.53 L 496.35 559.52;M 426 414 L 492.32 467.17 L 493.16 563.16;M 426 414 L 489.63 470.35 L 489.52 566.35;M 426 414 L 487.13 473.06 L 485.50 569.04;M 426 414 L 484.93 475.26 L 481.16 571.18;M 426 414 L 483.10 476.96 L 476.58 572.74;M 426 414 L 481.71 478.19 L 471.83 573.68;M 426 414 L 480.78 478.99 L 467.00 574.00;M 426 414 L 480.28 479.41 L 462.17 573.68;M 426 414 L 480.20 479.48 L 457.42 572.74;M 426 414 L 480.48 479.25 L 452.84 571.18;M 426 414 L 481.08 478.74 L 448.50 569.04;M 426 414 L 481.96 477.98 L 444.48 566.35;M 426 414 L 483.10 476.97 L 440.84 563.16;M 426 414 L 484.45 475.71 L 437.65 559.52;M 426 414 L 486.01 474.20 L 434.96 555.50;M 426 414 L 487.74 472.42 L 432.82 551.16;M 426 414 L 489.63 470.36 L 431.26 546.58;M 426 414 L 491.66 467.98 L 430.32 541.83;M 426 414 L 493.80 465.27 L 430.00 537.00" dur="1.6s" repeatCount="indefinite" /></path><g transform="translate(438.00 550.00)">
+      <animateTransform attributeName="transform" type="translate" values="438.00 550.00;438.32 545.17;439.26 540.42;440.82 535.84;442.96 531.50;445.65 527.48;448.84 523.84;452.48 520.65;456.50 517.96;460.84 515.82;465.42 514.26;470.17 513.32;475.00 513.00;479.83 513.32;484.58 514.26;489.16 515.82;493.50 517.96;497.52 520.65;501.16 523.84;504.35 527.48;507.04 531.50;509.18 535.84;510.74 540.42;511.68 545.17;512.00 550.00;511.68 554.83;510.74 559.58;509.18 564.16;507.04 568.50;504.35 572.52;501.16 576.16;497.52 579.35;493.50 582.04;489.16 584.18;484.58 585.74;479.83 586.68;475.00 587.00;470.17 586.68;465.42 585.74;460.84 584.18;456.50 582.04;452.48 579.35;448.84 576.16;445.65 572.52;442.96 568.50;440.82 564.16;439.26 559.58;438.32 554.83;438.00 550.00" dur="1.6s" repeatCount="indefinite"/>
+      <path d="M -13 -14 Q -9 -20 -4 -13 L 4 -7 L 21 -1 Q 24 3 17 4 L -13 3 Q -18 -2 -13 -14 Z" fill="#cf8a53" stroke="#303f40" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M 1 -5 L 7 1 M 9 -3 L 14 2" fill="none" stroke="#aa6d43" stroke-width="1.6" stroke-linecap="round"/>
+      <rect x="-17" y="5" width="39" height="6" rx="3" fill="#303f40"/>
+    </g>
+    <!-- Bicycle frame and fork. -->
+    <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 310 574 L 429 461 L 475 558 L 310 574 M 429 461 L 596 456 L 475 558 M 596 456 L 665 574" stroke="#303f40" stroke-width="16"/>
+      <path d="M 310 574 L 429 461 L 475 558 L 310 574 M 429 461 L 596 456 L 475 558 M 596 456 L 665 574" stroke="#368e88" stroke-width="10"/>
+      <path d="M 429 461 L 419 434 M 596 456 L 578 407" stroke="#303f40" stroke-width="10"/>
+      <path d="M 590 437 L 580 408 Q 577 399 588 396 L 610 391 Q 624 389 627 400 Q 629 411 617 414" stroke="#303f40" stroke-width="7"/>
+      <path d="M 609 392 Q 625 389 627 400 Q 629 411 617 414" stroke="#b9774b" stroke-width="10"/>
+      <path d="M 617 414 Q 651 442 649 494" stroke="#55635b" stroke-width="2"/>
+    </g>
+    <path d="M 391 429 Q 405 425 419 430 L 458 430 Q 468 430 466 438 Q 464 445 450 446 L 405 445 Q 390 442 391 429 Z" fill="#a66543" stroke="#303f40" stroke-width="4"/>
+    <path d="M 402 433 L 454 435" stroke="#d9a371" stroke-width="3" stroke-linecap="round"/>
+    <!-- Chain and crank: each foot stays directly above its own pedal. -->
+    <path d="M 309 558 L 474 525 A 33 33 0 1 1 475 591 L 310 589 A 16 16 0 0 1 309 558 Z" fill="none" stroke="#303f40" stroke-width="4"/>
+    <circle cx="475" cy="558" r="31" fill="#f3e7ca" stroke="#303f40" stroke-width="5"/>
+    <g>
+      <animateTransform attributeName="transform" type="rotate" from="0 475 558" to="360 475 558" dur="1.6s" repeatCount="indefinite"/>
+      <g fill="#9dada0">
+        <circle cx="475" cy="538" r="4"/><circle cx="495" cy="558" r="4"/>
+        <circle cx="475" cy="578" r="4"/><circle cx="455" cy="558" r="4"/>
+      </g>
+      <path d="M 438 558 H 512" stroke="#303f40" stroke-width="9" stroke-linecap="round"/>
+      <path d="M 475 558 H 512" stroke="#c3c9b9" stroke-width="4" stroke-linecap="round"/>
+    </g>
+    <circle cx="475" cy="558" r="7" fill="#f8edcf" stroke="#303f40" stroke-width="3"/>
+    <!-- The pelican's belly rests on the saddle. -->
+    <path d="M 354 357 L 300 326 Q 299 352 315 372 L 287 362 Q 296 390 339 400 Z" fill="#c4c9bd" stroke="#303f40" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M 327 359 C 329 317 367 289 414 292 C 449 292 474 306 487 315 C 507 306 492 281 502 257 C 510 232 529 215 553 216 C 579 211 603 223 607 245 C 609 263 595 278 576 281 C 553 284 553 303 550 329 C 549 359 532 387 505 406 C 487 421 463 430 449 433 C 425 440 394 432 370 419 C 340 406 325 384 327 359 Z" fill="#fff9e9" stroke="#303f40" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M 515 271 C 506 313 530 324 513 352 C 499 376 479 384 474 406 C 492 396 512 384 522 363 C 540 328 530 304 542 283 Z" fill="#e3e3d2"/>
+    <path d="M 355 382 Q 375 420 425 427" fill="none" stroke="#e0decb" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 528 223 L 518 210 L 536 216 L 535 203 L 550 216" fill="#fff9e9" stroke="#303f40" stroke-width="3" stroke-linejoin="round"/>
+    <!-- Distinctively long bill and elastic throat pouch. -->
+    <path d="M 588 249 L 751 251 Q 719 274 678 300 Q 636 325 605 294 Q 594 280 588 249 Z" fill="#e9b577" stroke="#303f40" stroke-width="3.5" stroke-linejoin="round"/>
+    <path d="M 609 263 Q 622 307 661 299 Q 701 282 731 263" fill="#f3ce93"/>
+    <path d="M 589 241 Q 652 232 753 249 Q 769 252 763 260 Q 758 267 748 260 L 591 258 Z" fill="#e89a4f" stroke="#303f40" stroke-width="3.5" stroke-linejoin="round"/>
+    <path d="M 608 248 Q 680 245 743 253" fill="none" stroke="#ffce7d" stroke-width="3" stroke-linecap="round"/>
+    <path d="M 599 261 Q 602 275 610 279" fill="none" stroke="#b8804d" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="578" cy="239" r="10" fill="#e9b577"/>
+    <g>
+      <animate attributeName="opacity" values="1;1;0;1;1" keyTimes="0;0.93;0.945;0.96;1" dur="5.8s" repeatCount="indefinite"/>
+      <circle cx="579" cy="239" r="5.5" fill="#303f40"/>
+      <circle cx="581" cy="237" r="1.8" fill="#fff9e9"/>
+    </g>
+    <path d="M 572 224 Q 579 220 585 224" fill="none" stroke="#303f40" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Near leg bends at the knee using a two-link inverse-kinematic cycle. -->
+    <path d="M 446 418 L 526.99 443.79 L 504.00 537.00" fill="none" stroke="#303f40" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"><animate attributeName="d" values="M 446 418 L 526.99 443.79 L 504.00 537.00;M 446 418 L 525.41 448.32 L 503.68 541.83;M 446 418 L 523.53 452.85 L 502.74 546.58;M 446 418 L 521.37 457.30 L 501.18 551.16;M 446 418 L 518.97 461.59 L 499.04 555.50;M 446 418 L 516.40 465.64 L 496.35 559.52;M 446 418 L 513.71 469.39 L 493.16 563.16;M 446 418 L 510.99 472.78 L 489.52 566.35;M 446 418 L 508.33 475.80 L 485.50 569.04;M 446 418 L 505.81 478.40 L 481.16 571.18;M 446 418 L 503.51 480.59 L 476.58 572.74;M 446 418 L 501.50 482.38 L 471.83 573.68;M 446 418 L 499.83 483.79 L 467.00 574.00;M 446 418 L 498.52 484.83 L 462.17 573.68;M 446 418 L 497.60 485.55 L 457.42 572.74;M 446 418 L 497.04 485.97 L 452.84 571.18;M 446 418 L 496.85 486.11 L 448.50 569.04;M 446 418 L 497.00 486.00 L 444.48 566.35;M 446 418 L 497.47 485.65 L 440.84 563.16;M 446 418 L 498.23 485.06 L 437.65 559.52;M 446 418 L 499.28 484.23 L 434.96 555.50;M 446 418 L 500.58 483.16 L 432.82 551.16;M 446 418 L 502.14 481.83 L 431.26 546.58;M 446 418 L 503.93 480.21 L 430.32 541.83;M 446 418 L 505.94 478.27 L 430.00 537.00;M 446 418 L 508.15 475.98 L 430.32 532.17;M 446 418 L 510.55 473.30 L 431.26 527.42;M 446 418 L 513.09 470.19 L 432.82 522.84;M 446 418 L 515.73 466.61 L 434.96 518.50;M 446 418 L 518.39 462.55 L 437.65 514.48;M 446 418 L 520.99 458.01 L 440.84 510.84;M 446 418 L 523.44 453.05 L 444.48 507.65;M 446 418 L 525.61 447.78 L 448.50 504.96;M 446 418 L 527.43 442.38 L 452.84 502.82;M 446 418 L 528.83 437.09 L 457.42 501.26;M 446 418 L 529.81 432.19 L 462.17 500.32;M 446 418 L 530.42 427.93 L 467.00 500.00;M 446 418 L 530.75 424.52 L 471.83 500.32;M 446 418 L 530.90 422.11 L 476.58 501.26;M 446 418 L 530.96 420.74 L 481.16 502.82;M 446 418 L 530.97 420.41 L 485.50 504.96;M 446 418 L 530.95 421.04 L 489.52 507.65;M 446 418 L 530.88 422.56 L 493.16 510.84;M 446 418 L 530.72 424.84 L 496.35 514.48;M 446 418 L 530.44 427.78 L 499.04 518.50;M 446 418 L 529.96 431.26 L 501.18 522.84;M 446 418 L 529.25 435.16 L 502.74 527.42;M 446 418 L 528.27 439.37 L 503.68 532.17;M 446 418 L 526.99 443.79 L 504.00 537.00" dur="1.6s" repeatCount="indefinite" /></path><path d="M 446 418 L 526.99 443.79 L 504.00 537.00" fill="none" stroke="#efac65" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"><animate attributeName="d" values="M 446 418 L 526.99 443.79 L 504.00 537.00;M 446 418 L 525.41 448.32 L 503.68 541.83;M 446 418 L 523.53 452.85 L 502.74 546.58;M 446 418 L 521.37 457.30 L 501.18 551.16;M 446 418 L 518.97 461.59 L 499.04 555.50;M 446 418 L 516.40 465.64 L 496.35 559.52;M 446 418 L 513.71 469.39 L 493.16 563.16;M 446 418 L 510.99 472.78 L 489.52 566.35;M 446 418 L 508.33 475.80 L 485.50 569.04;M 446 418 L 505.81 478.40 L 481.16 571.18;M 446 418 L 503.51 480.59 L 476.58 572.74;M 446 418 L 501.50 482.38 L 471.83 573.68;M 446 418 L 499.83 483.79 L 467.00 574.00;M 446 418 L 498.52 484.83 L 462.17 573.68;M 446 418 L 497.60 485.55 L 457.42 572.74;M 446 418 L 497.04 485.97 L 452.84 571.18;M 446 418 L 496.85 486.11 L 448.50 569.04;M 446 418 L 497.00 486.00 L 444.48 566.35;M 446 418 L 497.47 485.65 L 440.84 563.16;M 446 418 L 498.23 485.06 L 437.65 559.52;M 446 418 L 499.28 484.23 L 434.96 555.50;M 446 418 L 500.58 483.16 L 432.82 551.16;M 446 418 L 502.14 481.83 L 431.26 546.58;M 446 418 L 503.93 480.21 L 430.32 541.83;M 446 418 L 505.94 478.27 L 430.00 537.00;M 446 418 L 508.15 475.98 L 430.32 532.17;M 446 418 L 510.55 473.30 L 431.26 527.42;M 446 418 L 513.09 470.19 L 432.82 522.84;M 446 418 L 515.73 466.61 L 434.96 518.50;M 446 418 L 518.39 462.55 L 437.65 514.48;M 446 418 L 520.99 458.01 L 440.84 510.84;M 446 418 L 523.44 453.05 L 444.48 507.65;M 446 418 L 525.61 447.78 L 448.50 504.96;M 446 418 L 527.43 442.38 L 452.84 502.82;M 446 418 L 528.83 437.09 L 457.42 501.26;M 446 418 L 529.81 432.19 L 462.17 500.32;M 446 418 L 530.42 427.93 L 467.00 500.00;M 446 418 L 530.75 424.52 L 471.83 500.32;M 446 418 L 530.90 422.11 L 476.58 501.26;M 446 418 L 530.96 420.74 L 481.16 502.82;M 446 418 L 530.97 420.41 L 485.50 504.96;M 446 418 L 530.95 421.04 L 489.52 507.65;M 446 418 L 530.88 422.56 L 493.16 510.84;M 446 418 L 530.72 424.84 L 496.35 514.48;M 446 418 L 530.44 427.78 L 499.04 518.50;M 446 418 L 529.96 431.26 L 501.18 522.84;M 446 418 L 529.25 435.16 L 502.74 527.42;M 446 418 L 528.27 439.37 L 503.68 532.17;M 446 418 L 526.99 443.79 L 504.00 537.00" dur="1.6s" repeatCount="indefinite" /></path><g transform="translate(512.00 550.00)">
+      <animateTransform attributeName="transform" type="translate" values="512.00 550.00;511.68 554.83;510.74 559.58;509.18 564.16;507.04 568.50;504.35 572.52;501.16 576.16;497.52 579.35;493.50 582.04;489.16 584.18;484.58 585.74;479.83 586.68;475.00 587.00;470.17 586.68;465.42 585.74;460.84 584.18;456.50 582.04;452.48 579.35;448.84 576.16;445.65 572.52;442.96 568.50;440.82 564.16;439.26 559.58;438.32 554.83;438.00 550.00;438.32 545.17;439.26 540.42;440.82 535.84;442.96 531.50;445.65 527.48;448.84 523.84;452.48 520.65;456.50 517.96;460.84 515.82;465.42 514.26;470.17 513.32;475.00 513.00;479.83 513.32;484.58 514.26;489.16 515.82;493.50 517.96;497.52 520.65;501.16 523.84;504.35 527.48;507.04 531.50;509.18 535.84;510.74 540.42;511.68 545.17;512.00 550.00" dur="1.6s" repeatCount="indefinite"/>
+      <path d="M -13 -14 Q -9 -20 -4 -13 L 4 -7 L 21 -1 Q 24 3 17 4 L -13 3 Q -18 -2 -13 -14 Z" fill="#efac65" stroke="#303f40" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M 1 -5 L 7 1 M 9 -3 L 14 2" fill="none" stroke="#aa6d43" stroke-width="1.6" stroke-linecap="round"/>
+      <rect x="-17" y="5" width="39" height="6" rx="3" fill="#303f40"/>
+    </g>
+    <!-- Wing feathers conceal the hip and the forward wing rests on the handlebar. -->
+    <path d="M 368 336 C 395 315 438 322 457 349 C 468 366 479 389 503 396 L 578 394 Q 588 395 586 402 Q 586 410 575 412 L 513 423 C 475 434 437 411 411 399 C 392 390 367 368 368 336 Z" fill="#d4d7c8" stroke="#303f40" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M 379 342 C 407 331 433 341 445 361 C 460 383 478 404 509 411 C 475 415 447 399 423 384 C 400 369 389 353 379 342 Z" fill="#aebcaf"/>
+    <g fill="none" stroke="#6f8a7c" stroke-width="3" stroke-linecap="round">
+      <path d="M 392 345 Q 423 354 445 382"/>
+      <path d="M 397 361 Q 426 375 445 395"/>
+      <path d="M 413 384 Q 426 396 438 400"/>
+    </g>
+    <path d="M 558 401 L 575 400 M 561 407 L 577 405" fill="none" stroke="#7a9384" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Little speed lines keep the rider firmly in the seaside scene. -->
+    <g fill="none" stroke="#658a7c" stroke-width="3" stroke-linecap="round" opacity="0.7">
+      <path d="M 221 358 H 270 M 241 372 H 278 M 226 386 H 257">
+        <animate attributeName="opacity" values="0.4;0.9;0.4" dur="1.6s" repeatCount="indefinite"/>
+      </path>
+    </g>
+  </g>
+  <g fill="#303f40" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" letter-spacing="2.2">
+    <text x="62" y="760">SALT AIR. TWO WHEELS. NO HURRY.</text>
+    <text x="937" y="760" text-anchor="end" fill="#658377">ENJOY THE RIDE ↗</text>
+  </g>
+</svg>

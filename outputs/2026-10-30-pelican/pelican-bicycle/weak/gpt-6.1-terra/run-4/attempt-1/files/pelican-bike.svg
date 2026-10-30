@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+<rect width="800" height="600" fill="#eaf7f5"/>
+<circle cx="653" cy="106" r="43" fill="#ffd77a"/>
+<path d="M0 471 Q180 435 365 467 T800 458 V600 H0Z" fill="#d0e9d4"/>
+<path d="M0 516 Q400 502 800 516" fill="none" stroke="#a3c9b0" stroke-width="4"/>
+<!-- wheels -->
+<g fill="#fffdf5" stroke="#344b54" stroke-width="9"><circle cx="218" cy="448" r="94"/><circle cx="579" cy="448" r="94"/></g>
+<g stroke="#c6d9d5" stroke-width="3"><path d="M218 354v188M124 448h188M151 381l134 134M151 515l134-134M579 354v188M485 448h188M512 381l134 134M512 515l134-134"/></g>
+<!-- bicycle frame -->
+<g fill="none" stroke="#e96c53" stroke-width="12" stroke-linejoin="round" stroke-linecap="round"><path d="M218 448l105-153 88 153H218l139-112h171l51 112M323 295l-16-35M528 336l-18-50"/></g>
+<g fill="none" stroke="#344b54" stroke-width="8" stroke-linecap="round"><path d="M287 259h45M500 286q20-18 42-3l9 11M400 448l22 20h25"/></g>
+<g fill="#344b54"><circle cx="218" cy="448" r="8"/><circle cx="579" cy="448" r="8"/><circle cx="411" cy="448" r="12"/></g>
+<!-- tail and body -->
+<path d="M311 273q-49 4-67-25 8 35 38 55" fill="#dae9e6" stroke="#344b54" stroke-width="4" stroke-linejoin="round"/>
+<ellipse cx="359" cy="265" rx="93" ry="61" fill="#fffdf5" stroke="#344b54" stroke-width="4"/>
+<!-- neck -->
+<path d="M406 276q42-7 30-48-12-41-14-75l45-8q-7 44 10 82 24 65-30 93-23 11-49 2" fill="#fffdf5" stroke="#344b54" stroke-width="4" stroke-linejoin="round"/>
+<!-- head -->
+<ellipse cx="442" cy="145" rx="38" ry="38" fill="#fffdf5" stroke="#344b54" stroke-width="4"/>
+<!-- bill and pouch -->
+<path d="M463 148q51-9 126 7-46 15-119 13z" fill="#efaa4f" stroke="#344b54" stroke-width="4" stroke-linejoin="round"/>
+<path d="M471 168q18 53 76 15l42-28q-48 15-118 13z" fill="#f6c46a" stroke="#344b54" stroke-width="4" stroke-linejoin="round"/>
+<circle cx="451" cy="137" r="4.5" fill="#344b54"/>
+<!-- wing -->
+<path d="M303 251q20 48 80 36 20-5 30-19-46 9-75-20" fill="#e8f1ed" stroke="#344b54" stroke-width="4" stroke-linecap="round"/>
+<!-- legs and feet -->
+<g fill="none" stroke="#e6a247" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"><path d="M348 319l17 55 46 72M393 323l-12 39-37 13"/><path d="M411 446l22 9M344 375l-21 5"/></g>
+<!-- motion and flowers -->
+<g stroke="#8dbab4" stroke-width="4" stroke-linecap="round"><path d="M101 302h63M75 322h64M111 342h45"/></g>
+<g fill="#ee9c8d"><circle cx="90" cy="488" r="5"/><circle cx="704" cy="488" r="5"/><circle cx="736" cy="481" r="4"/></g>
+</svg>

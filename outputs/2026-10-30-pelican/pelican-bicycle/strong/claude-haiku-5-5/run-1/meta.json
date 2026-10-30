@@ -1,0 +1,13 @@
+{
+  "task": "pelican-bicycle",
+  "variant": "strong",
+  "model": "claude-haiku-5-5",
+  "label": "Claude Haiku 5.5",
+  "harness": "claude",
+  "effort": "high",
+  "run": 1,
+  "ok": true,
+  "attempts": 1,
+  "est_cost_usd": 0.038279,
+  "est_cost_usd_all_attempts": 0.038279
+}

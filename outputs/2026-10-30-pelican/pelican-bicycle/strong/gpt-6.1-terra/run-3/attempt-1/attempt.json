@@ -1,0 +1,57 @@
+{
+  "ok": true,
+  "error": null,
+  "started": "2026-10-30T01:55:56+00:00",
+  "duration_s": 33.6,
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "--sandbox",
+    "workspace-write",
+    "--disable",
+    "apps",
+    "--disable",
+    "plugins",
+    "--disable",
+    "image_generation",
+    "-c",
+    "skills.config=[{path=\"/root/.codex/skills/.system/imagegen/SKILL.md\",enabled=false}]",
+    "-c",
+    "web_search=\"disabled\"",
+    "--cd",
+    "/tmp/vellery-3hvc809f/work",
+    "--model",
+    "gpt-6.1-terra",
+    "-c",
+    "model_reasoning_effort=\"high\"",
+    "--json",
+    "--output-last-message",
+    "/tmp/vellery-3hvc809f/last-message.txt",
+    "<prompt>"
+  ],
+  "served_models": null,
+  "usage": {
+    "input_tokens": 34755,
+    "cached_input_tokens": 30080,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 2430,
+    "reasoning_output_tokens": 131
+  },
+  "est_cost_usd": 0.018329,
+  "est_cost": {
+    "gpt-6.1-terra": {
+      "input_tokens": 4675,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 30080,
+      "output_tokens": 2430,
+      "usd": 0.018329
+    }
+  },
+  "cli_reported_cost_usd": null,
+  "files": [
+    "pelican.svg"
+  ]
+}

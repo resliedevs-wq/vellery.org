@@ -1,0 +1,1 @@
+Created [pelican.svg](/tmp/vellery-mtw5urmv/work/pelican.svg) with a seated pelican pedaling, rotating cranks, and spinning wheels.

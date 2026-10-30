@@ -31,9 +31,13 @@ def stale():
     # Matching HTML is insufficient if a build silently removed model reveal.
     expected = json.loads((DIST.parent / "site" / "reveal.generated.js").read_text()
                           .removeprefix("export default ").rstrip(";\n"))
-    url = f"{HOST}/api/reveal?task=kitchen-illustration"
-    if not expected or json.loads(fetch(url)) != expected:
-        out.append(url)
+    if not expected:
+        raise ValueError("Empty model reveal mapping")
+    for task in sorted({item.split(".")[0] for item in expected}):
+        url = f"{HOST}/api/reveal?task={task}"
+        task_key = {item: who for item, who in expected.items() if item.startswith(task + ".")}
+        if json.loads(fetch(url)) != task_key:
+            out.append(url)
     return out
 
 

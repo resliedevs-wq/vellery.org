@@ -1,0 +1,9 @@
+I created `pelican.svg` (`/tmp/vellery-tye4j80d/work/pelican.svg`), but I haven't seen it play. The shell failed on every command because of a sandbox error ("nested userns is capability-restricted"), so I couldn't render it to check how it looks. Open it in a browser to view it. The animation uses SVG's built-in animation tags (SMIL), so there's no JavaScript and it should play in any modern browser.
+
+**What's in it:**
+- **Pelican on the saddle:** a white body sitting on the seat, with a tail and a wing that reaches forward to grip the handlebar. It has a curved neck, a small crest and an orange beak with a pouch. The head and beak bob slightly as it pedals.
+- **Pedalling:** the chainring and both crank arms turn once every 1.2 seconds. The pedals stay level as they go round. I worked out the knee positions by hand at 12 points around the pedal stroke and animated between them, so the orange legs stay attached to both the hip and the pedal. The far leg is a darker orange and sits behind the frame for depth.
+- **Wheels:** both turn clockwise, which is the right direction for riding to the right. They have spokes and a red valve dot so you can see them turning. The chain teeth move at the same speed as the chainring.
+- **Sense of speed:** the road markings move left at the same speed as the wheel rims, so the tyres don't look like they're slipping. The bushes, hills and clouds move at slower speeds behind them to suggest distance. Faint speed lines trail behind the bike.
+
+Because I couldn't render it, I can't promise the legs and feet line up perfectly with the pedals at every point in the stroke. If anything looks off, let me know and I'll adjust the numbers.

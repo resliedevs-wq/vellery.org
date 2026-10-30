@@ -1,0 +1,57 @@
+{
+  "ok": true,
+  "error": null,
+  "started": "2026-10-30T01:53:09+00:00",
+  "duration_s": 202.2,
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "--sandbox",
+    "workspace-write",
+    "--disable",
+    "apps",
+    "--disable",
+    "plugins",
+    "--disable",
+    "image_generation",
+    "-c",
+    "skills.config=[{path=\"/root/.codex/skills/.system/imagegen/SKILL.md\",enabled=false}]",
+    "-c",
+    "web_search=\"disabled\"",
+    "--cd",
+    "/tmp/vellery-jmcfdj2s/work",
+    "--model",
+    "gpt-6.1-sol",
+    "-c",
+    "model_reasoning_effort=\"high\"",
+    "--json",
+    "--output-last-message",
+    "/tmp/vellery-jmcfdj2s/last-message.txt",
+    "<prompt>"
+  ],
+  "served_models": null,
+  "usage": {
+    "input_tokens": 133043,
+    "cached_input_tokens": 109952,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 7795,
+    "reasoning_output_tokens": 1683
+  },
+  "est_cost_usd": 0.135127,
+  "est_cost": {
+    "gpt-6.1-sol": {
+      "input_tokens": 23091,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 109952,
+      "output_tokens": 7795,
+      "usd": 0.135127
+    }
+  },
+  "cli_reported_cost_usd": null,
+  "files": [
+    "pelican.svg"
+  ]
+}

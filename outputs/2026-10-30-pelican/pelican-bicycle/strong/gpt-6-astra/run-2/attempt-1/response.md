@@ -1,0 +1,1 @@
+Created [pelican.svg](pelican.svg) with a seated pelican, animated pedaling, rotating cranks, and spinning wheels. Open it in a browser to see the animation.

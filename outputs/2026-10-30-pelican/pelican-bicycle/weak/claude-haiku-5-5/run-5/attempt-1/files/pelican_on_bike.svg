@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <!-- sky and ground -->
+  <rect width="400" height="300" fill="#dff1ff"/>
+  <rect y="262" width="400" height="38" fill="#9ccc65"/>
+
+  <!-- wheels -->
+  <g fill="none" stroke="#222" stroke-width="6">
+    <circle cx="100" cy="210" r="50"/>
+    <circle cx="300" cy="210" r="50"/>
+  </g>
+  <circle cx="100" cy="210" r="5" fill="#222"/>
+  <circle cx="300" cy="210" r="5" fill="#222"/>
+
+  <!-- frame -->
+  <g fill="none" stroke="#e53935" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M100 210 L160 140 L190 210 Z"/>
+    <path d="M160 140 L270 140 L190 210 M270 140 L300 210"/>
+  </g>
+  <!-- handlebars -->
+  <path d="M270 140 L278 116 L296 110" fill="none" stroke="#333" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- seat -->
+  <path d="M146 134 L178 130" stroke="#333" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- tail -->
+  <path d="M122 98 L100 86 L108 104 L100 116 L124 110 Z" fill="#f5f5f0" stroke="#333" stroke-width="2" stroke-linejoin="round"/>
+
+  <!-- leg reaching the pedal -->
+  <path d="M170 124 L180 190 L200 206" fill="none" stroke="#f28c28" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="182" y="206" width="16" height="6" fill="#333"/>
+
+  <!-- body -->
+  <ellipse cx="160" cy="104" rx="52" ry="26" transform="rotate(-18 160 104)" fill="#f5f5f0" stroke="#333" stroke-width="2.5"/>
+  <!-- wing -->
+  <path d="M125 100 Q150 70 190 90 Q160 98 125 112 Z" fill="#d9d9d0" stroke="#333" stroke-width="2" stroke-linejoin="round"/>
+
+  <!-- neck (outline, then fill) -->
+  <path d="M196 92 Q218 80 222 58" fill="none" stroke="#333" stroke-width="24" stroke-linecap="round"/>
+  <path d="M196 92 Q218 80 222 58" fill="none" stroke="#f5f5f0" stroke-width="20" stroke-linecap="round"/>
+
+  <!-- head -->
+  <circle cx="228" cy="48" r="16" fill="#f5f5f0" stroke="#333" stroke-width="2.5"/>
+  <circle cx="232" cy="42" r="3" fill="#222"/>
+
+  <!-- big bill with pouch -->
+  <path d="M236 44 L306 68 Q292 84 276 84 Q256 72 238 60 Z" fill="#f28c28" stroke="#333" stroke-width="2" stroke-linejoin="round"/>
+</svg>

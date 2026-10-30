@@ -2,7 +2,7 @@ slug: pelican-bicycle
 title: Animate a pelican riding a bicycle
 category: Animation
 kind: svg
-published: false
+published: true
 runs: 5
 inputs: []
 

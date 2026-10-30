@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="520" viewBox="0 0 800 520" role="img" aria-labelledby="title desc">
+  <title id="title">A pelican riding a bicycle</title>
+  <desc id="desc">A pelican sits on a bicycle saddle and pedals as the wheels spin.</desc>
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#d9f4f5"/><stop offset="1" stop-color="#f8f8e9"/></linearGradient>
+    <linearGradient id="feathers" x2="1" y2="1"><stop stop-color="#fffdf0"/><stop offset="1" stop-color="#d9e6df"/></linearGradient>
+    <g id="wheel">
+      <circle r="91" fill="#fffdf4" stroke="#263f48" stroke-width="10"/>
+      <circle r="80" fill="none" stroke="#afc9c6" stroke-width="3"/>
+      <g stroke="#9cb8b5" stroke-width="2">
+        <path d="M-80 0H80M0-80V80M-57-57L57 57M57-57L-57 57"/>
+        <path d="M-74-31L74 31M-74 31L74-31M-31-74L31 74M31-74L-31 74"/>
+      </g>
+      <circle r="8" fill="#eab765" stroke="#263f48" stroke-width="3"/>
+    </g>
+  </defs>
+  <rect width="800" height="520" fill="url(#sky)"/>
+  <circle cx="680" cy="78" r="34" fill="#f8d88b" opacity=".85"/>
+  <path d="M0 402 Q100 380 190 403 T390 400 T590 400 T800 396 V520 H0Z" fill="#d9eaca"/>
+  <path d="M0 472H800V520H0Z" fill="#d2b98d"/>
+  <path d="M0 472H800" stroke="#a98f6d" stroke-width="3"/>
+  <g stroke="#b9cfad" stroke-width="4" stroke-linecap="round" opacity=".7">
+    <path d="M66 425l12-5m62 27l14-5m475-20l13-5m72 25l15-5"/>
+  </g>
+  <!-- Both wheels revolve at the same rate as the pedaling. -->
+  <g transform="translate(258 397)"><g><use href="#wheel"/><animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="1.2s" repeatCount="indefinite"/></g></g>
+  <g transform="translate(548 397)"><g><use href="#wheel"/><animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="1.2s" repeatCount="indefinite"/></g></g>
+  <!-- Frame and steering -->
+  <g fill="none" stroke="#287f82" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M258 397L355 292L398 397H258L465 301L398 397"/>
+    <path d="M465 301L548 397M455 276L465 301"/>
+  </g>
+  <path d="M449 276h31q15 0 15-14" fill="none" stroke="#263f48" stroke-width="7" stroke-linecap="round"/>
+  <path d="M344 291h-14q-5 0-5-5t8-6h39q6 0 6 5t-6 6z" fill="#30464a"/>
+  <circle cx="398" cy="397" r="22" fill="#f5d49a" stroke="#263f48" stroke-width="4"/>
+  <!-- Far leg follows the rear pedal. -->
+  <path d="M355 278 Q337 320 356 351 L370 397" fill="none" stroke="#c98748" stroke-width="11" stroke-linecap="round" stroke-linejoin="round">
+    <animate attributeName="d" dur="1.2s" repeatCount="indefinite" values="M355 278 Q337 320 356 351 L370 397;M355 278 Q350 322 386 342 L398 369;M355 278 Q375 322 403 350 L426 397;M355 278 Q365 335 383 377 L398 425;M355 278 Q337 320 356 351 L370 397"/>
+  </path>
+  <!-- Rotating crank and pedals -->
+  <g transform="translate(398 397)"><g>
+    <path d="M-28 0H28" stroke="#263f48" stroke-width="6" stroke-linecap="round"/>
+    <path d="M-35 0h14M21 0h14" stroke="#263f48" stroke-width="7" stroke-linecap="round"/>
+    <circle r="5" fill="#263f48"/>
+    <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="1.2s" repeatCount="indefinite"/>
+  </g></g>
+  <!-- Near leg, with its foot meeting the moving pedal. -->
+  <path d="M373 278 Q390 315 414 351 L426 397" fill="none" stroke="#e5a14f" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+    <animate attributeName="d" dur="1.2s" repeatCount="indefinite" values="M373 278 Q390 315 414 351 L426 397;M373 278 Q383 333 391 376 L398 425;M373 278 Q350 322 358 350 L370 397;M373 278 Q368 319 389 340 L398 369;M373 278 Q390 315 414 351 L426 397"/>
+  </path>
+  <!-- Pelican body rests directly on the saddle. -->
+  <g>
+    <path d="M302 246 Q278 235 265 222 Q275 253 308 266Z" fill="#d9e6df" stroke="#6e8885" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M301 232 Q315 196 368 201 Q394 203 410 222 Q422 242 399 263 Q379 281 345 280 Q309 279 299 258 Q295 246 301 232Z" fill="url(#feathers)" stroke="#6e8885" stroke-width="3"/>
+    <path d="M314 228 Q341 209 383 222 Q379 247 351 255 Q330 256 314 228Z" fill="#e2ebe3" stroke="#a4bbb3" stroke-width="2"/>
+    <path d="M329 237q15 10 34 6M336 246q12 5 22 2" fill="none" stroke="#b3c9c0" stroke-width="2" stroke-linecap="round"/>
+    <path d="M386 230 Q404 203 405 168 Q406 137 427 127 Q446 119 459 135 Q466 144 461 158 Q457 172 442 177 Q431 185 430 204 Q430 220 414 239Z" fill="url(#feathers)" stroke="#6e8885" stroke-width="3"/>
+    <!-- The long bill and characteristic pouch. -->
+    <path d="M451 150 Q478 153 524 161 L565 167 Q569 170 562 173 L458 172 Q449 169 451 150Z" fill="#e9a34e" stroke="#a96c35" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M456 171 Q470 207 498 207 Q526 206 554 174Z" fill="#f1bf72" stroke="#a96c35" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M459 171 Q503 176 556 172" fill="none" stroke="#a96c35" stroke-width="2"/>
+    <circle cx="443" cy="144" r="5" fill="#263f48"/><circle cx="444.5" cy="142.5" r="1.5" fill="white"/>
+    <path d="M431 132q8-5 16-2" fill="none" stroke="#8fa7a0" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <path d="M74 73q11-9 22 0q11-9 22 0M141 112q8-6 16 0q8-6 16 0" fill="none" stroke="#a8cecb" stroke-width="3" stroke-linecap="round"/>
+</svg>

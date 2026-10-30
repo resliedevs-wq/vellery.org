@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" role="img" aria-labelledby="title desc">
+  <title id="title">A pelican riding a bicycle</title>
+  <desc id="desc">A cheerful white pelican pedals a red bicycle beside the sea.</desc>
+  <rect width="900" height="680" fill="#d9f2f1"/>
+  <circle cx="725" cy="112" r="48" fill="#ffd47a"/>
+  <path d="M0 355 Q120 333 240 353 T480 351 T720 354 T900 348 V680 H0Z" fill="#a8deda"/>
+  <path d="M0 384 Q120 365 240 384 T480 382 T720 385 T900 379" fill="none" stroke="#f4ffff" stroke-width="4" opacity=".7"/>
+  <path d="M0 570 Q220 555 440 572 T900 568 V680 H0Z" fill="#f1d9ad"/>
+  <path d="M0 601 Q240 589 465 603 T900 598" fill="none" stroke="#e5c89a" stroke-width="3"/>
+  <g fill="none" stroke="#f7ffff" stroke-linecap="round" stroke-width="5" opacity=".8">
+    <path d="M107 106 q18 -19 36 0 q18 -19 36 0"/><path d="M624 201 q12 -12 24 0 q12 -12 24 0"/>
+  </g>
+  <!-- wheels and spokes -->
+  <g fill="none" stroke-linecap="round">
+    <g stroke="#354b50" stroke-width="13"><circle cx="270" cy="492" r="91"/><circle cx="624" cy="492" r="91"/></g>
+    <g stroke="#faf7e9" stroke-width="5"><circle cx="270" cy="492" r="78"/><circle cx="624" cy="492" r="78"/></g>
+    <g stroke="#78979a" stroke-width="2" opacity=".8">
+      <path d="M270 414v156 M192 492h156 M215 437l110 110 M215 547l110 -110"/>
+      <path d="M624 414v156 M546 492h156 M569 437l110 110 M569 547l110 -110"/>
+    </g>
+    <!-- bicycle frame -->
+    <g stroke="#dd6854" stroke-width="11" stroke-linejoin="round">
+      <path d="M270 492 L360 377 L437 492 Z M360 377 H548 L437 492 M548 377 L624 492"/>
+    </g>
+    <path d="M548 377 l-15 -37 h-29" stroke="#354b50" stroke-width="9" stroke-linejoin="round"/>
+    <path d="M350 377 l-9 -24 M318 352 h49" stroke="#354b50" stroke-width="10"/>
+    <circle cx="437" cy="492" r="17" stroke="#354b50" stroke-width="6" fill="#f1d9ad"/>
+    <path d="M437 492 l31 24 M457 519 h27" stroke="#354b50" stroke-width="7"/>
+  </g>
+  <g fill="#354b50"><circle cx="270" cy="492" r="7"/><circle cx="624" cy="492" r="7"/></g>
+  <!-- pelican tail and body -->
+  <path d="M318 337 Q276 319 267 276 Q290 294 325 296" fill="#e6ece5" stroke="#50676a" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M324 222 Q352 205 399 222 Q439 236 450 272 Q459 315 426 343 Q391 374 333 350 Q303 336 302 306 Q300 269 324 222Z" fill="#fffdf1" stroke="#50676a" stroke-width="4"/>
+  <path d="M315 275 Q348 282 399 255 Q420 288 405 315 Q381 346 337 322 Q316 310 315 275Z" fill="#e3ece6" stroke="#829596" stroke-width="3"/>
+  <path d="M340 303 Q365 316 389 298" fill="none" stroke="#b9ccc4" stroke-width="3" stroke-linecap="round"/>
+  <!-- long neck and head -->
+  <path d="M376 232 Q408 223 410 197 Q411 185 406 166 Q400 137 422 121 Q445 106 465 122 Q481 135 476 154 Q472 170 453 179 Q441 188 448 219 Q454 240 441 257 Q421 272 400 254 Q416 238 408 222" fill="#fffdf1" stroke="#50676a" stroke-width="4" stroke-linejoin="round"/>
+  <!-- pouch and bill -->
+  <path d="M458 153 Q482 160 568 169 Q558 211 517 222 Q484 227 461 177Z" fill="#f2ae64" stroke="#986a4e" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M458 150 Q511 148 586 169 Q590 173 582 176 Q512 177 459 165Z" fill="#f9c875" stroke="#986a4e" stroke-width="4" stroke-linejoin="round"/>
+  <circle cx="453" cy="139" r="4.5" fill="#354b50"/>
+  <circle cx="454" cy="137.5" r="1.3" fill="white"/>
+  <!-- legs and webbed feet on the pedals -->
+  <g fill="none" stroke="#d79452" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M359 346 Q367 390 408 420 L454 455"/>
+    <path d="M400 350 Q410 395 441 423 L470 512"/>
+  </g>
+  <g fill="#eeb068" stroke="#b87b47" stroke-width="3" stroke-linejoin="round">
+    <path d="M451 452 q12 -5 19 2 l12 9 -14 0 -7 5 -6 -5 -12 0Z"/>
+    <path d="M466 510 q12 -6 21 0 l13 8 -15 1 -7 5 -6 -5 -12 0Z"/>
+  </g>
+  <path d="M430 458 h44" stroke="#354b50" stroke-width="7" stroke-linecap="round"/>
+  <g fill="#e0be88" opacity=".8"><ellipse cx="150" cy="628" rx="23" ry="3"/><ellipse cx="715" cy="638" rx="33" ry="3"/><ellipse cx="565" cy="613" rx="14" ry="2"/></g>
+</svg>

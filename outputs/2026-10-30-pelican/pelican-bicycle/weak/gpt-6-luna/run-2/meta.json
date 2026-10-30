@@ -1,0 +1,13 @@
+{
+  "task": "pelican-bicycle",
+  "variant": "weak",
+  "model": "gpt-6-luna",
+  "label": "GPT-6 Luna",
+  "harness": "codex",
+  "effort": "high",
+  "run": 2,
+  "ok": true,
+  "attempts": 1,
+  "est_cost_usd": 0.002385,
+  "est_cost_usd_all_attempts": 0.002385
+}

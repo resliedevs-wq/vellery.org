@@ -1,0 +1,57 @@
+{
+  "ok": true,
+  "error": null,
+  "started": "2026-10-30T01:56:31+00:00",
+  "duration_s": 197.5,
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "--sandbox",
+    "workspace-write",
+    "--disable",
+    "apps",
+    "--disable",
+    "plugins",
+    "--disable",
+    "image_generation",
+    "-c",
+    "skills.config=[{path=\"/root/.codex/skills/.system/imagegen/SKILL.md\",enabled=false}]",
+    "-c",
+    "web_search=\"disabled\"",
+    "--cd",
+    "/tmp/vellery-ha84cxel/work",
+    "--model",
+    "gpt-6-astra",
+    "-c",
+    "model_reasoning_effort=\"high\"",
+    "--json",
+    "--output-last-message",
+    "/tmp/vellery-ha84cxel/last-message.txt",
+    "<prompt>"
+  ],
+  "served_models": null,
+  "usage": {
+    "input_tokens": 61869,
+    "cached_input_tokens": 57216,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 5549,
+    "reasoning_output_tokens": 845
+  },
+  "est_cost_usd": 0.381196,
+  "est_cost": {
+    "gpt-6-astra": {
+      "input_tokens": 4653,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 57216,
+      "output_tokens": 5549,
+      "usd": 0.381196
+    }
+  },
+  "cli_reported_cost_usd": null,
+  "files": [
+    "pelican.svg"
+  ]
+}

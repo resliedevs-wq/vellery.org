@@ -1,0 +1,119 @@
+{
+  "ok": true,
+  "error": null,
+  "started": "2026-10-30T01:32:59+00:00",
+  "duration_s": 49.2,
+  "command": [
+    "claude",
+    "-p",
+    "<prompt>",
+    "--model",
+    "claude-opus-5-5",
+    "--effort",
+    "high",
+    "--setting-sources",
+    "project",
+    "--strict-mcp-config",
+    "--no-session-persistence",
+    "--permission-mode",
+    "acceptEdits",
+    "--disallowedTools",
+    "WebSearch",
+    "WebFetch",
+    "--settings",
+    "{\"sandbox\": {\"enabled\": true, \"autoAllowBashIfSandboxed\": true, \"allowUnsandboxedCommands\": false}}",
+    "--output-format",
+    "json"
+  ],
+  "served_models": [
+    "claude-haiku-5-5",
+    "claude-opus-5-5"
+  ],
+  "usage": {
+    "usage": {
+      "input_tokens": 10,
+      "cache_creation_input_tokens": 10439,
+      "cache_read_input_tokens": 82737,
+      "output_tokens": 4279,
+      "output_tokens_details": {
+        "thinking_tokens": 838
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 10439,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 382,
+          "cache_read_input_tokens": 19519,
+          "cache_creation_input_tokens": 163,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 163
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-haiku-5-5": {
+        "inputTokens": 1176,
+        "outputTokens": 18,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.0001266,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-haiku-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      },
+      "claude-opus-5-5": {
+        "inputTokens": 10,
+        "outputTokens": 4279,
+        "cacheReadInputTokens": 82737,
+        "cacheCreationInputTokens": 10439,
+        "webSearchRequests": 0,
+        "costUSD": 0.18567940000000002,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 838,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    }
+  },
+  "est_cost_usd": 0.185806,
+  "est_cost": {
+    "claude-haiku-5-5": {
+      "input_tokens": 1176,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 0,
+      "output_tokens": 18,
+      "usd": 0.000127
+    },
+    "claude-opus-5-5": {
+      "input_tokens": 10,
+      "cache_write_tokens": 10439,
+      "cache_read_tokens": 82737,
+      "output_tokens": 4279,
+      "usd": 0.185679
+    }
+  },
+  "cli_reported_cost_usd": 0.18580600000000003,
+  "files": [
+    "pelican-bike.svg"
+  ]
+}

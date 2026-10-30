@@ -1,0 +1,1 @@
+![A pelican riding a teal bicycle, with a scarf fluttering in the breeze.](/tmp/vellery-7_lfrosn/work/pelican.svg)

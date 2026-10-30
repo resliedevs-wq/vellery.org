@@ -1,0 +1,57 @@
+{
+  "ok": true,
+  "error": null,
+  "started": "2026-10-30T01:39:45+00:00",
+  "duration_s": 17.0,
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "--sandbox",
+    "workspace-write",
+    "--disable",
+    "apps",
+    "--disable",
+    "plugins",
+    "--disable",
+    "image_generation",
+    "-c",
+    "skills.config=[{path=\"/root/.codex/skills/.system/imagegen/SKILL.md\",enabled=false}]",
+    "-c",
+    "web_search=\"disabled\"",
+    "--cd",
+    "/tmp/vellery-bjz5c1d0/work",
+    "--model",
+    "gpt-6-luna",
+    "-c",
+    "model_reasoning_effort=\"high\"",
+    "--json",
+    "--output-last-message",
+    "/tmp/vellery-bjz5c1d0/last-message.txt",
+    "<prompt>"
+  ],
+  "served_models": null,
+  "usage": {
+    "input_tokens": 47225,
+    "cached_input_tokens": 32512,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 1820,
+    "reasoning_output_tokens": 185
+  },
+  "est_cost_usd": 0.002706,
+  "est_cost": {
+    "gpt-6-luna": {
+      "input_tokens": 14713,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 32512,
+      "output_tokens": 1820,
+      "usd": 0.002706
+    }
+  },
+  "cli_reported_cost_usd": null,
+  "files": [
+    "pelican-on-a-bike.svg"
+  ]
+}

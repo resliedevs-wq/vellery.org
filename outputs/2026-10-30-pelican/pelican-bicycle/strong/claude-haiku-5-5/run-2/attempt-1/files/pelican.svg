@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <title>A pelican pedaling a bicycle</title>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#bfe7f7"/>
+      <stop offset="1" stop-color="#eaf7ff"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background and ground -->
+  <rect width="800" height="500" fill="url(#sky)"/>
+  <rect y="470" width="800" height="30" fill="#8dbb6b"/>
+  <line x1="0" y1="470" x2="800" y2="470" stroke="#5f8f45" stroke-width="2"/>
+  <ellipse cx="400" cy="474" rx="250" ry="7" fill="#000" opacity="0.15"/>
+
+  <!-- Rear wheel (spins clockwise; red marker shows rotation) -->
+  <g>
+    <animateTransform attributeName="transform" type="rotate" from="0 230 398" to="360 230 398" dur="0.75s" repeatCount="indefinite"/>
+    <circle cx="230" cy="398" r="69" fill="none" stroke="#222" stroke-width="6"/>
+    <circle cx="230" cy="398" r="65" fill="none" stroke="#bbb" stroke-width="1.5"/>
+    <path d="M230 398L295 398M230 398L286.3 430.5M230 398L262.5 454.3M230 398L230 463M230 398L197.5 454.3M230 398L173.7 430.5M230 398L165 398M230 398L173.7 365.5M230 398L197.5 341.7M230 398L230 333M230 398L262.5 341.7M230 398L286.3 365.5" stroke="#c4c4c4" stroke-width="1.2"/>
+    <circle cx="295" cy="398" r="4" fill="#e63946"/>
+    <!-- rear cog -->
+    <circle cx="230" cy="398" r="10" fill="none" stroke="#555" stroke-width="3"/>
+    <circle cx="230" cy="398" r="4" fill="#555"/>
+  </g>
+
+  <!-- Front wheel -->
+  <g>
+    <animateTransform attributeName="transform" type="rotate" from="0 560 398" to="360 560 398" dur="0.75s" repeatCount="indefinite"/>
+    <circle cx="560" cy="398" r="69" fill="none" stroke="#222" stroke-width="6"/>
+    <circle cx="560" cy="398" r="65" fill="none" stroke="#bbb" stroke-width="1.5"/>
+    <path d="M560 398L625 398M560 398L616.3 430.5M560 398L592.5 454.3M560 398L560 463M560 398L527.5 454.3M560 398L503.7 430.5M560 398L495 398M560 398L503.7 365.5M560 398L527.5 341.7M560 398L560 333M560 398L592.5 341.7M560 398L616.3 365.5" stroke="#c4c4c4" stroke-width="1.2"/>
+    <circle cx="625" cy="398" r="4" fill="#e63946"/>
+    <circle cx="560" cy="398" r="4" fill="#555"/>
+  </g>
+
+  <!-- Far leg and far crank (behind the frame; 180 degrees out of phase) -->
+  <g stroke-linecap="round">
+    <animateTransform attributeName="transform" type="rotate" from="180 392 388" to="540 392 388" dur="2.1s" repeatCount="indefinite"/>
+    <line x1="392" y1="388" x2="366" y2="388" stroke="#7d7d7d" stroke-width="6"/>
+    <circle cx="366" cy="388" r="4.5" fill="#444"/>
+  </g>
+  <path fill="none" stroke="#b85f22" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" d="M352 208L425.7 289.6L366 382">
+    <animate attributeName="d" dur="2.1s" repeatCount="indefinite" calcMode="linear"
+      keyTimes="0;0.0833;0.1667;0.25;0.3333;0.4167;0.5;0.5833;0.6667;0.75;0.8333;0.9167;1"
+      values="M352 208L425.7 289.6L366 382;M352 208L434.8 280.5L369.5 369;M352 208L442.9 269.9L379 359.5;M352 208L448.2 261.4L392 356;M352 208L449.5 258.9L405 359.5;M352 208L446.8 263.8L414.5 369;M352 208L439.9 274.2L418 382;M352 208L429.5 286L414.5 395;M352 208L418.8 295.4L405 404.5;M352 208L412.4 299.9L392 408;M352 208L412.6 299.8L379 404.5;M352 208L417.8 296.2L369.5 395;M352 208L425.7 289.6L366 382"/>
+  </path>
+  <g>
+    <animateTransform attributeName="transform" type="translate" calcMode="linear" dur="2.1s" repeatCount="indefinite"
+      keyTimes="0;0.0833;0.1667;0.25;0.3333;0.4167;0.5;0.5833;0.6667;0.75;0.8333;0.9167;1"
+      values="366 382;369.5 369;379 359.5;392 356;405 359.5;414.5 369;418 382;414.5 395;405 404.5;392 408;379 404.5;369.5 395;366 382"/>
+    <path d="M-7 -2L12 -3Q20 2 17 7Q6 9 -3 6Q-7 3 -7 -2Z" fill="#b85f22"/>
+  </g>
+
+  <!-- Bicycle frame -->
+  <g stroke="#d62828" stroke-linecap="round" fill="none">
+    <line x1="392" y1="388" x2="345" y2="230" stroke-width="8"/>
+    <line x1="345" y1="230" x2="530" y2="268" stroke-width="8"/>
+    <line x1="392" y1="388" x2="520" y2="305" stroke-width="8"/>
+    <line x1="230" y1="398" x2="392" y2="388" stroke-width="7"/>
+    <line x1="230" y1="398" x2="345" y2="230" stroke-width="5"/>
+    <line x1="520" y1="305" x2="560" y2="398" stroke-width="6"/>
+    <line x1="530" y1="266" x2="520" y2="308" stroke-width="12"/>
+  </g>
+  <path d="M530 266L536 246M536 246Q566 234 574 262" fill="none" stroke="#222" stroke-width="4" stroke-linecap="round"/>
+  <path d="M318 224Q342 212 368 218Q372 228 360 230Q340 233 322 230Q316 228 318 224Z" fill="#222"/>
+
+  <!-- Chain -->
+  <path d="M230 388L392 370M230 408L392 406" stroke="#222" stroke-width="2.5"/>
+
+  <!-- Near crank and chainring (drive side) -->
+  <g>
+    <animateTransform attributeName="transform" type="rotate" from="0 392 388" to="360 392 388" dur="2.1s" repeatCount="indefinite"/>
+    <circle cx="392" cy="388" r="18" fill="none" stroke="#777" stroke-width="3"/>
+    <line x1="392" y1="388" x2="418" y2="388" stroke="#555" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="418" cy="388" r="4.5" fill="#333"/>
+    <circle cx="392" cy="388" r="4" fill="#555"/>
+  </g>
+
+  <!-- Pelican: tail, body, wing -->
+  <path d="M272 200L226 220Q221 228 230 231L282 224Z" fill="#7d7467"/>
+  <path d="M268 196C276 160 330 142 376 150C404 156 420 178 414 202C408 226 372 234 336 230C300 226 262 222 268 196Z" fill="#ebe5d3" stroke="#b7ae98" stroke-width="1.5"/>
+  <path d="M372 158C335 136 290 150 252 190C292 186 334 196 376 186Z" fill="#8b8373" stroke="#5f5749" stroke-width="1.2">
+    <animateTransform attributeName="transform" type="rotate" dur="1.05s" repeatCount="indefinite" calcMode="linear"
+      keyTimes="0;0.3;0.5;0.8;1" values="0 372 166;10 372 166;0 372 166;-6 372 166;0 372 166"/>
+  </path>
+
+  <!-- Near leg and foot (in front of the body) -->
+  <path fill="none" stroke="#e07f2a" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" d="M352 208L439.9 274.2L418 382">
+    <animate attributeName="d" dur="2.1s" repeatCount="indefinite" calcMode="linear"
+      keyTimes="0;0.0833;0.1667;0.25;0.3333;0.4167;0.5;0.5833;0.6667;0.75;0.8333;0.9167;1"
+      values="M352 208L439.9 274.2L418 382;M352 208L429.5 286L414.5 395;M352 208L418.8 295.4L405 404.5;M352 208L412.4 299.9L392 408;M352 208L412.6 299.8L379 404.5;M352 208L417.8 296.2L369.5 395;M352 208L425.7 289.6L366 382;M352 208L434.8 280.5L369.5 369;M352 208L442.9 269.9L379 359.5;M352 208L448.2 261.4L392 356;M352 208L449.5 258.9L405 359.5;M352 208L446.8 263.8L414.5 369;M352 208L439.9 274.2L418 382"/>
+  </path>
+  <g>
+    <animateTransform attributeName="transform" type="translate" calcMode="linear" dur="2.1s" repeatCount="indefinite"
+      keyTimes="0;0.0833;0.1667;0.25;0.3333;0.4167;0.5;0.5833;0.6667;0.75;0.8333;0.9167;1"
+      values="418 382;414.5 395;405 404.5;392 408;379 404.5;369.5 395;366 382;369.5 369;379 359.5;392 356;405 359.5;414.5 369;418 382"/>
+    <path d="M-7 -2L12 -3Q20 2 17 7Q6 9 -3 6Q-7 3 -7 -2Z" fill="#e07f2a"/>
+  </g>
+
+  <!-- Pelican: neck, head, bill, eye -->
+  <path d="M404 176C430 150 418 124 448 106" fill="none" stroke="#f6f3ea" stroke-width="22" stroke-linecap="round"/>
+  <circle cx="452" cy="100" r="19" fill="#f6f3ea" stroke="#cfc6ae" stroke-width="1.2"/>
+  <path d="M466 92C500 96 540 110 578 128C584 132 580 138 572 136C530 120 494 110 466 106Z" fill="#f3b43b" stroke="#c98a1c" stroke-width="1"/>
+  <path d="M466 106C494 112 528 126 552 138C556 152 540 164 520 158C500 150 480 132 466 118Z" fill="#e98a2c"/>
+  <circle cx="458" cy="95" r="3.6" fill="#111"/>
+  <circle cx="459.3" cy="93.7" r="1.1" fill="#fff"/>
+</svg>

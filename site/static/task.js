@@ -229,7 +229,7 @@
 
   function paintStatus() {
     const chip = body.querySelector(".verdict.status");
-    if (!chip) return;
+    if (!chip || !selected) return;
     const v = tally(selected);
     const b = bucketOf(byId[selected]);
     chip.className = `verdict status ${b}`;

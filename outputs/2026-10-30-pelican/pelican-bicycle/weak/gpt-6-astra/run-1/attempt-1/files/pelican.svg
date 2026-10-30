@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="760" viewBox="0 0 1000 760">
+  <title>A pelican riding a bicycle</title>
+  <desc>A smiling white pelican with a long golden bill pedals a coral bicycle beside the sea, wearing a teal scarf.</desc>
+  <defs>
+    <pattern id="spokes" width="1" height="1"/>
+  </defs>
+  <rect width="1000" height="760" fill="#fff6e5"/>
+  <circle cx="744" cy="169" r="75" fill="#fbd788"/>
+  <path d="M0 476 Q170 444 340 475 T680 468 T1000 474 V620 H0Z" fill="#d7e9df"/>
+  <path d="M0 514 Q200 483 420 514 T1000 511" fill="none" stroke="#aecfc5" stroke-width="3"/>
+  <path d="M112 190q16-14 32 0q16-14 32 0 M790 300q12-12 24 0q12-12 24 0" fill="none" stroke="#8caeaa" stroke-width="4" stroke-linecap="round"/>
+  <ellipse cx="500" cy="639" rx="346" ry="20" fill="#e8dcc5"/>
+  <g stroke="#253d43" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Airy wire wheels -->
+    <g fill="#fff6e5" stroke-width="12">
+      <circle cx="265" cy="514" r="112"/>
+      <circle cx="689" cy="514" r="112"/>
+    </g>
+    <g fill="none" stroke="#a5b4ab" stroke-width="2.5">
+      <circle cx="265" cy="514" r="100"/><circle cx="689" cy="514" r="100"/>
+      <path d="M265 414V614M165 514H365M194 443L336 585M194 585L336 443M227 422L303 606M173 476L357 552M173 552L357 476M227 606L303 422"/>
+      <path d="M689 414V614M589 514H789M618 443L760 585M618 585L760 443M651 422L727 606M597 476L781 552M597 552L781 476M651 606L727 422"/>
+    </g>
+    <!-- Far pedal and foot -->
+    <path d="M429 338L476 385L433 470" fill="none" stroke="#d89339" stroke-width="15"/>
+    <path d="M432 458q-19 5-22 17l47 1-11-13" fill="#eeb84e" stroke-width="4"/>
+    <path d="M426 480h38" stroke-width="8"/>
+    <!-- Coral bicycle frame -->
+    <path d="M265 514L389 377L459 514ZM389 377H617L459 514M617 377L689 514" fill="none" stroke="#253d43" stroke-width="15"/>
+    <path d="M265 514L389 377L459 514ZM389 377H617L459 514M617 377L689 514" fill="none" stroke="#e97862" stroke-width="9"/>
+    <path d="M389 377l-10-31M617 377l-16-48q-3-11 12-12h40" fill="none" stroke-width="9"/>
+    <path d="M353 343q24-10 58-2q9 11-9 14h-40q-14 0-9-12" fill="#354e52" stroke-width="4"/>
+    <path d="M644 317h24" stroke="#b3744f" stroke-width="12"/>
+    <path d="M654 325q-4 40 14 63" fill="none" stroke-width="2"/>
+    <circle cx="634" cy="309" r="9" fill="#f5bf55" stroke-width="3"/>
+    <circle cx="265" cy="514" r="7" fill="#f5bf55" stroke-width="3"/>
+    <circle cx="689" cy="514" r="7" fill="#f5bf55" stroke-width="3"/>
+    <path d="M265 505L456 495q27 1 27 19t-27 19L265 523q-12-8 0-18Z" fill="none" stroke="#566b68" stroke-width="3"/>
+    <circle cx="459" cy="514" r="22" fill="#fff6e5" stroke-width="5"/>
+    <circle cx="459" cy="514" r="7" fill="#e97862" stroke="none"/>
+    <!-- Pelican tail, round body and elegant curved neck -->
+    <path d="M325 274l-70-28 26 43-35-7q25 40 81 33" fill="#fdfdf4" stroke-width="5"/>
+    <path d="M308 263q-23 46 25 77q51 33 110-1q43-29 43-81l-6-41q-3-20 17-36q22-18 17-47q-5-35-37-37q-39-4-54 29q-14 29 1 58q18 40-4 60q-16 15-48 9q-45-12-64 10Z" fill="#fffef5" stroke-width="5"/>
+    <!-- Soft belly and feather details -->
+    <path d="M307 294q28 42 81 37q47-4 72-43q-13 50-58 58q-67 15-95-29Z" fill="#dae3dc" stroke="none"/>
+    <path d="M318 284q38-24 78 6q18 16 38 18q-36 24-72 6l-23-10m12 7-13 6" fill="#eef0e6" stroke-width="4"/>
+    <!-- Near leg bent toward the pedal -->
+    <path d="M393 342l-17 57q-3 11 12 15l85 35 10 79" fill="none" stroke="#253d43" stroke-width="16"/>
+    <path d="M393 342l-17 57q-3 11 12 15l85 35 10 79" fill="none" stroke="#efb347" stroke-width="9"/>
+    <path d="M459 514l28 28" fill="none" stroke-width="6"/>
+    <path d="M473 525q7-8 16-1l11 8 22 6q8 7-3 10h-52q-10-7 6-23Z" fill="#f4bd50" stroke-width="4"/>
+    <path d="M471 552h52" stroke-width="8"/>
+    <!-- Scarf fluttering behind the rider -->
+    <path d="M440 219q-45-16-74-8q-33 11-54-8l6 23-13 14q38 9 65-8q26-15 67 6" fill="#319a93" stroke-width="4"/>
+    <path d="M431 208q17 11 43 1l6 18q-23 13-49-1Z" fill="#47ada0" stroke-width="4"/>
+    <!-- Wing reaching to the handlebar -->
+    <path d="M442 258q15-8 30 11l48 30q30 7 74 7q19-1 23 10q-1 12-20 12q-43 5-81-6q-38-7-69-31" fill="#fffef5" stroke-width="5"/>
+    <path d="M580 317l22 2m-24 5 18 2" fill="none" stroke="#a5b4ab" stroke-width="3"/>
+    <!-- Huge bill and peach-colored throat pouch -->
+    <path d="M495 154L722 164q-28 16-61 48q-48 46-104 21q-36-15-62-60Z" fill="#f4b16a" stroke-width="5"/>
+    <path d="M508 176q50 59 103 48" fill="none" stroke="#dc8c52" stroke-width="3"/>
+    <path d="M496 147q88-1 229 15q8 1 1 8q-119 13-231 1Z" fill="#f6ca57" stroke-width="5"/>
+    <path d="M520 155l145 7" fill="none" stroke="#ffe4a0" stroke-width="4"/>
+    <!-- Expressive eye and tiny crest -->
+    <circle cx="477" cy="139" r="14" fill="#fff" stroke="none"/>
+    <circle cx="482" cy="139" r="6" fill="#253d43" stroke="none"/>
+    <circle cx="484" cy="137" r="2" fill="#fff" stroke="none"/>
+    <path d="M464 119q9-7 18-3M445 106l-7-15m19 9-1-16" fill="none" stroke-width="4"/>
+    <path d="M484 183q6 4 12 0" fill="none" stroke-width="3"/>
+    <!-- A few hints of speed -->
+    <path d="M168 331h53M143 350h64M174 369h35" stroke="#b6c9bd" stroke-width="4"/>
+  </g>
+  <g fill="#b0bd96"><path d="M824 627q-1-22 15-31q0 21-15 31M823 628q-20-6-21-20q17 3 21 20"/><path d="M154 625q-2-15-12-19q0 15 12 19"/></g>
+</svg>

@@ -262,6 +262,32 @@ def kitchen_items():
     return items
 
 
+def drawing_items(runs):
+    """Keep every response, including inline SVG and text-only drawings."""
+    items = []
+    for r in runs:
+        attempt = r["run_dir"] / f"attempt-{r['attempts']}"
+        files = sorted(p for p in (attempt / "files").rglob("*") if p.suffix.lower() in (".svg", ".png"))
+        srcs = []
+        for n, source in enumerate(files):
+            dest = f"img/{r['task']}/{r['item'].split('.')[1]}-{n}{source.suffix.lower()}"
+            (DIST / dest).parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy(source, DIST / dest)
+            srcs.append("/" + dest)
+        if not srcs:
+            svg = re.search(r"<svg\b[\s\S]*?</svg>", r["response"])
+            if svg:
+                dest = f"img/{r['task']}/{r['item'].split('.')[1]}.svg"
+                write(dest, svg.group())
+                srcs.append("/" + dest)
+        text = r["response"] if not srcs else ""
+        # Strip only the presentation fence, leaving the model's drawing intact.
+        if text.strip().startswith("```"):
+            text = re.sub(r"^```[^\n]*\n|\n```\s*$", "", text.strip())
+        items.append({"id": r["item"], "variant": r["variant"], "srcs": srcs, "text": text})
+    return items
+
+
 def counts(runs, variant):
     c = {g: 0 for g in GRADES}
     for r in runs:
@@ -348,7 +374,7 @@ def legend(waiting):
     return '<div class="legend" id="legend">' + "".join(f'<span class="{g}">{label}</span>' for g, label in names.items()) + "</div>"
 
 
-def reveal_key(models):
+def reveal_key(models, drawings=()):
     """id -> model and run for the blind drawings. Never written into the pages: only
     the Worker holds it, and hands it out when a visitor asks to see the models."""
     key_file = KITCHEN / "key.json"
@@ -363,6 +389,8 @@ def reveal_key(models):
         raise ValueError("Kitchen model key must cover exactly all blind drawings")
     for kid, k in key.items():
         out[f"kitchen-illustration.{kid}"] = {"id": k["model"], "label": labels[k["model"]], "run": k["run"]}
+    for r in drawings:
+        out[r["item"]] = {"id": r["model"], "label": labels[r["model"]], "run": r["run"]}
     REVEAL_MODULE.write_text(f"export default {json.dumps(out)};\n")
     return bool(out)
 
@@ -395,14 +423,18 @@ def build_task_page(task, runs, models, items, can_reveal):
         tiles = []
         for i in items:
             kid = i["id"].split(".")[1]
+            preview = (f'<img src="{i["srcs"][0]}" alt="" loading="lazy">' if i["srcs"]
+                       else f'<pre class="drawing-text">{esc(i.get("text", "No drawing returned."))}</pre>')
+            artwork = ("".join(f'<img src="{src}" alt="Drawing {kid}">' for src in i["srcs"])
+                       if i["srcs"] else f'<pre class="drawing-response">{esc(i.get("text", "No drawing returned."))}</pre>')
             tiles.append(("none",
                 f'<button class="tile shot" data-id="{i["id"]}" data-variant="{i["variant"]}" data-g="none" '
-                f'aria-label="Drawing {kid}"><img src="{i["srcs"][0]}" alt="" loading="lazy">'
+                f'aria-label="Drawing {kid}">{preview}'
                 f'<span class="sid">{kid}</span><span class="score"></span></button>'))
             detail[i["id"]] = (
                 f'<div class="dhead"><div><h2>{kid}</h2>'
                 '<p class="note">Model hidden until every drawing for this prompt is rated, or revealed.</p></div></div>'
-                f'<div class="art">{"".join(f"<img src={chr(34)}{src}{chr(34)} alt={chr(34)}{chr(34)}>" for src in i["srcs"])}</div>')
+                f'<div class="art">{artwork}</div>')
             votable[i["id"]] = {"basic": True}
         reveal = ('<div class="revealbar" id="revealbar"><button class="ghost" id="reveal">Reveal models</button>'
                   '<span class="num"></span></div>' if can_reveal else "")
@@ -447,12 +479,18 @@ def main():
     tasks = load_tasks()
     models = yaml.safe_load((ROOT / "models.yaml").read_text())["models"]
     all_runs = load_runs()
-    can_reveal = reveal_key(models)
+    gallery_slugs = {t["slug"] for t in tasks if t["kind"] == "svg" and t["slug"] != "kitchen-illustration"}
+    can_reveal = reveal_key(models, [r for r in all_runs if r["task"] in gallery_slugs])
     known, cards = {}, []
     for task in tasks:
         slug = task["slug"]
         runs = [r for r in all_runs if r["task"] == slug]
-        items = kitchen_items() if task["kind"] == "svg" else [{"id": r["item"], "variant": r["variant"]} for r in runs]
+        if slug == "kitchen-illustration":
+            items = kitchen_items()
+        elif task["kind"] == "svg":
+            items = drawing_items(runs)
+        else:
+            items = [{"id": r["item"], "variant": r["variant"]} for r in runs]
         known.update(build_task_page(task, runs, models, items, can_reveal))
         field = "".join(f'<div class="field"><span>{v.capitalize()}</span><div class="dots">{dots(runs, v)}</div></div>'
                         for v in VARIANTS)

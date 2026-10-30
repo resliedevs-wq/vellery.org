@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <rect width="800" height="600" fill="#cfeaf7"/>
+  <circle cx="680" cy="90" r="45" fill="#ffe27a"/>
+  <rect y="520" width="800" height="80" fill="#8fc77a"/>
+  <ellipse cx="400" cy="525" rx="270" ry="10" fill="#000" opacity="0.15"/>
+
+  <!-- wheels -->
+  <g fill="none" stroke="#222" stroke-width="8">
+    <circle cx="260" cy="430" r="90"/>
+    <circle cx="540" cy="430" r="90"/>
+  </g>
+  <g stroke="#888" stroke-width="2">
+    <path d="M260 340V520M170 430H350M196 366L324 494M324 366L196 494"/>
+    <path d="M540 340V520M450 430H630M476 366L604 494M604 366L476 494"/>
+  </g>
+
+  <!-- frame -->
+  <g fill="none" stroke="#d63a3a" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M260 430L390 430L350 330L260 430"/>
+    <path d="M350 330L495 330L390 430"/>
+    <path d="M495 330L540 430"/>
+    <path d="M495 330L490 305L525 298"/>
+    <path d="M350 330L345 312"/>
+  </g>
+  <path d="M320 308h58a8 8 0 0 1 0 12h-58a8 8 0 0 1 0-12z" fill="#333"/>
+  <circle cx="390" cy="430" r="14" fill="#555"/>
+
+  <!-- far leg + pedal -->
+  <path d="M350 300L405 365L380 455" fill="none" stroke="#e08a1e" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+  <path d="M390 430L380 455" stroke="#444" stroke-width="7" stroke-linecap="round"/>
+  <path d="M362 458h40" stroke="#222" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- tail -->
+  <path d="M310 255L240 290L318 300Z" fill="#e9e9ee" stroke="#8a8a96" stroke-width="3" stroke-linejoin="round"/>
+
+  <!-- body -->
+  <ellipse cx="350" cy="268" rx="62" ry="50" fill="#fafafc" stroke="#8a8a96" stroke-width="4"/>
+
+  <!-- neck -->
+  <path d="M385 240C430 225 370 195 395 170" fill="none" stroke="#8a8a96" stroke-width="30" stroke-linecap="round"/>
+  <path d="M385 240C430 225 370 195 395 170" fill="none" stroke="#fafafc" stroke-width="23" stroke-linecap="round"/>
+
+  <!-- head -->
+  <circle cx="405" cy="150" r="27" fill="#fafafc" stroke="#8a8a96" stroke-width="4"/>
+  <path d="M385 128C395 112 420 112 428 128" fill="#f6dc7a" stroke="none"/>
+
+  <!-- beak: upper, pouch -->
+  <path d="M424 143L550 168L424 160Z" fill="#f4a21c" stroke="#b36d00" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M424 160L550 168C520 215 450 205 424 170Z" fill="#f9c85a" stroke="#b36d00" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="414" cy="143" r="5" fill="#111"/>
+  <circle cx="415.5" cy="141.5" r="1.6" fill="#fff"/>
+
+  <!-- wing reaching handlebar -->
+  <path d="M345 245C400 235 470 275 522 298" fill="none" stroke="#8a8a96" stroke-width="30" stroke-linecap="round"/>
+  <path d="M345 245C400 235 470 275 522 298" fill="none" stroke="#d9dae3" stroke-width="23" stroke-linecap="round"/>
+  <path d="M350 258C375 275 330 290 310 275" fill="none" stroke="#8a8a96" stroke-width="3" opacity="0"/>
+
+  <!-- near leg + pedal -->
+  <path d="M335 305L370 372L420 400" fill="none" stroke="#e08a1e" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M390 430L420 400" stroke="#444" stroke-width="7" stroke-linecap="round"/>
+  <path d="M405 402h46" stroke="#222" stroke-width="8" stroke-linecap="round"/>
+  <path d="M420 400l32 -4" stroke="#e08a1e" stroke-width="9" stroke-linecap="round" opacity="0"/>
+</svg>

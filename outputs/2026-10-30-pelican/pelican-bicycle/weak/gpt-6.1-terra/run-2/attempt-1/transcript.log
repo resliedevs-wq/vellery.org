@@ -1,0 +1,8 @@
+{"type":"thread.started","thread_id":"01a18a73-f676-72b2-819a-5c0196ca1102"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"I’ll draw a pelican riding a bike."}}
+{"type":"item.completed","item":{"id":"item_1","type":"agent_message","text":"```text\n                 __\n              .-'  `-.\n             /  o     \\________\n            |                 __/\n             \\      _________/\n              `-.__/\n                 /\\\n          .-----'  `---.\n        /    .------.    \\\n       /    /        \\    \\\n       \\    \\  wing  /    /\n        `----`------'----'\n              /  \\\n             /    \\____\n            /          \\__\n       ____/____        __\\__\n      /    _    \\      /     \\\n     /   /   \\   \\____/       \\\n    |   |     |---\\  /|        |\n    |   |     |    \\/ |        |\n     \\   \\___/    / \\  \\      /\n      \\__________/   \\__\\____/\n```"}}
+{"type":"turn.completed","usage":{"input_tokens":22276,"cached_input_tokens":8960,"cache_write_input_tokens":0,"output_tokens":256,"reasoning_output_tokens":19}}
+
+--- stderr ---
+Reading additional input from stdin...

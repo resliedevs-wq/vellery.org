@@ -1,0 +1,1 @@
+![A cheerful pelican riding a bicycle, with a scarf fluttering behind it.](/tmp/vellery-psac9px6/work/art/pelican.png)

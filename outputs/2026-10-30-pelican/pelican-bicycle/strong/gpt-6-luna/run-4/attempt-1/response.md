@@ -1,0 +1,1 @@
+Created [pelican.svg](/tmp/vellery-o3clwm7h/work/pelican.svg), with the pelican seated on the saddle and animated wheels, cranks, pedals, and legs.

@@ -1,0 +1,3 @@
+I drew the pelican as an SVG and saved it to `/tmp/vellery-z_bwytu3/work/pelican_on_bike.svg`. Open it in a browser to see it.
+
+It's an 800×600 scene with a red-framed bike on green grass under a blue sky and a sun. The white pelican sits on the saddle with its orange-yellow bill and pouch, a grey wing and tail, and its orange legs reach down to the pedals. I wrote the coordinates by hand and did not render the file, so the proportions may need a small tweak once you look at it.

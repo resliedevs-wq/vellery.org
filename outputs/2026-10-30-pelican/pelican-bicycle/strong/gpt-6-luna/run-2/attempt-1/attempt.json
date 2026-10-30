@@ -1,0 +1,57 @@
+{
+  "ok": true,
+  "error": null,
+  "started": "2026-10-30T02:00:31+00:00",
+  "duration_s": 39.3,
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "--sandbox",
+    "workspace-write",
+    "--disable",
+    "apps",
+    "--disable",
+    "plugins",
+    "--disable",
+    "image_generation",
+    "-c",
+    "skills.config=[{path=\"/root/.codex/skills/.system/imagegen/SKILL.md\",enabled=false}]",
+    "-c",
+    "web_search=\"disabled\"",
+    "--cd",
+    "/tmp/vellery-iqs2ts90/work",
+    "--model",
+    "gpt-6-luna",
+    "-c",
+    "model_reasoning_effort=\"high\"",
+    "--json",
+    "--output-last-message",
+    "/tmp/vellery-iqs2ts90/last-message.txt",
+    "<prompt>"
+  ],
+  "served_models": null,
+  "usage": {
+    "input_tokens": 49624,
+    "cached_input_tokens": 33664,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 5445,
+    "reasoning_output_tokens": 1687
+  },
+  "est_cost_usd": 0.004655,
+  "est_cost": {
+    "gpt-6-luna": {
+      "input_tokens": 15960,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 33664,
+      "output_tokens": 5445,
+      "usd": 0.004655
+    }
+  },
+  "cli_reported_cost_usd": null,
+  "files": [
+    "pelican.svg"
+  ]
+}

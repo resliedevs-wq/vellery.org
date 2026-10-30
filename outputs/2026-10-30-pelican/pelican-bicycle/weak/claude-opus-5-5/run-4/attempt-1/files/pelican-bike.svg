@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="800" height="600">
+  <!-- sky & ground -->
+  <rect width="400" height="300" fill="#bfe6ff"/>
+  <circle cx="345" cy="50" r="22" fill="#ffd84d"/>
+  <rect y="268" width="400" height="32" fill="#8fcf6a"/>
+  <line x1="0" y1="270" x2="400" y2="270" stroke="#6aa84f" stroke-width="3"/>
+
+  <!-- wheels -->
+  <g fill="none" stroke="#222" stroke-width="5">
+    <circle cx="110" cy="222" r="46"/>
+    <circle cx="290" cy="222" r="46"/>
+  </g>
+  <g stroke="#888" stroke-width="1.2">
+    <line x1="110" y1="176" x2="110" y2="268"/><line x1="64" y1="222" x2="156" y2="222"/>
+    <line x1="77" y1="189" x2="143" y2="255"/><line x1="77" y1="255" x2="143" y2="189"/>
+    <line x1="290" y1="176" x2="290" y2="268"/><line x1="244" y1="222" x2="336" y2="222"/>
+    <line x1="257" y1="189" x2="323" y2="255"/><line x1="257" y1="255" x2="323" y2="189"/>
+  </g>
+  <circle cx="110" cy="222" r="5" fill="#444"/>
+  <circle cx="290" cy="222" r="5" fill="#444"/>
+
+  <!-- frame -->
+  <g fill="none" stroke="#d6336c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="110,222 195,222 170,158 110,222"/>
+    <polyline points="195,222 262,160 170,158"/>
+    <line x1="262" y1="160" x2="290" y2="222"/>
+    <line x1="262" y1="160" x2="256" y2="140"/>
+  </g>
+  <!-- handlebar -->
+  <path d="M244 134 Q256 132 262 138 Q270 146 278 140" fill="none" stroke="#222" stroke-width="5" stroke-linecap="round"/>
+  <!-- seat -->
+  <path d="M152 152 Q170 144 186 152 Z" fill="#222" stroke="#222" stroke-width="4" stroke-linejoin="round"/>
+  <!-- crank -->
+  <circle cx="195" cy="222" r="9" fill="none" stroke="#444" stroke-width="3"/>
+  <line x1="195" y1="222" x2="212" y2="206" stroke="#444" stroke-width="4" stroke-linecap="round"/>
+  <line x1="195" y1="222" x2="178" y2="238" stroke="#444" stroke-width="4" stroke-linecap="round"/>
+  <rect x="204" y="203" width="16" height="5" rx="2" fill="#222"/>
+  <rect x="170" y="236" width="16" height="5" rx="2" fill="#222"/>
+
+  <!-- far leg -->
+  <polyline points="178,148 172,196 180,238" fill="none" stroke="#f08c00" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M180 238 l-6 3 M180 238 l8 1" stroke="#f08c00" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- tail -->
+  <path d="M140 128 L112 118 L118 134 L106 140 L142 146 Z" fill="#e9ecef" stroke="#555" stroke-width="2" stroke-linejoin="round"/>
+
+  <!-- body -->
+  <ellipse cx="180" cy="128" rx="46" ry="30" fill="#ffffff" stroke="#555" stroke-width="2.5" transform="rotate(-12 180 128)"/>
+
+  <!-- neck -->
+  <path d="M206 112 C222 96 214 72 226 58 L244 60 C234 76 238 100 222 124 Z" fill="#ffffff" stroke="#555" stroke-width="2.5" stroke-linejoin="round"/>
+
+  <!-- near leg -->
+  <polyline points="190,150 214,176 212,206" fill="none" stroke="#f08c00" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M212 206 l-7 2 M212 206 l9 0" stroke="#f08c00" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- wing reaching to handlebar -->
+  <path d="M150 112 C182 98 222 112 252 134 C230 132 214 136 196 144 C176 148 156 140 150 112 Z" fill="#dee2e6" stroke="#555" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M170 120 Q196 118 220 130 M166 130 Q190 130 208 138" fill="none" stroke="#adb5bd" stroke-width="1.5"/>
+
+  <!-- head -->
+  <ellipse cx="236" cy="56" rx="17" ry="14" fill="#ffffff" stroke="#555" stroke-width="2.5"/>
+  <path d="M224 46 Q232 36 246 44" fill="none" stroke="#ffd43b" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- beak + pouch -->
+  <path d="M246 54 L330 66 L324 72 L248 66 Z" fill="#ffa94d" stroke="#c76a00" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M248 66 L324 72 C312 96 274 104 252 86 Z" fill="#ff922b" stroke="#c76a00" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M326 66 l8 6 l-10 0 Z" fill="#c76a00"/>
+
+  <!-- eye -->
+  <circle cx="240" cy="52" r="3.5" fill="#222"/>
+  <circle cx="241" cy="51" r="1.2" fill="#fff"/>
+
+  <!-- motion lines -->
+  <g stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0.9">
+    <line x1="20" y1="170" x2="50" y2="170"/>
+    <line x1="12" y1="190" x2="48" y2="190"/>
+    <line x1="24" y1="210" x2="52" y2="210"/>
+  </g>
+</svg>

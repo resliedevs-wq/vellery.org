@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <!-- sky & ground -->
+  <rect width="800" height="600" fill="#bfe6ff"/>
+  <circle cx="680" cy="90" r="45" fill="#ffd94a"/>
+  <rect y="535" width="800" height="65" fill="#7cc36b"/>
+  <line x1="0" y1="535" x2="800" y2="535" stroke="#5a9e4b" stroke-width="4"/>
+
+  <!-- motion lines -->
+  <g stroke="#ffffff" stroke-width="5" stroke-linecap="round" opacity="0.8">
+    <line x1="40" y1="300" x2="110" y2="300"/>
+    <line x1="20" y1="360" x2="100" y2="360"/>
+    <line x1="50" y1="420" x2="115" y2="420"/>
+  </g>
+
+  <!-- wheels -->
+  <g fill="none" stroke="#222" stroke-width="10">
+    <circle cx="230" cy="440" r="95"/>
+    <circle cx="570" cy="440" r="95"/>
+  </g>
+  <g stroke="#888" stroke-width="2">
+    <line x1="230" y1="345" x2="230" y2="535"/>
+    <line x1="135" y1="440" x2="325" y2="440"/>
+    <line x1="163" y1="373" x2="297" y2="507"/>
+    <line x1="163" y1="507" x2="297" y2="373"/>
+    <line x1="570" y1="345" x2="570" y2="535"/>
+    <line x1="475" y1="440" x2="665" y2="440"/>
+    <line x1="503" y1="373" x2="637" y2="507"/>
+    <line x1="503" y1="507" x2="637" y2="373"/>
+  </g>
+  <circle cx="230" cy="440" r="8" fill="#444"/>
+  <circle cx="570" cy="440" r="8" fill="#444"/>
+
+  <!-- frame -->
+  <g stroke="#d6336c" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <line x1="380" y1="445" x2="352" y2="300"/>   <!-- seat tube -->
+    <line x1="356" y1="318" x2="525" y2="305"/>   <!-- top tube -->
+    <line x1="380" y1="445" x2="532" y2="330"/>   <!-- down tube -->
+    <line x1="380" y1="445" x2="230" y2="440"/>   <!-- chain stay -->
+    <line x1="356" y1="318" x2="230" y2="440"/>   <!-- seat stay -->
+    <line x1="522" y1="290" x2="570" y2="440"/>   <!-- fork -->
+  </g>
+  <!-- handlebars -->
+  <path d="M522 292 L515 262 Q505 250 478 258" stroke="#333" stroke-width="9" fill="none" stroke-linecap="round"/>
+  <!-- saddle -->
+  <path d="M318 292 Q350 280 385 292 L380 302 Q350 296 322 302 Z" fill="#333"/>
+  <!-- chainring & cranks -->
+  <circle cx="380" cy="445" r="24" fill="none" stroke="#555" stroke-width="6"/>
+  <line x1="380" y1="445" x2="412" y2="492" stroke="#333" stroke-width="8" stroke-linecap="round"/>
+  <line x1="380" y1="445" x2="348" y2="398" stroke="#333" stroke-width="8" stroke-linecap="round"/>
+  <rect x="398" y="488" width="30" height="9" rx="3" fill="#222"/>
+  <rect x="334" y="394" width="30" height="9" rx="3" fill="#222"/>
+
+  <!-- far leg (behind body) -->
+  <g stroke="#f08c00" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <polyline points="335,280 395,335 350,396"/>
+  </g>
+  <path d="M350 396 L330 402 L345 392 L338 384 Z" fill="#f08c00"/>
+
+  <!-- tail -->
+  <path d="M265 235 L205 225 L215 245 L200 262 L270 262 Z" fill="#dfe3e8" stroke="#9aa3ad" stroke-width="3" stroke-linejoin="round"/>
+
+  <!-- body -->
+  <ellipse cx="345" cy="245" rx="92" ry="58" transform="rotate(-12 345 245)" fill="#ffffff" stroke="#9aa3ad" stroke-width="4"/>
+
+  <!-- near leg -->
+  <g stroke="#f59f00" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <polyline points="365,285 440,375 413,488"/>
+  </g>
+  <path d="M413 488 L445 494 L428 482 L440 472 Z" fill="#f59f00"/>
+
+  <!-- neck -->
+  <path d="M400 215 C430 190 400 150 430 115" stroke="#ffffff" stroke-width="38" fill="none" stroke-linecap="round"/>
+  <path d="M381 200 C405 180 375 145 410 105 M419 230 C450 200 425 160 452 125" stroke="#9aa3ad" stroke-width="3" fill="none"/>
+
+  <!-- head -->
+  <circle cx="440" cy="105" r="30" fill="#ffffff" stroke="#9aa3ad" stroke-width="4"/>
+  <path d="M425 78 Q440 60 452 77" fill="#ffe8a3" stroke="#e0b84a" stroke-width="2"/>
+
+  <!-- pouch (lower beak) -->
+  <path d="M462 112 Q470 175 545 170 Q600 165 628 140 L462 118 Z" fill="#ffc94d" stroke="#d99a00" stroke-width="3" stroke-linejoin="round"/>
+  <!-- upper beak -->
+  <path d="M460 96 L630 132 Q640 140 628 142 L462 118 Z" fill="#ff922b" stroke="#d9480f" stroke-width="3" stroke-linejoin="round"/>
+  <!-- eye -->
+  <circle cx="448" cy="98" r="6" fill="#222"/>
+  <circle cx="450" cy="96" r="2" fill="#fff"/>
+
+  <!-- wing reaching to handlebar -->
+  <path d="M300 215 Q360 190 420 225 Q460 245 482 258 Q470 270 440 268 Q380 268 320 260 Q285 245 300 215 Z" fill="#cfd6de" stroke="#8a939d" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M330 240 Q370 245 410 248 M335 252 Q375 257 420 258" stroke="#8a939d" stroke-width="2" fill="none"/>
+  <!-- wingtip "fingers" on the grip -->
+  <path d="M470 252 Q490 248 492 262 Q484 272 468 268 Z" fill="#6c757d"/>
+</svg>

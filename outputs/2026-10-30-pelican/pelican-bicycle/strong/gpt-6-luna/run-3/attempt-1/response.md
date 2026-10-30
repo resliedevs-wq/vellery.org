@@ -1,0 +1,1 @@
+Created [pelican.svg](/tmp/vellery-4y3nldoa/work/pelican.svg). The pelican sits on the saddle and pedals in sync with the rotating cranks; both wheels spin.
