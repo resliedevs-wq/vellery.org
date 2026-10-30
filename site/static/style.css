@@ -89,7 +89,7 @@ footer{border-top:1px solid var(--line);padding:22px 32px;font-size:13px;color:v
 .group.good h3::before{background:var(--good)}.group.fix h3::before{background:var(--fix)}.group.slop h3::before{background:var(--slop)}
 .group .count{font-weight:400;color:var(--muted)}
 .tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}
-.mrow{display:grid;grid-template-columns:220px repeat(5,minmax(0,1fr));gap:8px;align-items:stretch}
+.mrow{padding-block:6px;display:grid;grid-template-columns:220px repeat(5,minmax(0,1fr));gap:8px;align-items:stretch}
 .mlabel{align-self:center;font-size:18px;font-weight:500}
 .mmeta{display:block;white-space:nowrap;margin-top:4px;font-size:11px;line-height:1.5;font-weight:400;color:var(--muted)}
 .revealbar{display:flex;gap:14px;align-items:center}
@@ -216,4 +216,4 @@ dialog.viewer::backdrop{background:rgba(20,19,16,.62)}
 }
 
 .tile:not(.shot)[data-g]::after{top:50%;bottom:auto;transform:translateY(-50%);line-height:1}
-.tile:not(.shot){padding-right:28px}
+.tile:not(.shot){min-height:64px;padding-block:20px;padding-right:28px;justify-content:center}
