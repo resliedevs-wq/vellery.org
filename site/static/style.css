@@ -26,6 +26,8 @@ h3{font-size:13px;font-family:var(--heading);font-weight:600;color:var(--muted);
 .top nav a{text-decoration:none;color:var(--muted)}
 .top nav a:hover{color:var(--ink)}
 main{max-width:1080px;margin:0 auto;padding:40px 32px 64px;display:flex;flex-direction:column;gap:40px}
+main:has(>.gallery-outputs){max-width:none}
+main:has(>.gallery-outputs)>:not(.gallery-outputs){width:100%;max-width:1016px;margin-inline:auto}
 footer{border-top:1px solid var(--line);padding:22px 32px;font-size:13px;color:var(--muted)}
 
 .eyebrow{margin:0 0 8px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}

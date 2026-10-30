@@ -387,12 +387,9 @@ def build_task_page(task, runs, models, items, can_reveal):
                 '<p class="note">Model hidden until every drawing for this prompt is rated, or revealed.</p></div></div>'
                 f'<div class="art">{"".join(f"<img src={chr(34)}{src}{chr(34)} alt={chr(34)}{chr(34)}>" for src in i["srcs"])}</div>')
             votable[i["id"]] = {"basic": True}
-        note = ('<p class="note">Only logged-in visitors can vote. A drawing needs '
-                f'{RULES["min"]} votes to be placed. Green: {RULES["green"]:.0%} or more upvotes. Red: under '
-                f'{RULES["red"]:.0%} upvotes and most downvoters going on to ▼▼ (not meeting basic standard). Otherwise yellow.</p>')
         reveal = ('<div class="revealbar" id="revealbar"><button class="ghost" id="reveal">Reveal models</button>'
                   '<span class="num"></span></div>' if can_reveal else "")
-        outputs = (f'{note}{reveal}{legend(True)}{flat_board(tiles)}'
+        outputs = (f'{reveal}{legend(True)}{flat_board(tiles)}'
                    f'<div class="matrix" id="matrix" hidden></div>')
     else:
         reference = (task["dir"] / task["reference"]).read_text() if task["kind"] == "text" else None
@@ -419,7 +416,8 @@ def build_task_page(task, runs, models, items, can_reveal):
         note = ('<p class="note">Usable runs can be upvoted or downvoted by logged-in visitors. '
                 'Within each model, usable runs are shuffled on every visit.</p>')
         outputs = f'{note}{legend(False)}{matrix(models, by_model)}'
-    body += f'<section class="block"><h2>Outputs</h2>{outputs}</section>'
+    output_class = "block gallery-outputs" if gallery else "block"
+    body += f'<section class="{output_class}"><h2>Outputs</h2>{outputs}</section>'
     data = {"slug": slug, "mode": "gallery" if gallery else "grid", "detail": detail, "votable": votable,
             "rules": RULES, "buckets": BUCKETS, "reveal": bool(gallery and can_reveal),
             "models": [{"id": m["id"], "label": m["label"]} for m in models]}
