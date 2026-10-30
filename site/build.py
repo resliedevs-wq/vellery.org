@@ -374,7 +374,7 @@ def model_stats(runs, model):
         average = sum(costs) / len(costs) if costs and all(c is not None for c in costs) else None
         out[variant] = {
             "date": " – ".join(dict.fromkeys([dates[0], dates[-1]])) if dates else "Unavailable",
-            "cost": f"${average:.4f} avg/run" if average is not None else "Cost unavailable",
+            "cost": (f"${average:.2f} per run" if average >= 0.01 or average == 0 else "<$0.01 per run") if average is not None else "Cost unavailable",
         }
     return out
 

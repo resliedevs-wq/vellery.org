@@ -89,9 +89,9 @@ footer{border-top:1px solid var(--line);padding:22px 32px;font-size:13px;color:v
 .group.good h3::before{background:var(--good)}.group.fix h3::before{background:var(--fix)}.group.slop h3::before{background:var(--slop)}
 .group .count{font-weight:400;color:var(--muted)}
 .tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}
-.mrow{display:grid;grid-template-columns:150px repeat(5,minmax(0,1fr));gap:8px;align-items:stretch}
-.mlabel{align-self:center;font-size:14px;font-weight:500}
-.mmeta{display:flex;flex-direction:column;margin-top:4px;font-size:11px;line-height:1.5;font-weight:400;color:var(--muted)}
+.mrow{display:grid;grid-template-columns:220px repeat(5,minmax(0,1fr));gap:8px;align-items:stretch}
+.mlabel{align-self:center;font-size:18px;font-weight:500}
+.mmeta{display:block;white-space:nowrap;margin-top:4px;font-size:11px;line-height:1.5;font-weight:400;color:var(--muted)}
 .revealbar{display:flex;gap:14px;align-items:center}
 .ghost{padding:8px 16px;border-radius:999px;border:1.5px solid var(--line);background:none;color:var(--ink);font:500 13px var(--sans);cursor:pointer}
 .ghost:hover{background:var(--soft)}
@@ -203,7 +203,7 @@ dialog.viewer::backdrop{background:rgba(20,19,16,.62)}
 .art img{width:auto;max-width:100%;max-height:calc(94vh - 270px);object-fit:contain}
 
 @media(max-width:760px){
-  .mrow{grid-template-columns:78px repeat(5,minmax(0,1fr));gap:5px}.mlabel{font-size:12px}
+  .mrow{grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}.mlabel{grid-column:1/-1;font-size:16px;margin-bottom:4px}
   .tile{padding:6px;min-height:44px;justify-content:flex-start}.tile .run{font-size:10px}
   .tile[data-g]::after{top:auto;bottom:3px;right:6px;font-size:11px}
   .tile.shot[data-g]::after{top:4px;left:4px;bottom:auto;right:auto}
