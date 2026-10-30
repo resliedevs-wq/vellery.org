@@ -1,0 +1,34 @@
+slug: pelican-bicycle
+title: Animate a pelican riding a bicycle
+category: Animation
+kind: svg
+published: false
+runs: 5
+inputs: []
+
+prompts:
+  weak: |
+    draw a pelican riding a bike.
+  strong: |
+    Create an animation of a pelican actively riding a bicycle. The pelican sits on the saddle. Cranks and wheels are moving. Save it as pelican.svg.
+
+checks:
+  major:
+    - pelican.svg exists and renders
+    - a recognizable pelican rides a recognizable bicycle
+    - the pelican sits on the saddle
+    - cranks animate
+    - wheels animate
+  minor:
+    - pedaling motion stays connected to the cranks
+    - animation loops without a visible jump
+
+rubric:
+  strong:
+    good: All requested elements are present and the riding animation works.
+    fix: Requested elements are present, but the animation has a minor visual flaw.
+    slop: A requested element is missing or the SVG does not render.
+  weak:
+    good: A viewable drawing of a pelican riding a bicycle.
+    fix: A viewable drawing with an unclear pelican, bicycle, or riding pose.
+    slop: No usable drawing of a pelican riding a bicycle.

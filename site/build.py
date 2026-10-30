@@ -236,6 +236,8 @@ def load_tasks():
     tasks = {}
     for f in TASKS.glob("*/task.yaml"):
         t = yaml.safe_load(f.read_text())
+        if not t.get("published", True):
+            continue
         t["dir"] = f.parent
         tasks[t["slug"]] = t
     return [tasks[s] for s in ORDER if s in tasks] + [t for s, t in sorted(tasks.items()) if s not in ORDER]
