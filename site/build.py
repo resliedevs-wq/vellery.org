@@ -60,7 +60,7 @@ def page(title, body, scripts=()):
         '<!doctype html><html lang="en"><head><meta charset="utf-8">'
         '<meta name="viewport" content="width=device-width,initial-scale=1">'
         f"<title>{esc(title)}</title>"
-        '<link rel="preload" href="/static/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>'
+        '<link rel="preload" href="/static/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>'
         '<link rel="stylesheet" href="/static/style.css">'
         '</head><body><header class="top"><a class="brand" href="/">Vellery</a>'
         '<nav><a href="/#tasks">Tasks</a><span id="auth"></span></nav></header>'
