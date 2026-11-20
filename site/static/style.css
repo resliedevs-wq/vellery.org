@@ -120,7 +120,7 @@ table.models .tcol,table.models .subh th,table.models td.run{text-align:center}
 table.models .tcol{padding-bottom:6px}
 table.models .subh th{padding-inline:14px}
 table.models td.run{padding-inline:14px}
-table.models .tcol+.tcol,table.models .subh th:nth-child(odd):not(:first-child),table.models td.run.first{border-left:1px solid var(--line)}
+table.models .tcol+.tcol,table.models .subh th.first,table.models td.run.first{border-left:1px solid var(--line)}
 table.models .num{text-align:right;font-variant-numeric:tabular-nums;color:var(--muted)}
 table.models .num b{color:var(--ink);font-weight:600}
 table.models tbody tr:hover{background:var(--paper)}
@@ -392,7 +392,7 @@ tbody td:nth-child(n+6){color:var(--muted)}
 .pstat .dots{margin-left:auto}
 table.models .pzh{text-align:center;border-left:1px solid var(--line)}
 table.models td.pz{text-align:center;border-left:1px solid var(--line);font-weight:700;color:var(--muted)}
-table.models td.pz span{display:inline-grid;place-items:center;min-width:22px;height:22px;padding:0 4px;border-radius:6px;font-size:12px}
+table.models td.pz span{display:inline-flex;align-items:baseline;justify-content:center;white-space:nowrap;line-height:22px;min-width:22px;height:22px;padding:0 4px;border-radius:6px;font-size:12px}
 table.models td.pz small{font-size:10px;margin-left:1px}
 table.models td.pz .good{background:var(--good-bg);color:var(--good)}
 table.models td.pz .fix{background:var(--fix-bg);color:var(--fix)}
@@ -409,3 +409,4 @@ table.models td.pz .slop{background:var(--slop-bg);color:var(--slop)}
 .ownerform{display:flex;gap:10px;max-width:460px;margin-top:8px}
 .ownerform input{flex:1;padding:10px 12px;border:1px solid var(--line-2);border-radius:8px;font:inherit;background:var(--bg);color:var(--ink)}
 .pcards.one{grid-template-columns:minmax(0,640px)}
+table.models td.run .dots:not(:has(i)){color:var(--muted)}

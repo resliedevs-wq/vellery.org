@@ -728,8 +728,11 @@ def home(tasks, models, all_runs, galleries):
         runs = [r for r in all_runs if r["task"] == t["slug"]]
         if t["kind"] == "svg":
             thumbs = [i for i in galleries.get(t["slug"], []) if i["srcs"] and i["variant"] == "strong"][:4]
+            # Verdicts live in the database; static/home.js fills the bar in.
             right = ('<div class="tside"><div class="thumbs">' + "".join(f'<img src="{i["srcs"][0]}" alt="" loading="lazy">' for i in thumbs)
-                     + '</div><span class="cta">Rate the drawings →</span></div>')
+                     + f'</div><div class="vbars" data-summary="{t["slug"]}"><div class="vbar"><span class="vl">{VARIANT_SHORT["strong"]}</span>'
+                     '<div class="stack"></div><b>–</b></div>'
+                     '<p class="vcap"><span class="sumnote">share of drawings rated usable</span> · <span class="cta">Rate them →</span></p></div></div>')
             stat = f'{len(galleries.get(t["slug"], []))} drawings'
         elif t["kind"] == "puzzle":
             results = puzzle_results(t, runs, models)
@@ -753,9 +756,14 @@ def home(tasks, models, all_runs, galleries):
             f'<span>·</span>{HOW[t["kind"]]}<span>·</span>{stat}</p>'
             f'<h3>{esc(t["title"])}</h3><p>{esc(t.get("summary", ""))}</p></div>{right}</a>')
 
-    # How each model did on the checked tasks. Drawings stay out: their models are blind.
-    head = "".join(f'<th colspan="2" class="tcol">{esc(t["title"])}</th>' for t in scripted)
-    sub = "".join(f'<th>{VARIANT_SHORT[v]}</th>' for _ in scripted for v in VARIANTS)
+    # How each model did. Drawing verdicts come from the Worker (/api/summary)
+    # and are filled in by static/home.js, which also re-sorts the rows.
+    drawings = [t for t in tasks if t["kind"] == "svg"]
+    head = ("".join(f'<th colspan="2" class="tcol">{esc(t["title"])}</th>' for t in scripted)
+            + "".join(f'<th class="tcol">{esc(t["title"])}</th>' for t in drawings))
+    sub = ("".join(f'<th class="{"first" if v == VARIANTS[0] and t is not scripted[0] else ""}">{VARIANT_SHORT[v]}</th>'
+                   for t in scripted for v in VARIANTS)
+           + "".join(f'<th class="first">{VARIANT_SHORT[v]}</th>' for t in drawings for v in variants_of(t)))
     body = []
     for order, m in enumerate(models):
         mine = [r for r in all_runs if r["model"] == m["id"] and r["task"] in {t["slug"] for t in scripted}]
@@ -785,11 +793,14 @@ def home(tasks, models, all_runs, galleries):
                                for r in sorted(sel, key=lambda r: r["run"]))
                 first = " first" if v == VARIANTS[0] and t is not scripted[0] else ""
                 cells.append(f'<td class="run{first}"><span class="dots" title="{good} of {len(sel)} usable">{dots}</span></td>')
-        body.append((-total, order, f'<tr><th scope="row">{esc(m["label"])}</th>{"".join(cells)}'
-                                    f'<td class="num"><b>{total}</b>/{len(mine)}</td><td class="num">{money(avg_cost(mine))}</td>{"".join(pz)}</tr>'))
+        cells += [f'<td class="run first" data-draw="{t["slug"]}"><span class="dots"></span></td>' for t in drawings]
+        body.append((-total / len(mine), order,
+                     f'<tr data-model="{m["id"]}" data-order="{order}" data-good="{total}" data-n="{len(mine)}">'
+                     f'<th scope="row">{esc(m["label"])}</th>{"".join(cells)}'
+                     f'<td class="num usable"><b>{total}</b>/{len(mine)}</td><td class="num">{money(avg_cost(mine))}</td>{"".join(pz)}</tr>'))
     body.sort(key=lambda r: r[:2])
     table = (f'<div class="scroll"><table class="models"><thead><tr><th rowspan="2">Model</th>{head}'
-             '<th rowspan="2" class="num">Usable</th><th rowspan="2" class="num" title="Average estimated API cost per run">Cost/run</th>'
+             '<th rowspan="2" class="num">Usable</th><th rowspan="2" class="num" title="Average estimated API cost per run of the script-checked tasks">Cost/run</th>'
              + "".join(f'<th rowspan="2" class="pzh" title="{esc(t["title"])}: ✓ first chance, ✓2 second chance">{esc(t["category"])}</th>' for t in puzzles)
              + '</tr>'
              f'<tr class="subh">{sub}</tr></thead><tbody>{"".join(r[2] for r in body)}</tbody></table></div>')
@@ -824,14 +835,15 @@ def home(tasks, models, all_runs, galleries):
         + finding + "</section>"
         + f'<section class="wrap block" id="tasks"><h2 class="sec">Tasks</h2><div class="tasks">{"".join(rows)}</div></section>'
         + '<section class="wrap block" id="models"><div class="sechead"><h2 class="sec">How each model did</h2>' + legend + "</div>"
-        + '<p class="hint">Script-checked tasks only, one dot per run. In the puzzle column, ✓ means solved on the first chance, '
-        '✓2 on the second, ✕ missed both. Drawing results stay off this table so ratings stay blind.</p>'
+        + '<p class="hint">One dot per run. Text and spreadsheets are checked by script; drawings by blind rating '
+        '(grey: not rated yet). In the puzzle column, ✓ means solved on the first chance, ✓2 on the second, ✕ missed both. '
+        'Cost is for the script-checked tasks.</p>'
         + table + "</section>"
         + '<section class="wrap block" id="method"><h2 class="sec">Method</h2><div class="method">'
         + "".join(f"<div><h3>{esc(h)}</h3><p>{esc(p)}</p></div>" for h, p in method)
         + "</div></section>"
     )
-    write("index.html", page("Vellery", html_, (), "How AI models handle the same tasks again and again: everyday work, blind-rated drawings and puzzles."))
+    write("index.html", page("Vellery", html_, ["home.js"], "How AI models handle the same tasks again and again: everyday work, blind-rated drawings and puzzles."))
 
 
 def owner_page():

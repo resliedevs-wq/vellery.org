@@ -121,6 +121,18 @@ const TALLY =
   `SELECT item, COALESCE(SUM(vote = 1), 0) AS up, COALESCE(SUM(vote = -1), 0) AS down, COALESCE(SUM(basic), 0) AS basic FROM votes WHERE ${VISITORS}`;
 const OWNED = "SELECT item, vote, basic FROM votes WHERE voter IN (SELECT voter FROM owners)";
 
+// Same rule as RULES in site/build.py and verdict() in site/static/task.js.
+const RULES = { min: 3, green: 0.8, red: 0.3 };
+const gradeOf = (m) => (!m ? null : m.vote === 1 ? "good" : m.basic ? "slop" : "fix");
+function verdict(v) {
+  if (v.owner) return gradeOf(v.owner);
+  const total = v.up + v.down;
+  if (total < RULES.min) return null;
+  if (v.up / total >= RULES.green) return "good";
+  if (v.up / total < RULES.red && v.basic > v.down - v.basic) return "slop";
+  return "fix";
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -203,6 +215,25 @@ export default {
       const owner = await isOwner(env, voter);
       // Keep an owner's browser recognised.
       return json({ items: tallies, owner }, 200, owner ? { "set-cookie": cookie(voter, url, YEAR) } : {});
+    }
+
+    // Verdicts per model for every published drawing, for the home page. It
+    // shows how each model did, never which drawing is whose.
+    if (path === "/api/summary" && request.method === "GET") {
+      const { results: rows } = await env.DB.prepare(`${TALLY} GROUP BY item`).all();
+      const { results: owned } = await env.DB.prepare(`${OWNED} ORDER BY at`).all();
+      const tallies = fold(rows, [], owned);
+      const runs = {};
+      for (const [item, who] of Object.entries(REVEAL)) {
+        const task = item.slice(0, item.indexOf("."));
+        ((runs[task] ??= {})[who.id] ??= []).push([who.run, verdict(tallies[item] ?? EMPTY())]);
+      }
+      const out = {};
+      for (const [task, models] of Object.entries(runs)) {
+        out[task] = Object.fromEntries(Object.entries(models).map(([id, list]) =>
+          [id, list.sort((a, b) => a[0] - b[0]).map(([, g]) => g)]));
+      }
+      return json(out, 200, { "cache-control": "public, max-age=60" });
     }
 
     // Marks this browser's session as the site owner's.
