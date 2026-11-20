@@ -40,3 +40,12 @@ models:
   - id: glm-5.3-flash
     label: GLM-5.3-Flash
     harness: zcode
+  - id: gemini-4-neon
+    label: Gemini 4 Neon
+    harness: agy
+  - id: gemini-4-argon
+    label: Gemini 4 Argon
+    harness: agy
+  - id: gemini-4-hydrogen
+    label: Gemini 4 Hydrogen
+    harness: agy

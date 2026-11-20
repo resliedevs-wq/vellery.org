@@ -192,8 +192,36 @@ def run_deepseek(model, prompt, workdir):
             "usage": usage, "response": final.get("text", "")}
 
 
+def run_agy(model, prompt, workdir):
+    route = "agy-cli/" + model["id"]
+    alias = "magpie/" + route
+    settings = {
+        "modelProvider": "gemini",
+        "customModelsConfig": {"customModels": {alias: {
+            "apiProvider": "API_PROVIDER_GOOGLE_GEMINI", "modelName": route}}},
+        "permissions": {"deny": ["read_url(*)", "execute_url(*)", "download_url(*)"]},
+    }
+    cmd = ["agy", "--model", alias, "--settings", json.dumps(settings), "--sandbox",
+           "--mode", "accept-edits", "--effort", model["effort"], "--output-format", "json",
+           "-p", prompt]
+    home = workdir.parent / "home"
+    home.mkdir()
+    env = {"HOME": str(home), "PATH": os.environ["PATH"],
+           "GOOGLE_GEMINI_BASE_URL": os.environ["MAGPIE_BASE_URL"],
+           "GEMINI_API_KEY": os.environ["MAGPIE_API_KEY"]}
+    code, out, err, error = execute(cmd, cwd=workdir, env=env)
+    try:
+        data = json.loads(out)
+    except ValueError:
+        data = {}
+    if code != 0 or data.get("status") != "SUCCESS" or data.get("denied_actions"):
+        error = error or data.get("error") or "Antigravity reported an error or denied a tool"
+    return {"command": cmd[:-1] + ["<prompt>"], "raw": out, "stderr": err,
+            "error": error, "response": data.get("response", ""), "usage": data.get("usage")}
+
+
 HARNESSES = {"claude": run_claude, "codex": run_codex, "dsh": run_deepseek,
-             "zcode": partial(run_zcode, execute=execute)}
+             "zcode": partial(run_zcode, execute=execute), "agy": run_agy}
 
 
 def attempt(model, prompt, dest):
