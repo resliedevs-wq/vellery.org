@@ -7,6 +7,11 @@ published: true
 runs: 5
 inputs: []
 
+# Only the specific prompt is run and shown: an open-ended drawing request
+# has no shared standard to rate against. Earlier vague-prompt runs stay
+# in outputs/ and grading/, with their votes.
+variants: [strong]
+
 prompts:
   weak: |
     draw a pelican riding a bike.

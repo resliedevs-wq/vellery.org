@@ -453,7 +453,7 @@ def main():
     for task in tasks.values():
         if args.task and task["slug"] not in args.task:
             continue
-        for variant in task["prompts"]:
+        for variant in task.get("variants", task["prompts"]):
             if args.variant and variant not in args.variant:
                 continue
             for model in models:

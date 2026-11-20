@@ -64,6 +64,11 @@ CHANCE = {1: "first", 2: "second"}
 TIMEOUT_MIN = 15  # runner/run.py TIMEOUT_S
 
 
+def variants_of(task):
+    """The prompt variants a task runs and shows (task.yaml `variants`, default both)."""
+    return [v for v in VARIANTS if v in task.get("variants", VARIANTS)]
+
+
 def esc(s):
     return html.escape(str(s), quote=True)
 
@@ -289,9 +294,9 @@ def load_tasks():
     return [tasks[s] for s in ORDER if s in tasks] + [t for s, t in sorted(tasks.items()) if s not in ORDER]
 
 
-def kitchen_items():
+def kitchen_items(variants=VARIANTS):
     groups = {}
-    for variant in VARIANTS:
+    for variant in variants:
         for f in sorted((KITCHEN / variant).glob("K*")):
             m = re.fullmatch(r"(K\d{3})[a-z]?", f.stem)
             if m and f.suffix in (".svg", ".png"):
@@ -377,7 +382,7 @@ def breakdown(c):
         f'<li class="{g}"><b>{n}</b> {GRADES[g].lower()}</li>' for g, n in c.items()) + "</ul>"
 
 
-def reveal_key(models, drawings=()):
+def reveal_key(models, drawings=(), kitchen_variants=VARIANTS):
     """id -> model and run for the blind drawings. Never written into the pages: only
     the Worker holds it, and hands it out when a visitor asks to see the models."""
     key_file = KITCHEN / "key.json"
@@ -391,6 +396,8 @@ def reveal_key(models, drawings=()):
     if not drawing_ids or drawing_ids != set(key):
         raise ValueError("Kitchen model key must cover exactly all blind drawings")
     for kid, k in key.items():
+        if k["variant"] not in kitchen_variants:
+            continue
         out[f"kitchen-illustration.{kid}"] = {"id": k["model"], "label": labels[k["model"]], "run": k["run"]}
     for r in drawings:
         out[r["item"]] = {"id": r["model"], "label": labels[r["model"]], "run": r["run"]}
@@ -433,8 +440,8 @@ def prompt_card(task, variant, result):
                   f"<ul>{''.join(f'<li>{esc(i)}</li>' for i in items)}</ul></details>")
     return (
         f'<article class="pcard {variant}" data-variant="{variant}">'
-        f'<header><span class="ptag">{VARIANT_LABEL[variant]}</span></header>'
-        f'<pre class="ptext">{esc(prompt_text(task, variant))}</pre>'
+        + (f'<header><span class="ptag">{VARIANT_LABEL[variant]}</span></header>' if len(variants_of(task)) > 1 else "")
+        + f'<pre class="ptext">{esc(prompt_text(task, variant))}</pre>'
         f'<div class="presult">{result}</div>'
         + (f'<div class="rubric"><b>Counts as usable:</b> {rubric}</div>' if rubric else "")
         + "</article>"
@@ -656,7 +663,8 @@ def build_gallery(task, items, models, can_reveal):
     slug = task["slug"]
     detail, votable = {}, {}
     cards = []
-    for v in VARIANTS:
+    shown = variants_of(task)
+    for v in shown:
         n = sum(1 for i in items if i["variant"] == v)
         result = (f'<div class="big" data-crowd="{v}"><b>–</b><span>usable, by rating</span></div>'
                   f'<div class="stack" data-crowd-stack="{v}"></div>'
@@ -677,7 +685,7 @@ def build_gallery(task, items, models, can_reveal):
         votable[i["id"]] = {"basic": True}
     tabs = '<div class="seg" role="tablist" aria-label="Which prompt">' + "".join(
         f'<button role="tab" data-variant="{v}" aria-selected="{str(v == "strong").lower()}">{VARIANT_LABEL[v]}'
-        f' <small>{sum(1 for i in items if i["variant"] == v)}</small></button>' for v in VARIANTS) + "</div>"
+        f' <small>{sum(1 for i in items if i["variant"] == v)}</small></button>' for v in shown) + "</div>" if len(shown) > 1 else ""
     toolbar = (
         '<div class="toolbar">' + tabs +
         '<div class="progress"><span id="progress"></span>'
@@ -693,13 +701,14 @@ def build_gallery(task, items, models, can_reveal):
         '<div id="byModel"></div></div>')
     body = (
         task_head(task, '<span class="muted">Model names stay hidden until you reveal them.</span>')
-        + f'<section class="wrap block"><h2 class="sec">The two prompts</h2><div class="pcards">{"".join(cards)}</div></section>'
+        + f'<section class="wrap block"><h2 class="sec">{"The two prompts" if len(shown) > 1 else "The prompt"}</h2>'
+          f'<div class="pcards{"" if len(shown) > 1 else " one"}">{"".join(cards)}</div></section>'
         + '<section class="wrap block"><div class="sechead"><h2 class="sec">The drawings</h2></div>'
         + '<p class="hint">Rate each drawing the way you would if you had asked for it: could you use it as is? '
           'Your ratings are anonymous and tied to this browser. Revealing a drawing’s model ends rating for it.</p>'
         + toolbar + gallery + "</section>"
     )
-    data = {"slug": slug, "mode": "gallery", "detail": detail, "rules": RULES, "grades": GRADES,
+    data = {"slug": slug, "mode": "gallery", "detail": detail, "rules": RULES, "grades": GRADES, "variants": shown,
             "reveal": can_reveal, "models": [{"id": m["id"], "label": m["label"]} for m in models]}
     body += f'<script id="data" type="application/json">{blob(data)}</script>'
     write(f"tasks/{slug}/index.html", page(task["title"], body, ["task.js"], task.get("summary", "")))
@@ -797,8 +806,8 @@ def home(tasks, models, all_runs, galleries):
         ("Same request, many times", "Each model gets each everyday prompt five separate times, in a fresh session. "
          "A model that gets it right once can still get it wrong the next time, so we show every try. "
          "Puzzles get two chances; the second only if the first misses."),
-        ("Vague versus specific", "Every task has a vague prompt, the way people often type, and a specific one "
-         "that says what a good result needs. Both get the same input."),
+        ("Vague versus specific", "The everyday tasks have a vague prompt, the way people often type, and a specific one "
+         "that says what a good result needs. Both get the same input. Drawings get the specific prompt only."),
         ("Graded in the open", "Text, spreadsheets and puzzle answers are checked by a script anyone can rerun. "
          "Drawings are rated blind, before the model is revealed. Vellery’s own rating sets the verdict; "
          "visitors can add theirs."),
@@ -861,16 +870,19 @@ def main():
     # Preserve the original blind IDs, including their existing votes.
     original = {(k["batch"], k["variant"], k["model"], k["run"])
                 for k in json.loads((KITCHEN / "key.json").read_text()).values()}
+    # Drawing tasks show only their listed variants; other runs stay on disk.
+    all_runs = [r for r in all_runs if r["variant"] in variants_of(by_slug[r["task"]]) or by_slug[r["task"]]["kind"] == "puzzle"]
     new_kitchen = [r for r in all_runs if r["task"] == "kitchen-illustration"
                    and (r["batch"], r["variant"], r["model"], r["run"]) not in original]
-    can_reveal = reveal_key(models, new_kitchen + [r for r in all_runs if r["task"] in gallery_slugs])
+    kitchen_variants = variants_of(by_slug["kitchen-illustration"]) if "kitchen-illustration" in by_slug else VARIANTS
+    can_reveal = reveal_key(models, new_kitchen + [r for r in all_runs if r["task"] in gallery_slugs], kitchen_variants)
     known, galleries = {}, {}
     for task in tasks:
         slug = task["slug"]
         runs = [r for r in all_runs if r["task"] == slug]
         (DIST / "tasks" / slug).mkdir(parents=True, exist_ok=True)
         if task["kind"] == "svg":
-            items = kitchen_items() + drawing_items(new_kitchen) if slug == "kitchen-illustration" else drawing_items(runs)
+            items = kitchen_items(variants_of(task)) + drawing_items(new_kitchen) if slug == "kitchen-illustration" else drawing_items(runs)
             galleries[slug] = items
             known.update(build_gallery(task, items, models, can_reveal))
         elif task["kind"] == "puzzle":

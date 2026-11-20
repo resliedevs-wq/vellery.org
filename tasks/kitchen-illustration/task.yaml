@@ -1,11 +1,16 @@
 slug: kitchen-illustration
 title: Draw a kitchen scene
 category: Drawing
-summary: The model draws a kitchen scene by writing SVG code itself, with no image generator. The specific prompt lists details you can count.
+summary: The model draws a kitchen scene by writing SVG code itself, with no image generator. The prompt lists details you can count.
 kind: svg
 # Drawn by the model itself as SVG code, not by an image generator.
 runs: 5
 inputs: []
+
+# Only the specific prompt is run and shown: an open-ended drawing request
+# has no shared standard to rate against. Earlier vague-prompt runs stay
+# in outputs/ and grading/, with their votes.
+variants: [strong]
 
 prompts:
   weak: |

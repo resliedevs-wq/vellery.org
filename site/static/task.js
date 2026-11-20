@@ -108,6 +108,7 @@
       ["slop", "Unusable", "Misses the request", { vote: -1, basic: true }],
     ];
     let variant = new URLSearchParams(location.search).get("prompt") === "vague" ? "weak" : "strong";
+    if (data.variants && !data.variants.includes(variant)) variant = data.variants[0];
     let votes = {};
     let meta = {};
     // The site owner's rating is a drawing's verdict; see site/worker.js.
