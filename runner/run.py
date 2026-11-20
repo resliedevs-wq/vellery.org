@@ -166,7 +166,30 @@ def run_codex(model, prompt, workdir):
     }
 
 
-HARNESSES = {"claude": run_claude, "codex": run_codex}
+def run_deepseek(model, prompt, workdir):
+    patch = ROOT / "runner" / "deepseek-flash.yaml"
+    cmd = ["dsh", "--profile", "headless", "--patch", str(patch),
+           "--permission-mode", "workspace-write", "--approval-policy", "never", "--json", "-"]
+    code, out, err, error = execute(cmd, input=prompt, cwd=workdir,
+                                    env={**os.environ, "DSH_HOME": str(workdir.parent / "dsh-home")})
+    final = {}
+    usage = []
+    for line in out.splitlines():
+        try:
+            event = json.loads(line)
+        except ValueError:
+            continue
+        if event.get("type") == "final":
+            final = event
+        if event.get("phase") == "step_end" and event.get("usage"):
+            usage.append(event["usage"])
+    if code != 0 or final.get("reason", {}).get("kind") != "completed":
+        error = error or "DeepSeek Harness did not complete the turn"
+    return {"command": cmd, "raw": out, "stderr": err, "error": error,
+            "usage": usage, "response": final.get("text", "")}
+
+
+HARNESSES = {"claude": run_claude, "codex": run_codex, "dsh": run_deepseek}
 
 
 def attempt(model, prompt, dest):
