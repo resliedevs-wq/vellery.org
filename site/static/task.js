@@ -208,10 +208,18 @@
     if (!revealBar) return;
     const here = blindTiles(variant);
     const unrated = here.filter((t) => !tally(t.dataset.id).mine);
-    revealBar.hidden = !here.length;
-    revealBar.querySelector("#reveal").disabled = revealing;
-    revealBar.querySelector("#rate").hidden = !unrated.length;
-    revealBar.querySelector(".num").textContent = window.vellery.me
+    const rate = revealBar.querySelector("#rate");
+    rate.disabled = !here.length;
+    rate.textContent = here.length && !unrated.length ? "Review your ratings" : "Rate a drawing";
+    const revealButton = revealBar.querySelector("#reveal");
+    revealButton.hidden = !here.length;
+    revealButton.disabled = revealing;
+    const status = revealBar.querySelector(".num");
+    if (!here.length) {
+      status.textContent = "All models have been revealed for this prompt. Blind scoring is closed.";
+      return;
+    }
+    status.textContent = window.vellery.me
       ? `${here.length - unrated.length} of ${here.length} rated blind`
       : `${here.length} anonymous drawings`;
   }
@@ -411,7 +419,8 @@
   if (revealButton) revealButton.addEventListener("click", () => reveal(blindTiles(variant).map((t) => t.dataset.id)));
   if (data.reveal) {
     document.getElementById("rate").onclick = () => {
-      const next = [...board.querySelectorAll(".tile")].find((t) => !t.hidden && !tally(t.dataset.id).mine);
+      const available = [...board.querySelectorAll(".tile")].filter((t) => !t.hidden && blind(t));
+      const next = available.find((t) => !tally(t.dataset.id).mine) || available[0];
       if (next) open(next.dataset.id);
     };
     try {

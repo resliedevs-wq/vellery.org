@@ -220,3 +220,4 @@ dialog.viewer::backdrop{background:rgba(20,19,16,.62)}
 
 .tile.shot .drawing-text{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:8px 4px 24px;font:clamp(3px,.55vw,9px)/1.1 var(--mono);white-space:pre;color:#333}
 .drawing-response{white-space:pre;overflow:auto;max-width:100%;font:12px/1.2 var(--mono)}
+.revealbar button:disabled{opacity:.6;cursor:default}
