@@ -41,6 +41,8 @@ VARIANT_LABEL = {"weak": "Vague prompt", "strong": "Specific prompt"}
 VARIANT_SHORT = {"weak": "Vague", "strong": "Specific"}
 GRADES = {"good": "Usable", "fix": "Needs fixing", "slop": "Unusable"}
 GLYPH = {"good": "✓", "fix": "!", "slop": "✕"}
+# Performance points per run, used to rank models on the home page.
+POINTS = {"good": 2, "fix": 1, "slop": 0}
 COLUMNS = ["Date", "Description", "Category", "Amount"]
 # Where each fact shows up in a text, for highlighting. Presence itself comes
 # from the grader, so the page and the grade can't disagree.
@@ -756,54 +758,75 @@ def home(tasks, models, all_runs, galleries):
             f'<span>·</span>{HOW[t["kind"]]}<span>·</span>{stat}</p>'
             f'<h3>{esc(t["title"])}</h3><p>{esc(t.get("summary", ""))}</p></div>{right}</a>')
 
-    # How each model did. Drawing verdicts come from the Worker (/api/summary)
-    # and are filled in by static/home.js, which also re-sorts the rows.
+    # How each model did. Drawing verdicts come from the Worker (/api/summary);
+    # static/home.js fills them in, adds their points, ranks the rows and
+    # moves models that didn't run every task into an unranked group.
     drawings = [t for t in tasks if t["kind"] == "svg"]
     head = ("".join(f'<th colspan="2" class="tcol">{esc(t["title"])}</th>' for t in scripted)
             + "".join(f'<th class="tcol">{esc(t["title"])}</th>' for t in drawings))
     sub = ("".join(f'<th class="{"first" if v == VARIANTS[0] and t is not scripted[0] else ""}">{VARIANT_SHORT[v]}</th>'
                    for t in scripted for v in VARIANTS)
            + "".join(f'<th class="first">{VARIANT_SHORT[v]}</th>' for t in drawings for v in variants_of(t)))
+    expected = sum(t["runs"] * len(variants_of(t)) for t in scripted)
     body = []
     for order, m in enumerate(models):
         mine = [r for r in all_runs if r["model"] == m["id"] and r["task"] in {t["slug"] for t in scripted}]
         if not mine:
             continue
+        missing = [t["title"] for t in scripted
+                   if sum(r["task"] == t["slug"] for r in mine) < t["runs"] * len(variants_of(t))]
+        points = maxp = 0
         pz = []
         for t in puzzles:
             res = puzzle_results(t, [r for r in all_runs if r["task"] == t["slug"]], [m])
-            if not res:
-                pz.append('<td class="pz" title="Not run yet">–</td>')
+            done = res and (res[0][2] or len(res[0][1]) == t["runs"])
+            if not done:
+                missing.append(t["title"])
+                pz.append(f'<td class="pz" title="{"Still running" if res else "Not run"}">{"…" if res else "–"}</td>')
                 continue
             won = res[0][2]
-            if not won and len(res[0][1]) < t["runs"]:
-                pz.append('<td class="pz" title="Still running">…</td>')
-            elif not won:
+            points += {1: 2, 2: 1}.get(won, 0)
+            maxp += 2
+            if not won:
                 pz.append(f'<td class="pz"><span class="slop" title="Not solved in {t["runs"]} chances">{GLYPH["slop"]}</span></td>')
             else:
                 pz.append(f'<td class="pz"><span class="{"good" if won == 1 else "fix"}" title="Solved on chance {won}">'
                           f'{GLYPH["good"]}{"" if won == 1 else f"<small>{won}</small>"}</span></td>')
-        cells, total = [], 0
+        cells = []
         for t in scripted:
             for v in VARIANTS:
                 sel = [r for r in mine if r["task"] == t["slug"] and r["variant"] == v]
                 good = sum(r["grade"]["grade"] == "good" for r in sel if r["grade"])
-                total += good
+                points += sum(POINTS.get(r["grade"]["grade"], 0) for r in sel if r["grade"])
+                maxp += 2 * len(sel)
                 dots = "".join(f'<i class="{r["grade"]["grade"] if r["grade"] else ""}"></i>'
                                for r in sorted(sel, key=lambda r: r["run"]))
                 first = " first" if v == VARIANTS[0] and t is not scripted[0] else ""
                 cells.append(f'<td class="run{first}"><span class="dots" title="{good} of {len(sel)} usable">{dots}</span></td>')
-        cells += [f'<td class="run first" data-draw="{t["slug"]}"><span class="dots"></span></td>' for t in drawings]
-        body.append((-total / len(mine), order,
-                     f'<tr data-model="{m["id"]}" data-order="{order}" data-good="{total}" data-n="{len(mine)}">'
-                     f'<th scope="row">{esc(m["label"])}</th>{"".join(cells)}'
-                     f'<td class="num usable"><b>{total}</b>/{len(mine)}</td><td class="num">{money(avg_cost(mine))}</td>{"".join(pz)}</tr>'))
+        cells += [f'<td class="run first" data-draw="{t["slug"]}" data-title="{esc(t["title"])}" data-expect="{t["runs"] * len(variants_of(t))}">'
+                  f'<span class="dots"></span></td>' for t in drawings]
+        # Every run this model did that the table shows, puzzle chances included.
+        shown = [r for r in all_runs if r["model"] == m["id"]]
+        costs = [r.get("est_cost_usd_all_attempts", r.get("est_cost_usd")) for r in shown]
+        known = sum(c for c in costs if c is not None)
+        unknown = sum(c is None for c in costs)
+        cost_note = f' title="{unknown} run{"s" if unknown > 1 else ""} without a cost estimate are left out"' if unknown else ""
+        body.append((-points / (maxp or 1), order,
+                     f'<tr data-model="{m["id"]}" data-order="{order}" data-points="{points}" data-max="{maxp}" '
+                     f'data-cost="{known:.6f}" data-missing="{esc(" · ".join(missing))}">'
+                     f'<td class="rank"></td><th scope="row">{esc(m["label"])}</th>{"".join(cells)}{"".join(pz)}'
+                     f'<td class="num points"><b>{points}</b></td>'
+                     f'<td class="num cost"{cost_note}>{money(known)}{"*" if unknown else ""}</td></tr>'))
     body.sort(key=lambda r: r[:2])
-    table = (f'<div class="scroll"><table class="models"><thead><tr><th rowspan="2">Model</th>{head}'
-             '<th rowspan="2" class="num">Usable</th><th rowspan="2" class="num" title="Average estimated API cost per run of the script-checked tasks">Cost/run</th>'
-             + "".join(f'<th rowspan="2" class="pzh" title="{esc(t["title"])}: ✓ first chance, ✓2 second chance">{esc(t["category"])}</th>' for t in puzzles)
-             + '</tr>'
-             f'<tr class="subh">{sub}</tr></thead><tbody>{"".join(r[2] for r in body)}</tbody></table></div>')
+    table = (
+        '<div class="rankby"><span class="muted">Rank by</span><div class="seg" role="group" aria-label="Rank by">'
+        '<button data-rank="points" aria-pressed="true">Performance</button>'
+        '<button data-rank="cost" aria-pressed="false">Total cost</button></div></div>'
+        f'<div class="scroll"><table class="models"><thead><tr><th rowspan="2" class="rank">#</th><th rowspan="2">Model</th>{head}'
+        + "".join(f'<th rowspan="2" class="pzh" title="{esc(t["title"])}: ✓ first chance, ✓2 second chance">{esc(t["category"])}</th>' for t in puzzles)
+        + '<th rowspan="2" class="num sortable" data-rank="points" title="Usable 2, needs fixing 1, unusable 0 per run; puzzle 2 on the first chance, 1 on the second">Points</th>'
+          '<th rowspan="2" class="num sortable" data-rank="cost" title="Estimated API cost of every run shown, at list prices">Total cost</th></tr>'
+        f'<tr class="subh">{sub}</tr></thead><tbody>{"".join(r[2] for r in body)}</tbody></table></div>')
     legend = '<div class="legend">' + "".join(
         f'<span class="{g}"><i>{GLYPH[g]}</i>{label}</span>' for g, label in GRADES.items()) + "</div>"
 
@@ -835,9 +858,9 @@ def home(tasks, models, all_runs, galleries):
         + finding + "</section>"
         + f'<section class="wrap block" id="tasks"><h2 class="sec">Tasks</h2><div class="tasks">{"".join(rows)}</div></section>'
         + '<section class="wrap block" id="models"><div class="sechead"><h2 class="sec">How each model did</h2>' + legend + "</div>"
-        + '<p class="hint">One dot per run. Text and spreadsheets are checked by script; drawings by blind rating '
-        '(grey: not rated yet). In the puzzle column, ✓ means solved on the first chance, ✓2 on the second, ✕ missed both. '
-        'Cost is for the script-checked tasks.</p>'
+        + '<p class="hint">One dot per run: text and spreadsheets are checked by script, drawings rated blind (grey: not rated yet). '
+        'Points: usable 2, needs fixing 1, unusable 0; the puzzle scores 2 if solved on the first chance, 1 on the second. '
+        'Models not run on every task are listed below the ranking, unranked.</p>'
         + table + "</section>"
         + '<section class="wrap block" id="method"><h2 class="sec">Method</h2><div class="method">'
         + "".join(f"<div><h3>{esc(h)}</h3><p>{esc(p)}</p></div>" for h, p in method)
