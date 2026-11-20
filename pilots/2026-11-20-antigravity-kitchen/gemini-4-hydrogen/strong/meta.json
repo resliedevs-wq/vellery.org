@@ -1,0 +1,13 @@
+{
+  "task": "kitchen-illustration",
+  "variant": "strong",
+  "model": "gemini-4-hydrogen",
+  "label": "Gemini 4 Hydrogen",
+  "harness": "agy",
+  "effort": "high",
+  "run": 1,
+  "ok": true,
+  "attempts": 1,
+  "est_cost_usd": null,
+  "est_cost_usd_all_attempts": null
+}

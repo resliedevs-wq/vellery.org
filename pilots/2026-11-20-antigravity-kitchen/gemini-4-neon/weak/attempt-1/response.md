@@ -1,0 +1,7 @@
+I've created an SVG illustration of a cozy morning kitchen at [cozy_kitchen_morning.svg](file:///tmp/vellery-6ov3r58y/work/cozy_kitchen_morning.svg).
+
+### Highlights in the Scene
+- **Morning light & window view**: A paned cottage window looking out onto a pastel sunrise, misty rolling hills, blooming garden trees, and birds, casting diagonal golden sunbeams and floating dust motes across the room.
+- **Vintage stove & counter**: A cream enamel range with sizzling sunny-side-up eggs in a cast-iron skillet and a steaming copper kettle beneath hanging copper pans and dried herbs, paired with sage-green shaker cabinets, a farmhouse apron sink, freshly sliced sourdough, a French press, a vintage toaster, and a pitcher of sunflowers.
+- **Open shelves & cozy touches**: Floating oak shelves stocked with stacked stoneware, jars of oats and coffee beans, honey, cookbooks, hanging mugs, trailing ivy, a framed lemon botanical print, and a brass wall clock reading **7:20**.
+- **Breakfast table & companion**: A sunlit wooden breakfast table set with a steaming coffee mug, flaky croissant, fresh berries, glowing orange juice, strawberry jam, and an open journal with reading glasses—while a curled-up ginger tabby cat naps in the sunbeam on a braided rag rug.

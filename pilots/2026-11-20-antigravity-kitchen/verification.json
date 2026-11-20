@@ -1,0 +1,76 @@
+{
+  "task": "kitchen-illustration",
+  "scored": false,
+  "renderer": "rsvg-convert version 2.58.0",
+  "results": [
+    {
+      "model": "gemini-4-argon",
+      "variant": "strong",
+      "file": "kitchen.svg",
+      "cli_success": true,
+      "denied_actions": [],
+      "rendered": false,
+      "render_error": "Error reading SVG kitchen.svg: XML parse error: Error domain 1 code 80 on line 464 column 81 of data: Double hyphen within comment"
+    },
+    {
+      "model": "gemini-4-argon",
+      "variant": "weak",
+      "file": "cozy_kitchen.svg",
+      "cli_success": true,
+      "denied_actions": [],
+      "rendered": true,
+      "preview_size": [
+        512,
+        342
+      ]
+    },
+    {
+      "model": "gemini-4-hydrogen",
+      "variant": "strong",
+      "file": "kitchen.svg",
+      "cli_success": true,
+      "denied_actions": [],
+      "rendered": true,
+      "preview_size": [
+        512,
+        342
+      ]
+    },
+    {
+      "model": "gemini-4-hydrogen",
+      "variant": "weak",
+      "file": "cozy_kitchen_morning.svg",
+      "cli_success": true,
+      "denied_actions": [],
+      "rendered": true,
+      "preview_size": [
+        512,
+        342
+      ]
+    },
+    {
+      "model": "gemini-4-neon",
+      "variant": "strong",
+      "file": "kitchen.svg",
+      "cli_success": true,
+      "denied_actions": [],
+      "rendered": true,
+      "preview_size": [
+        512,
+        342
+      ]
+    },
+    {
+      "model": "gemini-4-neon",
+      "variant": "weak",
+      "file": "cozy_kitchen_morning.svg",
+      "cli_success": true,
+      "denied_actions": [],
+      "rendered": true,
+      "preview_size": [
+        512,
+        342
+      ]
+    }
+  ]
+}

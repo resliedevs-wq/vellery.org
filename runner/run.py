@@ -192,6 +192,32 @@ def run_deepseek(model, prompt, workdir):
             "usage": usage, "response": final.get("text", "")}
 
 
+def collect_agy_drawing(response, workdir):
+    """Collect a linked SVG only from the bridge session bound to this attempt."""
+    links = re.findall(r"/tmp/(magpie-agy-bridge-[a-zA-Z0-9]{6})/([\w.-]+\.svg)\b", response)
+    missing = []
+    for folder, name in links:
+        destination = workdir / name
+        if destination.is_symlink():
+            return "Antigravity drawing destination is a symlink"
+        if not destination.is_file():
+            missing.append((folder, name))
+    if not missing:
+        return None
+    state_root = Path(os.environ.get("XDG_STATE_HOME") or Path.home() / ".local/state")
+    ledger = Path(os.environ.get("AGY_BRIDGE_STATE_FILE") or state_root / "magpie-agy-bridge/sessions.json")
+    owned = {entry.get("workspace") for entry in json.loads(ledger.read_text())["entries"]
+             if entry.get("workDir") == str(workdir)}
+    for folder, name in missing:
+        scratch = Path("/tmp") / folder
+        source = scratch / name
+        if (str(scratch) not in owned or scratch.is_symlink() or source.is_symlink()
+                or not source.is_file()):
+            return "Antigravity linked an SVG that could not be verified in this attempt's bridge session"
+        shutil.copyfile(source, workdir / name)
+    return None
+
+
 def run_agy(model, prompt, workdir):
     route = "agy-cli/" + model["id"]
     alias = "magpie/" + route
@@ -206,6 +232,12 @@ def run_agy(model, prompt, workdir):
            "-p", prompt]
     home = workdir.parent / "home"
     home.mkdir()
+    if model.get("workspace_files_only"):
+        agents = home / ".gemini" / "config" / "agents"
+        agents.mkdir(parents=True)
+        profile = (ROOT / "runner" / "agy-workspace-files.md").read_text()
+        (agents / "workspace-files.md").write_text(profile.replace("WORKSPACE_PATH", str(workdir)))
+        cmd[1:1] = ["--agent", "workspace-files"]
     env = {"HOME": str(home), "PATH": os.environ["PATH"],
            "GOOGLE_GEMINI_BASE_URL": os.environ["MAGPIE_BASE_URL"],
            "GEMINI_API_KEY": os.environ["MAGPIE_API_KEY"]}
@@ -214,10 +246,20 @@ def run_agy(model, prompt, workdir):
         data = json.loads(out)
     except ValueError:
         data = {}
-    if code != 0 or data.get("status") != "SUCCESS" or data.get("denied_actions"):
-        error = error or data.get("error") or "Antigravity reported an error or denied a tool"
+    if code != 0 or data.get("status") != "SUCCESS":
+        error = error or data.get("error") or "Antigravity reported an error"
+    elif data.get("denied_actions"):
+        denied = [action.get("display_name") or action.get("action", "unknown")
+                  for action in data["denied_actions"]]
+        error = "Antigravity denied: " + ", ".join(denied)
+    response = data.get("response", "")
+    if not error and model.get("workspace_files_only"):
+        try:
+            error = collect_agy_drawing(response, workdir)
+        except (OSError, ValueError) as exc:
+            error = f"could not collect Antigravity drawing: {exc}"
     return {"command": cmd[:-1] + ["<prompt>"], "raw": out, "stderr": err,
-            "error": error, "response": data.get("response", ""), "usage": data.get("usage")}
+            "error": error, "response": response, "usage": data.get("usage")}
 
 
 HARNESSES = {"claude": run_claude, "codex": run_codex, "dsh": run_deepseek,
@@ -262,6 +304,8 @@ def attempt(model, prompt, dest):
 
 def run_one(task, variant, model, n, out):
     """Attempt a run until the CLI succeeds or attempts run out, then write meta.json."""
+    if model["harness"] == "agy" and task["slug"] == "kitchen-illustration":
+        model = {**model, "workspace_files_only": True}
     prompt = render_prompt(task, variant)
     out.mkdir(parents=True, exist_ok=True)
     # Attempts saved by an interrupted batch count: a finished success is
