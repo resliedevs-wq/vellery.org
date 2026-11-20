@@ -1,0 +1,35 @@
+{
+  "sessionId": "sess_c5caaad9-848b-44bc-87c0-bc07dc8ece99",
+  "traceId": "a015820b-d099-401d-900b-d80df486870a",
+  "turnId": "turn_b00a6129-0c05-4390-87f2-3e7e43921fdc",
+  "response": "Done — `pelican.svg` is saved at `/tmp/vellery-0t7bb9sg/work/pelican.svg` (valid XML, 132 elements). It's a pure SMIL animation, so it plays automatically when opened in any browser — no JavaScript or CSS needed.\n\nWhat's animated:\n- **Pelican** — sits on the saddle, wing on the handlebar, big pouch beak, with a gentle body bob synced to each pedal stroke\n- **Legs & feet** — both legs pedal with knee bend; webbed feet follow the pedal circle exactly, keyframed to the crank rotation (0.95 s per revolution)\n- **Cranks & pedals** — chainring and crank arms spin; pedals counter-rotate so they stay level\n- **Wheels** — spokes and reflectors rotate (1.2 s per revolution)\n- **Chain** — dashed top and bottom runs scroll in opposite directions\n- **Scenery** — road markings, grass tufts, and two parallax cloud layers scroll past at speeds matched to the wheel, plus speed streaks behind the rider\n\nOpen it with `xdg-open /tmp/vellery-0t7bb9sg/work/pelican.svg` or drag it into a browser to watch it ride.",
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 3,
+    "inputTokens": 72188,
+    "outputTokens": 26529,
+    "totalTokens": 98717,
+    "cacheReadTokens": 40512,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 21335,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "eventCount": 21889,
+  "projection": {
+    "status": "idle",
+    "turnCount": 1,
+    "totalTokenCount": 98717,
+    "contextUsed": 33193,
+    "contextWindow": 200000
+  }
+}
+
+--- stderr ---
+ZCode Built-in 刷新失败: ZCode Built-in client-config: invalid response
+ZCode Built-in skipped (not-due)
+ZCode Built-in 刷新失败: ZCode Built-in client-config: invalid response
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in 刷新失败: ZCode Built-in client-config: invalid response
+ZCode Built-in skipped (not-due)

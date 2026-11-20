@@ -1,0 +1,1 @@
+Created `pelican.svg` — a self-contained animated SVG of a pelican riding a bicycle. It includes spinning wheels, rotating cranks, pedaling legs, moving chain and road, plus a fluttering scarf and bob animation.

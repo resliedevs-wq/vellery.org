@@ -1,0 +1,44 @@
+{
+  "ok": true,
+  "error": null,
+  "started": "2026-11-20T12:39:41+00:00",
+  "duration_s": 481.0,
+  "command": [
+    "agy",
+    "--model",
+    "magpie/agy-cli/gemini-4-neon",
+    "--settings",
+    "{\"modelProvider\": \"gemini\", \"customModelsConfig\": {\"customModels\": {\"magpie/agy-cli/gemini-4-neon\": {\"apiProvider\": \"API_PROVIDER_GOOGLE_GEMINI\", \"modelName\": \"agy-cli/gemini-4-neon\"}}}, \"permissions\": {\"allow\": [\"command(*)\"], \"deny\": [\"read_url(*)\", \"execute_url(*)\", \"download_url(*)\"]}}",
+    "--mode",
+    "accept-edits",
+    "--effort",
+    "high",
+    "--output-format",
+    "json",
+    "-p",
+    "<prompt>"
+  ],
+  "jailed": true,
+  "served_models": null,
+  "usage": {
+    "input_tokens": 88008,
+    "output_tokens": 60337,
+    "thinking_tokens": 13962,
+    "cache_read_tokens": 397700,
+    "total_tokens": 148345
+  },
+  "est_cost_usd": 1.228734,
+  "est_cost": {
+    "gemini-4-neon": {
+      "input_tokens": 88008,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 397700,
+      "output_tokens": 60337,
+      "usd": 1.228734
+    }
+  },
+  "cli_reported_cost_usd": null,
+  "files": [
+    "pelican.svg"
+  ]
+}

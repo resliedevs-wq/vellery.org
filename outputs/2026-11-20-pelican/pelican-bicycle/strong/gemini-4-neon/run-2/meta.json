@@ -1,0 +1,13 @@
+{
+  "task": "pelican-bicycle",
+  "variant": "strong",
+  "model": "gemini-4-neon",
+  "label": "Gemini 4 Neon",
+  "harness": "agy",
+  "effort": "high",
+  "run": 2,
+  "ok": true,
+  "attempts": 1,
+  "est_cost_usd": 1.228734,
+  "est_cost_usd_all_attempts": 1.228734
+}

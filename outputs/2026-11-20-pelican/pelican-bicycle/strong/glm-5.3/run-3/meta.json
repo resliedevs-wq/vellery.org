@@ -1,0 +1,13 @@
+{
+  "task": "pelican-bicycle",
+  "variant": "strong",
+  "model": "glm-5.3",
+  "label": "GLM-5.3",
+  "harness": "zcode",
+  "effort": "high",
+  "run": 3,
+  "ok": true,
+  "attempts": 1,
+  "est_cost_usd": 0.246581,
+  "est_cost_usd_all_attempts": 0.246581
+}

@@ -1,0 +1,38 @@
+{
+  "sessionId": "sess_20d870c7-6717-434e-b1b4-8bb2941d232a",
+  "traceId": "d2979624-992a-4e25-b805-11ac21210c35",
+  "turnId": "turn_db3263fd-852a-42ea-a346-3f3235f8c8dd",
+  "response": "Done — saved as `/tmp/vellery-x_scpy1w/work/pelican.svg` (11 KB, self-contained, no scripts or external assets).\n\n**The scene:** A cartoon pelican in a forward-lean riding posture, perched on the saddle of a teal bicycle, wing stretched out to the handlebar grip, webbed feet on the pedals — all in a sunny beach setting with speed lines and a scrolling road.\n\n**Everything that moves (pure SMIL, loops seamlessly):**\n- **Wheels** — spokes and valve stems rotate (0.9 s/rev)\n- **Cranks & pedals** — chainring spins at 1.2 s/rev; pedal platforms counter-rotate so they stay level through the stroke\n- **Legs** — both legs are keyframed along the pedal circle (8 poses/rev), the far leg 180° out of phase, so the feet stay locked to the pedals\n- **Chain** — dash-offset animation makes the top run flow forward, bottom run backward\n- **Body & head** — a subtle bob synced to the pedal strokes, head slightly out of phase\n- **Road + wind dashes** — scrolling to sell the motion\n\n**Notes on viewing:** Open it in any browser (Chrome, Firefox, Safari) — SMIL animations run automatically with no JavaScript. Static image viewers and some editors (like librsvg-based previews) will show only frame one. I rendered a static PNG preview at `/tmp/vellery-x_scpy1w/render/pelican2.png` to verify the composition, which is what's shown above.",
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 9,
+    "inputTokens": 266319,
+    "outputTokens": 27834,
+    "totalTokens": 294153,
+    "cacheReadTokens": 194752,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 22050,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "eventCount": 22652,
+  "projection": {
+    "status": "idle",
+    "turnCount": 1,
+    "totalTokenCount": 294153,
+    "contextUsed": 36363,
+    "contextWindow": 200000
+  }
+}
+
+--- stderr ---
+ZCode Built-in 刷新失败: ZCode Built-in client-config: invalid response
+ZCode Built-in skipped (not-due)
+ZCode Built-in 刷新失败: ZCode Built-in client-config: invalid response
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in 刷新失败: ZCode Built-in client-config: invalid response
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)

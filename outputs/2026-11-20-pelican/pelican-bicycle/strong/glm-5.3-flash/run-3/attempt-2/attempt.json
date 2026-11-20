@@ -1,0 +1,50 @@
+{
+  "ok": true,
+  "error": null,
+  "started": "2026-11-20T12:44:23+00:00",
+  "duration_s": 783.2,
+  "command": [
+    "zcode",
+    "--prompt",
+    "<prompt>",
+    "--cwd",
+    "/tmp/vellery-b176t_ui/work",
+    "--mode",
+    "yolo",
+    "--disallowed-tools",
+    "WebSearch WebFetch Browser AskUserQuestion EnterPlanMode ExitPlanMode",
+    "--output-format",
+    "json",
+    "--no-color"
+  ],
+  "jailed": true,
+  "served_models": null,
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 12,
+    "inputTokens": 482630,
+    "outputTokens": 39406,
+    "totalTokens": 522036,
+    "cacheReadTokens": 428032,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 30862,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "est_cost_usd": 0.040734,
+  "est_cost": {
+    "glm-5.3-flash": {
+      "input_tokens": 54598,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 428032,
+      "output_tokens": 39406,
+      "usd": 0.040734
+    }
+  },
+  "cli_reported_cost_usd": null,
+  "files": [
+    "gen_pelican.py",
+    "pelican.svg",
+    "preview.png"
+  ]
+}

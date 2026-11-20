@@ -1,0 +1,4 @@
+{"conversation_id":"5b57b00e-f19e-471e-8ce3-df007a2b9700","status":"SUCCESS","response":"","duration_seconds":130.154789265,"num_turns":1,"usage":{"input_tokens":20317,"output_tokens":23845,"thinking_tokens":10113,"cache_read_tokens":24125,"total_tokens":44162},"denied_actions":[{"action":"write_file","display_name":"Edit"}]}
+
+--- stderr ---
+jetski: no output produced — a tool required the "write_file" permission that headless mode cannot prompt for, so it was auto-denied. Add an allow-rule under permissions.allow in settings.json (e.g. write_file(<target>)). Alternatively, re-run with --dangerously-skip-permissions to auto-approve all tools.

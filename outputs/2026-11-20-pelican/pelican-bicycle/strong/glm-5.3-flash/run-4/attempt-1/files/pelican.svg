@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <title>Pelican riding a bicycle</title>
+  <desc>A white pelican pedals a red bicycle. Wheels and cranks spin, the legs track the pedals,
+  the body bobs, the scarf flutters and the road scrolls past. Pure SMIL animation - open in a browser.</desc>
+
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#cdeafc"/>
+      <stop offset="1" stop-color="#f3fbff"/>
+    </linearGradient>
+  </defs>
+
+  <!-- sky -->
+  <rect width="800" height="500" fill="url(#sky)"/>
+  <circle cx="700" cy="72" r="46" fill="#ffd97a" opacity="0.25"/>
+  <circle cx="700" cy="72" r="34" fill="#ffd97a" opacity="0.9"/>
+
+  <!-- drifting clouds -->
+  <g fill="#ffffff" opacity="0.9">
+    <g>
+      <animateTransform attributeName="transform" type="translate" values="860 84;-320 84" dur="30s" repeatCount="indefinite"/>
+      <ellipse cx="0" cy="0" rx="48" ry="15"/>
+      <ellipse cx="26" cy="-10" rx="30" ry="13"/>
+      <ellipse cx="-24" cy="-8" rx="24" ry="11"/>
+    </g>
+    <g>
+      <animateTransform attributeName="transform" type="translate" values="980 150;-340 150" dur="46s" begin="-18s" repeatCount="indefinite"/>
+      <ellipse cx="0" cy="0" rx="40" ry="12"/>
+      <ellipse cx="20" cy="-9" rx="24" ry="10"/>
+    </g>
+  </g>
+
+  <!-- ground with scrolling dashes (speed matches wheel circumference) -->
+  <rect x="0" y="443" width="800" height="57" fill="#e2d3ac"/>
+  <line x1="0" y1="443" x2="800" y2="443" stroke="#c9b78a" stroke-width="3"/>
+  <path d="M0,462 H800" stroke="#ffffff" stroke-width="5" stroke-dasharray="34 30" fill="none" opacity="0.85">
+    <animate attributeName="stroke-dashoffset" values="0;5800" dur="10s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- shadow -->
+  <ellipse cx="380" cy="447" rx="205" ry="8" fill="#000000" opacity="0.08"/>
+
+  <!-- ================= REAR WHEEL (spins clockwise) ================= -->
+  <g transform="translate(215,362)">
+    <g stroke="#5c666e" stroke-width="2.5">
+      <animateTransform attributeName="transform" type="rotate" values="0;360" dur="0.9s" repeatCount="indefinite"/>
+      <line x1="-66" y1="0" x2="66" y2="0"/>
+      <line x1="0" y1="-66" x2="0" y2="66"/>
+      <line x1="-47" y1="-47" x2="47" y2="47"/>
+      <line x1="-47" y1="47" x2="47" y2="-47"/>
+      <circle cx="44" cy="0" r="3" fill="#3a3a3a" stroke="none"/>
+    </g>
+    <circle r="78" fill="none" stroke="#2f2f2f" stroke-width="10"/>
+    <circle r="68" fill="none" stroke="#c2c8ce" stroke-width="4"/>
+    <circle r="7" fill="#444444"/>
+  </g>
+
+  <!-- ================= FRONT WHEEL ================= -->
+  <g transform="translate(545,362)">
+    <g stroke="#5c666e" stroke-width="2.5">
+      <animateTransform attributeName="transform" type="rotate" values="0;360" dur="0.9s" repeatCount="indefinite"/>
+      <line x1="-66" y1="0" x2="66" y2="0"/>
+      <line x1="0" y1="-66" x2="0" y2="66"/>
+      <line x1="-47" y1="-47" x2="47" y2="47"/>
+      <line x1="-47" y1="47" x2="47" y2="-47"/>
+      <circle cx="44" cy="0" r="3" fill="#3a3a3a" stroke="none"/>
+    </g>
+    <circle r="78" fill="none" stroke="#2f2f2f" stroke-width="10"/>
+    <circle r="68" fill="none" stroke="#c2c8ce" stroke-width="4"/>
+    <circle r="7" fill="#444444"/>
+  </g>
+
+  <!-- FAR crank arm + pedal (behind frame), rotating; pedal counter-rotates so it stays level -->
+  <g>
+    <animateTransform attributeName="transform" type="rotate" values="0 360 370;360 360 370" dur="1.6s" repeatCount="indefinite"/>
+    <line x1="360" y1="370" x2="328" y2="372" stroke="#3b3b3b" stroke-width="7" stroke-linecap="round"/>
+    <g>
+      <animateTransform attributeName="transform" type="rotate" values="0 328 372;-360 328 372" dur="1.6s" repeatCount="indefinite"/>
+      <rect x="316" y="368.5" width="24" height="7" rx="2.5" fill="#2f2f2f"/>
+    </g>
+  </g>
+
+  <!-- FAR leg: foot follows the far pedal (two-bar IK, 8 keyframes per crank rev) -->
+  <path fill="none" stroke="#46545e" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"
+        d="M332,246 L388.1,309.9 L328,370 L344,367">
+    <animate attributeName="d" dur="1.6s" repeatCount="indefinite" calcMode="linear"
+      keyTimes="0;0.125;0.25;0.375;0.5;0.625;0.75;0.875;1"
+      values="M332,246 L388.1,309.9 L328,370 L344,367;
+              M332,246 L402.7,294.8 L337,347 L353,344;
+              M332,246 L412.2,283.9 L360,338 L376,335;
+              M332,246 L415.5,282.7 L383,347 L399,344;
+              M332,246 L406.8,286.3 L392,370 L408,367;
+              M332,246 L389.1,308.3 L383,393 L399,390;
+              M332,246 L375.1,319.1 L360,402 L376,399;
+              M332,246 L377.1,319.4 L337,393 L353,390;
+              M332,246 L388.1,309.9 L328,370 L344,367"/>
+  </path>
+
+  <!-- ================= FRAME ================= -->
+  <g stroke="#d94f3d" stroke-width="7" fill="none" stroke-linecap="round">
+    <path d="M362,368 L326,264"/>                 <!-- seat tube -->
+    <path d="M328,268 L503,272"/>                 <!-- top tube -->
+    <path d="M496,298 L362,368"/>                 <!-- down tube -->
+    <path d="M362,370 L215,362"/>                 <!-- chain stay -->
+    <path d="M322,270 L217,360"/>                 <!-- seat stay -->
+    <path d="M505,270 L496,298" stroke-width="9"/><!-- head tube -->
+    <path d="M497,299 Q520,330 545,362"/>         <!-- fork -->
+    <path d="M505,268 L518,240 Q521,232 530,232 L554,232" stroke="#3b3b3b"/> <!-- stem + bar -->
+  </g>
+  <circle cx="554" cy="232" r="4.5" fill="#222222"/>
+  <ellipse cx="322" cy="253" rx="33" ry="7" fill="#3a3a3a"/>  <!-- saddle -->
+  <circle cx="215" cy="362" r="8" fill="none" stroke="#555555" stroke-width="3.5"/> <!-- rear cog -->
+
+  <!-- chain (dashes march with crank speed) -->
+  <g stroke="#4a4a4a" stroke-width="2.5" stroke-dasharray="5 4" fill="none">
+    <animate attributeName="stroke-dashoffset" values="0;-315" dur="4s" repeatCount="indefinite"/>
+    <path d="M215,354 L360,350"/>
+    <path d="M360,390 L215,370"/>
+  </g>
+
+  <!-- NEAR crank: chainring + arm + pedal, rotating; pedal counter-rotates to stay level -->
+  <g>
+    <animateTransform attributeName="transform" type="rotate" values="0 360 370;360 360 370" dur="1.6s" repeatCount="indefinite"/>
+    <circle cx="360" cy="370" r="20" fill="none" stroke="#3b3b3b" stroke-width="5"/>
+    <g fill="#3b3b3b">
+      <circle cx="371" cy="370" r="3"/>
+      <circle cx="360" cy="359" r="3"/>
+      <circle cx="349" cy="370" r="3"/>
+      <circle cx="360" cy="381" r="3"/>
+    </g>
+    <line x1="360" y1="370" x2="392" y2="372" stroke="#3b3b3b" stroke-width="8" stroke-linecap="round"/>
+    <g>
+      <animateTransform attributeName="transform" type="rotate" values="0 392 372;-360 392 372" dur="1.6s" repeatCount="indefinite"/>
+      <rect x="380" y="368.5" width="24" height="7" rx="2.5" fill="#2f2f2f"/>
+    </g>
+  </g>
+
+  <!-- NEAR leg: foot tracks the near pedal (two-bar IK, 8 keyframes per crank rev) -->
+  <path fill="none" stroke="#5f6e78" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"
+        d="M332,246 L406.8,286.3 L392,370 L408,367">
+    <animate attributeName="d" dur="1.6s" repeatCount="indefinite" calcMode="linear"
+      keyTimes="0;0.125;0.25;0.375;0.5;0.625;0.75;0.875;1"
+      values="M332,246 L406.8,286.3 L392,370 L408,367;
+              M332,246 L389.1,308.3 L383,393 L399,390;
+              M332,246 L375.1,319.1 L360,402 L376,399;
+              M332,246 L377.1,319.4 L337,393 L353,390;
+              M332,246 L388.1,309.9 L328,370 L344,367;
+              M332,246 L402.7,294.8 L337,347 L353,344;
+              M332,246 L412.2,283.9 L360,338 L376,335;
+              M332,246 L415.5,282.7 L383,347 L399,344;
+              M332,246 L406.8,286.3 L392,370 L408,367"/>
+  </path>
+
+  <!-- ================= PELICAN (sits on the saddle, gently bobbing) ================= -->
+  <g>
+    <animateTransform attributeName="transform" type="translate" values="0 0;0 2;0 0" keyTimes="0;0.5;1" dur="0.8s" repeatCount="indefinite"/>
+
+    <!-- tail feathers -->
+    <path d="M262,196 L232,204 L258,212 L228,226 L262,222 Z" fill="#e7e0cf" stroke="#cfc6ae" stroke-width="2" stroke-linejoin="round"/>
+
+    <!-- body resting on the saddle -->
+    <ellipse cx="318" cy="204" rx="62" ry="46" fill="#f8f4ea" stroke="#d8cfba" stroke-width="2" transform="rotate(-10 318 204)"/>
+    <ellipse cx="318" cy="222" rx="40" ry="14" fill="#ece4d2"/>
+
+    <!-- wing, with a lazy little flutter -->
+    <g>
+      <animateTransform attributeName="transform" type="rotate" values="0 330 196;2.5 330 196;0 330 196" keyTimes="0;0.5;1" dur="0.8s" repeatCount="indefinite"/>
+      <path d="M296,184 Q348,178 358,214 Q338,240 300,232 Q282,208 296,184 Z" fill="#e9e2d2" stroke="#cfc6ae" stroke-width="2"/>
+      <path d="M304,214 Q322,222 344,216" stroke="#cfc6ae" stroke-width="2" fill="none"/>
+      <path d="M300,204 Q322,212 348,206" stroke="#cfc6ae" stroke-width="2" fill="none"/>
+    </g>
+
+    <!-- scarf streaming in the wind -->
+    <path d="M360,152 Q372,144 384,150 L381,162 Q370,166 360,162 Z" fill="#d1495b"/>
+    <path d="M362,154 Q340,142 322,150 Q338,158 360,163 Z" fill="#d1495b">
+      <animate attributeName="d" dur="0.7s" repeatCount="indefinite" calcMode="linear"
+        keyTimes="0;0.33;0.66;1"
+        values="M362,154 Q340,142 322,150 Q338,158 360,163 Z;
+                M362,154 Q338,146 318,142 Q336,158 360,163 Z;
+                M362,154 Q342,150 324,158 Q340,163 360,163 Z;
+                M362,154 Q340,142 322,150 Q338,158 360,163 Z"/>
+    </path>
+
+    <!-- neck and head, swaying gently -->
+    <g>
+      <animateTransform attributeName="transform" type="rotate"
+        values="0 358 182;-2 358 182;0 358 182;1.5 358 182;0 358 182"
+        keyTimes="0;0.25;0.5;0.75;1" dur="3.2s" repeatCount="indefinite"/>
+      <path d="M358,184 C364,152 376,138 402,128" fill="none" stroke="#f8f4ea" stroke-width="15" stroke-linecap="round"/>
+      <circle cx="408" cy="122" r="16" fill="#f8f4ea" stroke="#d8cfba" stroke-width="1.5"/>
+      <path d="M397,109 q-7,-9 1,-11 q1,6 7,8 Z" fill="#d9d2c0"/>
+      <!-- the famous beak, with pouch -->
+      <path d="M420,112 L484,129 Q490,131.5 484,134 L420,125 Z" fill="#f2a63c"/>
+      <path d="M421,126 C418,147 433,157 452,151 C468,146 479,139 484,134 C462,130.5 440,127.5 421,126 Z" fill="#ef9556"/>
+      <path d="M422,125 L484,133" stroke="#c67f1f" stroke-width="1.5" fill="none"/>
+      <!-- eye -->
+      <circle cx="414" cy="113" r="4.5" fill="#f0c987"/>
+      <circle cx="414" cy="113" r="2.6" fill="#2a2a2a"/>
+      <circle cx="413" cy="112" r="0.9" fill="#ffffff"/>
+    </g>
+  </g>
+</svg>

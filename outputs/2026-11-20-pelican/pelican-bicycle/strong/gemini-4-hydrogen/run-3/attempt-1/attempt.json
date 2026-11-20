@@ -1,0 +1,44 @@
+{
+  "ok": true,
+  "error": null,
+  "started": "2026-11-20T12:54:49+00:00",
+  "duration_s": 238.5,
+  "command": [
+    "agy",
+    "--model",
+    "magpie/agy-cli/gemini-4-hydrogen",
+    "--settings",
+    "{\"modelProvider\": \"gemini\", \"customModelsConfig\": {\"customModels\": {\"magpie/agy-cli/gemini-4-hydrogen\": {\"apiProvider\": \"API_PROVIDER_GOOGLE_GEMINI\", \"modelName\": \"agy-cli/gemini-4-hydrogen\"}}}, \"permissions\": {\"allow\": [\"command(*)\"], \"deny\": [\"read_url(*)\", \"execute_url(*)\", \"download_url(*)\"]}}",
+    "--mode",
+    "accept-edits",
+    "--effort",
+    "high",
+    "--output-format",
+    "json",
+    "-p",
+    "<prompt>"
+  ],
+  "jailed": true,
+  "served_models": null,
+  "usage": {
+    "input_tokens": 75700,
+    "output_tokens": 45094,
+    "thinking_tokens": 9173,
+    "cache_read_tokens": 447740,
+    "total_tokens": 120794
+  },
+  "est_cost_usd": 0.485335,
+  "est_cost": {
+    "gemini-4-hydrogen": {
+      "input_tokens": 75700,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 447740,
+      "output_tokens": 45094,
+      "usd": 0.485335
+    }
+  },
+  "cli_reported_cost_usd": null,
+  "files": [
+    "pelican.svg"
+  ]
+}

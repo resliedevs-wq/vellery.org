@@ -1,0 +1,1 @@
+Created [pelican.svg](/tmp/vellery-jkn3uhuh/work/pelican.svg). The pelican sits on the saddle with one wing on the handlebars, and its webbed feet turn the cranks as both wheels spin. Open it in a browser to see the animation.

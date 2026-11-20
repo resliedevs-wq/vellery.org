@@ -1,0 +1,11 @@
+{
+  "batch": "2026-11-20-pelican",
+  "commit": "f402f581461ecd67f3895ecb73083dbc5fcfd966",
+  "started": "2026-11-20T12:09:53+00:00",
+  "cli_versions": {
+    "agy": "1.5.13",
+    "codex": "codex-cli 0.171.0",
+    "dsh": "0.2.2-rc.5",
+    "zcode": "0.17.1"
+  }
+}

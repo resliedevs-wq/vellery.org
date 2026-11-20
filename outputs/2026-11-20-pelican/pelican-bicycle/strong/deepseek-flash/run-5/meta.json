@@ -1,0 +1,13 @@
+{
+  "task": "pelican-bicycle",
+  "variant": "strong",
+  "model": "deepseek-flash",
+  "label": "DeepSeek V4.1 Flash",
+  "harness": "dsh",
+  "effort": "high",
+  "run": 5,
+  "ok": true,
+  "attempts": 1,
+  "est_cost_usd": 0.136825,
+  "est_cost_usd_all_attempts": 0.136825
+}

@@ -1,0 +1,1 @@
+Created `pelican.svg` — a self-contained animated seaside scene with a pelican on the bicycle saddle, pedaling legs, rotating cranks and wheels, a moving chain, bobbing body, fluttering scarf, drifting clouds, and scrolling boardwalk.

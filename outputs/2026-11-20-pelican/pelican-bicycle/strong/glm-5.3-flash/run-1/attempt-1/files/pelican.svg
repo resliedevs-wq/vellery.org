@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500" role="img">
+  <title>Pelican riding a bicycle</title>
+  <desc>A cartoon pelican sits on the saddle and pedals a bicycle. Wheels, cranks, pedals, legs, feet and chain are animated.</desc>
+
+  <!-- ======================= background ======================= -->
+  <rect width="800" height="500" fill="#e9f5fc"/>
+  <circle cx="72" cy="74" r="30" fill="#ffd98a"/>
+
+  <!-- drifting clouds -->
+  <g transform="translate(900,90)" opacity="0.85">
+    <g>
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="-1250 0" dur="42s" begin="-10s" repeatCount="indefinite"/>
+      <ellipse cx="0" cy="0" rx="44" ry="20" fill="#ffffff"/>
+      <ellipse cx="-40" cy="8" rx="30" ry="14" fill="#ffffff"/>
+      <ellipse cx="42" cy="8" rx="32" ry="15" fill="#ffffff"/>
+    </g>
+  </g>
+  <g transform="translate(1250,150)" opacity="0.8">
+    <g>
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="-1600 0" dur="58s" begin="-25s" repeatCount="indefinite"/>
+      <ellipse cx="0" cy="0" rx="50" ry="22" fill="#ffffff"/>
+      <ellipse cx="-46" cy="9" rx="32" ry="15" fill="#ffffff"/>
+      <ellipse cx="48" cy="9" rx="34" ry="16" fill="#ffffff"/>
+    </g>
+  </g>
+
+  <!-- ground with scrolling dashes (sense of speed) -->
+  <rect y="462" width="800" height="38" fill="#d8ebc6"/>
+  <line x1="0" y1="462" x2="800" y2="462" stroke="#aecf98" stroke-width="3"/>
+  <line x1="0" y1="480" x2="800" y2="480" stroke="#b7d8a2" stroke-width="5" stroke-dasharray="34 26">
+    <animate attributeName="stroke-dashoffset" from="0" to="60" dur="0.144s" repeatCount="indefinite"/>
+  </line>
+  <ellipse cx="250" cy="470" rx="72" ry="7" fill="#b9d29e" opacity="0.6"/>
+  <ellipse cx="560" cy="470" rx="72" ry="7" fill="#b9d29e" opacity="0.6"/>
+
+  <!-- ======================= rear wheel ======================= -->
+  <g>
+    <g>
+      <animateTransform attributeName="transform" type="rotate" from="0 250 380" to="360 250 380" dur="1.2s" repeatCount="indefinite"/>
+      <g stroke="#9aa3ad" stroke-width="2.5" stroke-linecap="round">
+        <line x1="182" y1="380" x2="318" y2="380"/>
+        <line x1="202" y1="332" x2="298" y2="428"/>
+        <line x1="250" y1="312" x2="250" y2="448"/>
+        <line x1="298" y1="332" x2="202" y2="428"/>
+      </g>
+      <circle cx="250" cy="380" r="9" fill="#7a828c"/>
+    </g>
+    <circle cx="250" cy="380" r="71" fill="none" stroke="#c9ced4" stroke-width="6"/>
+    <circle cx="250" cy="380" r="79" fill="none" stroke="#394048" stroke-width="10"/>
+  </g>
+
+  <!-- ======================= front wheel ======================= -->
+  <g>
+    <g>
+      <animateTransform attributeName="transform" type="rotate" from="0 560 380" to="360 560 380" dur="1.2s" repeatCount="indefinite"/>
+      <g stroke="#9aa3ad" stroke-width="2.5" stroke-linecap="round">
+        <line x1="492" y1="380" x2="628" y2="380"/>
+        <line x1="512" y1="332" x2="608" y2="428"/>
+        <line x1="560" y1="312" x2="560" y2="448"/>
+        <line x1="608" y1="332" x2="512" y2="428"/>
+      </g>
+      <circle cx="560" cy="380" r="9" fill="#7a828c"/>
+    </g>
+    <circle cx="560" cy="380" r="71" fill="none" stroke="#c9ced4" stroke-width="6"/>
+    <circle cx="560" cy="380" r="79" fill="none" stroke="#394048" stroke-width="10"/>
+  </g>
+
+  <!-- ======================= far leg + far foot (behind frame) ======================= -->
+  <path fill="none" stroke="#a86a20" stroke-width="8" stroke-linecap="round" d="M350,250 Q382,306 350,372">
+    <animate attributeName="d" dur="2s" repeatCount="indefinite" calcMode="linear"
+      keyTimes="0;0.125;0.25;0.375;0.5;0.625;0.75;0.875;1"
+      values="M350,250 Q382,306 350,372;
+              M350,250 Q388,286 363,340;
+              M350,250 Q402,278 395,327;
+              M350,250 Q418,292 427,340;
+              M350,250 Q425,300 440,372;
+              M350,250 Q415,322 427,404;
+              M350,250 Q398,330 395,417;
+              M350,250 Q385,324 363,404;
+              M350,250 Q382,306 350,372"/>
+  </path>
+  <g>
+    <animateTransform attributeName="transform" type="rotate" from="180 395 380" to="540 395 380" dur="2s" repeatCount="indefinite"/>
+    <g transform="translate(440,380)">
+      <g>
+        <animateTransform attributeName="transform" type="rotate" from="0" to="-360" dur="2s" repeatCount="indefinite"/>
+        <path d="M-8,-8 L23,-15 L26,-3 L20,4 L-9,4 Z" fill="#a86a20" stroke="#a86a20" stroke-width="2" stroke-linejoin="round"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- ======================= frame ======================= -->
+  <g fill="none" stroke="#d9534f" stroke-width="9" stroke-linecap="round">
+    <line x1="250" y1="380" x2="395" y2="380"/>          <!-- chain stay -->
+    <line x1="250" y1="380" x2="349" y2="256"/>          <!-- seat stay -->
+    <line x1="395" y1="380" x2="344" y2="249"/>          <!-- seat tube -->
+    <line x1="395" y1="380" x2="564" y2="264"/>          <!-- down tube -->
+    <line x1="349" y1="258" x2="564" y2="260"/>          <!-- top tube -->
+    <path d="M568,250 Q562,315 560,380"/>                <!-- fork -->
+  </g>
+  <line x1="568" y1="250" x2="586" y2="248" stroke="#3a4046" stroke-width="8" stroke-linecap="round"/>
+  <path d="M586,248 Q604,242 608,262" fill="none" stroke="#3a4046" stroke-width="7" stroke-linecap="round"/>
+  <line x1="608" y1="262" x2="610" y2="270" stroke="#2f3438" stroke-width="10" stroke-linecap="round"/>
+  <line x1="316" y1="253" x2="378" y2="243" stroke="#333333" stroke-width="12" stroke-linecap="round"/> <!-- saddle -->
+
+  <!-- ======================= drivetrain ======================= -->
+  <circle cx="250" cy="380" r="12" fill="none" stroke="#4a4f55" stroke-width="4"/>
+  <g stroke="#4a4f55" stroke-width="3.5" fill="none" stroke-dasharray="6.5 5.5">
+    <line x1="250" y1="368" x2="395" y2="353">
+      <animate attributeName="stroke-dashoffset" from="0" to="-120" dur="1.47s" repeatCount="indefinite"/>
+    </line>
+    <line x1="395" y1="407" x2="250" y2="392">
+      <animate attributeName="stroke-dashoffset" from="0" to="-120" dur="1.47s" repeatCount="indefinite"/>
+    </line>
+  </g>
+  <circle cx="395" cy="380" r="27" fill="none" stroke="#3a4046" stroke-width="6"/>
+  <circle cx="395" cy="380" r="9" fill="#3a4046"/>
+
+  <!-- ======================= cranks + pedals (rotating, pedals stay level) ======================= -->
+  <g>
+    <animateTransform attributeName="transform" type="rotate" from="0 395 380" to="360 395 380" dur="2s" repeatCount="indefinite"/>
+    <line x1="395" y1="380" x2="440" y2="380" stroke="#2f3438" stroke-width="7" stroke-linecap="round"/>
+    <line x1="395" y1="380" x2="350" y2="380" stroke="#2f3438" stroke-width="7" stroke-linecap="round"/>
+    <g transform="translate(440,380)">
+      <g>
+        <animateTransform attributeName="transform" type="rotate" from="0" to="-360" dur="2s" repeatCount="indefinite"/>
+        <line x1="-13" y1="4" x2="13" y2="4" stroke="#2f3438" stroke-width="8" stroke-linecap="round"/>
+      </g>
+    </g>
+    <g transform="translate(350,380)">
+      <g>
+        <animateTransform attributeName="transform" type="rotate" from="0" to="-360" dur="2s" repeatCount="indefinite"/>
+        <line x1="-13" y1="4" x2="13" y2="4" stroke="#2f3438" stroke-width="8" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- ======================= near leg + near foot (in front of frame) ======================= -->
+  <path fill="none" stroke="#f39c3d" stroke-width="8" stroke-linecap="round" d="M350,250 Q425,300 440,372">
+    <animate attributeName="d" dur="2s" repeatCount="indefinite" calcMode="linear"
+      keyTimes="0;0.125;0.25;0.375;0.5;0.625;0.75;0.875;1"
+      values="M350,250 Q425,300 440,372;
+              M350,250 Q415,322 427,404;
+              M350,250 Q398,330 395,417;
+              M350,250 Q385,324 363,404;
+              M350,250 Q382,306 350,372;
+              M350,250 Q388,286 363,340;
+              M350,250 Q402,278 395,327;
+              M350,250 Q418,292 427,340;
+              M350,250 Q425,300 440,372"/>
+  </path>
+  <g>
+    <animateTransform attributeName="transform" type="rotate" from="0 395 380" to="360 395 380" dur="2s" repeatCount="indefinite"/>
+    <g transform="translate(440,380)">
+      <g>
+        <animateTransform attributeName="transform" type="rotate" from="0" to="-360" dur="2s" repeatCount="indefinite"/>
+        <path d="M-8,-8 L23,-15 L26,-3 L20,4 L-9,4 Z" fill="#f39c3d" stroke="#f39c3d" stroke-width="2" stroke-linejoin="round"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- ======================= the pelican (gently bobbing) ======================= -->
+  <g>
+    <animateTransform attributeName="transform" type="translate" dur="2s" repeatCount="indefinite"
+      values="0 0;0 2.5;0 0;0 2.5;0 0" keyTimes="0;0.25;0.5;0.75;1"/>
+
+    <!-- tail feathers -->
+    <g fill="#f8f3e6" stroke="#b3a98e" stroke-width="2.5" stroke-linejoin="round">
+      <path d="M300,228 L246,170 L270,216 Z"/>
+      <path d="M302,238 L234,196 L272,230 Z"/>
+    </g>
+
+    <!-- body -->
+    <ellipse cx="330" cy="215" rx="56" ry="42" fill="#f8f3e6" stroke="#b3a98e" stroke-width="3"/>
+
+    <!-- wing -->
+    <path d="M296,206 Q334,192 366,212 Q350,246 308,240 Q288,224 296,206 Z"
+          fill="#ede4cf" stroke="#b3a98e" stroke-width="2.5"/>
+    <path d="M299,235 Q290,222 293,209 Q303,227 316,237 Q307,241 299,235 Z" fill="#55504a" opacity="0.9"/>
+    <path d="M310,212 Q332,206 352,220" fill="none" stroke="#cdbfa0" stroke-width="2"/>
+    <path d="M306,226 Q328,220 346,230" fill="none" stroke="#cdbfa0" stroke-width="2"/>
+
+    <!-- neck + head (subtle sway) -->
+    <g>
+      <animateTransform attributeName="transform" type="rotate" dur="3s" repeatCount="indefinite"
+        values="-2 356 200;2 356 200;-2 356 200"/>
+      <path d="M357,203 Q366,158 402,128" fill="none" stroke="#b3a98e" stroke-width="26" stroke-linecap="round"/>
+      <path d="M357,203 Q366,158 402,128" fill="none" stroke="#f8f3e6" stroke-width="20" stroke-linecap="round"/>
+      <circle cx="408" cy="122" r="17" fill="#f8f3e6" stroke="#b3a98e" stroke-width="3"/>
+      <path d="M394,110 Q388,99 399,101 Q395,106 397,111 Z" fill="#f8f3e6" stroke="#b3a98e" stroke-width="1.5"/>
+
+      <!-- pouch (lower beak) -->
+      <path d="M419,124 Q450,136 493,147 Q460,182 424,152 Q417,138 419,124 Z"
+            fill="#ee8a5e" stroke="#c96a42" stroke-width="2" stroke-linejoin="round"/>
+      <!-- upper beak (occasional clack) -->
+      <path d="M419,110 Q462,114 497,147 Q468,150 446,143 Q428,134 419,122 Z"
+            fill="#f4a83a" stroke="#c77f1e" stroke-width="2" stroke-linejoin="round">
+        <animateTransform attributeName="transform" type="rotate" dur="4s" repeatCount="indefinite"
+          values="0 420 120;0 420 120;-6 420 120;0 420 120" keyTimes="0;0.6;0.7;1"/>
+      </path>
+
+      <!-- eye -->
+      <circle cx="413" cy="116" r="4" fill="#2f2f2f"/>
+      <circle cx="411.5" cy="114.5" r="1.4" fill="#ffffff"/>
+    </g>
+  </g>
+</svg>

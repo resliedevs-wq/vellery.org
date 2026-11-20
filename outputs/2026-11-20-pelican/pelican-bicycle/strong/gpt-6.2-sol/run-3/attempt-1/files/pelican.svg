@@ -1,0 +1,451 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" width="960" height="640"
+  role="img" aria-labelledby="title description">
+  <title id="title">A pelican pedals along the coast</title>
+  <desc id="description">A white pelican with an amber bill sits on a coral bicycle, gripping
+    the handlebars with a wing and pedaling as both wheels spin.</desc>
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1">
+      <stop stop-color="#c5e2df"/>
+      <stop offset="1" stop-color="#f4efe1"/>
+    </linearGradient>
+    <linearGradient id="sea" x2="0" y2="1">
+      <stop stop-color="#8ebbbb"/>
+      <stop offset="1" stop-color="#bfd6ca"/>
+    </linearGradient>
+    <linearGradient id="road" x2="0" y2="1">
+      <stop stop-color="#f6e5c6"/>
+      <stop offset="1" stop-color="#e5c7a0"/>
+    </linearGradient>
+    <linearGradient id="plumage" x2=".2" y2="1">
+      <stop stop-color="#fff8e9"/>
+      <stop offset=".6" stop-color="#f4efe1"/>
+      <stop offset="1" stop-color="#d5e0da"/>
+    </linearGradient>
+    <linearGradient id="pouch" x2=".15" y2="1">
+      <stop stop-color="#f9c474"/>
+      <stop offset="1" stop-color="#e99155"/>
+    </linearGradient>
+    <radialGradient id="shadow">
+      <stop stop-color="#836246" stop-opacity=".28"/>
+      <stop offset="1" stop-color="#836246" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="ground"><path d="M0 568H960V640H0Z"/></clipPath>
+    <g id="wheel">
+      <circle r="106" fill="none" stroke="#263c43" stroke-width="10"/>
+      <circle r="105.5" fill="none" stroke="#496061" stroke-width="2"/>
+      <circle r="98.5" fill="none" stroke="#5c6964" stroke-width="4"/>
+      <circle r="98.5" fill="none" stroke="#e7d4ae" stroke-width="1.4"/>
+      <g stroke="#536867" stroke-width="1.5" opacity=".86">
+        <path d="M-8 3 0-97 M-7-5 48.5-84 M-3-8 84-48.5 M5-7 97 0
+                 M8-3 84 48.5 M7 5 48.5 84 M3 8 0 97 M-5 7-48.5 84
+                 M-8 3-84 48.5 M-7-5-97 0 M-3-8-84-48.5 M5-7-48.5-84"/>
+        <path d="M8 3 25-93.7 M7-5 68.6-68.6 M3-8 93.7-25 M-5-7 93.7 25
+                 M-8-3 68.6 68.6 M-7 5 25 93.7 M-3 8-25 93.7 M5 7-68.6 68.6
+                 M8 3-93.7 25 M7-5-93.7-25 M3-8-68.6-68.6 M-5-7-25-93.7"/>
+      </g>
+      <path d="M-40-98 A106 106 0 0 1-12-105 M102 29A106 106 0 0 1 90 56"
+        fill="none" stroke="#eac68d" stroke-width="2.7" stroke-linecap="round"/>
+      <path d="M0-96V-88" stroke="#2b474c" stroke-width="3.2" stroke-linecap="round"/>
+      <path d="M71 38l10 13" stroke="#f8df9f" stroke-width="5" stroke-linecap="round"/>
+      <circle r="11" fill="#354d51" stroke="#dac9a7" stroke-width="2"/>
+    </g>
+  </defs>
+
+  <path fill="url(#sky)" d="M0 0H960V640H0Z"/>
+  <circle cx="758" cy="135" r="56" fill="#fff2cf"/>
+  <path d="M68 163H287 M121 172H219 M581 102H645 M686 175H851 M732 184H800
+    M182 224H271 M803 247H916" fill="none" stroke="#fcf6e7" stroke-width="2"
+    stroke-linecap="round" opacity=".62"/>
+  <g fill="none" stroke="#709597" stroke-width="2" stroke-linecap="round">
+    <path d="M174 178q10-6 18 3 7-9 17-6 M219 145q7-4 12 3 6-6 13-3"
+      transform="translate(73 -46)"/>
+    <path d="M820 246q7-4 13 2 5-6 12-4"/>
+  </g>
+  <path d="M0 310C110 298 179 304 268 315
+    C378 327 482 311 592 311C734 315 824 308 960 314V523H0Z" fill="url(#sea)"/>
+  <path d="M0 322C95 311 174 317 264 323C376 332 501 321 594 321
+    C731 324 829 319 960 323" fill="none" stroke="#eff1dd" stroke-width="2.5" opacity=".8"/>
+  <g fill="none" stroke-linecap="round">
+    <path d="M13 353h77m25 0h53m584-9h97m18 0h30m-159 31h127m-85 32h180
+      M4 402h93m20 0h62m467 38h139m23 0h56" stroke="#e3ead8" stroke-width="2" opacity=".79"/>
+    <path d="M36 337h75m699 19h108m-32 34h72M0 372h64m149 19h44m487 29h89"
+      stroke="#6d9d9f" stroke-width="1.4" opacity=".42"/>
+  </g>
+  <path d="M0 413C54 392 113 393 169 416C245 447 304 447 377 441
+    C458 435 503 463 581 466C722 473 810 399 960 392V570H0Z" fill="#b1ba94"/>
+  <path d="M0 437C58 420 106 422 158 437C222 456 273 474 354 468
+    C451 459 494 481 587 486C735 493 821 419 960 417V573H0Z" fill="#d1c49d"/>
+  <path d="M0 460C75 436 139 455 200 473C278 496 352 484 438 490
+    C533 497 573 508 636 503C775 492 834 453 960 448V577H0Z" fill="#e5d1ab"/>
+  <path d="M0 528C187 526 322 542 460 537C642 532 793 506 960 514V640H0Z"
+    fill="url(#road)"/>
+  <path d="M0 534C187 533 320 548 465 543C644 537 796 509 960 520"
+    fill="none" stroke="#faebcf" stroke-width="2"/>
+  <path d="M0 593C160 579 343 596 469 591C653 585 816 556 960 568"
+    fill="none" stroke="#f8e7c8" stroke-width="2.5" opacity=".9"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M36 517q-4-19-14-32m14 32q2-27 9-37m-9 37q12-16 23-21
+      M92 524q-4-12-15-19m15 19q1-17 6-22m-6 22q7-9 14-12
+      M835 509q0-13-10-24m10 24q3-14 12-21m-12 21q9-6 15-7
+      M909 501q-3-21-16-34m16 34q2-25 12-36m-12 36q10-13 25-20"
+      stroke="#8c9c78" stroke-width="2.4"/>
+    <path d="M13 620q0-14 10-25m-10 25q-2-12-11-18m11 18q6-9 17-11
+      M890 614q-3-20-16-29m16 29q4-27 15-34m-15 34q12-14 25-17
+      M937 601q-2-18-9-25m9 25q5-17 15-24m-15 24q10-9 21-8"
+      stroke="#a68c60" stroke-width="2.6"/>
+  </g>
+  <g clip-path="url(#ground)" fill="none" stroke="#bda17d" stroke-width="1.7"
+    opacity=".52" stroke-linecap="round">
+    <g>
+      <animateTransform attributeName="transform" type="translate" from="0 0"
+        to="-192 0" dur=".19s" repeatCount="indefinite"/>
+      <path id="road-grain" d="M9 575h14m41 30h11m36-29h28m15 45h22m-155 7h10"/>
+      <use href="#road-grain" x="192"/><use href="#road-grain" x="384"/>
+      <use href="#road-grain" x="576"/><use href="#road-grain" x="768"/>
+      <use href="#road-grain" x="960"/>
+    </g>
+  </g>
+  <ellipse cx="477" cy="568" rx="324" ry="23" fill="url(#shadow)"/>
+  <ellipse cx="292" cy="568" rx="91" ry="8" fill="url(#shadow)"/>
+  <ellipse cx="653" cy="568" rx="91" ry="8" fill="url(#shadow)"/>
+
+  <g id="bicycle-and-rider">
+    <g transform="translate(292 458)">
+      <use href="#wheel">
+        <animateTransform attributeName="transform" type="rotate" from="0" to="360"
+          dur=".66s" repeatCount="indefinite"/>
+      </use>
+    </g>
+    <g transform="translate(653 458)">
+      <use href="#wheel" transform="rotate(64)">
+        <animateTransform attributeName="transform" type="rotate" from="64" to="424"
+          dur=".66s" repeatCount="indefinite"/>
+      </use>
+    </g>
+
+    <g id="far-crank" transform="translate(442 469)">
+      <g transform="rotate(180)">
+        <animateTransform attributeName="transform" type="rotate" from="180" to="540"
+          dur="1.32s" repeatCount="indefinite"/>
+        <path d="M0 0H29" stroke="#435354" stroke-width="7" stroke-linecap="round"/>
+        <g transform="translate(29)">
+          <g transform="rotate(180)">
+            <animateTransform attributeName="transform" type="rotate" from="-180" to="-540"
+              dur="1.32s" repeatCount="indefinite"/>
+            <path d="M-12 0H14" stroke="#34494b" stroke-width="5" stroke-linecap="round"/>
+          </g>
+        </g>
+      </g>
+    </g>
+    
+    <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M422.00 332.00 Q466.95 395.74 450.17 412.62 L407.00 456.00" stroke="#935440" stroke-width="15">
+        <animate attributeName="d" dur="1.32s" repeatCount="indefinite"
+          values="M422.00 332.00 Q466.95 395.74 450.17 412.62 L407.00 456.00;
+                  M422.00 332.00 Q471.64 392.16 453.82 407.94 L407.99 448.49;
+                  M422.00 332.00 Q476.65 387.65 458.24 402.73 L410.89 441.50;
+                  M422.00 332.00 Q481.71 382.19 463.17 397.12 L415.49 435.49;
+                  M422.00 332.00 Q486.40 376.00 468.23 391.37 L421.50 430.89;
+                  M422.00 332.00 Q490.31 369.65 473.00 385.98 L428.49 427.99;
+                  M422.00 332.00 Q493.11 364.05 477.12 381.67 L436.00 427.00;
+                  M422.00 332.00 Q494.74 360.16 480.39 379.15 L443.51 427.99;
+                  M422.00 332.00 Q495.30 358.65 482.76 378.88 L450.50 430.89;
+                  M422.00 332.00 Q494.93 359.67 484.17 380.90 L456.51 435.49;
+                  M422.00 332.00 Q493.60 362.95 484.50 384.94 L461.11 441.50;
+                  M422.00 332.00 Q491.21 367.96 483.60 390.51 L464.01 448.49;
+                  M422.00 332.00 Q487.68 374.08 481.33 397.02 L465.00 456.00;
+                  M422.00 332.00 Q482.97 380.65 477.66 403.85 L464.01 463.51;
+                  M422.00 332.00 Q477.26 387.05 472.74 410.41 L461.11 470.50;
+                  M422.00 332.00 Q470.94 392.74 466.90 416.19 L456.51 476.51;
+                  M422.00 332.00 Q464.66 397.30 460.69 420.77 L450.50 481.11;
+                  M422.00 332.00 Q459.32 400.50 454.89 423.88 L443.51 484.01;
+                  M422.00 332.00 Q455.74 402.32 450.21 425.47 L436.00 485.00;
+                  M422.00 332.00 Q454.27 403.01 447.05 425.69 L428.49 484.01;
+                  M422.00 332.00 Q454.64 402.84 445.36 424.76 L421.50 481.11;
+                  M422.00 332.00 Q456.41 402.00 444.95 422.86 L415.49 476.51;
+                  M422.00 332.00 Q459.19 400.56 445.67 420.14 L410.89 470.50;
+                  M422.00 332.00 Q462.76 398.50 447.42 416.70 L407.99 463.51;
+                  M422.00 332.00 Q466.95 395.74 450.17 412.62 L407.00 456.00"/>
+      </path>
+      <path d="M422.00 332.00 Q466.95 395.74 450.17 412.62 L407.00 456.00" stroke="#ca7548" stroke-width="10">
+        <animate attributeName="d" dur="1.32s" repeatCount="indefinite"
+          values="M422.00 332.00 Q466.95 395.74 450.17 412.62 L407.00 456.00;
+                  M422.00 332.00 Q471.64 392.16 453.82 407.94 L407.99 448.49;
+                  M422.00 332.00 Q476.65 387.65 458.24 402.73 L410.89 441.50;
+                  M422.00 332.00 Q481.71 382.19 463.17 397.12 L415.49 435.49;
+                  M422.00 332.00 Q486.40 376.00 468.23 391.37 L421.50 430.89;
+                  M422.00 332.00 Q490.31 369.65 473.00 385.98 L428.49 427.99;
+                  M422.00 332.00 Q493.11 364.05 477.12 381.67 L436.00 427.00;
+                  M422.00 332.00 Q494.74 360.16 480.39 379.15 L443.51 427.99;
+                  M422.00 332.00 Q495.30 358.65 482.76 378.88 L450.50 430.89;
+                  M422.00 332.00 Q494.93 359.67 484.17 380.90 L456.51 435.49;
+                  M422.00 332.00 Q493.60 362.95 484.50 384.94 L461.11 441.50;
+                  M422.00 332.00 Q491.21 367.96 483.60 390.51 L464.01 448.49;
+                  M422.00 332.00 Q487.68 374.08 481.33 397.02 L465.00 456.00;
+                  M422.00 332.00 Q482.97 380.65 477.66 403.85 L464.01 463.51;
+                  M422.00 332.00 Q477.26 387.05 472.74 410.41 L461.11 470.50;
+                  M422.00 332.00 Q470.94 392.74 466.90 416.19 L456.51 476.51;
+                  M422.00 332.00 Q464.66 397.30 460.69 420.77 L450.50 481.11;
+                  M422.00 332.00 Q459.32 400.50 454.89 423.88 L443.51 484.01;
+                  M422.00 332.00 Q455.74 402.32 450.21 425.47 L436.00 485.00;
+                  M422.00 332.00 Q454.27 403.01 447.05 425.69 L428.49 484.01;
+                  M422.00 332.00 Q454.64 402.84 445.36 424.76 L421.50 481.11;
+                  M422.00 332.00 Q456.41 402.00 444.95 422.86 L415.49 476.51;
+                  M422.00 332.00 Q459.19 400.56 445.67 420.14 L410.89 470.50;
+                  M422.00 332.00 Q462.76 398.50 447.42 416.70 L407.99 463.51;
+                  M422.00 332.00 Q466.95 395.74 450.17 412.62 L407.00 456.00"/>
+      </path>
+    </g>
+    <g transform="translate(413.00 469.00)">
+      <animateTransform attributeName="transform" type="translate" dur="1.32s"
+        repeatCount="indefinite" values="413.00 469.00;
+                  413.99 461.49;
+                  416.89 454.50;
+                  421.49 448.49;
+                  427.50 443.89;
+                  434.49 440.99;
+                  442.00 440.00;
+                  449.51 440.99;
+                  456.50 443.89;
+                  462.51 448.49;
+                  467.11 454.50;
+                  470.01 461.49;
+                  471.00 469.00;
+                  470.01 476.51;
+                  467.11 483.50;
+                  462.51 489.51;
+                  456.50 494.11;
+                  449.51 497.01;
+                  442.00 498.00;
+                  434.49 497.01;
+                  427.50 494.11;
+                  421.49 489.51;
+                  416.89 483.50;
+                  413.99 476.51;
+                  413.00 469.00"/>
+      <path d="M-10-15 Q-5-19-2-13 Q3-10 11-10 Q18-9 20-5
+        L16-3 20-1 Q14 0 8-2 Q0 1-7-2 L-11-6Z" fill="#ca7548"
+        stroke="#935440" stroke-width="2.3" stroke-linejoin="round"/>
+      <path d="M1-7 Q8-7 15-4 M2-4Q9-3 14-2" fill="none" stroke="#ab5f43"
+        stroke-width="1.4" stroke-linecap="round"/>
+    </g>
+
+    <g fill="none" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M293 449 440 445A24 24 0 1 1 438 492L291 468A10 10 0 0 1 293 449Z"
+        stroke="#35484b" stroke-width="4.8"/>
+      <path d="M293 449 440 445A24 24 0 1 1 438 492L291 468A10 10 0 0 1 293 449Z"
+        stroke="#e2c5a2" stroke-width="1.4" stroke-dasharray="2.2 3.2" opacity=".8">
+        <animate attributeName="stroke-dashoffset" from="0" to="-108" dur="1.32s"
+          repeatCount="indefinite"/>
+      </path>
+      <path d="M405 370 292 458 442 469 405 370 571 359 587 399 442 469
+        M565 343 586 402Q606 431 653 458" stroke="#642f34" stroke-width="12"/>
+      <path d="M405 370 292 458 442 469 405 370 571 359 587 399 442 469
+        M565 343 586 402Q606 431 653 458" stroke="#d76e57" stroke-width="8"/>
+      <path d="M299 454 405 372 438 460M414 367 568 357M583 402 451 465
+        M594 410Q615 435 646 452" stroke="#f7a77e" stroke-width="2.2"/>
+      <path d="M399 357 405 368M570 354 560 327Q555 315 569 314H590"
+        stroke="#344d51" stroke-width="8.5"/>
+      <path d="M400 357 405 366M569 347 562 325Q559 317 568 316H579"
+        stroke="#c6c9b5" stroke-width="3"/>
+      <path d="M578 314H602" stroke="#293e43" stroke-width="10"/>
+      <path d="M589 316Q600 340 577 357" stroke="#344d51" stroke-width="1.6"/>
+    </g>
+    <path d="M369 350Q382 347 397 351Q415 354 433 352Q439 355 429 359
+      Q407 366 393 360L375 357Q366 355 369 350Z" fill="#263d43"/>
+    <path d="M374 351Q383 350 397 353Q413 356 429 354" fill="none"
+      stroke="#71837a" stroke-width="1.6" stroke-linecap="round"/>
+    <g fill="#e8c79f" stroke="#3e5556" stroke-width="2">
+      <circle cx="292" cy="458" r="5"/><circle cx="653" cy="458" r="5"/>
+    </g>
+
+    <g id="pelican" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M388 301Q352 311 311 309Q315 319 335 324L324 327
+        Q348 337 388 335L414 322Z" fill="#42595b" stroke="#2b4248" stroke-width="3"/>
+      <path d="M322 313Q353 321 382 314M336 328Q359 331 381 325" fill="none"
+        stroke="#788b82" stroke-width="1.7"/>
+      <path d="M354 319Q355 296 396 279Q428 266 445 249Q459 230 462 203
+        Q466 177 484 162Q501 148 526 154Q548 159 563 179L568 204
+        Q558 226 531 232Q514 236 514 263Q517 296 499 323
+        Q476 357 431 360Q404 362 389 350Q378 345 364 341Q354 333 354 319Z"
+        fill="url(#plumage)" stroke="#34494b" stroke-width="3.7"/>
+      <path d="M360 327Q388 336 416 342Q457 351 484 325Q500 308 507 281
+        Q508 314 489 334Q466 361 429 359Q407 361 389 349Q374 344 365 340Z"
+        fill="#abc0ba" opacity=".69"/>
+      <path d="M508 221Q492 231 491 255Q490 274 503 287M467 222Q464 246 448 261"
+        fill="none" stroke="#a9bcb2" stroke-width="2.4"/>
+      <path d="M474 185Q486 168 508 163M480 193Q486 187 491 186" fill="none"
+        stroke="#fffcf0" stroke-width="4"/>
+      <path d="M555 189Q581 193 614 200Q671 214 717 226
+        Q729 229 730 234Q725 239 707 238Q677 246 634 248
+        Q586 251 552 226Q540 218 542 204Z"
+        fill="url(#pouch)" stroke="#6e483e" stroke-width="3.1"/>
+      <path d="M550 209Q561 222 583 229Q633 248 700 237Q670 245 633 244
+        Q587 249 556 225Z" fill="#efaa66"/>
+      <path d="M568 218Q601 238 644 238" fill="none" stroke="#d68a54" stroke-width="1.8"/>
+      <path d="M545 185Q557 182 573 188L622 201Q674 215 719 225
+        Q730 228 730 234Q719 233 710 235Q663 233 608 217L555 206
+        Q547 204 540 208Q536 201 545 185Z"
+        fill="#f7be69" stroke="#6e483e" stroke-width="2.9"/>
+      <path d="M553 189Q561 187 575 192L627 205Q674 217 712 227" fill="none"
+        stroke="#ffdf94" stroke-width="2.7"/>
+      <path d="M567 198l9 2" fill="none" stroke="#a26347" stroke-width="2.2"/>
+      <path d="M515 185Q521 178 532 180Q543 181 548 191
+        Q546 202 533 206Q519 206 515 195Z" fill="#e9b06e"/>
+      <path d="M518 185Q525 180 534 183" fill="none" stroke="#856658" stroke-width="1.6"/>
+      <ellipse cx="531" cy="192.5" rx="8.3" ry="8.9" fill="#fff4d3"/>
+      <ellipse cx="533" cy="193" rx="5.8" ry="6.7" fill="#29424a">
+        <animate attributeName="ry" values="6.7;6.7;.4;6.7;6.7"
+          keyTimes="0;.79;.807;.827;1" dur="5.28s" repeatCount="indefinite"/>
+      </ellipse>
+      <circle cx="535" cy="190.6" r="2.05" fill="#fff8df">
+        <animate attributeName="opacity" values="1;1;0;1;1"
+          keyTimes="0;.79;.807;.827;1" dur="5.28s" repeatCount="indefinite"/>
+      </circle>
+
+      <path d="M449 260Q470 264 511 253L514 263Q483 279 443 270Z"
+        fill="#c76755" stroke="#8e423b" stroke-width="2.3"/>
+      <path d="M455 264Q479 267 510 257" fill="none" stroke="#ef9d79" stroke-width="1.5"/>
+      <path d="M448 269Q425 259 399 269Q374 280 343 278L356 285 348 293
+        Q382 296 402 282Q423 272 448 276Z" fill="#d96d5c" stroke="#8e423b" stroke-width="2.3">
+        <animate attributeName="d" dur="1.32s" repeatCount="indefinite"
+          values="M448 269Q425 259 399 269Q374 280 343 278L356 285 348 293Q382 296 402 282Q423 272 448 276Z;
+                  M448 269Q424 266 398 263Q372 264 343 254L354 266 344 269Q373 281 401 275Q425 273 448 276Z;
+                  M448 269Q425 259 399 269Q374 280 343 278L356 285 348 293Q382 296 402 282Q423 272 448 276Z"/>
+      </path>
+      <path d="M442 266q6-7 13-2l4 8q-6 5-14 3Z" fill="#e28766"
+        stroke="#8e423b" stroke-width="2"/>
+    </g>
+
+    
+    <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M443.00 339.00 Q509.15 382.19 496.78 402.86 L465.00 456.00" stroke="#98513d" stroke-width="17">
+        <animate attributeName="d" dur="1.32s" repeatCount="indefinite"
+          values="M443.00 339.00 Q509.15 382.19 496.78 402.86 L465.00 456.00;
+                  M443.00 339.00 Q505.03 387.92 493.55 409.08 L464.01 463.51;
+                  M443.00 339.00 Q499.94 393.76 489.07 415.25 L461.11 470.50;
+                  M443.00 339.00 Q494.17 399.19 483.62 420.84 L456.51 476.51;
+                  M443.00 339.00 Q488.18 403.81 477.63 425.45 L450.50 481.11;
+                  M443.00 339.00 Q482.55 407.39 471.62 428.84 L443.51 484.01;
+                  M443.00 339.00 Q477.88 409.88 466.15 430.92 L436.00 485.00;
+                  M443.00 339.00 Q474.59 411.41 461.68 431.74 L428.49 484.01;
+                  M443.00 339.00 Q472.86 412.14 458.48 431.45 L421.50 481.11;
+                  M443.00 339.00 Q472.63 412.23 456.63 430.23 L415.49 476.51;
+                  M443.00 339.00 Q473.72 411.78 456.13 428.22 L410.89 470.50;
+                  M443.00 339.00 Q475.95 410.80 456.92 425.56 L407.99 463.51;
+                  M443.00 339.00 Q479.17 409.23 458.96 422.33 L407.00 456.00;
+                  M443.00 339.00 Q483.29 406.95 462.21 418.59 L407.99 448.49;
+                  M443.00 339.00 Q488.18 403.80 466.54 414.36 L410.89 441.50;
+                  M443.00 339.00 Q493.66 399.62 471.77 409.67 L415.49 435.49;
+                  M443.00 339.00 Q499.36 394.36 477.56 404.59 L421.50 430.89;
+                  M443.00 339.00 Q504.77 388.25 483.41 399.38 L428.49 427.99;
+                  M443.00 339.00 Q509.28 381.99 488.76 394.59 L436.00 427.00;
+                  M443.00 339.00 Q512.47 376.61 493.16 391.00 L443.51 427.99;
+                  M443.00 339.00 Q514.24 373.15 496.39 389.32 L450.50 430.89;
+                  M443.00 339.00 Q514.70 372.17 498.40 389.90 L456.51 435.49;
+                  M443.00 339.00 Q513.99 373.67 499.18 392.66 L461.11 441.50;
+                  M443.00 339.00 Q512.14 377.22 498.66 397.18 L464.01 448.49;
+                  M443.00 339.00 Q509.15 382.19 496.78 402.86 L465.00 456.00"/>
+      </path>
+      <path d="M443.00 339.00 Q509.15 382.19 496.78 402.86 L465.00 456.00" stroke="#f2a257" stroke-width="12">
+        <animate attributeName="d" dur="1.32s" repeatCount="indefinite"
+          values="M443.00 339.00 Q509.15 382.19 496.78 402.86 L465.00 456.00;
+                  M443.00 339.00 Q505.03 387.92 493.55 409.08 L464.01 463.51;
+                  M443.00 339.00 Q499.94 393.76 489.07 415.25 L461.11 470.50;
+                  M443.00 339.00 Q494.17 399.19 483.62 420.84 L456.51 476.51;
+                  M443.00 339.00 Q488.18 403.81 477.63 425.45 L450.50 481.11;
+                  M443.00 339.00 Q482.55 407.39 471.62 428.84 L443.51 484.01;
+                  M443.00 339.00 Q477.88 409.88 466.15 430.92 L436.00 485.00;
+                  M443.00 339.00 Q474.59 411.41 461.68 431.74 L428.49 484.01;
+                  M443.00 339.00 Q472.86 412.14 458.48 431.45 L421.50 481.11;
+                  M443.00 339.00 Q472.63 412.23 456.63 430.23 L415.49 476.51;
+                  M443.00 339.00 Q473.72 411.78 456.13 428.22 L410.89 470.50;
+                  M443.00 339.00 Q475.95 410.80 456.92 425.56 L407.99 463.51;
+                  M443.00 339.00 Q479.17 409.23 458.96 422.33 L407.00 456.00;
+                  M443.00 339.00 Q483.29 406.95 462.21 418.59 L407.99 448.49;
+                  M443.00 339.00 Q488.18 403.80 466.54 414.36 L410.89 441.50;
+                  M443.00 339.00 Q493.66 399.62 471.77 409.67 L415.49 435.49;
+                  M443.00 339.00 Q499.36 394.36 477.56 404.59 L421.50 430.89;
+                  M443.00 339.00 Q504.77 388.25 483.41 399.38 L428.49 427.99;
+                  M443.00 339.00 Q509.28 381.99 488.76 394.59 L436.00 427.00;
+                  M443.00 339.00 Q512.47 376.61 493.16 391.00 L443.51 427.99;
+                  M443.00 339.00 Q514.24 373.15 496.39 389.32 L450.50 430.89;
+                  M443.00 339.00 Q514.70 372.17 498.40 389.90 L456.51 435.49;
+                  M443.00 339.00 Q513.99 373.67 499.18 392.66 L461.11 441.50;
+                  M443.00 339.00 Q512.14 377.22 498.66 397.18 L464.01 448.49;
+                  M443.00 339.00 Q509.15 382.19 496.78 402.86 L465.00 456.00"/>
+      </path>
+    </g>
+    <g transform="translate(471.00 469.00)">
+      <animateTransform attributeName="transform" type="translate" dur="1.32s"
+        repeatCount="indefinite" values="471.00 469.00;
+                  470.01 476.51;
+                  467.11 483.50;
+                  462.51 489.51;
+                  456.50 494.11;
+                  449.51 497.01;
+                  442.00 498.00;
+                  434.49 497.01;
+                  427.50 494.11;
+                  421.49 489.51;
+                  416.89 483.50;
+                  413.99 476.51;
+                  413.00 469.00;
+                  413.99 461.49;
+                  416.89 454.50;
+                  421.49 448.49;
+                  427.50 443.89;
+                  434.49 440.99;
+                  442.00 440.00;
+                  449.51 440.99;
+                  456.50 443.89;
+                  462.51 448.49;
+                  467.11 454.50;
+                  470.01 461.49;
+                  471.00 469.00"/>
+      <path d="M-10-15 Q-5-19-2-13 Q3-10 11-10 Q18-9 20-5
+        L16-3 20-1 Q14 0 8-2 Q0 1-7-2 L-11-6Z" fill="#f2a257"
+        stroke="#98513d" stroke-width="2.3" stroke-linejoin="round"/>
+      <path d="M1-7 Q8-7 15-4 M2-4Q9-3 14-2" fill="none" stroke="#ca7246"
+        stroke-width="1.4" stroke-linecap="round"/>
+    </g>
+
+    <g id="near-crank" transform="translate(442 469)">
+      <circle r="22" fill="#e3c39d" stroke="#3b5152" stroke-width="2.6"/>
+      <g>
+        <animateTransform attributeName="transform" type="rotate" from="0" to="360"
+          dur="1.32s" repeatCount="indefinite"/>
+        <path d="M0-15 5-6 14-7 9 2 14 10 4 10 0 16-5 7-14 8-9-2-14-10-4-9Z"
+          fill="#708480" stroke="#415555" stroke-width="1.7"/>
+        <path d="M0 0H29" stroke="#3d5356" stroke-width="7.8" stroke-linecap="round"/>
+        <path d="M2-1H27" stroke="#edddba" stroke-width="3.1" stroke-linecap="round"/>
+        <g transform="translate(29)">
+          <g>
+            <animateTransform attributeName="transform" type="rotate" from="0" to="-360"
+              dur="1.32s" repeatCount="indefinite"/>
+            <path d="M-12 0H15" stroke="#2d4448" stroke-width="5.4" stroke-linecap="round"/>
+            <path d="M-7 0H7" stroke="#dda367" stroke-width="1.6" stroke-linecap="round"/>
+          </g>
+        </g>
+      </g>
+      <circle r="4.5" fill="#f0d5a9" stroke="#3d5356" stroke-width="1.7"/>
+    </g>
+
+    <g id="wing" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M393 310Q407 286 439 281Q458 277 478 288
+        Q505 302 531 311Q552 319 574 307Q586 300 597 305Q603 308 602 314
+        Q600 320 591 322L568 333Q547 343 521 333L476 319Q461 336 435 342
+        Q404 349 380 333L388 329 376 324Z"
+        fill="#e0e5d9" stroke="#405556" stroke-width="3.3"/>
+      <path d="M410 326Q447 327 473 306Q500 318 524 326
+        Q545 335 564 328Q546 342 521 333L476 319Q461 336 435 342
+        Q404 349 380 333L388 329 376 324L391 318Z" fill="#617979"/>
+      <path d="M395 325Q416 333 439 327M392 333Q413 341 433 336
+        M455 319Q465 315 474 307L510 320M548 327Q567 325 583 314"
+        fill="none" stroke="#a7b9ac" stroke-width="2"/>
+      <path d="M409 304Q444 281 473 295Q511 315 535 320" fill="none"
+        stroke="#f5f3e4" stroke-width="3"/>
+      <path d="M587 306q10 0 10 8m-16-6q8 2 9 9" fill="none" stroke="#778e87" stroke-width="1.8"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,48 @@
+{
+  "ok": true,
+  "error": null,
+  "started": "2026-11-20T12:30:49+00:00",
+  "duration_s": 532.3,
+  "command": [
+    "zcode",
+    "--prompt",
+    "<prompt>",
+    "--cwd",
+    "/tmp/vellery-un7cbedn/work",
+    "--mode",
+    "yolo",
+    "--disallowed-tools",
+    "WebSearch WebFetch Browser AskUserQuestion EnterPlanMode ExitPlanMode",
+    "--output-format",
+    "json",
+    "--no-color"
+  ],
+  "jailed": true,
+  "served_models": null,
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 7,
+    "inputTokens": 206203,
+    "outputTokens": 27782,
+    "totalTokens": 233985,
+    "cacheReadTokens": 171840,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 22859,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "est_cost_usd": 0.024201,
+  "est_cost": {
+    "glm-5.3-flash": {
+      "input_tokens": 34363,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 171840,
+      "output_tokens": 27782,
+      "usd": 0.024201
+    }
+  },
+  "cli_reported_cost_usd": null,
+  "files": [
+    "pelican.svg"
+  ]
+}

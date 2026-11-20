@@ -1,0 +1,27 @@
+{
+  "ok": false,
+  "error": "timed out after 900s",
+  "started": "2026-11-20T12:29:23+00:00",
+  "duration_s": 900.1,
+  "command": [
+    "zcode",
+    "--prompt",
+    "<prompt>",
+    "--cwd",
+    "/tmp/vellery-5vlsk__w/work",
+    "--mode",
+    "yolo",
+    "--disallowed-tools",
+    "WebSearch WebFetch Browser AskUserQuestion EnterPlanMode ExitPlanMode",
+    "--output-format",
+    "json",
+    "--no-color"
+  ],
+  "jailed": true,
+  "served_models": null,
+  "usage": null,
+  "est_cost_usd": null,
+  "est_cost": null,
+  "cli_reported_cost_usd": null,
+  "files": []
+}

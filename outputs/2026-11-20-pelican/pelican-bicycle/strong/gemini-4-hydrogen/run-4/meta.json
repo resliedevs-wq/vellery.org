@@ -1,0 +1,13 @@
+{
+  "task": "pelican-bicycle",
+  "variant": "strong",
+  "model": "gemini-4-hydrogen",
+  "label": "Gemini 4 Hydrogen",
+  "harness": "agy",
+  "effort": "high",
+  "run": 4,
+  "ok": true,
+  "attempts": 1,
+  "est_cost_usd": 0.520019,
+  "est_cost_usd_all_attempts": 0.520019
+}

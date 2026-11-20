@@ -1,0 +1,1 @@
+[Open the animated pelican.svg](/tmp/vellery-fnq4e6nj/work/pelican.svg). The pelican sits on the saddle and pedals with its webbed feet as the cranks and both wheels turn in a continuous loop.

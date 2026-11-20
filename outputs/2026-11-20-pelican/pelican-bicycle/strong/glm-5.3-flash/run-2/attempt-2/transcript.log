@@ -1,0 +1,39 @@
+{
+  "sessionId": "sess_6c438958-f34b-4fbe-90ed-7080e2420707",
+  "traceId": "e361c88c-19f8-4583-9adb-bf1c04992205",
+  "turnId": "turn_88d4cea6-96b3-4d75-8af7-f414e2a52bcc",
+  "response": "The corner artifact is fixed and the webbed foot now sits on the pedal. The animation is complete — saved as **`pelican.svg`** (13 KB, pure SVG/SMIL, no JavaScript — just open it in any browser).\n\n**What's animated:**\n- **Cranks** — both pedal arms rotate around the bottom bracket (360° every 2.4 s), far arm behind the frame, near arm in front\n- **Legs pedaling** — thighs and shins are keyframed through 8 IK-computed poses, so the knees bend naturally and the webbed feet stay locked on the pedals through the whole stroke (verified against a mid-stroke render)\n- **Wheels** — both wheels spin (1.3 s/rev), speed-matched to the road markings scrolling beneath them\n- **Chain** — dashed stroke flows along the chain runs; speed lines and road dashes stream past for a sense of motion\n\n**Extra life:** the pelican sits properly on the saddle with a gentle body bob synced to the cadence, a bobbing head, a wiggling tail, a flapping wing-arm gripping the handlebar, a blinking eye — plus a little teal helmet, pouch beak, clouds, and sun.\n\nNote: the static PNG previews above show only the resting pose; in a browser the whole scene cycles continuously and seamlessly.",
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 12,
+    "inputTokens": 429018,
+    "outputTokens": 34120,
+    "totalTokens": 463138,
+    "cacheReadTokens": 384448,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 25804,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "eventCount": 26602,
+  "projection": {
+    "status": "idle",
+    "turnCount": 1,
+    "totalTokenCount": 463138,
+    "contextUsed": 44625,
+    "contextWindow": 200000
+  }
+}
+
+--- stderr ---
+ZCode Built-in 刷新失败: ZCode Built-in client-config: invalid response
+ZCode Built-in skipped (not-due)
+ZCode Built-in 刷新失败: ZCode Built-in client-config: invalid response
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in 刷新失败: ZCode Built-in client-config: invalid response
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in 刷新失败: ZCode Built-in client-config: invalid response
