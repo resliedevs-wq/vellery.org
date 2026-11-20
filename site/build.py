@@ -7,7 +7,8 @@ Reads tasks/, outputs/ and grading/kitchen/ and writes:
   items.json                 the drawings visitors can rate (the Worker only accepts these)
 
 Scripted tasks (email, spreadsheet) show one row per model with the vague and
-specific prompt side by side. Drawings stay under blind ids until a visitor
+specific prompt side by side. Puzzles show each model's chances and whether
+it found the answer. Drawings stay under blind ids until a visitor
 asks to reveal them; the Worker holds the model mapping.
 
 Usage: python3 site/build.py
@@ -27,14 +28,14 @@ import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "runner"))
-from grade import EMAIL_FACTS, extract_csv, pair_rows, parse_amount, parse_date, sheet_rows  # noqa: E402
+from grade import EMAIL_FACTS, extract_csv, grade_answer, pair_rows, parse_amount, parse_date, sheet_rows  # noqa: E402
 
 OUTPUTS = ROOT / "outputs"
 TASKS = ROOT / "tasks"
 KITCHEN = ROOT / "grading" / "kitchen"
 DIST = ROOT / "dist"
 REPO = "https://github.com/resliedevs-wq/vellery.org"
-ORDER = ["shorten-email", "clean-spreadsheet", "kitchen-illustration", "pelican-bicycle"]
+ORDER = ["shorten-email", "clean-spreadsheet", "kitchen-illustration", "pelican-bicycle", "night-sky-message"]
 VARIANTS = ("weak", "strong")
 VARIANT_LABEL = {"weak": "Vague prompt", "strong": "Specific prompt"}
 VARIANT_SHORT = {"weak": "Vague", "strong": "Specific"}
@@ -55,7 +56,10 @@ HOW = {
     "text": "Checked by script",
     "sheet": "Checked by script",
     "svg": "Rated blind by visitors",
+    "puzzle": "Checked by script",
 }
+SCRIPTED = ("text", "sheet")
+CHANCE = {1: "first", 2: "second"}
 
 
 def esc(s):
@@ -89,7 +93,7 @@ def page(title, body, scripts=(), description=""):
         f'<a href="{REPO}">GitHub</a></nav></div></header>'
         f"<main>{body}</main>"
         '<footer class="site"><div class="wrap foot">'
-        '<p><b>Vellery</b> is an independent record of how AI models handle everyday work. '
+        '<p><b>Vellery</b> is an independent record of how AI models handle real tasks. '
         'It is not affiliated with any model maker.</p>'
         f'<p>Every prompt, raw output and grading script is public on <a href="{REPO}">GitHub</a>.</p>'
         f"</div></footer>{tags}</body></html>"
@@ -532,6 +536,117 @@ def build_scripted(task, runs, models):
     return {}
 
 
+def puzzle_results(task, runs, models):
+    """Per model, in models.yaml order: its runs and the chance that solved it (None if none did)."""
+    out = []
+    for m in models:
+        mine = sorted((r for r in runs if r["model"] == m["id"]), key=lambda r: r["run"])
+        if mine:
+            won = next((r["run"] for r in mine if r["grade"] and r["grade"]["grade"] == "good"), None)
+            out.append((m, mine, won))
+    return out
+
+
+def mark_answer(text, answer):
+    words = [re.escape(w) for w in answer.split()]
+    pattern = re.compile(r"[\W_]*".join(words), re.I)
+    out, last = [], 0
+    for m in pattern.finditer(text):
+        out += [esc(text[last:m.start()]), f"<mark>{esc(m.group(0))}</mark>"]
+        last = m.end()
+    return "".join(out) + esc(text[last:])
+
+
+def solution_figure(task, image):
+    stars = json.loads((task["dir"] / "stars.json").read_text())
+    marks = "".join(
+        f'<circle class="space" cx="{x}" cy="{y}" r="6"/>' if c == " " else
+        f'<g><circle cx="{x}" cy="{y}" r="7"/><text x="{x}" y="{y - 12}">{esc(c)}</text></g>'
+        for x, y, c in stars)
+    return (f'<figure class="solved"><img src="{image}" alt="">'
+            f'<svg viewBox="0 0 800 500" aria-hidden="true">{marks}</svg></figure>')
+
+
+def build_puzzle(task, runs, models):
+    slug = task["slug"]
+    variant = next(iter(task["prompts"]))
+    image = task["files"][0]
+    shutil.copy(task["dir"] / image, DIST / "tasks" / slug / image)
+    results = puzzle_results(task, runs, models)
+    chances = task["runs"]
+    by = {n: sum(1 for *_, won in results if won == n) for n in range(1, chances + 1)}
+    solved = sum(by.values())
+    missed = sum(1 for _, mine, won in results if not won and len(mine) == chances)
+    finished = solved + missed
+    detail, rows = {}, []
+    for order, (m, mine, won) in enumerate(results):
+        cells = []
+        for n in range(1, chances + 1):
+            r = next((r for r in mine if r["run"] == n), None)
+            if r is None:
+                why = "Not needed: solved on the first chance" if won and won < n else "Not run"
+                cells.append(f'<span class="cell skip" title="{why}">–</span>')
+                continue
+            grade = r["grade"]["grade"]
+            cost = r.get("est_cost_usd_all_attempts", r.get("est_cost_usd"))
+            verdict = "Found the message" if grade == "good" else "Missed it"
+            detail[r["item"]] = (
+                f'<div class="dhead"><div><p class="crumb">Chance {n} of {chances}</p>'
+                f'<h2>{esc(m["label"])}</h2>'
+                f'<p class="meta">Tested {r["tested"]}'
+                + (f" · {money(cost)} at API prices" if cost is not None else "")
+                + f' · <a href="{r["source"]}">Raw output</a></p></div>'
+                f'<div class="verdict {grade}"><b>{GLYPH[grade]} {verdict}</b></div></div>'
+                f'<div class="answerwrap"><p class="label">The model’s answer</p>'
+                f'<pre class="doc answer">{mark_answer(re.sub(r"\*\*|__|`", "", r["response"]).strip(), task["answer"])}</pre></div>')
+            cells.append(
+                f'<button class="cell {grade}" data-id="{r["item"]}" title="Chance {n}: {verdict.lower()}" '
+                f'aria-label="{esc(m["label"])}, chance {n}: {verdict.lower()}"><span class="g">{GLYPH[grade]}</span></button>')
+        outcome = (f'<b class="good">Solved on the {CHANCE.get(won, f"#{won}")} chance</b>' if won
+                   else f'<b class="slop">Not solved</b>' if len(mine) == chances
+                   else '<b class="muted">Still running</b>')
+        costs = [r.get("est_cost_usd_all_attempts", r.get("est_cost_usd")) for r in mine]
+        cost = None if None in costs else sum(costs)
+        rows.append((won or 99, order,
+            f'<div class="prow"><div class="rmodel"><b>{esc(m["label"])}</b><span>{tested(mine)}</span></div>'
+            f'<div class="cells two">{"".join(cells)}</div><div class="pout">{outcome}</div>'
+            f'<div class="rcost">{money(cost)}</div></div>'))
+    rows.sort(key=lambda r: r[:2])
+    table = ('<div class="results" id="results"><div class="prow rhead"><div>Model</div>'
+             + "".join(f'<div class="ch">Chance {n}</div>' for n in range(1, chances + 1)).join(['<div class="cells two">', "</div>"])
+             + '<div>Outcome</div><div class="rcost" title="Estimated API cost of all chances">Cost</div></div>'
+             + "".join(r[2] for r in rows) + "</div>")
+    breakdown_ = "".join(
+        f'<li class="{g}"><b>{n}</b> {label}</li>' for g, label, n in (
+            ("good", "on the first chance", by.get(1, 0)), ("fix", "on the second", sum(v for k, v in by.items() if k > 1)),
+            ("slop", "not solved", missed)))
+    card = (
+        '<article class="pcard strong puzzle">'
+        '<header><span class="ptag">The prompt</span></header>'
+        f'<pre class="ptext">{esc(prompt_text(task, variant))}</pre>'
+        f'<div class="presult"><div class="big"><b>{solved}<small>/{finished}</small></b><span>models found the message</span></div>'
+        f'<ul class="breakdown">{breakdown_}</ul></div>'
+        f'<div class="rubric"><b>Counts as solved:</b> the answer contains the hidden sentence. '
+        f'Each model gets {chances} chances in fresh sessions; the second only if the first misses.</div>'
+        "</article>")
+    spoiler = (
+        '<details class="spoiler"><summary><span>Show the answer</span><span class="muted">Try it yourself first</span></summary>'
+        f'<div class="spoilbody"><p class="sentence">“{esc(task["answer"].capitalize())}.”</p>'
+        f'<p>{esc(" ".join(task["solution"].split()))}</p>{solution_figure(task, image)}</div></details>')
+    body = (
+        task_head(task)
+        + '<section class="wrap block"><h2 class="sec">The puzzle</h2><div class="puzzle-top">'
+        f'<figure class="pimage"><img src="{image}" alt="A moonlit lake under a starry sky with an aurora">'
+        f'<figcaption><span class="fname">{esc(image)}</span> · given to the model as a file · '
+        f'<a href="{esc(image)}" download>Download</a></figcaption></figure>{card}</div>{spoiler}</section>'
+        + '<section class="wrap block"><h2 class="sec">Every model</h2>'
+        + '<p class="hint">Select a chance to read the model’s full answer.</p>' + table + "</section>")
+    data = {"slug": slug, "mode": "scripted", "detail": detail}
+    body += f'<script id="data" type="application/json">{blob(data)}</script>'
+    write(f"tasks/{slug}/index.html", page(task["title"], body, ["task.js"], task.get("summary", "")))
+    return {}
+
+
 def build_gallery(task, items, models, can_reveal):
     slug = task["slug"]
     detail, votable = {}, {}
@@ -588,7 +703,8 @@ def build_gallery(task, items, models, can_reveal):
 # ---------- home ----------
 
 def home(tasks, models, all_runs, galleries):
-    scripted = [t for t in tasks if t["kind"] != "svg"]
+    scripted = [t for t in tasks if t["kind"] in SCRIPTED]
+    puzzles = [t for t in tasks if t["kind"] == "puzzle"]
     by_variant = {v: counts([r for r in all_runs if r["task"] in {t["slug"] for t in scripted}], v) for v in VARIANTS}
     share = {v: pct(by_variant[v]["good"], sum(by_variant[v].values())) for v in VARIANTS}
     total_runs = len(all_runs)
@@ -600,6 +716,15 @@ def home(tasks, models, all_runs, galleries):
             right = ('<div class="tside"><div class="thumbs">' + "".join(f'<img src="{i["srcs"][0]}" alt="" loading="lazy">' for i in thumbs)
                      + '</div><span class="cta">Rate the drawings →</span></div>')
             stat = f'{len(galleries.get(t["slug"], []))} drawings'
+        elif t["kind"] == "puzzle":
+            results = puzzle_results(t, runs, models)
+            results = [x for x in results if x[2] or len(x[1]) == t["runs"]]
+            won = sum(1 for *_, w in results if w)
+            dots = "".join(f'<i class="{"good" if w == 1 else "fix" if w else "slop"}" title="{esc(m["label"])}"></i>'
+                           for m, _, w in results)
+            right = (f'<div class="tside puz"><img src="/tasks/{t["slug"]}/{t["files"][0]}" alt="" loading="lazy">'
+                     f'<p class="pstat"><b>{won} of {len(results)}</b> models found it<span class="dots">{dots}</span></p></div>')
+            stat = f"{len(runs)} runs"
         else:
             bars = []
             for v in VARIANTS:
@@ -621,6 +746,20 @@ def home(tasks, models, all_runs, galleries):
         mine = [r for r in all_runs if r["model"] == m["id"] and r["task"] in {t["slug"] for t in scripted}]
         if not mine:
             continue
+        pz = []
+        for t in puzzles:
+            res = puzzle_results(t, [r for r in all_runs if r["task"] == t["slug"]], [m])
+            if not res:
+                pz.append('<td class="pz" title="Not run yet">–</td>')
+                continue
+            won = res[0][2]
+            if not won and len(res[0][1]) < t["runs"]:
+                pz.append('<td class="pz" title="Still running">…</td>')
+            elif not won:
+                pz.append(f'<td class="pz"><span class="slop" title="Not solved in {t["runs"]} chances">{GLYPH["slop"]}</span></td>')
+            else:
+                pz.append(f'<td class="pz"><span class="{"good" if won == 1 else "fix"}" title="Solved on chance {won}">'
+                          f'{GLYPH["good"]}{"" if won == 1 else f"<small>{won}</small>"}</span></td>')
         cells, total = [], 0
         for t in scripted:
             for v in VARIANTS:
@@ -632,10 +771,12 @@ def home(tasks, models, all_runs, galleries):
                 first = " first" if v == VARIANTS[0] and t is not scripted[0] else ""
                 cells.append(f'<td class="run{first}"><span class="dots" title="{good} of {len(sel)} usable">{dots}</span></td>')
         body.append((-total, order, f'<tr><th scope="row">{esc(m["label"])}</th>{"".join(cells)}'
-                                    f'<td class="num"><b>{total}</b>/{len(mine)}</td><td class="num">{money(avg_cost(mine))}</td></tr>'))
+                                    f'<td class="num"><b>{total}</b>/{len(mine)}</td><td class="num">{money(avg_cost(mine))}</td>{"".join(pz)}</tr>'))
     body.sort(key=lambda r: r[:2])
     table = (f'<div class="scroll"><table class="models"><thead><tr><th rowspan="2">Model</th>{head}'
-             '<th rowspan="2" class="num">Usable</th><th rowspan="2" class="num" title="Average estimated API cost per run">Cost/run</th></tr>'
+             '<th rowspan="2" class="num">Usable</th><th rowspan="2" class="num" title="Average estimated API cost per run">Cost/run</th>'
+             + "".join(f'<th rowspan="2" class="pzh" title="{esc(t["title"])}: ✓ first chance, ✓2 second chance">{esc(t["category"])}</th>' for t in puzzles)
+             + '</tr>'
              f'<tr class="subh">{sub}</tr></thead><tbody>{"".join(r[2] for r in body)}</tbody></table></div>')
     legend = '<div class="legend">' + "".join(
         f'<span class="{g}"><i>{GLYPH[g]}</i>{label}</span>' for g, label in GRADES.items()) + "</div>"
@@ -647,31 +788,34 @@ def home(tasks, models, all_runs, galleries):
         f'<p class="fnote">Across the {sum(sum(by_variant[v].values()) for v in VARIANTS)} runs of the script-checked tasks.</p>'
         "</div>")
     method = [
-        ("Same request, five times", "Each model gets each prompt five separate times, in a fresh session. "
-         "A model that gets it right once can still get it wrong the next time, so we show every try."),
+        ("Same request, many times", "Each model gets each everyday prompt five separate times, in a fresh session. "
+         "A model that gets it right once can still get it wrong the next time, so we show every try. "
+         "Puzzles get two chances; the second only if the first misses."),
         ("Vague versus specific", "Every task has a vague prompt, the way people often type, and a specific one "
          "that says what a good result needs. Both get the same input."),
-        ("Graded in the open", "Text and spreadsheets are checked by a script anyone can rerun. Drawings are rated "
-         "by visitors, blind, before the model is revealed."),
+        ("Graded in the open", "Text, spreadsheets and puzzle answers are checked by a script anyone can rerun. "
+         "Drawings are rated by visitors, blind, before the model is revealed."),
         ("Run like a real user would", "Each model runs through its maker’s own app or command-line tool with its default "
          "settings. Costs are estimated at each maker’s published API prices."),
     ]
     html_ = (
         '<section class="wrap hero">'
-        '<p class="kicker">An open record of AI at everyday work</p>'
+        '<p class="kicker">An open record of what AI models actually do</p>'
         '<h1>Ask the same thing twice. <em>Get a different answer.</em></h1>'
-        f'<p class="lede">We gave {len(models)} AI models the same everyday tasks, five times each: once with a vague '
-        f'prompt and once with a specific one. Here are all {total_runs} results, and how often they were actually usable.</p>'
+        f'<p class="lede">We give {len(models)} AI models the same tasks again and again, each time in a fresh session: '
+        f'everyday work with a vague and a specific prompt, drawings rated blind, and puzzles with one right answer. '
+        f'Here are all {total_runs} results.</p>'
         + finding + "</section>"
         + f'<section class="wrap block" id="tasks"><h2 class="sec">Tasks</h2><div class="tasks">{"".join(rows)}</div></section>'
         + '<section class="wrap block" id="models"><div class="sechead"><h2 class="sec">How each model did</h2>' + legend + "</div>"
-        + '<p class="hint">Script-checked tasks only, one dot per run. Drawing results stay off this table so ratings stay blind.</p>'
+        + '<p class="hint">Script-checked tasks only, one dot per run. In the puzzle column, ✓ means solved on the first chance, '
+        '✓2 on the second, ✕ missed both. Drawing results stay off this table so ratings stay blind.</p>'
         + table + "</section>"
         + '<section class="wrap block" id="method"><h2 class="sec">Method</h2><div class="method">'
         + "".join(f"<div><h3>{esc(h)}</h3><p>{esc(p)}</p></div>" for h, p in method)
         + "</div></section>"
     )
-    write("index.html", page("Vellery", html_, (), "How AI models handle everyday tasks, run five times each with a vague and a specific prompt."))
+    write("index.html", page("Vellery", html_, (), "How AI models handle the same tasks again and again: everyday work, blind-rated drawings and puzzles."))
 
 
 def main():
@@ -682,6 +826,11 @@ def main():
     all_runs = load_runs()
     published = {t["slug"] for t in tasks}
     all_runs = [r for r in all_runs if r["task"] in published]
+    # A puzzle's grade is one rule; apply it to runs grade.py hasn't reached yet.
+    by_slug = {t["slug"]: t for t in tasks}
+    for r in all_runs:
+        if r["grade"] is None and by_slug[r["task"]]["kind"] == "puzzle":
+            r["grade"] = grade_answer(by_slug[r["task"]], r["response"])
     gallery_slugs = {t["slug"] for t in tasks if t["kind"] == "svg" and t["slug"] != "kitchen-illustration"}
     # Preserve the original blind IDs, including their existing votes.
     original = {(k["batch"], k["variant"], k["model"], k["run"])
@@ -698,6 +847,8 @@ def main():
             items = kitchen_items() + drawing_items(new_kitchen) if slug == "kitchen-illustration" else drawing_items(runs)
             galleries[slug] = items
             known.update(build_gallery(task, items, models, can_reveal))
+        elif task["kind"] == "puzzle":
+            build_puzzle(task, runs, models)
         else:
             known.update(build_scripted(task, runs, models))
     write("items.json", json.dumps(known))

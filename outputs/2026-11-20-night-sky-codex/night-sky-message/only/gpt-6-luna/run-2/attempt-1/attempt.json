@@ -1,0 +1,57 @@
+{
+  "ok": true,
+  "error": null,
+  "started": "2026-11-20T07:06:48+00:00",
+  "duration_s": 155.5,
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "--sandbox",
+    "workspace-write",
+    "--disable",
+    "apps",
+    "--disable",
+    "plugins",
+    "--disable",
+    "image_generation",
+    "-c",
+    "skills.config=[{path=\"/root/.codex/skills/.system/imagegen/SKILL.md\",enabled=false}]",
+    "-c",
+    "web_search=\"disabled\"",
+    "--cd",
+    "/tmp/vellery-9478l0e1/work",
+    "--model",
+    "gpt-6-luna",
+    "-c",
+    "model_reasoning_effort=\"high\"",
+    "--json",
+    "--output-last-message",
+    "/tmp/vellery-9478l0e1/last-message.txt",
+    "<prompt>"
+  ],
+  "served_models": null,
+  "usage": {
+    "input_tokens": 349224,
+    "cached_input_tokens": 281472,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 5619,
+    "reasoning_output_tokens": 3165
+  },
+  "est_cost_usd": 0.012399,
+  "est_cost": {
+    "gpt-6-luna": {
+      "input_tokens": 67752,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 281472,
+      "output_tokens": 5619,
+      "usd": 0.012399
+    }
+  },
+  "cli_reported_cost_usd": null,
+  "files": [
+    "night-sky.png"
+  ]
+}

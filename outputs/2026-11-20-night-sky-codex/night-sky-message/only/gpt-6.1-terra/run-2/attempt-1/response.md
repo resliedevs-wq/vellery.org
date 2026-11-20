@@ -1,0 +1,1 @@
+I couldn’t reliably recover a message from [night-sky.png](/tmp/vellery-wstd5abh/work/night-sky.png). I checked its metadata, image layers and common least-significant-bit encodings, but none revealed readable text.

@@ -1,0 +1,9 @@
+{
+  "graded_by": "runner/grade.py",
+  "grade": "good",
+  "why": "",
+  "checks": {
+    "answer_found": true
+  },
+  "review": []
+}

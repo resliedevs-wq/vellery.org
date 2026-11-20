@@ -1,0 +1,1 @@
+I couldn’t reliably recover a hidden message from [night-sky.png](/tmp/vellery-ewoqudmf/work/night-sky.png). I checked its metadata, appended data, pixel bit planes, and enhanced versions of the image, but none revealed legible text.

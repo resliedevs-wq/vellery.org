@@ -1,0 +1,1 @@
+I couldn’t find a readable message in `night-sky.png`. It has no extra text chunks, and the usual pixel bit extractions didn’t produce text. If you know how the message was hidden, a clue about the encoding would help me decode it.

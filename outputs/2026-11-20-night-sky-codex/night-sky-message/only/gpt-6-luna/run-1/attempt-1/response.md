@@ -1,0 +1,1 @@
+I couldn’t recover a readable message from `night-sky.png`. It has no text metadata, and the basic pixel-channel checks didn’t reveal one.
