@@ -110,6 +110,8 @@
     let variant = new URLSearchParams(location.search).get("prompt") === "vague" ? "weak" : "strong";
     let votes = {};
     let meta = {};
+    // The site owner's rating is a drawing's verdict; see site/worker.js.
+    let isOwner = false;
     let ratingRun = false;
     let revealing = false;
     const pending = {};
@@ -118,12 +120,14 @@
     try {
       meta = JSON.parse(localStorage.getItem(exposureKey) || "{}");
       for (const [id, v] of Object.entries(JSON.parse(localStorage.getItem(cacheKey) || "{}"))) votes[id] = { ...v, mine: null };
+      isOwner = localStorage.getItem("vellery.owner") === "1";
     } catch {}
     const remember = () => {
       try {
         localStorage.setItem(exposureKey, JSON.stringify(meta));
         localStorage.setItem(cacheKey, JSON.stringify(Object.fromEntries(
-          Object.entries(votes).map(([id, v]) => [id, { up: v.up, down: v.down, basic: v.basic }]))));
+          Object.entries(votes).map(([id, v]) => [id, { up: v.up, down: v.down, basic: v.basic, owner: v.owner }]))));
+        localStorage.setItem("vellery.owner", isOwner ? "1" : "0");
       } catch {}
     };
 
@@ -135,15 +139,15 @@
     }
     shuffled.forEach((t) => grid.append(t));
 
-    const tally = (id) => votes[id] || { up: 0, down: 0, basic: 0, mine: null };
+    const tally = (id) => votes[id] || { up: 0, down: 0, basic: 0, mine: null, owner: null };
     const blind = (id) => !meta[id];
-    const mineOf = (id) => {
-      const m = tally(id).mine;
-      if (!m) return null;
-      return m.vote === 1 ? "good" : m.basic ? "slop" : "fix";
-    };
+    const gradeOf = (m) => (!m ? null : m.vote === 1 ? "good" : m.basic ? "slop" : "fix");
+    // An owner's rating from any of their browsers counts as theirs.
+    const mineOf = (id) => gradeOf(tally(id).mine || (isOwner ? tally(id).owner : null));
+    const canRate = (id) => blind(id) || isOwner;
     function verdict(id) {
       const v = tally(id);
+      if (v.owner) return gradeOf(v.owner);
       const total = v.up + v.down;
       if (total < rules.min) return null;
       if (v.up / total >= rules.green) return "good";
@@ -178,8 +182,8 @@
         }));
         const note = $(`[data-crowd-note="${v}"]`);
         if (note) note.textContent = graded
-          ? `${graded} of ${ids.length} drawings have enough ratings for a verdict`
-          : `${ids.length} drawings · no verdicts yet, each needs ${rules.min} ratings`;
+          ? `${graded} of ${ids.length} drawings rated`
+          : `${ids.length} drawings · none rated yet`;
       }
     }
 
@@ -232,7 +236,7 @@
       });
       const here = tiles.filter(inVariant);
       const blindHere = here.filter((t) => blind(t.dataset.id));
-      const rated = here.filter((t) => tally(t.dataset.id).mine).length;
+      const rated = here.filter((t) => mineOf(t.dataset.id)).length;
       blindBox.hidden = !blindHere.length;
       $(".count", blindBox).textContent = blindHere.length;
       const revealedHere = here.length - blindHere.length;
@@ -243,13 +247,13 @@
         row.hidden = !ts.length;
         const good = ts.filter((t) => verdict(t.dataset.id) === "good").length;
         const judged = ts.filter((t) => verdict(t.dataset.id)).length;
-        $(".mscore", row).textContent = judged ? `${good} of ${judged} rated usable` : "not enough ratings yet";
+        $(".mscore", row).textContent = judged ? `${good} of ${judged} rated usable` : "not rated yet";
       });
       $("#progress").textContent = rated
         ? `You’ve rated ${rated} of ${here.length}`
         : `${here.length} drawings, none rated by you yet`;
       $("#pbar").style.width = `${(100 * rated) / (here.length || 1)}%`;
-      const unratedBlind = blindHere.filter((t) => !tally(t.dataset.id).mine);
+      const unratedBlind = blindHere.filter((t) => !mineOf(t.dataset.id));
       const rate = $("#rate");
       rate.disabled = !unratedBlind.length;
       rate.textContent = !unratedBlind.length ? "All rated" : rated ? "Continue rating" : "Start rating";
@@ -292,16 +296,17 @@
       $("h2", side).textContent = who ? who.label : "Who drew this?";
       $(".whohint", side).textContent = who ? `Run ${who.run} of 5` : "Rate it first. The model stays hidden until you reveal it.";
       const rate = $(".rate", side);
-      if (who) {
+      if (who && !isOwner) {
         const v = tally(id);
         const g = verdict(id);
         const fix = v.down - v.basic;
         rate.replaceChildren();
         const box = el("div", "crowd");
         box.append(
-          el("p", "label", "Visitor ratings"),
-          el("p", `crowdverdict ${g || ""}`, g ? data.grades[g] : `Not enough ratings yet (needs ${rules.min})`),
+          el("p", "label", v.owner ? "Vellery’s rating" : "Visitor ratings"),
+          el("p", `crowdverdict ${g || ""}`, g ? data.grades[g] : "Not rated yet"),
         );
+        if (v.owner) box.append(el("p", "label", "Visitor ratings"));
         const ul = el("ul", "breakdown");
         [["good", v.up], ["fix", fix], ["slop", v.basic]].forEach(([k, n]) => {
           const li = el("li", k);
@@ -325,7 +330,8 @@
         if (focused) $(`[data-g="${focused}"]`, rate)?.focus({ preventScroll: true });
       }
       const status = $(".status", side);
-      status.textContent = failed[id] ? "Couldn’t save that rating. Try again." : pending[id] ? "Saving…" : mine && !who ? "Saved" : "";
+      status.textContent = failed[id] ? "Couldn’t save that rating. Try again." : pending[id] ? "Saving…"
+        : mine && canRate(id) ? (isOwner ? "Saved as Vellery’s rating" : "Saved") : "";
       status.classList.toggle("err", !!failed[id]);
       const after = $(".after", side);
       after.replaceChildren();
@@ -349,14 +355,14 @@
       const start = Math.max(0, list.indexOf(from));
       for (let k = 1; k <= list.length; k++) {
         const id = list[(start + k) % list.length];
-        if (id !== from && !tally(id).mine && blind(id)) return id;
+        if (id !== from && !mineOf(id) && blind(id)) return id;
       }
       return null;
     }
 
     keyHandlers.push((e) => {
       const n = ["1", "2", "3"].indexOf(e.key);
-      if (n < 0 || !blind(current)) return false;
+      if (n < 0 || !canRate(current)) return false;
       e.preventDefault();
       if (e.repeat) return true;
       const [g, , , next] = OPTIONS[n];
@@ -366,7 +372,9 @@
 
     // ----- votes -----
     function applyLocal(v, next) {
-      const out = { up: v.up, down: v.down, basic: v.basic, mine: next };
+      // Owner votes stay out of the visitor tallies.
+      if (isOwner) return { ...v, mine: next, owner: next };
+      const out = { ...v, mine: next };
       if (v.mine) {
         if (v.mine.vote === 1) out.up--;
         else { out.down--; if (v.mine.basic) out.basic--; }
@@ -381,8 +389,8 @@
     // The page updates at once; writes for one drawing go out in order, and a
     // failed save puts the last confirmed state back.
     async function vote(id, next) {
-      if (!blind(id)) return;
-      const wasUnrated = !tally(id).mine;
+      if (!canRate(id)) return;
+      const wasUnrated = !mineOf(id);
       const before = tally(id);
       votes[id] = applyLocal(before, next);
       delete failed[id];
@@ -422,8 +430,8 @@
 
     async function reveal(ids) {
       if (revealing || !ids.length || ids.some((id) => pending[id])) return;
-      const unrated = ids.filter((id) => !tally(id).mine).length;
-      if (unrated) {
+      const unrated = ids.filter((id) => !mineOf(id)).length;
+      if (unrated && !isOwner) {
         const what = ids.length === 1 ? "You haven’t rated this drawing. Revealing its model ends rating for it."
           : `You haven’t rated ${unrated} of these ${ids.length} drawings. Revealing their models ends rating for them.`;
         if (!window.confirm(`${what} Reveal anyway?`)) return;
@@ -454,7 +462,8 @@
       try {
         const res = await fetch(`/api/votes?task=${encodeURIComponent(data.slug)}`);
         if (res.ok) {
-          const received = await res.json();
+          const { items: received, owner } = await res.json();
+          isOwner = owner;
           for (const id of Object.keys(pending)) received[id] = votes[id];
           votes = received;
           for (const [id, v] of Object.entries(votes)) if (v.revealed) meta[id] = v.revealed;
@@ -478,7 +487,7 @@
       render();
     }));
     $("#rate").onclick = () => {
-      const first = $$(".shot", grid).find((t) => !t.hidden && !tally(t.dataset.id).mine);
+      const first = $$(".shot", grid).find((t) => !t.hidden && !mineOf(t.dataset.id));
       if (!first) return;
       ratingRun = true;
       openViewer(visibleOrder(), first.dataset.id);

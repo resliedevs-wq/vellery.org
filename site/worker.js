@@ -2,6 +2,12 @@
 // an HttpOnly cookie; a session is one voter. New sessions are capped per
 // network per hour and votes per session per hour, which keeps casual ballot
 // stuffing out without asking anyone to sign up.
+//
+// The site owner's sessions are listed in `owners`. Their latest rating of a
+// drawing is its verdict; visitor tallies leave owner votes out and only
+// decide drawings the owner hasn't rated. A browser becomes an owner session
+// by posting OWNER_KEY (a Worker secret) to /api/owner. Owners can still
+// change a rating after revealing the model.
 
 import REVEAL from "./reveal.generated.js";
 
@@ -26,6 +32,7 @@ function setup(env) {
     env.DB.prepare("CREATE TABLE IF NOT EXISTS drawing_reveals (voter TEXT NOT NULL, item TEXT NOT NULL, PRIMARY KEY(voter,item))"),
     env.DB.prepare("CREATE TABLE IF NOT EXISTS sessions (token TEXT PRIMARY KEY, at TEXT NOT NULL)"),
     env.DB.prepare("CREATE TABLE IF NOT EXISTS session_starts (origin TEXT NOT NULL, at TEXT NOT NULL)"),
+    env.DB.prepare("CREATE TABLE IF NOT EXISTS owners (voter TEXT PRIMARY KEY, at TEXT NOT NULL)"),
     env.DB.prepare(
       "CREATE TABLE IF NOT EXISTS votes (item TEXT NOT NULL, voter TEXT NOT NULL, vote INTEGER NOT NULL CHECK (vote IN (1, -1)), basic INTEGER NOT NULL DEFAULT 0, at TEXT NOT NULL, PRIMARY KEY (item, voter))",
     ),
@@ -48,6 +55,18 @@ async function sessionOf(request, env) {
   if (!m || !TOKEN.test(m[1])) return null;
   const row = await env.DB.prepare("SELECT token FROM sessions WHERE token = ?").bind(m[1]).first();
   return row ? m[1] : null;
+}
+
+const isOwner = async (env, voter) =>
+  !!voter && !!(await env.DB.prepare("SELECT 1 FROM owners WHERE voter = ?").bind(voter).first());
+
+async function same(a, b) {
+  const enc = new TextEncoder();
+  const [x, y] = await Promise.all([a, b].map((s) => crypto.subtle.digest("SHA-256", enc.encode(s))));
+  const u = new Uint8Array(x), v = new Uint8Array(y);
+  let diff = 0;
+  for (let i = 0; i < u.length; i++) diff |= u[i] ^ v[i];
+  return diff === 0;
 }
 
 const hex = (bytes) => [...bytes].map((b) => b.toString(16).padStart(2, "0")).join("");
@@ -86,18 +105,21 @@ async function readJson(request) {
   }
 }
 
-function fold(rows, mine) {
+const EMPTY = () => ({ up: 0, down: 0, basic: 0, mine: null, owner: null });
+
+// rows: visitor tallies; mine: this voter's votes; owned: owner votes, oldest first.
+function fold(rows, mine, owned) {
   const out = {};
-  for (const r of rows) out[r.item] = { up: r.up, down: r.down, basic: r.basic, mine: null };
-  for (const r of mine) {
-    out[r.item] ??= { up: 0, down: 0, basic: 0, mine: null };
-    out[r.item].mine = { vote: r.vote, basic: !!r.basic };
-  }
+  for (const r of rows) out[r.item] = { ...EMPTY(), up: r.up, down: r.down, basic: r.basic };
+  for (const r of mine) (out[r.item] ??= EMPTY()).mine = { vote: r.vote, basic: !!r.basic };
+  for (const r of owned) (out[r.item] ??= EMPTY()).owner = { vote: r.vote, basic: !!r.basic };
   return out;
 }
 
+const VISITORS = "voter NOT IN (SELECT voter FROM owners)";
 const TALLY =
-  "SELECT item, COALESCE(SUM(vote = 1), 0) AS up, COALESCE(SUM(vote = -1), 0) AS down, COALESCE(SUM(basic), 0) AS basic FROM votes";
+  `SELECT item, COALESCE(SUM(vote = 1), 0) AS up, COALESCE(SUM(vote = -1), 0) AS down, COALESCE(SUM(basic), 0) AS basic FROM votes WHERE ${VISITORS}`;
+const OWNED = "SELECT item, vote, basic FROM votes WHERE voter IN (SELECT voter FROM owners)";
 
 export default {
   async fetch(request, env) {
@@ -122,7 +144,13 @@ export default {
 
       // Check exposure in the mutation so an overlapping reveal cannot let a
       // late vote through. Revealing a drawing preserves any earlier vote.
-      const blind = "NOT EXISTS (SELECT 1 FROM drawing_reveals WHERE voter = ? AND item = ?)";
+      // An owner's rating is the verdict, not a blind sample, so it stays open,
+      // and it replaces whatever another owner session said about the item.
+      const owner = await isOwner(env, voter);
+      if (owner) await env.DB.prepare(
+        "DELETE FROM votes WHERE item = ? AND voter <> ? AND voter IN (SELECT voter FROM owners)",
+      ).bind(item, voter).run();
+      const blind = owner ? "(1 OR ? OR ?)" : "NOT EXISTS (SELECT 1 FROM drawing_reveals WHERE voter = ? AND item = ?)";
       const changed = vote === 0
         ? await env.DB.prepare(`DELETE FROM votes WHERE item = ? AND voter = ? AND ${blind}`)
             .bind(item, voter, voter, item).run()
@@ -130,14 +158,15 @@ export default {
             `INSERT INTO votes (item, voter, vote, basic, at) SELECT ?, ?, ?, ?, datetime('now') WHERE ${blind}
              ON CONFLICT (item, voter) DO UPDATE SET vote = excluded.vote, basic = excluded.basic, at = excluded.at`,
           ).bind(item, voter, vote, basic ? 1 : 0, voter, item).run();
-      if (!changed.meta.changes && REVEAL[item] && await env.DB.prepare(
+      if (!owner && !changed.meta.changes && REVEAL[item] && await env.DB.prepare(
         "SELECT 1 FROM drawing_reveals WHERE voter = ? AND item = ?",
       ).bind(voter, item).first()) return json({error: "model already revealed"}, 409, headers);
 
-      const { results } = await env.DB.prepare(`${TALLY} WHERE item = ? GROUP BY item`).bind(item).all();
+      const { results } = await env.DB.prepare(`${TALLY} AND item = ? GROUP BY item`).bind(item).all();
       const { results: mine } = await env.DB.prepare("SELECT item, vote, basic FROM votes WHERE item = ? AND voter = ?")
         .bind(item, voter).all();
-      return json(fold(results, mine)[item] ?? { up: 0, down: 0, basic: 0, mine: null }, 200, headers);
+      const { results: owned } = await env.DB.prepare(`${OWNED} AND item = ? ORDER BY at`).bind(item).all();
+      return json(fold(results, mine, owned)[item] ?? EMPTY(), 200, headers);
     }
 
     // Which model made each blind drawing. Only the Worker holds this; pages never contain it.
@@ -159,21 +188,33 @@ export default {
       if (!PREFIX.test(task)) return json({ error: "bad task" }, 400);
       const like = `${task}.%`;
       const voter = await sessionOf(request, env);
-      const { results } = await env.DB.prepare(`${TALLY} WHERE item LIKE ? GROUP BY item`).bind(like).all();
+      const { results } = await env.DB.prepare(`${TALLY} AND item LIKE ? GROUP BY item`).bind(like).all();
       const { results: mine } = voter
         ? await env.DB.prepare("SELECT item, vote, basic FROM votes WHERE voter = ? AND item LIKE ?").bind(voter, like).all()
         : { results: [] };
-      const tallies = fold(results, mine);
+      const { results: owned } = await env.DB.prepare(`${OWNED} AND item LIKE ? ORDER BY at`).bind(like).all();
+      const tallies = fold(results, mine, owned);
       if (voter) {
         const {results: seen} = await env.DB.prepare(
           "SELECT item FROM drawing_reveals WHERE voter = ? AND item LIKE ?",
         ).bind(voter, like).all();
-        for (const {item} of seen) {
-          tallies[item] ??= {up: 0, down: 0, basic: 0, mine: null};
-          tallies[item].revealed = REVEAL[item];
-        }
+        for (const {item} of seen) (tallies[item] ??= EMPTY()).revealed = REVEAL[item];
       }
-      return json(tallies);
+      const owner = await isOwner(env, voter);
+      // Keep an owner's browser recognised.
+      return json({ items: tallies, owner }, 200, owner ? { "set-cookie": cookie(voter, url, YEAR) } : {});
+    }
+
+    // Marks this browser's session as the site owner's.
+    if (path === "/api/owner" && request.method === "POST") {
+      const { key } = (await readJson(request)) ?? {};
+      if (!env.OWNER_KEY || typeof key !== "string" || !(await same(key, env.OWNER_KEY))) {
+        return json({ error: "wrong key" }, 403);
+      }
+      const { voter, headers } = await ensureSession(request, env, url);
+      if (!voter) return json({ error: "try again later" }, 429);
+      await env.DB.prepare("INSERT OR IGNORE INTO owners (voter, at) VALUES (?, datetime('now'))").bind(voter).run();
+      return json({ owner: true }, 200, { ...headers, "set-cookie": cookie(voter, url, YEAR) });
     }
 
     return json({ error: "not found" }, 404);

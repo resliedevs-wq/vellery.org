@@ -3,3 +3,4 @@ dist/
 node_modules/
 .wrangler/
 site/reveal.generated.js
+.dev.vars

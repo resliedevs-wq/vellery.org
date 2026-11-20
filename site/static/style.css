@@ -402,3 +402,5 @@ table.models td.pz .slop{background:var(--slop-bg);color:var(--slop)}
 }
 .solved circle.space{stroke:rgba(255,255,255,.45);stroke-dasharray:2 2}
 .solved{max-width:820px}
+.ownerform{display:flex;gap:10px;max-width:460px;margin-top:8px}
+.ownerform input{flex:1;padding:10px 12px;border:1px solid var(--line-2);border-radius:8px;font:inherit;background:var(--bg);color:var(--ink)}

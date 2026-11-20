@@ -49,13 +49,14 @@ PROBLEMS = {
     "wrong_date": "date wrong", "wrong_amount": "amount changed", "wrong_category": "category wrong",
     "unconverted_date": "date not converted", "format": "formatting", "extra_or_renamed": "extra or renamed row",
 }
-# Drawings take their verdict from visitor ratings once enough have come in.
+# A drawing the owner hasn't rated takes its verdict from visitor ratings once
+# enough have come in; the owner's rating always wins (site/worker.js).
 RULES = {"min": 3, "green": 0.8, "red": 0.3}
 REVEAL_MODULE = ROOT / "site" / "reveal.generated.js"
 HOW = {
     "text": "Checked by script",
     "sheet": "Checked by script",
-    "svg": "Rated blind by visitors",
+    "svg": "Rated blind",
     "puzzle": "Checked by script",
 }
 SCRIPTED = ("text", "sheet")
@@ -657,7 +658,7 @@ def build_gallery(task, items, models, can_reveal):
     cards = []
     for v in VARIANTS:
         n = sum(1 for i in items if i["variant"] == v)
-        result = (f'<div class="big" data-crowd="{v}"><b>–</b><span>usable, by visitor ratings</span></div>'
+        result = (f'<div class="big" data-crowd="{v}"><b>–</b><span>usable, by rating</span></div>'
                   f'<div class="stack" data-crowd-stack="{v}"></div>'
                   f'<p class="crowdnote" data-crowd-note="{v}">{n} drawings</p>')
         cards.append(prompt_card(task, v, result))
@@ -687,7 +688,8 @@ def build_gallery(task, items, models, can_reveal):
         '<div id="blind"><h3 class="sub">Unrevealed <span class="count"></span></h3>'
         f'<div class="grid" id="grid">{"".join(tiles)}</div></div>'
         '<div id="revealed" hidden><h3 class="sub">Revealed, by model <span class="count"></span></h3>'
-        '<p class="hint">Borders show the visitor verdict once a drawing has at least three ratings.</p>'
+        '<p class="hint">Borders show each drawing’s verdict: Vellery’s own rating, or, where Vellery hasn’t rated it, '
+        'the visitor verdict once it has at least three ratings.</p>'
         '<div id="byModel"></div></div>')
     body = (
         task_head(task, '<span class="muted">Model names stay hidden until you reveal them.</span>')
@@ -798,7 +800,8 @@ def home(tasks, models, all_runs, galleries):
         ("Vague versus specific", "Every task has a vague prompt, the way people often type, and a specific one "
          "that says what a good result needs. Both get the same input."),
         ("Graded in the open", "Text, spreadsheets and puzzle answers are checked by a script anyone can rerun. "
-         "Drawings are rated by visitors, blind, before the model is revealed."),
+         "Drawings are rated blind, before the model is revealed. Vellery’s own rating sets the verdict; "
+         "visitors can add theirs."),
         ("Run like a real user would", "Each model runs through its maker’s own app or command-line tool with its default "
          "settings. Costs are estimated at each maker’s published API prices."),
     ]
@@ -820,6 +823,25 @@ def home(tasks, models, all_runs, galleries):
         + "</div></section>"
     )
     write("index.html", page("Vellery", html_, (), "How AI models handle the same tasks again and again: everyday work, blind-rated drawings and puzzles."))
+
+
+def owner_page():
+    """A page where the site owner enters OWNER_KEY once per browser. Not linked anywhere."""
+    body = (
+        '<section class="wrap taskhead"><h1>Owner sign-in</h1>'
+        '<p class="lede">Enter the owner key to make this browser’s drawing ratings the site’s verdicts.</p>'
+        '<form id="ownerform" class="ownerform"><input type="password" name="key" autocomplete="current-password" '
+        'placeholder="Owner key" required aria-label="Owner key"><button class="btn primary">Sign in</button></form>'
+        '<p class="hint" id="ownerstatus" aria-live="polite"></p></section>'
+        "<script>document.getElementById('ownerform').onsubmit=async(e)=>{e.preventDefault();"
+        "const s=document.getElementById('ownerstatus');s.textContent='Checking…';"
+        "const r=await fetch('/api/owner',{method:'POST',headers:{'content-type':'application/json'},"
+        "body:JSON.stringify({key:e.target.key.value})}).catch(()=>null);"
+        "if(r&&r.ok){localStorage.setItem('vellery.owner','1');e.target.reset();"
+        "s.textContent='Done. Your ratings on this browser now set each drawing’s verdict.';}"
+        "else s.textContent=r&&r.status===403?'That key is wrong.':'Something went wrong. Try again.';};</script>")
+    html_ = page("Owner sign-in", body).replace("<head>", '<head><meta name="robots" content="noindex">', 1)
+    write("owner/index.html", html_)
 
 
 def main():
@@ -857,6 +879,7 @@ def main():
             known.update(build_scripted(task, runs, models))
     write("items.json", json.dumps(known))
     home(tasks, models, all_runs, galleries)
+    owner_page()
     print(f"{len(tasks)} tasks, {len(known)} votable outputs -> {DIST.relative_to(ROOT)}")
 
 
