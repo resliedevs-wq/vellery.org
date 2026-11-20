@@ -629,7 +629,8 @@ def home(tasks, models, all_runs, galleries):
                 total += good
                 dots = "".join(f'<i class="{r["grade"]["grade"] if r["grade"] else ""}"></i>'
                                for r in sorted(sel, key=lambda r: r["run"]))
-                cells.append(f'<td><span class="dots" title="{good} of {len(sel)} usable">{dots}</span></td>')
+                first = " first" if v == VARIANTS[0] and t is not scripted[0] else ""
+                cells.append(f'<td class="run{first}"><span class="dots" title="{good} of {len(sel)} usable">{dots}</span></td>')
         body.append((-total, order, f'<tr><th scope="row">{esc(m["label"])}</th>{"".join(cells)}'
                                     f'<td class="num"><b>{total}</b>/{len(mine)}</td><td class="num">{money(avg_cost(mine))}</td></tr>'))
     body.sort(key=lambda r: r[:2])
