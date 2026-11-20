@@ -29,8 +29,16 @@
     "cache_read_tokens": 230359,
     "total_tokens": 106341
   },
-  "est_cost_usd": null,
-  "est_cost": null,
+  "est_cost_usd": 0.818073,
+  "est_cost": {
+    "gemini-4-neon": {
+      "input_tokens": 67633,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 230359,
+      "output_tokens": 38708,
+      "usd": 0.818073
+    }
+  },
   "cli_reported_cost_usd": null,
   "files": [
     "cozy_kitchen_morning.svg"

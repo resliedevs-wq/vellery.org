@@ -40,8 +40,16 @@
     "output_tokens": 15293,
     "reasoning_output_tokens": 581
   },
-  "est_cost_usd": null,
-  "est_cost": null,
+  "est_cost_usd": 0.323121,
+  "est_cost": {
+    "gpt-6.2-sol": {
+      "input_tokens": 73902,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 223872,
+      "output_tokens": 15293,
+      "usd": 0.323121
+    }
+  },
   "cli_reported_cost_usd": null,
   "files": [
     "cozy-kitchen.png"

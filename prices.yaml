@@ -10,6 +10,9 @@ checked: 2026-10-29
 sources:
   anthropic: https://platform.claude.com/docs/en/about-claude/pricing
   openai: https://developers.openai.com/api/docs/pricing
+  deepseek: https://api-docs.deepseek.com/quick_start/pricing/
+  zai: https://docs.z.ai/guides/overview/pricing
+  google: https://ai.google.dev/gemini-api/docs/pricing
 
 models:
   claude-opus-5-5:
@@ -54,3 +57,15 @@ models:
     cache_write_12h: 0.25
     cache_read: 0.01
     output: 0.50
+
+  # Standard API rates checked 2026-11-20 (USD per million tokens).
+  gpt-6.2-astra: {input: 8, cache_write_30m: 10, cache_read: 0.40, output: 40}
+  gpt-6.2-sol: {input: 2, cache_write_30m: 2.50, cache_read: 0.10, output: 10}
+  # Peak schedule applied for the November 20 DeepSeek benchmark.
+  deepseek-flash: {input: 0.30, cache_read: 0.006, output: 1.20}
+  glm-5.3: {input: 1.40, cache_read: 0.26, output: 4.40}
+  glm-5.3-flash: {input: 0.15, cache_read: 0.03, output: 0.50}
+  gemini-4-neon: {input: 3, cache_read: 0.15, output: 15}
+  # Argon introductory rates through November 30.
+  gemini-4-argon: {input: 2, cache_read: 0.10, output: 10}
+  gemini-4-hydrogen: {input: 1.50, cache_read: 0.075, output: 7.50}

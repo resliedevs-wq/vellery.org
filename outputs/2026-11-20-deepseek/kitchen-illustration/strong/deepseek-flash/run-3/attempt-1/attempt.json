@@ -117,8 +117,16 @@
       "totalTokens": 46488
     }
   ],
-  "est_cost_usd": null,
-  "est_cost": null,
+  "est_cost_usd": 0.04928,
+  "est_cost": {
+    "deepseek-flash": {
+      "input_tokens": 10605,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 439680,
+      "output_tokens": 36217,
+      "usd": 0.04928
+    }
+  },
   "cli_reported_cost_usd": null,
   "files": [
     "kitchen.svg"

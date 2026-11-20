@@ -27,8 +27,16 @@
     "cache_read_tokens": 63698,
     "total_tokens": 45970
   },
-  "est_cost_usd": null,
-  "est_cost": null,
+  "est_cost_usd": 0.199406,
+  "est_cost": {
+    "gemini-4-argon": {
+      "input_tokens": 33333,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 63698,
+      "output_tokens": 12637,
+      "usd": 0.199406
+    }
+  },
   "cli_reported_cost_usd": null,
   "files": [
     "cozy_kitchen_morning.svg"

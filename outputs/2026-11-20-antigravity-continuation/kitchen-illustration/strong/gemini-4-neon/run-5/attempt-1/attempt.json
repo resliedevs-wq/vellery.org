@@ -29,8 +29,16 @@
     "cache_read_tokens": 210547,
     "total_tokens": 88766
   },
-  "est_cost_usd": null,
-  "est_cost": null,
+  "est_cost_usd": 0.670984,
+  "est_cost": {
+    "gemini-4-neon": {
+      "input_tokens": 57674,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 210547,
+      "output_tokens": 31092,
+      "usd": 0.670984
+    }
+  },
   "cli_reported_cost_usd": null,
   "files": [
     "kitchen.svg"

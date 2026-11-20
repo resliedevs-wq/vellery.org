@@ -30,8 +30,16 @@
     "webFetchRequests": 0,
     "webSearchRequests": 0
   },
-  "est_cost_usd": null,
-  "est_cost": null,
+  "est_cost_usd": 0.011534,
+  "est_cost": {
+    "glm-5.3-flash": {
+      "input_tokens": 21561,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 28160,
+      "output_tokens": 14910,
+      "usd": 0.011534
+    }
+  },
   "cli_reported_cost_usd": null,
   "files": [
     "kitchen.svg"

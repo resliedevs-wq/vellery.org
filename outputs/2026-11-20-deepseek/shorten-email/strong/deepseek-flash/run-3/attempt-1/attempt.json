@@ -26,8 +26,16 @@
       "totalTokens": 10840
     }
   ],
-  "est_cost_usd": null,
-  "est_cost": null,
+  "est_cost_usd": 0.00588,
+  "est_cost": {
+    "deepseek-flash": {
+      "input_tokens": 278,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 5760,
+      "output_tokens": 4802,
+      "usd": 0.00588
+    }
+  },
   "cli_reported_cost_usd": null,
   "files": []
 }

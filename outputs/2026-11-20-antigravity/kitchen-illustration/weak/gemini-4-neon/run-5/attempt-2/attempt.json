@@ -27,8 +27,16 @@
     "cache_read_tokens": 45284,
     "total_tokens": 25381
   },
-  "est_cost_usd": null,
-  "est_cost": null,
+  "est_cost_usd": 0.111688,
+  "est_cost": {
+    "gemini-4-neon": {
+      "input_tokens": 22985,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 45284,
+      "output_tokens": 2396,
+      "usd": 0.111688
+    }
+  },
   "cli_reported_cost_usd": null,
   "files": []
 }

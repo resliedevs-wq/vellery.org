@@ -40,8 +40,16 @@
     "output_tokens": 1005,
     "reasoning_output_tokens": 127
   },
-  "est_cost_usd": null,
-  "est_cost": null,
+  "est_cost_usd": 0.01505,
+  "est_cost": {
+    "gpt-6.2-sol": {
+      "input_tokens": 1969,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 10624,
+      "output_tokens": 1005,
+      "usd": 0.01505
+    }
+  },
   "cli_reported_cost_usd": null,
   "files": []
 }

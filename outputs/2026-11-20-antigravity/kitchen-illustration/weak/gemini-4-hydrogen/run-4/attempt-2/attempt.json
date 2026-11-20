@@ -27,8 +27,16 @@
     "cache_read_tokens": 47830,
     "total_tokens": 25975
   },
-  "est_cost_usd": null,
-  "est_cost": null,
+  "est_cost_usd": 0.055342,
+  "est_cost": {
+    "gemini-4-hydrogen": {
+      "input_tokens": 23843,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 47830,
+      "output_tokens": 2132,
+      "usd": 0.055342
+    }
+  },
   "cli_reported_cost_usd": null,
   "files": []
 }

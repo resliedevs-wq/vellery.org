@@ -165,7 +165,7 @@
           info = el("span", "mmeta");
           label.append(info);
         }
-        info.textContent = `${stats.date} · ${stats.cost}`;
+        info.textContent = [stats.date, stats.cost].filter(Boolean).join(" · ");
         info.title = "Test date (UTC) · Average estimated API cost per run, including retries";
       }
       row.hidden = ![...row.querySelectorAll(".tile")].some((t) => !t.hidden);

@@ -29,8 +29,16 @@
     "cache_read_tokens": 66106,
     "total_tokens": 63776
   },
-  "est_cost_usd": null,
-  "est_cost": null,
+  "est_cost_usd": 0.252536,
+  "est_cost": {
+    "gemini-4-hydrogen": {
+      "input_tokens": 38457,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 66106,
+      "output_tokens": 25319,
+      "usd": 0.252536
+    }
+  },
   "cli_reported_cost_usd": null,
   "files": [
     "cozy_kitchen_morning.svg"

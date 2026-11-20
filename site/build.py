@@ -271,14 +271,26 @@ def drawing_items(runs):
         files = sorted(p for p in (attempt / "files").rglob("*") if p.suffix.lower() in (".svg", ".png"))
         srcs = []
         invalid_svg = False
+        repaired = False
         for n, source in enumerate(files):
+            dest = f"img/{r['task']}/{r['item'].split('.')[1]}-{n}{source.suffix.lower()}"
             if source.suffix.lower() == ".svg":
                 try:
                     ElementTree.parse(source)
                 except ElementTree.ParseError:
-                    invalid_svg = True
+                    # XML forbids "--" inside comments. Remove decorative comments
+                    # from the preview only, and require the result to parse.
+                    raw = source.read_text()
+                    preview = re.sub(r"<!--(.*?)-->", lambda m: "" if "--" in m[1] else m[0], raw, flags=re.S)
+                    try:
+                        ElementTree.fromstring(preview)
+                    except ElementTree.ParseError:
+                        invalid_svg = True
+                        continue
+                    repaired = True
+                    write(dest, preview)
+                    srcs.append("/" + dest)
                     continue
-            dest = f"img/{r['task']}/{r['item'].split('.')[1]}-{n}{source.suffix.lower()}"
             (DIST / dest).parent.mkdir(parents=True, exist_ok=True)
             shutil.copy(source, DIST / dest)
             srcs.append("/" + dest)
@@ -294,7 +306,7 @@ def drawing_items(runs):
         # Strip only the presentation fence, leaving the model's drawing intact.
         if text.strip().startswith("```"):
             text = re.sub(r"^```[^\n]*\n|\n```\s*$", "", text.strip())
-        items.append({"id": r["item"], "variant": r["variant"], "srcs": srcs, "text": text})
+        items.append({"id": r["item"], "variant": r["variant"], "srcs": srcs, "text": text, "repaired": repaired})
     return items
 
 
@@ -414,7 +426,7 @@ def model_stats(runs, model):
         average = sum(costs) / len(costs) if costs and all(c is not None for c in costs) else None
         out[variant] = {
             "date": " – ".join(dict.fromkeys([dates[0], dates[-1]])) if dates else "Unavailable",
-            "cost": (f"${average:.2f} per run" if average >= 0.01 or average == 0 else "<$0.01 per run") if average is not None else "Cost unavailable",
+            "cost": (f"${average:.2f} per run" if average >= 0.01 or average == 0 else "<$0.01 per run") if average is not None else None,
         }
     return out
 
@@ -437,6 +449,8 @@ def build_task_page(task, runs, models, items, can_reveal):
                        else f'<pre class="drawing-text">{esc(i.get("text", "No drawing returned."))}</pre>')
             artwork = ("".join(f'<img src="{src}" alt="Drawing {kid}">' for src in i["srcs"])
                        if i["srcs"] else f'<pre class="drawing-response">{esc(i.get("text", "No drawing returned."))}</pre>')
+            if i.get("repaired"):
+                artwork += '<p class="note">Invalid XML comments were removed for this preview.</p>'
             tiles.append(("none",
                 f'<button class="tile shot" data-id="{i["id"]}" data-variant="{i["variant"]}" data-g="none" '
                 f'aria-label="Drawing {kid}">{preview}'

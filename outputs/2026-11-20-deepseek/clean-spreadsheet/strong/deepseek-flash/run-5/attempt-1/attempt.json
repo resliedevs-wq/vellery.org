@@ -40,8 +40,16 @@
       "totalTokens": 10654
     }
   ],
-  "est_cost_usd": null,
-  "est_cost": null,
+  "est_cost_usd": 0.005532,
+  "est_cost": {
+    "deepseek-flash": {
+      "input_tokens": 964,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 24064,
+      "output_tokens": 4249,
+      "usd": 0.005532
+    }
+  },
   "cli_reported_cost_usd": null,
   "files": [
     "march_2026_expenses_clean.csv"

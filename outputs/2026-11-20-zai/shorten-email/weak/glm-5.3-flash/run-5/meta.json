@@ -8,6 +8,6 @@
   "run": 5,
   "ok": true,
   "attempts": 1,
-  "est_cost_usd": null,
-  "est_cost_usd_all_attempts": null
+  "est_cost_usd": 0.001635,
+  "est_cost_usd_all_attempts": 0.001635
 }

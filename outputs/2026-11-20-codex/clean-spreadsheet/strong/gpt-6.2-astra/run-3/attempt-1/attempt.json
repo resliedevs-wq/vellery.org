@@ -40,8 +40,16 @@
     "output_tokens": 1758,
     "reasoning_output_tokens": 26
   },
-  "est_cost_usd": null,
-  "est_cost": null,
+  "est_cost_usd": 0.192515,
+  "est_cost": {
+    "gpt-6.2-astra": {
+      "input_tokens": 13988,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 25728,
+      "output_tokens": 1758,
+      "usd": 0.192515
+    }
+  },
   "cli_reported_cost_usd": null,
   "files": [
     "march-2026-expenses.csv"

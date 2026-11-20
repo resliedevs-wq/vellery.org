@@ -34,7 +34,7 @@ import yaml
 from functools import partial
 
 from zcode import run_zcode
-from cost import estimate_claude, estimate_codex, total
+from cost import estimate_claude, estimate_codex, estimate_usage, total
 
 ROOT = Path(__file__).resolve().parent.parent
 TASKS = ROOT / "tasks"
@@ -274,6 +274,9 @@ def attempt(model, prompt, dest):
         started = datetime.now(timezone.utc)
         t0 = time.monotonic()
         result = HARNESSES[model["harness"]](model, prompt, workdir)
+
+        if result.get("est_cost") is None:
+            result["est_cost"] = estimate_usage(model["harness"], model["id"], result.get("usage"))
 
         dest.mkdir(parents=True)
         (dest / "response.md").write_text(result.get("response", ""))

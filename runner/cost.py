@@ -79,6 +79,35 @@ def estimate_codex(usage, model):
     }}
 
 
+def estimate_usage(harness, model, usage):
+    if not usage or model not in PRICES:
+        return None
+    if harness == "codex":
+        return estimate_codex(usage, model)
+    if harness == "dsh":
+        # Each agent step reports uncached input separately from cache hits.
+        uncached = sum(step["inputTokens"] for step in usage)
+        cached = sum(step["cacheReadTokens"] for step in usage)
+        output = sum(step["outputTokens"] for step in usage)
+    elif harness == "agy":
+        uncached = usage["input_tokens"]
+        cached = usage["cache_read_tokens"]
+        output = usage["output_tokens"]
+    elif harness == "zcode":
+        cached = usage["cacheReadTokens"]
+        uncached = usage["inputTokens"] - cached
+        output = usage["outputTokens"]
+    else:
+        return None
+    p = PRICES[model]
+    return {model: {
+        "input_tokens": uncached, "cache_write_tokens": 0,
+        "cache_read_tokens": cached, "output_tokens": output,
+        "usd": round(usd(uncached, p["input"]) + usd(cached, p["cache_read"])
+                     + usd(output, p["output"]), 6),
+    }}
+
+
 def total(by_model):
     return None if by_model is None else round(sum(m["usd"] for m in by_model.values()), 6)
 
