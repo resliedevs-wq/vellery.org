@@ -260,6 +260,8 @@
     const downed = !!mine && mine.vote === -1;
     const button = (cls, label, title, on, next) => {
       const b = el("button", `vote ${cls}${on ? " on" : ""}`, label);
+      b.dataset.action = cls;
+      b.setAttribute("aria-pressed", String(!!on));
       b.title = title;
       b.setAttribute("aria-label", title);
       b.addEventListener("click", () => vote(selected, next));
@@ -274,14 +276,13 @@
     );
     if (downed && data.votable[selected].basic)
       bar.append(button("basic", label("▼▼", v.basic), "Not meeting basic standard", mine.basic, { vote: -1, basic: !mine.basic }));
-    if (data.reveal && blind(byId[selected])) {
-      const id = selected;
-      const revealOne = el("button", "ghost", "Reveal model");
-      revealOne.disabled = revealing;
-      revealOne.onclick = () => reveal([id]);
-      bar.append(revealOne);
-    }
+    const focused = slot.contains(document.activeElement) && document.activeElement.dataset.action;
     slot.replaceChildren(bar);
+    if (focused) {
+      (bar.querySelector(`[data-action="${focused}"]`) || bar.querySelector(".down")).focus({ preventScroll: true });
+    }
+    const hint = data.votable[selected].basic ? " · ↓ twice for double down" : "";
+    slot.append(el("span", "note", "← → navigate · ↑ upvote · ↓ downvote" + hint));
     if (!window.vellery.me) slot.append(el("span", "note", "Log in to vote"));
   }
 
@@ -320,23 +321,37 @@
     if (!window.vellery.me) return window.vellery.openLogin();
     const before = tally(id);
     votes[id] = applyLocal(before, next);
-    const seq = (pending[id] = (pending[id] || 0) + 1);
-    render();
-    try {
-      const res = await fetch("/api/vote", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({ item: id, vote: next ? next.vote : 0, basic: !!(next && next.basic) }),
-      });
-      if (seq !== pending[id]) return;
-      if (!res.ok) throw new Error(res.status);
-      votes[id] = await res.json();
-      remember();
-    } catch (e) {
-      if (seq !== pending[id]) return;
-      votes[id] = before;
-      if (String(e.message) === "401") window.vellery.openLogin();
+    // Coalesce rapid presses but serialize writes for the same drawing.
+    // Otherwise the first downvote can reach the database after the double down.
+    if (pending[id]) {
+      pending[id].next = next;
+      render();
+      return;
     }
+    const state = pending[id] = {next};
+    let confirmed = before;
+    render();
+    while (true) {
+      const sending = state.next;
+      try {
+        const res = await fetch("/api/vote", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ item: id, vote: sending?.vote || 0, basic: !!sending?.basic }),
+        });
+        if (!res.ok) throw new Error(res.status);
+        confirmed = await res.json();
+      } catch (e) {
+        if (String(e.message) === "401") {
+          window.vellery.openLogin();
+          break;
+        }
+      }
+      if (state.next === sending) break;
+    }
+    delete pending[id];
+    votes[id] = confirmed;
+    remember();
     render();
   }
 
@@ -383,9 +398,27 @@
   viewer.querySelector(".vclose").addEventListener("click", () => viewer.close());
   viewer.querySelector(".prev").addEventListener("click", () => step(-1));
   viewer.querySelector(".next").addEventListener("click", () => step(1));
-  viewer.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowLeft") step(-1);
-    else if (e.key === "ArrowRight") step(1);
+  document.addEventListener("keydown", (e) => {
+    if (!viewer.open || !selected || e.defaultPrevented || e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+    if (document.querySelector("dialog[open]:not(.viewer)") || e.target.closest?.("input, textarea, select, [contenteditable=true]")) return;
+    if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+      e.preventDefault();
+      step(e.key === "ArrowLeft" ? -1 : 1);
+      return;
+    }
+    if (!data.votable[selected] || meta[selected] || (e.key !== "ArrowUp" && e.key !== "ArrowDown")) return;
+    e.preventDefault();
+    if (e.repeat) return;
+    const mine = tally(selected).mine;
+    let next = null;
+    if (e.key === "ArrowUp") {
+      if (mine?.vote !== 1) next = { vote: 1, basic: false };
+    } else if (mine?.vote !== -1) {
+      next = { vote: -1, basic: false };
+    } else if (data.votable[selected].basic && !mine.basic) {
+      next = { vote: -1, basic: true };
+    }
+    vote(selected, next);
   });
 
   function pick(next) {
@@ -400,7 +433,9 @@
     try {
       const res = await fetch(`/api/votes?task=${data.slug}`);
       if (res.ok) {
-        votes = await res.json();
+        const received = await res.json();
+        for (const id of Object.keys(pending)) received[id] = votes[id];
+        votes = received;
         for (const [id, v] of Object.entries(votes)) {
           if (v.revealed) meta[id] = v.revealed;
         }
