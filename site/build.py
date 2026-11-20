@@ -60,6 +60,7 @@ HOW = {
 }
 SCRIPTED = ("text", "sheet")
 CHANCE = {1: "first", 2: "second"}
+TIMEOUT_MIN = 15  # runner/run.py TIMEOUT_S
 
 
 def esc(s):
@@ -589,7 +590,8 @@ def build_puzzle(task, runs, models):
                 continue
             grade = r["grade"]["grade"]
             cost = r.get("est_cost_usd_all_attempts", r.get("est_cost_usd"))
-            verdict = "Found the message" if grade == "good" else "Missed it"
+            verdict = ("Found the message" if grade == "good" else
+                       f"Ran out of time ({TIMEOUT_MIN} minutes)" if r.get("timed_out") else "Missed it")
             detail[r["item"]] = (
                 f'<div class="dhead"><div><p class="crumb">Chance {n} of {chances}</p>'
                 f'<h2>{esc(m["label"])}</h2>'
@@ -598,7 +600,7 @@ def build_puzzle(task, runs, models):
                 + f' · <a href="{r["source"]}">Raw output</a></p></div>'
                 f'<div class="verdict {grade}"><b>{GLYPH[grade]} {verdict}</b></div></div>'
                 f'<div class="answerwrap"><p class="label">The model’s answer</p>'
-                f'<pre class="doc answer">{mark_answer(re.sub(r"\*\*|__|`", "", r["response"]).strip(), task["answer"])}</pre></div>')
+                f'<pre class="doc answer">{mark_answer(re.sub(r"\*\*|__|`", "", r["response"]).strip(), task["answer"]) or "No answer before the time limit."}</pre></div>')
             cells.append(
                 f'<button class="cell {grade}" data-id="{r["item"]}" title="Chance {n}: {verdict.lower()}" '
                 f'aria-label="{esc(m["label"])}, chance {n}: {verdict.lower()}"><span class="g">{GLYPH[grade]}</span></button>')

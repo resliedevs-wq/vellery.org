@@ -28,10 +28,12 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import threading
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import urlsplit
 
 import yaml
 
@@ -40,6 +42,7 @@ from functools import partial
 from zcode import run_zcode
 from cost import estimate_claude, estimate_codex, estimate_usage, total
 from grade import grade_answer
+from jail import jail, stop
 
 ROOT = Path(__file__).resolve().parent.parent
 TASKS = ROOT / "tasks"
@@ -78,14 +81,31 @@ def cli_version(cmd):
     return subprocess.run([cmd, "--version"], capture_output=True, text=True).stdout.strip()
 
 
+# Harnesses whose own sandbox doesn't stop shell commands from reaching the
+# network or writing outside the working directory run inside runner/jail.py,
+# with relays only to the endpoints that serve the model.
+JAILED = {
+    "dsh": lambda: [("api.deepseek.com", 443)],
+    "zcode": lambda: [("api.z.ai", 443)],
+    "agy": lambda: [(urlsplit(os.environ["MAGPIE_BASE_URL"]).hostname,
+                     urlsplit(os.environ["MAGPIE_BASE_URL"]).port or 80)],
+}
+_run = threading.local()
+
+
 def execute(cmd, **kwargs):
     """Run a CLI, keeping whatever it printed even if it times out."""
+    relays = []
+    if getattr(_run, "jail", None):
+        cmd, relays = jail(cmd, *_run.jail)
     try:
         proc = subprocess.run(cmd, capture_output=True, text=True, timeout=TIMEOUT_S, **kwargs)
         return proc.returncode, proc.stdout, proc.stderr, None
     except subprocess.TimeoutExpired as e:
         decode = lambda b: b.decode(errors="replace") if isinstance(b, bytes) else (b or "")
         return None, decode(e.stdout), decode(e.stderr), f"timed out after {TIMEOUT_S}s"
+    finally:
+        stop(relays)
 
 
 def run_claude(model, prompt, workdir):
@@ -175,7 +195,10 @@ def run_codex(model, prompt, workdir):
 
 
 def run_deepseek(model, prompt, workdir):
-    patch = ROOT / "runner" / "deepseek-flash.yaml"
+    # The jail hides the repo (it holds puzzle answers), so the profile
+    # patch travels with the run.
+    patch = workdir.parent / "deepseek-flash.yaml"
+    shutil.copyfile(ROOT / "runner" / "deepseek-flash.yaml", patch)
     cmd = ["dsh", "--profile", "headless", "--patch", str(patch),
            "--permission-mode", "workspace-write", "--approval-policy", "never", "--json", "-"]
     code, out, err, error = execute(cmd, input=prompt, cwd=workdir,
@@ -230,9 +253,14 @@ def run_agy(model, prompt, workdir):
         "modelProvider": "gemini",
         "customModelsConfig": {"customModels": {alias: {
             "apiProvider": "API_PROVIDER_GOOGLE_GEMINI", "modelName": route}}},
-        "permissions": {"deny": ["read_url(*)", "execute_url(*)", "download_url(*)"]},
+        # Headless mode denies any command it would have to ask about, which
+        # ends the turn. Commands are allowed because the run is jailed.
+        "permissions": {"allow": ["command(*)"],
+                        "deny": ["read_url(*)", "execute_url(*)", "download_url(*)"]},
     }
-    cmd = ["agy", "--model", alias, "--settings", json.dumps(settings), "--sandbox",
+    # agy's own --sandbox neither blocks the network nor confines writes, and
+    # its sandbox server can't start inside runner/jail.py, which does both.
+    cmd = ["agy", "--model", alias, "--settings", json.dumps(settings),
            "--mode", "accept-edits", "--effort", model["effort"], "--output-format", "json",
            "-p", prompt]
     home = workdir.parent / "home"
@@ -280,7 +308,12 @@ def attempt(model, prompt, dest, inputs=()):
             shutil.copyfile(src, workdir / src.name)
         started = datetime.now(timezone.utc)
         t0 = time.monotonic()
-        result = HARNESSES[model["harness"]](model, prompt, workdir)
+        endpoints = JAILED.get(model["harness"])
+        _run.jail = (Path(tmp), endpoints()) if endpoints else None
+        try:
+            result = HARNESSES[model["harness"]](model, prompt, workdir)
+        finally:
+            _run.jail = None
 
         if result.get("est_cost") is None:
             result["est_cost"] = estimate_usage(model["harness"], model["id"], result.get("usage"))
@@ -304,6 +337,7 @@ def attempt(model, prompt, dest, inputs=()):
             "started": started.isoformat(timespec="seconds"),
             "duration_s": round(time.monotonic() - t0, 1),
             "command": result["command"],
+            "jailed": bool(endpoints),
             "served_models": result.get("served_models"),
             "usage": result.get("usage"),
             # None means the cost could not be estimated, not that it was free.
@@ -327,9 +361,13 @@ def run_one(task, variant, model, n, out):
     # kept, and earlier failures count toward the limit.
     saved = sorted(out.glob("attempt-*/attempt.json"), key=lambda p: int(p.parent.name.split("-")[1]))
     infos = [json.loads(p.read_text()) for p in saved]
-    while not (infos and infos[-1]["ok"]) and len(infos) < MAX_ATTEMPTS:
+    # On a puzzle, running out of time is the model's result for that
+    # chance, not a harness failure to retry.
+    out_of_time = lambda i: bool(task.get("stop_on_success")) and (i["error"] or "").startswith("timed out")
+    while not (infos and (infos[-1]["ok"] or out_of_time(infos[-1]))) and len(infos) < MAX_ATTEMPTS:
         infos.append(attempt(model, prompt, out / f"attempt-{len(infos) + 1}", inputs))
     info = infos[-1]
+    timed_out = out_of_time(info)
     costs = [i["est_cost_usd"] for i in infos]
     meta = {
         "task": task["slug"],
@@ -339,7 +377,8 @@ def run_one(task, variant, model, n, out):
         "harness": model["harness"],
         "effort": model["effort"],
         "run": n,
-        "ok": info["ok"],
+        "ok": info["ok"] or timed_out,
+        **({"timed_out": True} if timed_out else {}),
         "attempts": len(infos),
         "est_cost_usd": info["est_cost_usd"],
         "est_cost_usd_all_attempts": None if None in costs else round(sum(costs), 6),

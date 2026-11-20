@@ -30,7 +30,9 @@ def run_zcode(model, prompt, workdir, execute):
         "features": dict.fromkeys(("mcp", "subagent", "memory", "skill"), False),
         "plugins": {"enabled": False}, "skills": {"enabled": False}, "hooks": {"enabled": False},
     }))
-    cmd = ["zcode", "--prompt", prompt, "--cwd", str(workdir), "--mode", "edit",
+    # Headless edit mode refuses Bash ("No permission client configured").
+    # yolo, the CLI's default for --prompt, is safe because the run is jailed.
+    cmd = ["zcode", "--prompt", prompt, "--cwd", str(workdir), "--mode", "yolo",
            "--disallowed-tools", "WebSearch WebFetch Browser AskUserQuestion EnterPlanMode ExitPlanMode",
            "--output-format", "json", "--no-color"]
     env = {"HOME": str(home), "PATH": os.environ["PATH"], "ZCODE_DATA_BASE_DIR": str(home),
