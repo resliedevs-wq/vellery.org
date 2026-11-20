@@ -92,7 +92,7 @@ footer{border-top:1px solid var(--line);padding:22px 32px;font-size:13px;color:v
 .mrow{padding-block:6px;display:grid;grid-template-columns:220px repeat(5,minmax(0,1fr));gap:8px;align-items:stretch}
 .mlabel{align-self:center;font-size:18px;font-weight:500}
 .mmeta{display:block;white-space:nowrap;margin-top:4px;font-size:11px;line-height:1.5;font-weight:400;color:var(--muted)}
-.revealbar{display:flex;gap:14px;align-items:center}
+.revealbar{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
 .ghost{padding:8px 16px;border-radius:999px;border:1.5px solid var(--line);background:none;color:var(--ink);font:500 13px var(--sans);cursor:pointer}
 .ghost:hover{background:var(--soft)}
 

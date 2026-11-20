@@ -14,8 +14,8 @@
   const flagKey = `vellery_revealed_${data.slug}`;
   const rank = { good: 0, fix: 1, slop: 2, none: 3 };
   const rowsPlaced = new Set();
+  const exposureKey = `vellery.disclosed.${data.slug}`;
   let meta = {};
-  const revealed = new Set();
   let revealing = false;
   const pending = {};
   let votes = {};
@@ -71,9 +71,7 @@
     return list;
   }
 
-  // A prompt's drawings get model rows once that prompt is revealed.
-  const inMatrix = () => data.mode !== "gallery" || revealed.has(variant);
-  const blind = (t) => data.mode === "gallery" && !revealed.has(t.dataset.variant);
+  const blind = (t) => data.mode === "gallery" && !meta[t.dataset.id];
   const rowOf = (model) => matrixBox.querySelector(`.mrow[data-model="${model}"]`);
 
   // Drawings get model rows once the models are revealed.
@@ -86,7 +84,7 @@
       matrixBox.append(row);
     }
     tiles.forEach((t) => {
-      const who = revealed.has(t.dataset.variant) && meta[t.dataset.id];
+      const who = meta[t.dataset.id];
       if (who) {
         t.dataset.model = who.id;
         t.dataset.run = who.run;
@@ -116,21 +114,23 @@
     for (const [g, box] of Object.entries(groups)) {
       const holder = box.querySelector(".tiles");
       let mine = tiles.filter((t) => wanted[t.dataset.id] === g && blind(t));
-      if (g === "good" && !placed) mine = shuffle(mine);
+      if (!placed) mine = shuffle(mine);
       for (const t of mine) if (!placed || t.parentNode !== holder) holder.append(t);
     }
   }
 
   function place() {
     const wanted = {};
-    tiles.forEach((t) => (wanted[t.dataset.id] = bucketOf(t)));
+    tiles.forEach((t) => (wanted[t.dataset.id] = blind(t) ? "none" : bucketOf(t)));
     tiles.forEach((t) => (t.dataset.g = wanted[t.dataset.id]));
-    const rows = inMatrix();
-    if (board) board.hidden = rows;
-    matrixBox.hidden = !rows;
-    if (legend) legend.hidden = !rows;
-    if (rows) placeRows();
-    else placeFlat(wanted);
+    if (board) {
+      board.hidden = !tiles.some((t) => t.dataset.variant === variant && blind(t));
+      placeFlat(wanted);
+    }
+    const hasRows = tiles.some((t) => t.dataset.variant === variant && !blind(t));
+    matrixBox.hidden = !hasRows;
+    if (legend) legend.hidden = !hasRows;
+    if (hasRows) placeRows();
     placed = true;
   }
 
@@ -143,7 +143,7 @@
         ["good", v.up, "Upvotes"],
         ["fix", v.down - v.basic, "Downvotes"],
         ["slop", v.basic, "Not meeting basic standard"],
-      ].filter(([, count]) => count).map(([grade, count, label]) => {
+      ].filter(([, count]) => count && !blind(t)).map(([grade, count, label]) => {
         const indicator = el("span", `rating ${grade}`, count);
         indicator.title = `${label}: ${count}`;
         indicator.setAttribute("aria-label", indicator.title);
@@ -172,51 +172,52 @@
     });
   }
 
-  // Revealing: the Worker hands over which model made each drawing. Rating every
-  // drawing on a prompt's page reveals that page; the button skips ahead.
-  const saved = () => [...revealed].join(",");
-  function rememberRevealed() {
-    document.cookie = `${flagKey}=${saved()}; Path=/; Max-Age=31536000; SameSite=Lax`;
+  function blindTiles(which) {
+    return tiles.filter((t) => t.dataset.variant === which && blind(t));
   }
 
-  async function fetchMeta() {
-    if (Object.keys(meta).length) return true;
-    try {
-      const res = await fetch(`/api/reveal?task=${data.slug}`);
-      if (res.ok) meta = await res.json();
-    } catch {}
-    if (!Object.keys(meta).length) return false;
-    try {
-      localStorage.setItem(metaKey, JSON.stringify(meta));
-    } catch {}
-    return true;
-  }
-
-  async function reveal(which) {
-    if (!data.reveal || revealed.has(which) || revealing) return;
+  async function reveal(ids) {
+    if (revealing || !ids.length) return;
+    const subject = ids.length === 1 ? "this drawing" : `these ${ids.length} drawings`;
+    if (!window.confirm(`Reveal the model for ${subject}? Your ratings stay saved. Scoring closes for ${subject}.`)) return;
     revealing = true;
-    const ok = await fetchMeta();
-    revealing = false;
-    if (!ok) return;
-    revealed.add(which);
-    rememberRevealed();
-    buildRows();
-    render();
+    paintReveal();
+    try {
+      const res = await fetch("/api/reveal", {
+        method: "POST", headers: {"content-type": "application/json"},
+        body: JSON.stringify({task: data.slug, ids}),
+      });
+      if (!res.ok) throw new Error();
+      const disclosed = await res.json();
+      if (!ids.every((id) => disclosed[id])) throw new Error();
+      Object.assign(meta, disclosed);
+      try {
+        Object.assign(meta, JSON.parse(localStorage.getItem(exposureKey) || "{}"));
+        localStorage.setItem(exposureKey, JSON.stringify(meta));
+      } catch {}
+      buildRows();
+    } catch {
+      window.alert("Could not reveal the models. Please try again.");
+    } finally {
+      revealing = false;
+      render();
+    }
   }
-
-  const mineCount = (list) => list.filter((t) => votes[t.dataset.id] && votes[t.dataset.id].mine).length;
 
   function paintReveal() {
     if (!revealBar) return;
-    const here = tiles.filter((t) => t.dataset.variant === variant);
-    revealBar.hidden = revealed.has(variant);
-    if (revealed.has(variant)) return;
-    revealBar.querySelector(".num").textContent = window.vellery.me ? `${mineCount(here)} of ${here.length} rated` : "";
-    if (window.vellery.me && mineCount(here) === here.length) reveal(variant);
+    const here = blindTiles(variant);
+    const unrated = here.filter((t) => !tally(t.dataset.id).mine);
+    revealBar.hidden = !here.length;
+    revealBar.querySelector("#reveal").disabled = revealing;
+    revealBar.querySelector("#rate").hidden = !unrated.length;
+    revealBar.querySelector(".num").textContent = window.vellery.me
+      ? `${here.length - unrated.length} of ${here.length} rated blind`
+      : `${here.length} anonymous drawings`;
   }
 
   function paintHeader() {
-    const who = selected && revealed.has(byId[selected].dataset.variant) && meta[selected];
+    const who = selected && meta[selected];
     if (!who) return;
     const head = body.querySelector(".dhead");
     if (!head || head.dataset.revealed) return;
@@ -230,6 +231,8 @@
   function paintStatus() {
     const chip = body.querySelector(".verdict.status");
     if (!chip || !selected) return;
+    chip.hidden = blind(byId[selected]);
+    if (chip.hidden) return;
     const v = tally(selected);
     const b = bucketOf(byId[selected]);
     chip.className = `verdict status ${b}`;
@@ -240,6 +243,10 @@
   function paintVotes() {
     const slot = body.querySelector(".votes");
     if (!slot || !selected || !data.votable[selected]) return;
+    if (meta[selected]) {
+      slot.replaceChildren(el("span", "note", "Model revealed · scoring closed"));
+      return;
+    }
     const v = tally(selected);
     const mine = v.mine;
     const downed = !!mine && mine.vote === -1;
@@ -251,13 +258,21 @@
       return b;
     };
     const bar = el("div", "votebar");
+    const label = (symbol, count) => blind(byId[selected]) ? symbol : `${symbol} ${count}`;
     // ▼▼ replaces ▼: one voter is one vote, counted at whichever level they chose.
     bar.append(
-      button("up", `▲ ${v.up}`, "Upvote", mine && mine.vote === 1, mine && mine.vote === 1 ? null : { vote: 1, basic: false }),
-      button("down", `▼ ${v.down - v.basic}`, "Downvote", downed && !mine.basic, downed && !mine.basic ? null : { vote: -1, basic: false }),
+      button("up", label("▲", v.up), "Upvote", mine && mine.vote === 1, mine && mine.vote === 1 ? null : { vote: 1, basic: false }),
+      button("down", label("▼", v.down - v.basic), "Downvote", downed && !mine.basic, downed && !mine.basic ? null : { vote: -1, basic: false }),
     );
     if (downed && data.votable[selected].basic)
-      bar.append(button("basic", `▼▼ ${v.basic}`, "Not meeting basic standard", mine.basic, { vote: -1, basic: !mine.basic }));
+      bar.append(button("basic", label("▼▼", v.basic), "Not meeting basic standard", mine.basic, { vote: -1, basic: !mine.basic }));
+    if (data.reveal && blind(byId[selected])) {
+      const id = selected;
+      const revealOne = el("button", "ghost", "Reveal model");
+      revealOne.disabled = revealing;
+      revealOne.onclick = () => reveal([id]);
+      bar.append(revealOne);
+    }
     slot.replaceChildren(bar);
     if (!window.vellery.me) slot.append(el("span", "note", "Log in to vote"));
   }
@@ -293,6 +308,7 @@
 
   // The page updates first; the server catches up. A failed save quietly puts things back.
   async function vote(id, next) {
+    if (meta[id]) return;
     if (!window.vellery.me) return window.vellery.openLogin();
     const before = tally(id);
     votes[id] = applyLocal(before, next);
@@ -375,7 +391,13 @@
   async function load() {
     try {
       const res = await fetch(`/api/votes?task=${data.slug}`);
-      if (res.ok) votes = await res.json();
+      if (res.ok) {
+        votes = await res.json();
+        for (const [id, v] of Object.entries(votes)) {
+          if (v.revealed) meta[id] = v.revealed;
+        }
+        if (data.reveal) buildRows();
+      }
     } catch {}
     remember();
     render();
@@ -386,19 +408,35 @@
   document.addEventListener("vellery:auth", load);
 
   const revealButton = document.getElementById("reveal");
-  if (revealButton) revealButton.addEventListener("click", () => reveal(variant));
-  // Come back revealed: the choice lives in a cookie, the key in local storage if it fits.
-  const flag = (document.cookie.match(new RegExp(`${flagKey}=([a-z,]*)`)) || [])[1];
-  if (data.reveal && flag) {
+  if (revealButton) revealButton.addEventListener("click", () => reveal(blindTiles(variant).map((t) => t.dataset.id)));
+  if (data.reveal) {
+    document.getElementById("rate").onclick = () => {
+      const next = [...board.querySelectorAll(".tile")].find((t) => !t.hidden && !tally(t.dataset.id).mine);
+      if (next) open(next.dataset.id);
+    };
     try {
-      meta = JSON.parse(localStorage.getItem(metaKey) || "{}");
-    } catch {
-      meta = {};
-    }
-    if (!tiles.every((tile) => meta[tile.dataset.id])) meta = {};
-    flag.split(",").filter(Boolean).forEach((v) => revealed.add(v));
-    if (Object.keys(meta).length) buildRows();
-    else fetchMeta().then((ok) => ok && (buildRows(), render()));
+      const stored = localStorage.getItem(exposureKey);
+      if (stored) meta = JSON.parse(stored);
+      else {
+        // Old cookies named variants. Only migrate IDs in the snapshot that
+        // browser actually fetched. Never extend the cookie to a later release.
+        const flags = (document.cookie.match(new RegExp(`${flagKey}=([a-z,]*)`)) || [])[1]?.split(",") || [];
+        const snapshot = JSON.parse(localStorage.getItem(metaKey) || "{}");
+        for (const t of tiles) {
+          if (flags.includes(t.dataset.variant) && snapshot[t.dataset.id]) meta[t.dataset.id] = snapshot[t.dataset.id];
+        }
+        localStorage.setItem(exposureKey, JSON.stringify(meta));
+      }
+      localStorage.removeItem(metaKey);
+      document.cookie = `${flagKey}=; Path=/; Max-Age=0; SameSite=Lax`;
+    } catch {}
+    window.addEventListener("storage", (e) => {
+      if (e.key !== exposureKey || !e.newValue) return;
+      Object.assign(meta, JSON.parse(e.newValue));
+      buildRows();
+      render();
+    });
+    buildRows();
   }
   place();
   pick("strong");

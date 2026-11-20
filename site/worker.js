@@ -22,6 +22,7 @@ const json = (body, status = 200, headers = {}) =>
 
 function setup(env) {
   ready ??= env.DB.batch([
+    env.DB.prepare("CREATE TABLE IF NOT EXISTS drawing_reveals (voter TEXT NOT NULL, item TEXT NOT NULL, PRIMARY KEY(voter,item))"),
     env.DB.prepare("CREATE TABLE IF NOT EXISTS sessions (token TEXT PRIMARY KEY, at TEXT NOT NULL)"),
     env.DB.prepare(
       "CREATE TABLE IF NOT EXISTS votes (item TEXT NOT NULL, voter TEXT NOT NULL, vote INTEGER NOT NULL CHECK (vote IN (1, -1)), basic INTEGER NOT NULL DEFAULT 0, at TEXT NOT NULL, PRIMARY KEY (item, voter))",
@@ -133,13 +134,20 @@ export default {
       ).bind(voter).first();
       if (recent.n >= PER_HOUR) return json({ error: "slow down" }, 429);
 
-      if (vote === 0) {
-        await env.DB.prepare("DELETE FROM votes WHERE item = ? AND voter = ?").bind(item, voter).run();
-      } else {
-        await env.DB.prepare(
-          "INSERT INTO votes (item, voter, vote, basic, at) VALUES (?, ?, ?, ?, datetime('now')) ON CONFLICT (item, voter) DO UPDATE SET vote = excluded.vote, basic = excluded.basic, at = excluded.at",
-        ).bind(item, voter, vote, basic ? 1 : 0).run();
-      }
+      // Check exposure in the mutation so an overlapping reveal cannot let a
+      // late vote through. Revealing a drawing preserves any earlier vote.
+      const blind = "NOT EXISTS (SELECT 1 FROM drawing_reveals WHERE voter = ? AND item = ?)";
+      const changed = vote === 0
+        ? await env.DB.prepare(`DELETE FROM votes WHERE item = ? AND voter = ? AND ${blind}`)
+            .bind(item, voter, voter, item).run()
+        : await env.DB.prepare(
+            `INSERT INTO votes (item, voter, vote, basic, at) SELECT ?, ?, ?, ?, datetime('now') WHERE ${blind}
+             ON CONFLICT (item, voter) DO UPDATE SET vote = excluded.vote, basic = excluded.basic, at = excluded.at`,
+          ).bind(item, voter, vote, basic ? 1 : 0, voter, item).run();
+      if (!changed.meta.changes && REVEAL[item] && await env.DB.prepare(
+        "SELECT 1 FROM drawing_reveals WHERE voter = ? AND item = ?",
+      ).bind(voter, item).first()) return json({error: "model already revealed"}, 409);
+
       const { results } = await env.DB.prepare(`${TALLY} WHERE item = ? GROUP BY item`).bind(item).all();
       const { results: mine } = await env.DB.prepare("SELECT item, vote, basic FROM votes WHERE item = ? AND voter = ?")
         .bind(item, voter).all();
@@ -147,12 +155,17 @@ export default {
     }
 
     // Which model made each blind drawing. Only the Worker holds this; pages never contain it.
-    if (path === "/api/reveal" && request.method === "GET") {
-      const task = url.searchParams.get("task") ?? "";
-      if (!PREFIX.test(task)) return json({ error: "bad task" }, 400);
-      const out = {};
-      for (const [id, who] of Object.entries(REVEAL)) if (id.startsWith(`${task}.`)) out[id] = who;
-      return json(out);
+    if (path === "/api/reveal" && request.method === "POST") {
+      const {task, ids} = await request.json().catch(() => null) ?? {};
+      if (typeof task !== "string" || !PREFIX.test(task) || !Array.isArray(ids) || !ids.length ||
+          ids.some(id => typeof id !== "string" || !id.startsWith(task + ".") || !REVEAL[id])) {
+        return json({error: "unknown drawings"}, 400);
+      }
+      const voter = await sessionOf(request, env);
+      if (voter) await env.DB.prepare(
+        "INSERT OR IGNORE INTO drawing_reveals(voter,item) SELECT ?, value FROM json_each(?)",
+      ).bind(voter, JSON.stringify(ids)).run();
+      return json(Object.fromEntries(ids.map(id => [id, REVEAL[id]])));
     }
 
     if (path === "/api/votes" && request.method === "GET") {
@@ -164,7 +177,17 @@ export default {
       const { results: mine } = voter
         ? await env.DB.prepare("SELECT item, vote, basic FROM votes WHERE voter = ? AND item LIKE ?").bind(voter, like).all()
         : { results: [] };
-      return json(fold(results, mine));
+      const tallies = fold(results, mine);
+      if (voter) {
+        const {results: seen} = await env.DB.prepare(
+          "SELECT item FROM drawing_reveals WHERE voter = ? AND item LIKE ?",
+        ).bind(voter, like).all();
+        for (const {item} of seen) {
+          tallies[item] ??= {up: 0, down: 0, basic: 0, mine: null};
+          tallies[item].revealed = REVEAL[item];
+        }
+      }
+      return json(tallies);
     }
 
     return json({ error: "not found" }, 404);

@@ -34,9 +34,13 @@ def stale():
     if not expected:
         raise ValueError("Empty model reveal mapping")
     for task in sorted({item.split(".")[0] for item in expected}):
-        url = f"{HOST}/api/reveal?task={task}"
+        url = f"{HOST}/api/reveal"
         task_key = {item: who for item, who in expected.items() if item.startswith(task + ".")}
-        if json.loads(fetch(url)) != task_key:
+        req = urllib.request.Request(url, data=json.dumps({"task": task, "ids": list(task_key)}).encode(),
+                                     headers={"Content-Type": "application/json", "User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=20) as response:
+            revealed = json.load(response)
+        if revealed != task_key:
             out.append(url)
     return out
 

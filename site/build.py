@@ -376,7 +376,7 @@ def flat_board(tiles):
     """Drawings with their models hidden: grouped by color, no model rows."""
     groups = []
     for bucket, label in BUCKETS.items():
-        groups.append(f'<div class="group {bucket}" data-g="{bucket}"><h3>{label} <span class="count"></span></h3>'
+        groups.append(f'<div class="group {bucket}" data-g="{bucket}"><h3>{"Blind scoring" if bucket == "none" else label} <span class="count"></span></h3>'
                       f'<div class="tiles">{"".join(t for b, t in tiles if b == bucket)}</div></div>')
     return f'<div class="board" id="board">{"".join(groups)}</div>'
 
@@ -457,13 +457,13 @@ def build_task_page(task, runs, models, items, can_reveal):
                 f'<span class="sid">{kid}</span><span class="score"></span></button>'))
             detail[i["id"]] = (
                 f'<div class="dhead"><div><h2>{kid}</h2>'
-                '<p class="note">Model hidden until every drawing for this prompt is rated, or revealed.</p></div></div>'
+                '<p class="note">Rate this drawing before revealing its model.</p></div></div>'
                 f'<div class="art">{artwork}</div>')
             votable[i["id"]] = {"basic": True}
-        reveal = ('<div class="revealbar" id="revealbar"><button class="ghost" id="reveal">Reveal models</button>'
+        reveal = ('<div class="revealbar" id="revealbar"><button class="ghost" id="rate">Rate a drawing</button><button class="ghost" id="reveal">Reveal remaining models</button>'
                   '<span class="num"></span></div>' if can_reveal else "")
         outputs = (f'{reveal}{legend(True)}{flat_board(tiles)}'
-                   f'<div class="matrix" id="matrix" hidden></div>')
+                   f'<div class="matrix" id="matrix" hidden><h3>Revealed drawings</h3></div>')
     else:
         reference = (task["dir"] / task["reference"]).read_text() if task["kind"] == "text" else None
         expected = list(csv.DictReader((task["dir"] / "expected.csv").open())) if task["slug"] == "clean-spreadsheet" else None
