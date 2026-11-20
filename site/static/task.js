@@ -1,502 +1,505 @@
+// Task pages. Two modes:
+//   scripted  one row per model, each cell opens that run in the viewer
+//   gallery   drawings rated blind by visitors; models revealed on request
 (() => {
   const data = JSON.parse(document.getElementById("data").textContent);
-  const prompts = [...document.querySelectorAll(".prompt")];
-  const tiles = [...document.querySelectorAll(".tile")];
-  const groups = Object.fromEntries([...document.querySelectorAll(".group")].map((g) => [g.dataset.g, g]));
-  const board = document.getElementById("board");
-  const matrixBox = document.getElementById("matrix");
-  const legend = document.getElementById("legend");
-  const revealBar = document.getElementById("revealbar");
-  const rules = data.rules;
-  const byId = Object.fromEntries(tiles.map((t) => [t.dataset.id, t]));
-  const cacheKey = `vellery.votes.${data.slug}`;
-  const metaKey = `vellery.reveal.${data.slug}`;
-  const flagKey = `vellery_revealed_${data.slug}`;
-  const rank = { good: 0, fix: 1, slop: 2, none: 3 };
-  const rowsPlaced = new Set();
-  const exposureKey = `vellery.disclosed.v2.${data.slug}`;
-  let meta = {};
-  let revealing = false;
-  const pending = {};
-  let votes = {};
-  let variant = "strong";
-  let selected = null;
-  let placed = false;
-  let order = [];
-
+  const $ = (sel, root = document) => root.querySelector(sel);
+  const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
   const el = (tag, cls, text) => {
     const e = document.createElement(tag);
     if (cls) e.className = cls;
     if (text !== undefined) e.textContent = text;
     return e;
   };
-  const tally = (id) => votes[id] || { up: 0, down: 0, basic: 0, mine: null };
 
-  // The viewer: one open item over the page, with arrows to step through the grid.
+  // ---------- the viewer, shared by both modes ----------
   const viewer = el("dialog", "viewer");
   viewer.innerHTML =
-    '<div class="vwrap"><button class="vnav prev" aria-label="Previous">‹</button>' +
-    '<div class="vpanel"><div class="vtop"><span class="num vpos"></span><button class="vclose" aria-label="Close">✕</button></div>' +
-    '<div class="vbody"></div></div><button class="vnav next" aria-label="Next">›</button></div>';
+    '<div class="vframe"><div class="vtop"><span class="vpos"></span><span class="vkeys"></span>' +
+    '<span class="vnavs"><button class="vbtn prev" aria-label="Previous (left arrow)">←</button>' +
+    '<button class="vbtn next" aria-label="Next (right arrow)">→</button>' +
+    '<button class="vbtn close" aria-label="Close (Esc)">✕</button></span></div>' +
+    '<div class="vbody"></div></div>';
   document.body.append(viewer);
-  const body = viewer.querySelector(".vbody");
+  const vbody = $(".vbody", viewer);
+  vbody.tabIndex = -1;
+  let order = [];
+  let current = null;
+  let onShow = () => {};
 
-  // Last tallies this browser saw, so the page can order itself before the server answers.
-  try {
-    const saved = JSON.parse(localStorage.getItem(cacheKey) || "{}");
-    for (const [id, v] of Object.entries(saved)) votes[id] = { ...v, mine: null };
-  } catch {}
-  const remember = () => {
-    try {
-      localStorage.setItem(cacheKey, JSON.stringify(Object.fromEntries(Object.entries(votes).map(([id, v]) => [id, { up: v.up, down: v.down, basic: v.basic }]))));
-    } catch {}
-  };
-
-  // Scripted tasks keep their grade. Drawings take theirs from votes.
-  function bucketOf(tile) {
-    if (data.mode !== "gallery") return tile.dataset.g;
-    const v = tally(tile.dataset.id);
-    const total = v.up + v.down;
-    if (total < rules.min) return "none";
-    if (v.up / total >= rules.green) return "good";
-    if (v.up / total < rules.red && v.basic > v.down - v.basic) return "slop";
-    return "fix";
-  }
-
-  function shuffle(list) {
-    for (let i = list.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [list[i], list[j]] = [list[j], list[i]];
-    }
-    return list;
-  }
-
-  const blind = (t) => data.mode === "gallery" && !meta[t.dataset.id];
-  const rowOf = (model) => matrixBox.querySelector(`.mrow[data-model="${model}"]`);
-
-  // Drawings get model rows once the models are revealed.
-  function buildRows() {
-    for (const m of data.models) {
-      if (rowOf(m.id)) continue;
-      const row = el("div", "mrow");
-      row.dataset.model = m.id;
-      row.append(el("div", "mlabel", m.label));
-      matrixBox.append(row);
-    }
-    tiles.forEach((t) => {
-      const who = meta[t.dataset.id];
-      if (who) {
-        t.dataset.model = who.id;
-        t.dataset.run = who.run;
-        t.setAttribute("aria-label", `${who.label}, run ${who.run}`);
-        rowOf(who.id).append(t);
-      }
-    });
-  }
-
-  // In each model's row: usable runs first, in a new random order on every visit,
-  // then needs-a-fix, then slop, each in run order.
-  function placeRows() {
-    matrixBox.querySelectorAll(".mrow").forEach((row) => {
-      const model = row.dataset.model;
-      const mine = [...row.querySelectorAll(".tile")];
-      const good = mine.filter((t) => t.dataset.g === "good");
-      if (!rowsPlaced.has(model)) shuffle(good);
-      const rest = mine
-        .filter((t) => t.dataset.g !== "good")
-        .sort((a, b) => rank[a.dataset.g] - rank[b.dataset.g] || a.dataset.run - b.dataset.run);
-      [...good, ...rest].forEach((t) => row.append(t));
-      rowsPlaced.add(model);
-    });
-  }
-
-  function placeFlat(wanted) {
-    for (const [g, box] of Object.entries(groups)) {
-      const holder = box.querySelector(".tiles");
-      let mine = tiles.filter((t) => wanted[t.dataset.id] === g && blind(t));
-      if (!placed) mine = shuffle(mine);
-      for (const t of mine) if (!placed || t.parentNode !== holder) holder.append(t);
-    }
-  }
-
-  function place() {
-    const wanted = {};
-    tiles.forEach((t) => (wanted[t.dataset.id] = blind(t) ? "none" : bucketOf(t)));
-    tiles.forEach((t) => (t.dataset.g = wanted[t.dataset.id]));
-    if (board) {
-      board.hidden = !tiles.some((t) => t.dataset.variant === variant && blind(t));
-      placeFlat(wanted);
-    }
-    const hasRows = tiles.some((t) => t.dataset.variant === variant && !blind(t));
-    matrixBox.hidden = !hasRows;
-    if (legend) legend.hidden = !hasRows;
-    if (hasRows) placeRows();
-    placed = true;
-  }
-
-  function refresh() {
-    tiles.forEach((t) => {
-      t.hidden = t.dataset.variant !== variant;
-      t.classList.toggle("on", t.dataset.id === selected);
-      const v = tally(t.dataset.id);
-      const indicators = [
-        ["good", v.up, "Upvotes"],
-        ["fix", v.down - v.basic, "Downvotes"],
-        ["slop", v.basic, "Not meeting basic standard"],
-      ].filter(([, count]) => count && !blind(t)).map(([grade, count, label]) => {
-        const indicator = el("span", `rating ${grade}`, count);
-        indicator.title = `${label}: ${count}`;
-        indicator.setAttribute("aria-label", indicator.title);
-        return indicator;
-      });
-      t.querySelector(".score").replaceChildren(...indicators);
-    });
-    Object.values(groups).forEach((box) => {
-      const n = [...box.querySelectorAll(".tile")].filter((t) => !t.hidden).length;
-      box.hidden = n === 0;
-      box.querySelector(".count").textContent = n;
-    });
-    matrixBox.querySelectorAll(".mrow").forEach((row) => {
-      const stats = data.models.find((m) => m.id === row.dataset.model)?.stats?.[variant];
-      if (stats) {
-        const label = row.querySelector(".mlabel");
-        let info = label.querySelector(".mmeta");
-        if (!info) {
-          info = el("span", "mmeta");
-          label.append(info);
-        }
-        info.textContent = [stats.date, stats.cost].filter(Boolean).join(" · ");
-        info.title = "Test date (UTC) · Average estimated API cost per run, including retries";
-      }
-      row.hidden = ![...row.querySelectorAll(".tile")].some((t) => !t.hidden);
-    });
-  }
-
-  function blindTiles(which) {
-    return tiles.filter((t) => t.dataset.variant === which && blind(t));
-  }
-
-  async function reveal(ids, ratedOnly = false) {
-    if (revealing || !ids.length || ids.some((id) => pending[id])) return;
-    if (ratedOnly && (!window.vellery.me || !ids.every((id) => tally(id).mine))) return;
-    const subject = ids.length === 1 ? "this drawing" : `these ${ids.length} drawings`;
-    if (!ratedOnly && !window.confirm(`Reveal the model for ${subject}? Your ratings stay saved. Scoring closes for ${subject}.`)) return;
-    revealing = true;
-    paintReveal();
-    try {
-      const res = await fetch("/api/reveal", {
-        method: "POST", headers: {"content-type": "application/json"},
-        body: JSON.stringify({task: data.slug, ids}),
-      });
-      if (!res.ok) throw new Error();
-      const disclosed = await res.json();
-      if (!ids.every((id) => disclosed[id])) throw new Error();
-      Object.assign(meta, disclosed);
-      try {
-        Object.assign(meta, JSON.parse(localStorage.getItem(exposureKey) || "{}"));
-        localStorage.setItem(exposureKey, JSON.stringify(meta));
-      } catch {}
-      buildRows();
-    } catch {
-      window.alert("Could not reveal the models. Please try again.");
-    } finally {
-      revealing = false;
-      render();
-    }
-  }
-
-  function paintReveal() {
-    if (!revealBar) return;
-    const here = blindTiles(variant);
-    const unrated = here.filter((t) => !tally(t.dataset.id).mine);
-    const rate = revealBar.querySelector("#rate");
-    rate.disabled = !here.length;
-    rate.textContent = here.length && !unrated.length ? "Review your ratings" : "Rate a drawing";
-    const revealButton = revealBar.querySelector("#reveal");
-    const completed = !!window.vellery.me && here.length > 0 && !unrated.length;
-    const saving = here.some((t) => pending[t.dataset.id]);
-    revealButton.hidden = !here.length || completed;
-    revealButton.disabled = revealing || saving;
-    const ratedButton = revealBar.querySelector("#reveal-rated");
-    ratedButton.hidden = !completed;
-    ratedButton.disabled = revealing || saving;
-    const status = revealBar.querySelector(".num");
-    if (!here.length) {
-      status.textContent = "All models have been revealed for this prompt. Blind scoring is closed.";
-      return;
-    }
-    status.textContent = window.vellery.me
-      ? `${here.length - unrated.length} of ${here.length} rated blind`
-      : `${here.length} anonymous drawings`;
-  }
-
-  function paintHeader() {
-    const who = selected && meta[selected];
-    if (!who) return;
-    const head = body.querySelector(".dhead");
-    if (!head || head.dataset.revealed) return;
-    head.dataset.revealed = "1";
-    const title = head.querySelector("h2");
-    const kid = title.textContent;
-    title.replaceChildren(document.createTextNode(`${who.label} `), el("span", "", `run ${who.run}`));
-    head.querySelector(".note").textContent = `Drawing ${kid}`;
-  }
-
-  function paintStatus() {
-    const chip = body.querySelector(".verdict.status");
-    if (!chip || !selected) return;
-    chip.hidden = blind(byId[selected]);
-    if (chip.hidden) return;
-    const v = tally(selected);
-    const b = bucketOf(byId[selected]);
-    chip.className = `verdict status ${b}`;
-    chip.replaceChildren(document.createTextNode(data.buckets[b]));
-    if (v.up + v.down) chip.append(el("small", "", `${v.up} of ${v.up + v.down} up`));
-  }
-
-  function paintVotes() {
-    const slot = body.querySelector(".votes");
-    if (!slot || !selected || !data.votable[selected]) return;
-    if (meta[selected]) {
-      slot.replaceChildren(el("span", "note", "Model revealed · scoring closed"));
-      return;
-    }
-    const v = tally(selected);
-    const mine = v.mine;
-    const downed = !!mine && mine.vote === -1;
-    const button = (cls, label, title, on, next) => {
-      const b = el("button", `vote ${cls}${on ? " on" : ""}`, label);
-      b.dataset.action = cls;
-      b.setAttribute("aria-pressed", String(!!on));
-      b.title = title;
-      b.setAttribute("aria-label", title);
-      b.addEventListener("click", () => vote(selected, next));
-      return b;
-    };
-    const bar = el("div", "votebar");
-    const label = (symbol, count) => blind(byId[selected]) ? symbol : `${symbol} ${count}`;
-    // ▼▼ replaces ▼: one voter is one vote, counted at whichever level they chose.
-    bar.append(
-      button("up", label("▲", v.up), "Upvote", mine && mine.vote === 1, mine && mine.vote === 1 ? null : { vote: 1, basic: false }),
-      button("down", label("▼", v.down - v.basic), "Downvote", downed && !mine.basic, downed && !mine.basic ? null : { vote: -1, basic: false }),
-    );
-    if (downed && data.votable[selected].basic)
-      bar.append(button("basic", label("▼▼", v.basic), "Not meeting basic standard", mine.basic, { vote: -1, basic: !mine.basic }));
-    const focused = slot.contains(document.activeElement) && document.activeElement.dataset.action;
-    slot.replaceChildren(bar);
-    if (focused) {
-      (bar.querySelector(`[data-action="${focused}"]`) || bar.querySelector(".down")).focus({ preventScroll: true });
-    }
-    const hint = data.votable[selected].basic ? " · ↓ twice for double down" : "";
-    slot.append(el("span", "note", "← → navigate · ↑ upvote · ↓ downvote" + hint));
-    if (!window.vellery.me) slot.append(el("span", "note", "Log in to vote"));
-  }
-
-  // While the viewer is open the grid stays put; it reorders when the viewer closes.
-  function render() {
-    if (!viewer.open) place();
-    refresh();
-    paintVotes();
-    paintStatus();
-    paintHeader();
-    paintReveal();
-  }
-
-  function applyLocal(v, next) {
-    const out = { up: v.up, down: v.down, basic: v.basic, mine: next };
-    if (v.mine) {
-      if (v.mine.vote === 1) out.up--;
-      else {
-        out.down--;
-        if (v.mine.basic) out.basic--;
-      }
-    }
-    if (next) {
-      if (next.vote === 1) out.up++;
-      else {
-        out.down++;
-        if (next.basic) out.basic++;
-      }
-    }
-    return out;
-  }
-
-  // The page updates first; the server catches up. A failed save quietly puts things back.
-  async function vote(id, next) {
-    if (meta[id]) return;
-    if (!window.vellery.me) return window.vellery.openLogin();
-    const before = tally(id);
-    votes[id] = applyLocal(before, next);
-    // Coalesce rapid presses but serialize writes for the same drawing.
-    // Otherwise the first downvote can reach the database after the double down.
-    if (pending[id]) {
-      pending[id].next = next;
-      render();
-      return;
-    }
-    const state = pending[id] = {next};
-    let confirmed = before;
-    render();
-    while (true) {
-      const sending = state.next;
-      try {
-        const res = await fetch("/api/vote", {
-          method: "POST",
-          headers: { "content-type": "application/json" },
-          body: JSON.stringify({ item: id, vote: sending?.vote || 0, basic: !!sending?.basic }),
-        });
-        if (!res.ok) throw new Error(res.status);
-        confirmed = await res.json();
-      } catch (e) {
-        if (String(e.message) === "401") {
-          window.vellery.openLogin();
-          break;
-        }
-      }
-      if (state.next === sending) break;
-    }
-    delete pending[id];
-    votes[id] = confirmed;
-    remember();
-    render();
-  }
-
-  function show(id) {
-    selected = id;
-    body.innerHTML = data.detail[id];
-    const head = body.querySelector(".dhead");
-    if (data.mode === "gallery") head.append(el("span", "verdict status"));
-    if (data.votable[id]) head.after(el("div", "votes"));
-    viewer.querySelector(".vpos").textContent = `${order.indexOf(byId[id]) + 1} of ${order.length}`;
-    viewer.querySelector(".vpanel").scrollTop = 0;
-    if (!viewer.open) viewer.showModal();
-    byId[id].scrollIntoView({ block: "nearest" });
-    refresh();
-    paintVotes();
-    paintStatus();
-    paintHeader();
-  }
-
-  function open(id) {
-    order = [...document.querySelectorAll(".tile")].filter((t) => !t.hidden);
+  function openViewer(list, id) {
+    order = list;
     document.documentElement.classList.add("locked");
     show(id);
+    if (!viewer.open) {
+      viewer.showModal();
+      vbody.focus({ preventScroll: true });
+    }
   }
-
+  function show(id) {
+    current = id;
+    $(".vpos", viewer).textContent = `${order.indexOf(id) + 1} of ${order.length}`;
+    onShow(id);
+    vbody.scrollTop = 0;
+    viewer.querySelector(".vframe").scrollTop = 0;
+  }
   function step(by) {
-    const at = order.indexOf(byId[selected]);
-    show(order[(at + by + order.length) % order.length].dataset.id);
+    if (!current || order.length < 2) return;
+    const at = order.indexOf(current);
+    show(order[(at + by + order.length) % order.length]);
   }
-
   viewer.addEventListener("close", () => {
     document.documentElement.classList.remove("locked");
-    const tile = byId[selected];
-    selected = null;
-    place();
-    refresh();
-    if (tile) tile.scrollIntoView({ block: "nearest" });
+    const id = current;
+    current = null;
+    document.dispatchEvent(new CustomEvent("viewer:closed", { detail: id }));
   });
-  // Only a click on the empty space around the panel closes it. (Buttons inside get
-  // rebuilt while handling their own click, so they can't be tested with `closest`.)
   viewer.addEventListener("click", (e) => {
-    if (e.target === viewer || e.target.classList.contains("vwrap")) viewer.close();
+    if (e.target === viewer) viewer.close();
   });
-  viewer.querySelector(".vclose").addEventListener("click", () => viewer.close());
-  viewer.querySelector(".prev").addEventListener("click", () => step(-1));
-  viewer.querySelector(".next").addEventListener("click", () => step(1));
+  $(".close", viewer).onclick = () => viewer.close();
+  $(".prev", viewer).onclick = () => step(-1);
+  $(".next", viewer).onclick = () => step(1);
+  const keyHandlers = [];
   document.addEventListener("keydown", (e) => {
-    if (!viewer.open || !selected || e.defaultPrevented || e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
-    if (document.querySelector("dialog[open]:not(.viewer)") || e.target.closest?.("input, textarea, select, [contenteditable=true]")) return;
+    if (!viewer.open || !current || e.altKey || e.ctrlKey || e.metaKey) return;
+    if (e.target.closest?.("input, textarea, select")) return;
     if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
       e.preventDefault();
       step(e.key === "ArrowLeft" ? -1 : 1);
       return;
     }
-    if (!data.votable[selected] || meta[selected] || (e.key !== "ArrowUp" && e.key !== "ArrowDown")) return;
-    e.preventDefault();
-    if (e.repeat) return;
-    const mine = tally(selected).mine;
-    let next = null;
-    if (e.key === "ArrowUp") {
-      if (mine?.vote !== 1) next = { vote: 1, basic: false };
-    } else if (mine?.vote !== -1) {
-      next = { vote: -1, basic: false };
-    } else if (data.votable[selected].basic && !mine.basic) {
-      next = { vote: -1, basic: true };
-    }
-    vote(selected, next);
+    for (const h of keyHandlers) if (h(e)) return;
   });
 
-  function pick(next) {
-    variant = next;
-    prompts.forEach((p) => p.classList.toggle("on", p.dataset.variant === variant));
-    place();
-    refresh();
-    paintReveal();
-  }
+  if (data.mode === "scripted") return scripted();
+  return gallery();
 
-  async function load() {
-    try {
-      const res = await fetch(`/api/votes?task=${data.slug}`);
-      if (res.ok) {
-        const received = await res.json();
-        for (const id of Object.keys(pending)) received[id] = votes[id];
-        votes = received;
-        for (const [id, v] of Object.entries(votes)) {
-          if (v.revealed) meta[id] = v.revealed;
-        }
-        if (data.reveal) buildRows();
-      }
-    } catch {}
-    remember();
-    render();
-  }
-
-  prompts.forEach((p) => p.addEventListener("click", () => pick(p.dataset.variant)));
-  tiles.forEach((t) => t.addEventListener("click", () => open(t.dataset.id)));
-  document.addEventListener("vellery:auth", load);
-
-  const revealButton = document.getElementById("reveal");
-  if (revealButton) revealButton.addEventListener("click", () => reveal(blindTiles(variant).map((t) => t.dataset.id)));
-  if (data.reveal) {
-    document.getElementById("reveal-rated").onclick = () => reveal(blindTiles(variant).map((t) => t.dataset.id), true);
-    document.getElementById("rate").onclick = () => {
-      const available = [...board.querySelectorAll(".tile")].filter((t) => !t.hidden && blind(t));
-      const next = available.find((t) => !tally(t.dataset.id).mine) || available[0];
-      if (next) open(next.dataset.id);
+  // ---------- scripted tasks ----------
+  function scripted() {
+    const cells = $$(".cell");
+    $(".vkeys", viewer).textContent = "← → to step through runs";
+    onShow = (id) => {
+      vbody.innerHTML = data.detail[id];
+      cells.forEach((c) => c.classList.toggle("on", c.dataset.id === id));
     };
+    cells.forEach((c) => c.addEventListener("click", () => openViewer(cells.map((x) => x.dataset.id), c.dataset.id)));
+    document.addEventListener("viewer:closed", (e) => {
+      const cell = cells.find((c) => c.dataset.id === e.detail);
+      cells.forEach((c) => c.classList.remove("on"));
+      if (cell) cell.focus({ preventScroll: true });
+    });
+  }
+
+  // ---------- drawings ----------
+  function gallery() {
+    const rules = data.rules;
+    const tiles = $$(".shot");
+    const byId = Object.fromEntries(tiles.map((t) => [t.dataset.id, t]));
+    const grid = $("#grid");
+    const blindBox = $("#blind");
+    const revealedBox = $("#revealed");
+    const byModel = $("#byModel");
+    const exposureKey = `vellery.disclosed.v2.${data.slug}`;
+    const cacheKey = `vellery.votes.${data.slug}`;
+    const OPTIONS = [
+      ["good", "Usable", "I could use this as is", { vote: 1, basic: false }],
+      ["fix", "Needs fixing", "Close, but something is off", { vote: -1, basic: false }],
+      ["slop", "Unusable", "Misses the request", { vote: -1, basic: true }],
+    ];
+    let variant = new URLSearchParams(location.search).get("prompt") === "vague" ? "weak" : "strong";
+    let votes = {};
+    let meta = {};
+    let ratingRun = false;
+    let revealing = false;
+    const pending = {};
+    const failed = {};
+
     try {
-      const stored = localStorage.getItem(exposureKey);
-      if (stored) meta = JSON.parse(stored);
-      else {
-        // Both older formats could carry a category reveal into newly added
-        // drawings. Only the original gallery can inherit that decision.
-        const previous = JSON.parse(localStorage.getItem(`vellery.disclosed.${data.slug}`) || "{}");
-        const flags = (document.cookie.match(new RegExp(`${flagKey}=([a-z,]*)`)) || [])[1]?.split(",") || [];
-        const snapshot = JSON.parse(localStorage.getItem(metaKey) || "{}");
-        for (const id of data.legacyRevealIds || []) {
-          const identity = previous[id] || (flags.includes(byId[id]?.dataset.variant) && snapshot[id]);
-          if (identity) meta[id] = identity;
-        }
-        localStorage.setItem(exposureKey, JSON.stringify(meta));
-      }
-      localStorage.removeItem(`vellery.disclosed.${data.slug}`);
-      localStorage.removeItem(metaKey);
-      document.cookie = `${flagKey}=; Path=/; Max-Age=0; SameSite=Lax`;
+      meta = JSON.parse(localStorage.getItem(exposureKey) || "{}");
+      for (const [id, v] of Object.entries(JSON.parse(localStorage.getItem(cacheKey) || "{}"))) votes[id] = { ...v, mine: null };
     } catch {}
+    const remember = () => {
+      try {
+        localStorage.setItem(exposureKey, JSON.stringify(meta));
+        localStorage.setItem(cacheKey, JSON.stringify(Object.fromEntries(
+          Object.entries(votes).map(([id, v]) => [id, { up: v.up, down: v.down, basic: v.basic }]))));
+      } catch {}
+    };
+
+    // A fresh random order on every visit, so no drawing always comes first.
+    const shuffled = [...tiles];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    shuffled.forEach((t) => grid.append(t));
+
+    const tally = (id) => votes[id] || { up: 0, down: 0, basic: 0, mine: null };
+    const blind = (id) => !meta[id];
+    const mineOf = (id) => {
+      const m = tally(id).mine;
+      if (!m) return null;
+      return m.vote === 1 ? "good" : m.basic ? "slop" : "fix";
+    };
+    function verdict(id) {
+      const v = tally(id);
+      const total = v.up + v.down;
+      if (total < rules.min) return null;
+      if (v.up / total >= rules.green) return "good";
+      if (v.up / total < rules.red && v.basic > v.down - v.basic) return "slop";
+      return "fix";
+    }
+    const inVariant = (t) => t.dataset.variant === variant;
+
+    // ----- page -----
+    function renderTabs() {
+      $$(".seg [role=tab]").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.variant === variant)));
+      $$(".pcard").forEach((c) => c.classList.toggle("on", c.dataset.variant === variant));
+    }
+
+    function renderCrowd() {
+      for (const v of ["weak", "strong"]) {
+        const ids = tiles.filter((t) => t.dataset.variant === v).map((t) => t.dataset.id);
+        const c = { good: 0, fix: 0, slop: 0 };
+        ids.forEach((id) => {
+          const b = verdict(id);
+          if (b) c[b]++;
+        });
+        const graded = c.good + c.fix + c.slop;
+        const big = $(`[data-crowd="${v}"] b`);
+        if (big) big.textContent = graded ? `${Math.round((100 * c.good) / graded)}%` : "–";
+        const stack = $(`[data-crowd-stack="${v}"]`);
+        if (stack) stack.replaceChildren(...Object.entries(c).filter(([, n]) => n).map(([g, n]) => {
+          const s = el("span", g);
+          s.style.width = `${(100 * n) / graded}%`;
+          s.title = `${n} ${data.grades[g].toLowerCase()}`;
+          return s;
+        }));
+        const note = $(`[data-crowd-note="${v}"]`);
+        if (note) note.textContent = graded
+          ? `${graded} of ${ids.length} drawings have enough ratings for a verdict`
+          : `${ids.length} drawings · no verdicts yet, each needs ${rules.min} ratings`;
+      }
+    }
+
+    function paintTile(t) {
+      const id = t.dataset.id;
+      const cap = $(".cap", t);
+      const mine = mineOf(id);
+      t.classList.toggle("on", id === current);
+      if (blind(id)) {
+        t.dataset.g = "";
+        t.dataset.mine = mine || "";
+        cap.textContent = mine ? `You: ${data.grades[mine]}` : "";
+        t.setAttribute("aria-label", `Drawing ${data.detail[id].kid}${mine ? `, you rated it ${data.grades[mine]}` : ", not rated yet"}`);
+      } else {
+        const who = meta[id];
+        const g = verdict(id);
+        t.dataset.g = g || "";
+        t.dataset.mine = "";
+        cap.textContent = `Run ${who.run}${g ? ` · ${data.grades[g]}` : ""}`;
+        t.setAttribute("aria-label", `${who.label}, run ${who.run}${g ? `: ${data.grades[g]}` : ""}`);
+      }
+    }
+
+    function place() {
+      // Blind drawings stay in the shuffled grid; revealed ones move to their model's row.
+      const revealed = tiles.filter((t) => !blind(t.dataset.id));
+      for (const m of data.models) {
+        const mine = revealed.filter((t) => meta[t.dataset.id].id === m.id).sort((a, b) => meta[a.dataset.id].run - meta[b.dataset.id].run);
+        if (!mine.length) continue;
+        let row = $(`.mrow[data-model="${m.id}"]`, byModel);
+        if (!row) {
+          row = el("div", "mrow");
+          row.dataset.model = m.id;
+          row.append(el("div", "mlabel"), el("div", "mtiles"));
+          $(".mlabel", row).append(el("b", "", m.label), el("span", "mscore"));
+          byModel.append(row);
+          [...byModel.children]
+            .sort((a, b) => data.models.findIndex((x) => x.id === a.dataset.model) - data.models.findIndex((x) => x.id === b.dataset.model))
+            .forEach((r) => byModel.append(r));
+        }
+        mine.forEach((t) => $(".mtiles", row).append(t));
+      }
+    }
+
+    function render() {
+      renderTabs();
+      tiles.forEach((t) => {
+        t.hidden = !inVariant(t);
+        paintTile(t);
+      });
+      const here = tiles.filter(inVariant);
+      const blindHere = here.filter((t) => blind(t.dataset.id));
+      const rated = here.filter((t) => tally(t.dataset.id).mine).length;
+      blindBox.hidden = !blindHere.length;
+      $(".count", blindBox).textContent = blindHere.length;
+      const revealedHere = here.length - blindHere.length;
+      revealedBox.hidden = !revealedHere;
+      $(".count", revealedBox).textContent = revealedHere;
+      $$(".mrow", byModel).forEach((row) => {
+        const ts = $$(".shot", row).filter(inVariant);
+        row.hidden = !ts.length;
+        const good = ts.filter((t) => verdict(t.dataset.id) === "good").length;
+        const judged = ts.filter((t) => verdict(t.dataset.id)).length;
+        $(".mscore", row).textContent = judged ? `${good} of ${judged} rated usable` : "not enough ratings yet";
+      });
+      $("#progress").textContent = rated
+        ? `You’ve rated ${rated} of ${here.length}`
+        : `${here.length} drawings, none rated by you yet`;
+      $("#pbar").style.width = `${(100 * rated) / (here.length || 1)}%`;
+      const unratedBlind = blindHere.filter((t) => !tally(t.dataset.id).mine);
+      const rate = $("#rate");
+      rate.disabled = !unratedBlind.length;
+      rate.textContent = !unratedBlind.length ? "All rated" : rated ? "Continue rating" : "Start rating";
+      const reveal = $("#reveal");
+      if (reveal) {
+        reveal.hidden = !blindHere.length;
+        reveal.disabled = revealing || blindHere.some((t) => pending[t.dataset.id]);
+        reveal.textContent = unratedBlind.length ? "Reveal all models" : "Reveal models";
+      }
+      renderCrowd();
+      if (viewer.open && current) paintSide();
+    }
+
+    // ----- viewer -----
+    $(".vkeys", viewer).textContent = "1 2 3 to rate · ← → to step through";
+    const visibleOrder = () => [
+      ...$$(".shot", grid).filter((t) => !t.hidden),
+      ...$$(".shot", byModel).filter((t) => !t.hidden),
+    ].map((t) => t.dataset.id);
+
+    onShow = (id) => {
+      const d = data.detail[id];
+      vbody.innerHTML =
+        `<div class="vgal"><div class="vart">${d.html}</div><aside class="vside">` +
+        '<p class="crumb"></p><h2></h2><p class="whohint"></p><div class="rate" role="group" aria-label="Your rating"></div>' +
+        '<p class="status" aria-live="polite"></p><div class="after"></div></aside></div>';
+      tiles.forEach(paintTile);
+      paintSide();
+      byId[id].scrollIntoView({ block: "nearest" });
+    };
+
+    function paintSide() {
+      const id = current;
+      const side = $(".vside", vbody);
+      if (!side) return;
+      const d = data.detail[id];
+      const who = meta[id];
+      const mine = mineOf(id);
+      $(".crumb", side).textContent = `${d.variant === "weak" ? "Vague" : "Specific"} prompt · drawing ${d.kid}`;
+      $("h2", side).textContent = who ? who.label : "Who drew this?";
+      $(".whohint", side).textContent = who ? `Run ${who.run} of 5` : "Rate it first. The model stays hidden until you reveal it.";
+      const rate = $(".rate", side);
+      if (who) {
+        const v = tally(id);
+        const g = verdict(id);
+        const fix = v.down - v.basic;
+        rate.replaceChildren();
+        const box = el("div", "crowd");
+        box.append(
+          el("p", "label", "Visitor ratings"),
+          el("p", `crowdverdict ${g || ""}`, g ? data.grades[g] : `Not enough ratings yet (needs ${rules.min})`),
+        );
+        const ul = el("ul", "breakdown");
+        [["good", v.up], ["fix", fix], ["slop", v.basic]].forEach(([k, n]) => {
+          const li = el("li", k);
+          li.append(el("b", "", String(n)), document.createTextNode(` ${data.grades[k].toLowerCase()}`));
+          ul.append(li);
+        });
+        box.append(ul);
+        if (mine) box.append(el("p", "hint", `You rated it ${data.grades[mine].toLowerCase()}.`));
+        else box.append(el("p", "hint", "Rating is closed for you on this drawing because you revealed its model."));
+        rate.append(box);
+      } else {
+        const focused = rate.contains(document.activeElement) ? document.activeElement.dataset.g : null;
+        rate.replaceChildren(...OPTIONS.map(([g, label, hint, next], n) => {
+          const b = el("button", `opt ${g}${mine === g ? " on" : ""}`);
+          b.dataset.g = g;
+          b.setAttribute("aria-pressed", String(mine === g));
+          b.append(el("kbd", "", String(n + 1)), el("b", "", label), el("span", "", hint));
+          b.onclick = () => vote(id, mine === g ? null : next);
+          return b;
+        }));
+        if (focused) $(`[data-g="${focused}"]`, rate)?.focus({ preventScroll: true });
+      }
+      const status = $(".status", side);
+      status.textContent = failed[id] ? "Couldn’t save that rating. Try again." : pending[id] ? "Saving…" : mine && !who ? "Saved" : "";
+      status.classList.toggle("err", !!failed[id]);
+      const after = $(".after", side);
+      after.replaceChildren();
+      const next = nextUnrated(id);
+      if (!who && data.reveal) {
+        const r = el("button", "btn", "Reveal the model");
+        r.disabled = revealing || !!pending[id];
+        r.title = mine ? "" : "Revealing ends rating for this drawing";
+        r.onclick = () => reveal([id]);
+        after.append(r);
+      }
+      if (next) {
+        const n = el("button", "btn primary", "Next unrated →");
+        n.onclick = () => { ratingRun = true; show(next); };
+        after.append(n);
+      }
+    }
+
+    function nextUnrated(from) {
+      const list = $$(".shot", grid).filter((t) => !t.hidden).map((t) => t.dataset.id);
+      const start = Math.max(0, list.indexOf(from));
+      for (let k = 1; k <= list.length; k++) {
+        const id = list[(start + k) % list.length];
+        if (id !== from && !tally(id).mine && blind(id)) return id;
+      }
+      return null;
+    }
+
+    keyHandlers.push((e) => {
+      const n = ["1", "2", "3"].indexOf(e.key);
+      if (n < 0 || !blind(current)) return false;
+      e.preventDefault();
+      if (e.repeat) return true;
+      const [g, , , next] = OPTIONS[n];
+      vote(current, mineOf(current) === g ? null : next);
+      return true;
+    });
+
+    // ----- votes -----
+    function applyLocal(v, next) {
+      const out = { up: v.up, down: v.down, basic: v.basic, mine: next };
+      if (v.mine) {
+        if (v.mine.vote === 1) out.up--;
+        else { out.down--; if (v.mine.basic) out.basic--; }
+      }
+      if (next) {
+        if (next.vote === 1) out.up++;
+        else { out.down++; if (next.basic) out.basic++; }
+      }
+      return out;
+    }
+
+    // The page updates at once; writes for one drawing go out in order, and a
+    // failed save puts the last confirmed state back.
+    async function vote(id, next) {
+      if (!blind(id)) return;
+      const wasUnrated = !tally(id).mine;
+      const before = tally(id);
+      votes[id] = applyLocal(before, next);
+      delete failed[id];
+      if (ratingRun && wasUnrated && next) {
+        const after = nextUnrated(id);
+        if (after) setTimeout(() => { if (current === id) show(after); }, 380);
+      }
+      if (pending[id]) {
+        pending[id].next = next;
+        render();
+        return;
+      }
+      const state = (pending[id] = { next });
+      let confirmed = before;
+      render();
+      while (true) {
+        const sending = state.next;
+        try {
+          const res = await fetch("/api/vote", {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({ item: id, vote: sending?.vote || 0, basic: !!sending?.basic }),
+          });
+          if (!res.ok) throw new Error(res.status);
+          confirmed = await res.json();
+        } catch {
+          failed[id] = true;
+          break;
+        }
+        if (state.next === sending) break;
+      }
+      delete pending[id];
+      votes[id] = confirmed;
+      remember();
+      render();
+    }
+
+    async function reveal(ids) {
+      if (revealing || !ids.length || ids.some((id) => pending[id])) return;
+      const unrated = ids.filter((id) => !tally(id).mine).length;
+      if (unrated) {
+        const what = ids.length === 1 ? "You haven’t rated this drawing. Revealing its model ends rating for it."
+          : `You haven’t rated ${unrated} of these ${ids.length} drawings. Revealing their models ends rating for them.`;
+        if (!window.confirm(`${what} Reveal anyway?`)) return;
+      }
+      revealing = true;
+      render();
+      try {
+        const res = await fetch("/api/reveal", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ task: data.slug, ids }),
+        });
+        if (!res.ok) throw new Error();
+        const disclosed = await res.json();
+        if (!ids.every((id) => disclosed[id])) throw new Error();
+        Object.assign(meta, disclosed);
+        remember();
+        place();
+      } catch {
+        window.alert("Could not reveal the models. Please try again.");
+      } finally {
+        revealing = false;
+        render();
+      }
+    }
+
+    async function load() {
+      try {
+        const res = await fetch(`/api/votes?task=${encodeURIComponent(data.slug)}`);
+        if (res.ok) {
+          const received = await res.json();
+          for (const id of Object.keys(pending)) received[id] = votes[id];
+          votes = received;
+          for (const [id, v] of Object.entries(votes)) if (v.revealed) meta[id] = v.revealed;
+          remember();
+        }
+      } catch {}
+      place();
+      render();
+    }
+
+    // ----- wiring -----
+    tiles.forEach((t) => t.addEventListener("click", () => {
+      ratingRun = false;
+      openViewer(visibleOrder(), t.dataset.id);
+    }));
+    $$(".seg [role=tab]").forEach((b) => b.addEventListener("click", () => {
+      variant = b.dataset.variant;
+      const url = new URL(location.href);
+      url.searchParams.set("prompt", variant === "weak" ? "vague" : "specific");
+      history.replaceState(null, "", url);
+      render();
+    }));
+    $("#rate").onclick = () => {
+      const first = $$(".shot", grid).find((t) => !t.hidden && !tally(t.dataset.id).mine);
+      if (!first) return;
+      ratingRun = true;
+      openViewer(visibleOrder(), first.dataset.id);
+    };
+    const revealAll = $("#reveal");
+    if (revealAll) revealAll.onclick = () => reveal(tiles.filter((t) => inVariant(t) && blind(t.dataset.id)).map((t) => t.dataset.id));
+    document.addEventListener("viewer:closed", (e) => {
+      ratingRun = false;
+      render();
+      const t = byId[e.detail];
+      if (t && !t.hidden) t.focus({ preventScroll: true });
+    });
     window.addEventListener("storage", (e) => {
       if (e.key !== exposureKey || !e.newValue) return;
-      Object.assign(meta, JSON.parse(e.newValue));
-      buildRows();
+      try { Object.assign(meta, JSON.parse(e.newValue)); } catch {}
+      place();
       render();
     });
-    buildRows();
+
+    place();
+    render();
+    load();
   }
-  place();
-  pick("strong");
-  load();
-  window.vellery.ready.then(() => {
-    paintVotes();
-    paintReveal();
-  });
 })();

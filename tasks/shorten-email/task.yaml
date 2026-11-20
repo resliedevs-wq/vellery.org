@@ -1,6 +1,7 @@
 slug: shorten-email
 title: Shorten a rambling email
 category: Writing
+summary: A rambling 280-word update email has to get shorter without losing or changing any of its facts.
 kind: text
 runs: 5
 inputs:

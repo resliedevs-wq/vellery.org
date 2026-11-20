@@ -1,6 +1,7 @@
 slug: clean-spreadsheet
 title: Clean up a messy expense sheet
 category: Sheets
+summary: A messy March expense sheet with mixed date formats, duplicates and stray symbols has to be tidied without changing the data.
 kind: sheet
 runs: 5
 inputs:

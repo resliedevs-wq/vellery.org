@@ -1,6 +1,7 @@
 slug: pelican-bicycle
 title: Animate a pelican riding a bicycle
 category: Animation
+summary: The model writes an animated SVG of a pelican riding a bicycle, by hand, with no image generator.
 kind: svg
 published: true
 runs: 5
