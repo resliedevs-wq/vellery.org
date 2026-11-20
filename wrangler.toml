@@ -15,3 +15,6 @@ run_worker_first = ["/api/*"]
 binding = "DB"
 database_name = "vellery-ratings"
 database_id = "241a2352-814e-4def-8c2d-775c118bec6c"
+# `wrangler dev` (the tailnet preview) reads and writes this same production
+# database, so ratings made on either site are the same ratings.
+remote = true
