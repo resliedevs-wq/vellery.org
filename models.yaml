@@ -25,3 +25,9 @@ models:
   - id: gpt-6-luna
     label: GPT-6 Luna
     harness: codex
+  - id: gpt-6.2-astra
+    label: GPT-6.2 Astra
+    harness: codex
+  - id: gpt-6.2-sol
+    label: GPT-6.2 Sol
+    harness: codex
