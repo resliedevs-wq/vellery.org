@@ -88,15 +88,19 @@
       body.append(r);
     });
     document.querySelectorAll("[data-rank]").forEach((b) => {
-      if (b.tagName === "BUTTON") b.setAttribute("aria-pressed", String(b.dataset.rank === by));
-      else b.classList.toggle("sorted", b.dataset.rank === by);
+      b.classList.toggle("sorted", b.dataset.rank === by);
+      if (b.dataset.rank === by) b.setAttribute("aria-sort", by === "cost" ? "ascending" : "descending");
+      else b.removeAttribute("aria-sort");
     });
   }
 
-  document.querySelectorAll("[data-rank]").forEach((b) => b.addEventListener("click", () => {
-    by = b.dataset.rank;
-    rank();
-  }));
+  document.querySelectorAll("[data-rank]").forEach((b) => {
+    const pick = () => { by = b.dataset.rank; rank(); };
+    b.addEventListener("click", pick);
+    b.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pick(); }
+    });
+  });
   rank();
 
   fetch("/api/summary").then((r) => (r.ok ? r.json() : null)).then((s) => s && fill(s)).catch(() => {});

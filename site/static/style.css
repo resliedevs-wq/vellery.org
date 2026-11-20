@@ -410,7 +410,6 @@ table.models td.pz .slop{background:var(--slop-bg);color:var(--slop)}
 .ownerform input{flex:1;padding:10px 12px;border:1px solid var(--line-2);border-radius:8px;font:inherit;background:var(--bg);color:var(--ink)}
 .pcards.one{grid-template-columns:minmax(0,640px)}
 table.models td.run .dots:not(:has(i)){color:var(--muted)}
-.rankby{display:flex;align-items:center;gap:10px;margin:4px 0 14px;font-size:13.5px}
 table.models .rank{width:28px;padding-left:0;padding-right:4px;text-align:left;color:var(--muted);font-variant-numeric:tabular-nums;font-weight:600}
 table.models thead th.rank{padding-left:0}
 table.models thead tr:first-child th:first-child+th{padding-left:6px}

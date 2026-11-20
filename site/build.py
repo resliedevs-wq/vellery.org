@@ -819,13 +819,10 @@ def home(tasks, models, all_runs, galleries):
                      f'<td class="num cost"{cost_note}>{money(known)}{"*" if unknown else ""}</td></tr>'))
     body.sort(key=lambda r: r[:2])
     table = (
-        '<div class="rankby"><span class="muted">Rank by</span><div class="seg" role="group" aria-label="Rank by">'
-        '<button data-rank="points" aria-pressed="true">Performance</button>'
-        '<button data-rank="cost" aria-pressed="false">Total cost</button></div></div>'
         f'<div class="scroll"><table class="models"><thead><tr><th rowspan="2" class="rank">#</th><th rowspan="2">Model</th>{head}'
         + "".join(f'<th rowspan="2" class="pzh" title="{esc(t["title"])}: ✓ first chance, ✓2 second chance">{esc(t["category"])}</th>' for t in puzzles)
-        + '<th rowspan="2" class="num sortable" data-rank="points" title="Usable 2, needs fixing 1, unusable 0 per run; puzzle 2 on the first chance, 1 on the second">Points</th>'
-          '<th rowspan="2" class="num sortable" data-rank="cost" title="Estimated API cost of every run shown, at list prices">Total cost</th></tr>'
+        + '<th rowspan="2" class="num sortable" data-rank="points" tabindex="0" title="Sort by points. Usable 2, needs fixing 1, unusable 0 per run; puzzle 2 on the first chance, 1 on the second">Points</th>'
+          '<th rowspan="2" class="num sortable" data-rank="cost" tabindex="0" title="Sort by cost. Estimated API cost of every run shown, at list prices">Total cost</th></tr>'
         f'<tr class="subh">{sub}</tr></thead><tbody>{"".join(r[2] for r in body)}</tbody></table></div>')
     legend = '<div class="legend">' + "".join(
         f'<span class="{g}"><i>{GLYPH[g]}</i>{label}</span>' for g, label in GRADES.items()) + "</div>"
@@ -858,9 +855,6 @@ def home(tasks, models, all_runs, galleries):
         + finding + "</section>"
         + f'<section class="wrap block" id="tasks"><h2 class="sec">Tasks</h2><div class="tasks">{"".join(rows)}</div></section>'
         + '<section class="wrap block" id="models"><div class="sechead"><h2 class="sec">How each model did</h2>' + legend + "</div>"
-        + '<p class="hint">One dot per run: text and spreadsheets are checked by script, drawings rated blind (grey: not rated yet). '
-        'Points: usable 2, needs fixing 1, unusable 0; the puzzle scores 2 if solved on the first chance, 1 on the second. '
-        'Models not run on every task are listed below the ranking, unranked.</p>'
         + table + "</section>"
         + '<section class="wrap block" id="method"><h2 class="sec">Method</h2><div class="method">'
         + "".join(f"<div><h3>{esc(h)}</h3><p>{esc(p)}</p></div>" for h, p in method)
