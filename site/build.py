@@ -688,7 +688,7 @@ def build_gallery(task, items, models, can_reveal):
         '<div id="blind"><h3 class="sub">Unrevealed <span class="count"></span></h3>'
         f'<div class="grid" id="grid">{"".join(tiles)}</div></div>'
         '<div id="revealed" hidden><h3 class="sub">Revealed, by model <span class="count"></span></h3>'
-        '<p class="hint">Borders show each drawing’s verdict: Vellery’s own rating, or, where Vellery hasn’t rated it, '
+        '<p class="hint">The bar under each drawing shows its verdict: Vellery’s own rating, or, where Vellery hasn’t rated it, '
         'the visitor verdict once it has at least three ratings.</p>'
         '<div id="byModel"></div></div>')
     body = (

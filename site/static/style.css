@@ -216,9 +216,13 @@ details.input[open] .open::after{font-size:13.5px;content:"Hide ↑"}
 .shot[data-mine=slop] .cap::before{background:var(--slop)!important}
 .shot[data-mine]:not([data-mine=""]) .frame{opacity:.72}
 .shot[data-mine]:not([data-mine=""]):hover .frame{opacity:1}
-.shot[data-g=good] .frame{border:2px solid var(--good)}
-.shot[data-g=fix] .frame{border:2px solid var(--fix)}
-.shot[data-g=slop] .frame{border:2px solid var(--slop)}
+/* Revealed drawings: the verdict is a coloured bar under the drawing, so a model's row reads at a glance. */
+#byModel .cap{justify-content:space-between;padding:5px 10px;border-radius:7px;background:var(--paper);font-weight:500}
+#byModel .cap b{font-weight:650}
+#byModel .cap span{font-weight:400;opacity:.8;font-variant-numeric:tabular-nums}
+#byModel .shot[data-g=good] .cap{background:var(--good-bg);color:var(--good)}
+#byModel .shot[data-g=fix] .cap{background:var(--fix-bg);color:var(--fix)}
+#byModel .shot[data-g=slop] .cap{background:var(--slop-bg);color:var(--slop)}
 .frame .drawing-text{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:8px;font:clamp(3px,.5vw,8px)/1.1 var(--mono);white-space:pre;color:#333}
 #byModel{display:flex;flex-direction:column}
 .mrow{display:grid;grid-template-columns:200px minmax(0,1fr);gap:24px;align-items:center;padding:14px 0;border-top:1px solid var(--line)}

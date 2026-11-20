@@ -202,7 +202,7 @@
         const g = verdict(id);
         t.dataset.g = g || "";
         t.dataset.mine = "";
-        cap.textContent = `Run ${who.run}${g ? ` · ${data.grades[g]}` : ""}`;
+        cap.replaceChildren(el("b", "", g ? data.grades[g] : "Not rated yet"), el("span", "", `Run ${who.run}`));
         t.setAttribute("aria-label", `${who.label}, run ${who.run}${g ? `: ${data.grades[g]}` : ""}`);
       }
     }
@@ -256,7 +256,7 @@
       const unratedBlind = blindHere.filter((t) => !mineOf(t.dataset.id));
       const rate = $("#rate");
       rate.disabled = !unratedBlind.length;
-      rate.textContent = !unratedBlind.length ? "All rated" : rated ? "Continue rating" : "Start rating";
+      rate.textContent = !blindHere.length ? "All revealed" : !unratedBlind.length ? "All rated" : rated ? "Continue rating" : "Start rating";
       const reveal = $("#reveal");
       if (reveal) {
         reveal.hidden = !blindHere.length;
