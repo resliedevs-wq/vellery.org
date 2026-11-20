@@ -34,3 +34,9 @@ models:
   - id: deepseek-flash
     label: DeepSeek V4.1 Flash
     harness: dsh
+  - id: glm-5.3
+    label: GLM-5.3
+    harness: zcode
+  - id: glm-5.3-flash
+    label: GLM-5.3-Flash
+    harness: zcode

@@ -31,6 +31,9 @@ from pathlib import Path
 
 import yaml
 
+from functools import partial
+
+from zcode import run_zcode
 from cost import estimate_claude, estimate_codex, total
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -189,7 +192,8 @@ def run_deepseek(model, prompt, workdir):
             "usage": usage, "response": final.get("text", "")}
 
 
-HARNESSES = {"claude": run_claude, "codex": run_codex, "dsh": run_deepseek}
+HARNESSES = {"claude": run_claude, "codex": run_codex, "dsh": run_deepseek,
+             "zcode": partial(run_zcode, execute=execute)}
 
 
 def attempt(model, prompt, dest):
