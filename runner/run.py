@@ -14,6 +14,10 @@ generator is off. If the CLI itself fails (crash,
 timeout, unreadable output), the run is retried up to MAX_ATTEMPTS times.
 Every attempt is kept under run-<n>/attempt-<k>/. A run whose attempts all
 fail is recorded as failed, not dropped.
+
+A task can list `files` to copy into the working directory before each run.
+A task with `stop_on_success` runs its runs one after another and stops at
+the first one the grader marks solved: its runs are chances, not repeats.
 """
 
 import argparse
@@ -35,6 +39,7 @@ from functools import partial
 
 from zcode import run_zcode
 from cost import estimate_claude, estimate_codex, estimate_usage, total
+from grade import grade_answer
 
 ROOT = Path(__file__).resolve().parent.parent
 TASKS = ROOT / "tasks"
@@ -266,11 +271,13 @@ HARNESSES = {"claude": run_claude, "codex": run_codex, "dsh": run_deepseek,
              "zcode": partial(run_zcode, execute=execute), "agy": run_agy}
 
 
-def attempt(model, prompt, dest):
+def attempt(model, prompt, dest, inputs=()):
     """Run the CLI once in a fresh directory and save everything to dest."""
     with tempfile.TemporaryDirectory(prefix="vellery-") as tmp:
         workdir = Path(tmp) / "work"
         workdir.mkdir()
+        for src in inputs:
+            shutil.copyfile(src, workdir / src.name)
         started = datetime.now(timezone.utc)
         t0 = time.monotonic()
         result = HARNESSES[model["harness"]](model, prompt, workdir)
@@ -285,8 +292,12 @@ def attempt(model, prompt, dest):
             log += "\n--- stderr ---\n" + result["stderr"]
         (dest / "transcript.log").write_text(log)
         files = sorted(p.relative_to(workdir).as_posix() for p in workdir.rglob("*") if p.is_file())
-        if files:
-            shutil.copytree(workdir, dest / "files")
+        # Inputs the model left unchanged are already in tasks/.
+        unchanged = {src.name for src in inputs
+                     if (workdir / src.name).is_file() and (workdir / src.name).read_bytes() == src.read_bytes()}
+        if set(files) - unchanged:
+            shutil.copytree(workdir, dest / "files", ignore=lambda d, names: [
+                n for n in names if Path(d) == workdir and n in unchanged])
         info = {
             "ok": result["error"] is None,
             "error": result["error"],
@@ -310,13 +321,14 @@ def run_one(task, variant, model, n, out):
     if model["harness"] == "agy" and task["slug"] == "kitchen-illustration":
         model = {**model, "workspace_files_only": True}
     prompt = render_prompt(task, variant)
+    inputs = [task["dir"] / name for name in task.get("files", [])]
     out.mkdir(parents=True, exist_ok=True)
     # Attempts saved by an interrupted batch count: a finished success is
     # kept, and earlier failures count toward the limit.
     saved = sorted(out.glob("attempt-*/attempt.json"), key=lambda p: int(p.parent.name.split("-")[1]))
     infos = [json.loads(p.read_text()) for p in saved]
     while not (infos and infos[-1]["ok"]) and len(infos) < MAX_ATTEMPTS:
-        infos.append(attempt(model, prompt, out / f"attempt-{len(infos) + 1}"))
+        infos.append(attempt(model, prompt, out / f"attempt-{len(infos) + 1}", inputs))
     info = infos[-1]
     costs = [i["est_cost_usd"] for i in infos]
     meta = {
@@ -335,6 +347,24 @@ def run_one(task, variant, model, n, out):
     # meta.json is written last: its presence marks the run as finished.
     (out / "meta.json").write_text(json.dumps(meta, indent=2) + "\n")
     return info["ok"], len(infos), info["duration_s"]
+
+
+def solved(task, out):
+    meta = json.loads((out / "meta.json").read_text())
+    if not meta["ok"]:
+        return False
+    response = (out / f"attempt-{meta['attempts']}" / "response.md").read_text()
+    return grade_answer(task, response)["grade"] == "good"
+
+
+def run_chances(task, variant, model, outs):
+    """Give a model its chances in order, stopping at the first solved run."""
+    for n, out in enumerate(outs, 1):
+        if not (out / "meta.json").exists():
+            run_one(task, variant, model, n, out)
+        if solved(task, out):
+            return f"solved on chance {n}"
+    return f"not solved in {len(outs)} chances"
 
 
 def start_batch(batch_dir, harnesses):
@@ -365,7 +395,7 @@ def main():
     ap.add_argument("batch", help="batch name, e.g. 2026-10-29")
     ap.add_argument("--task", action="append", help="task slug (repeatable; default all)")
     ap.add_argument("--model", action="append", help="model id (repeatable; default all)")
-    ap.add_argument("--variant", choices=["weak", "strong"], action="append")
+    ap.add_argument("--variant", action="append", help="prompt variant (repeatable; default all of a task's)")
     ap.add_argument("--runs", type=int, help="override runs per task")
     ap.add_argument("--jobs", type=int, default=4, help="parallel runs")
     ap.add_argument("--dry-run", action="store_true", help="list runs without executing")
@@ -383,19 +413,31 @@ def main():
     for task in tasks.values():
         if args.task and task["slug"] not in args.task:
             continue
-        for variant in args.variant or ["weak", "strong"]:
+        for variant in task["prompts"]:
+            if args.variant and variant not in args.variant:
+                continue
             for model in models:
                 if args.model and model["id"] not in args.model:
                     continue
-                for n in range(1, (args.runs or task["runs"]) + 1):
-                    out = batch_dir / task["slug"] / variant / model["id"] / f"run-{n}"
+                outs = [batch_dir / task["slug"] / variant / model["id"] / f"run-{n}"
+                        for n in range(1, (args.runs or task["runs"]) + 1)]
+                if task.get("stop_on_success"):
+                    # One job per model: later chances depend on earlier results.
+                    if not any(solved(task, o) for o in outs if (o / "meta.json").exists()) \
+                            and not all((o / "meta.json").exists() for o in outs):
+                        jobs.append((task, variant, model, outs))
+                    continue
+                for n, out in enumerate(outs, 1):
                     if not (out / "meta.json").exists():
                         jobs.append((task, variant, model, n, out))
 
-    print(f"{len(jobs)} runs to do in batch {args.batch}")
+    print(f"{len(jobs)} jobs to do in batch {args.batch}")
     if args.dry_run:
         for *_, out in jobs:
-            print(f"  {out.relative_to(batch_dir)}")
+            if isinstance(out, list):
+                print(f"  {out[0].parent.relative_to(batch_dir)} (up to {len(out)} chances, stops when solved)")
+            else:
+                print(f"  {out.relative_to(batch_dir)}")
         return
 
     if "claude" in {job[2]["harness"] for job in jobs}:
@@ -415,13 +457,17 @@ def main():
 
     failed = 0
     with ThreadPoolExecutor(max_workers=args.jobs) as pool:
-        futures = {pool.submit(run_one, *job): job[-1] for job in jobs}
+        futures = {pool.submit(run_chances if len(job) == 4 else run_one, *job): job[-1] for job in jobs}
         for i, future in enumerate(as_completed(futures), 1):
+            out = futures[future]
+            if isinstance(out, list):
+                print(f"[{i}/{len(jobs)}] {out[0].parent.relative_to(batch_dir)}: {future.result()}", flush=True)
+                continue
             ok, attempts, duration = future.result()
             failed += not ok
             note = f", {attempts} attempts" if attempts > 1 else ""
             print(f"[{i}/{len(jobs)}] {'ok  ' if ok else 'FAIL'} "
-                  f"{futures[future].relative_to(batch_dir)} ({duration}s{note})", flush=True)
+                  f"{out.relative_to(batch_dir)} ({duration}s{note})", flush=True)
     if failed:
         print(f"{failed} runs failed after {MAX_ATTEMPTS} attempts; they are recorded as failed.")
 

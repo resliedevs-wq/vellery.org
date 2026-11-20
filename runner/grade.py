@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Scripted grading for the email and spreadsheet tasks.
+"""Scripted grading for the email, spreadsheet and puzzle tasks.
 
 Writes grade.json next to each run's meta.json. A grade comes from rules
 that anyone can rerun; whatever needs a person's judgment is listed under
@@ -19,6 +19,8 @@ import re
 import sys
 from datetime import date
 from pathlib import Path
+
+import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
 OUTPUTS = ROOT / "outputs"
@@ -228,6 +230,14 @@ def grade_sheet(task_dir, variant, response, run_dir):
     return {"grade": grade, "why": why, "checks": checks, "review": review}
 
 
+def grade_answer(task, response):
+    """A puzzle is solved if the response contains the answer, ignoring case, spacing and punctuation."""
+    letters = lambda s: re.sub(r"[^A-Z0-9]", "", s.upper())
+    found = letters(task["answer"]) in letters(strip_markup(response))
+    return {"grade": "good" if found else "slop", "why": "" if found else "answer not found",
+            "checks": {"answer_found": found}, "review": []}
+
+
 def replaced_runs(batches):
     replaced = set()
     for batch in batches:
@@ -243,14 +253,17 @@ def main(batches):
     for batch in batches:
         for meta_path in sorted((OUTPUTS / batch).glob("*/*/*/run-*/meta.json")):
             meta = json.loads(meta_path.read_text())
-            if meta["task"] not in ("shorten-email", "clean-spreadsheet"):
+            task = yaml.safe_load((TASKS / meta["task"] / "task.yaml").read_text())
+            if meta["task"] not in ("shorten-email", "clean-spreadsheet") and task.get("kind") != "puzzle":
                 continue
             run_dir = meta_path.parent
             if (batch, f"{meta['task']}/{meta['variant']}/{meta['model']}") in replaced:
                 continue
             response = (run_dir / f"attempt-{meta['attempts']}" / "response.md").read_text()
             task_dir = TASKS / meta["task"]
-            if meta["task"] == "shorten-email":
+            if task.get("kind") == "puzzle":
+                result = grade_answer(task, response)
+            elif meta["task"] == "shorten-email":
                 result = grade_email(task_dir, meta["variant"], response)
             else:
                 result = grade_sheet(task_dir, meta["variant"], response, run_dir)

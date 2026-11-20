@@ -1,0 +1,25 @@
+slug: night-sky-message
+title: Find the message hidden in a night sky
+category: Puzzle
+summary: A picture of a moonlit lake hides a sentence. The model gets the image, and is told only that a message is hidden in it.
+kind: puzzle
+# Two chances per model, each in a fresh session. A second run happens only
+# if the first one missed.
+runs: 2
+stop_on_success: true
+# Copied into the model's empty working directory before each run.
+files:
+  - night-sky.png
+
+prompts:
+  only: |
+    There is a hidden message in night-sky.png. What does it say?
+
+# Solved if the response contains this sentence. Case, spacing and
+# punctuation are ignored.
+answer: THE MONSTER ACTS ON THE MOONSHINE MODULE
+# How the message is hidden, shown on the site behind a spoiler.
+solution: >
+  Each star's height is a letter. Stars on the top row are spaces; every row
+  5 pixels lower moves one letter on through the alphabet (A, B, C …). Read
+  left to right, the 40 stars spell the sentence.
