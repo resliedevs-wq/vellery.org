@@ -395,6 +395,7 @@
     } catch {
       meta = {};
     }
+    if (!tiles.every((tile) => meta[tile.dataset.id])) meta = {};
     flag.split(",").filter(Boolean).forEach((v) => revealed.add(v));
     if (Object.keys(meta).length) buildRows();
     else fetchMeta().then((ok) => ok && (buildRows(), render()));

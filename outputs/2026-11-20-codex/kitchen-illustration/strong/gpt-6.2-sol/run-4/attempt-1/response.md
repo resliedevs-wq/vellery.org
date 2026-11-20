@@ -1,0 +1,1 @@
+Created [kitchen.svg](/tmp/vellery-5x1988md/work/kitchen.svg). The flat vector scene shows exactly three red apples, a blue MONDAY mug, and a gray cat asleep on a folded newspaper, with warm morning light from the left window.

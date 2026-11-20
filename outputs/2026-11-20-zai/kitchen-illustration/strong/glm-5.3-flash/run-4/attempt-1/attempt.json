@@ -1,0 +1,39 @@
+{
+  "ok": true,
+  "error": null,
+  "started": "2026-11-20T03:35:12+00:00",
+  "duration_s": 309.3,
+  "command": [
+    "zcode",
+    "--prompt",
+    "<prompt>",
+    "--cwd",
+    "/tmp/vellery-lj11l0u6/work",
+    "--mode",
+    "edit",
+    "--disallowed-tools",
+    "WebSearch WebFetch Browser AskUserQuestion EnterPlanMode ExitPlanMode",
+    "--output-format",
+    "json",
+    "--no-color"
+  ],
+  "served_models": null,
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 3,
+    "inputTokens": 46957,
+    "outputTokens": 13602,
+    "totalTokens": 60559,
+    "cacheReadTokens": 26752,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 10572,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "est_cost_usd": null,
+  "est_cost": null,
+  "cli_reported_cost_usd": null,
+  "files": [
+    "kitchen.svg"
+  ]
+}

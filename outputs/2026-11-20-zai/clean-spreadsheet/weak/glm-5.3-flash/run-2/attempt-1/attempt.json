@@ -1,0 +1,39 @@
+{
+  "ok": true,
+  "error": null,
+  "started": "2026-11-20T02:50:26+00:00",
+  "duration_s": 83.5,
+  "command": [
+    "zcode",
+    "--prompt",
+    "<prompt>",
+    "--cwd",
+    "/tmp/vellery-l7m_lrfr/work",
+    "--mode",
+    "edit",
+    "--disallowed-tools",
+    "WebSearch WebFetch Browser AskUserQuestion EnterPlanMode ExitPlanMode",
+    "--output-format",
+    "json",
+    "--no-color"
+  ],
+  "served_models": null,
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 3,
+    "inputTokens": 26996,
+    "outputTokens": 3920,
+    "totalTokens": 30916,
+    "cacheReadTokens": 11200,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 2747,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "est_cost_usd": null,
+  "est_cost": null,
+  "cli_reported_cost_usd": null,
+  "files": [
+    "expenses_march_2026_clean.csv"
+  ]
+}

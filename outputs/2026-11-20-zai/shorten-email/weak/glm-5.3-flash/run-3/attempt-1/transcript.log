@@ -1,0 +1,29 @@
+{
+  "sessionId": "sess_b74f6ec9-c289-46b9-b5d3-3bcd3fc962cc",
+  "traceId": "c7eb977f-fe87-4825-9ed3-7eb8557ed655",
+  "turnId": "turn_3bf4907e-4cd0-4ba6-9ab8-db025ac3cf61",
+  "response": "Here's a tightened version — same warmth, but the key facts and your actual asks now jump out:\n\n---\n\n**Subject:** Harbor Hall confirmed for March 12 — contract check before Friday?\n\nHi Dana,\n\nGood news on the venue: after a few missed calls on both sides, I finally got Priya on the phone yesterday, and Harbor Hall can confirm us for **March 12** — the date we originally wanted.\n\nThree things for you:\n\n- **Walkthrough:** They offered **March 3**, which works for me — let me know if you have a conflict that day.\n- **Budget:** The final number is **$4,200**, a bit under what we'd planned. They waived the AV setup fee since we're bringing our own projector, and it covers up to 85 guests — right around our current RSVP count, so we should be fine.\n- **Contract:** They've sent a draft. I've read it through and nothing looked off, but I'd like your eyes on it before I sign. If I don't hear back by then, I'll return it signed on **Friday**.\n\nHappy to talk it through if that's easier — just say the word.\n\nThanks so much,\nSam\n\n---\n\nWhat changed:\n\n- **Subject line** now carries the actual news and the deadline, instead of an apology for length.\n- **Cut the hedging** (\"this might not be quick, apologies in advance\") — it's genuinely a short email now, so the apology isn't needed.\n- **Bulleted the three decisions** so Dana can see at a glance what needs her attention: March 3, the price, and the Friday contract deadline.\n- **Made the deadline explicit** — the original said \"if I don't hear back I'm planning to sign Friday,\" which is easy to miss; now it's bolded and framed as the one time-sensitive item.\n\nWant me to adjust the tone — more formal, or more casual — or trim it further?",
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 1,
+    "inputTokens": 7066,
+    "outputTokens": 1007,
+    "totalTokens": 8073,
+    "cacheReadTokens": 0,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 600,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "eventCount": 1017,
+  "projection": {
+    "status": "idle",
+    "turnCount": 1,
+    "totalTokenCount": 8073,
+    "contextUsed": 8073,
+    "contextWindow": 200000
+  }
+}
+
+--- stderr ---
+ZCode Built-in stale revision=43 source=CDN

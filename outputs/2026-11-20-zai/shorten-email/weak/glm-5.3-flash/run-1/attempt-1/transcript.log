@@ -1,0 +1,29 @@
+{
+  "sessionId": "sess_7b4c6de1-3bc7-4627-a513-c67713d4e163",
+  "traceId": "b3095cc1-60a6-4d9b-8af7-f040c6766224",
+  "turnId": "turn_5684dc34-7686-4847-a7a5-896fc2566eb8",
+  "response": "Here's a tightened version — same friendly voice, but the two things you need from Dana are now front and center instead of buried in paragraphs:\n\n---\n\n**Subject:** Harbor Hall confirmed for March 12 — one thing I need from you\n\nHi Dana,\n\nGood news: after a few rounds of phone tag, I finally reached Priya at Harbor Hall yesterday, and they can confirm us for **March 12** — our original date. Two quick things for you:\n\n**Walkthrough — March 3.** They offered this date and I'm free, but let me know if you have a conflict and we'll move it.\n\n**Contract — could you review by Thursday?** They've sent over the draft. I've read through it and nothing jumped out at me, but I'd like your eyes on it before I sign. I'm planning to send it back Friday, so feedback by Thursday would be ideal.\n\nFor the budget: the final quote came in at **$4,200**, under what we'd planned — they waived the AV setup fee since we're bringing our own projector. That covers up to 85 guests, which is right around our current RSVP count, so we should have room even if a few late sign-ups come in.\n\nHappy to talk any of it through — just say when.\n\nThanks!\nSam\n\n---\n\nWhat changed:\n- **Subject line does work now** — it replaces \"sorry this is long\" with the actual news and the ask.\n- **The two asks (walkthrough date, contract review) lead the email** with a clear deadline, instead of the contract request trailing off with \"if I don't hear back...\"\n- **Cut the apologies and hedging** (\"apologies in advance,\" \"I realize this might not be quick,\" \"I think it should\") — they made the email feel unsure of itself.\n- **Budget became a short update** rather than a second wall of text, since it needs nothing from Dana.\n\nOne optional tweak: adding the actual RSVP number (e.g., \"covers up to 85 guests, and we're at 79\") makes the headroom concrete if you know it.",
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 1,
+    "inputTokens": 7063,
+    "outputTokens": 1389,
+    "totalTokens": 8452,
+    "cacheReadTokens": 0,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 950,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "eventCount": 1398,
+  "projection": {
+    "status": "idle",
+    "turnCount": 1,
+    "totalTokenCount": 8452,
+    "contextUsed": 8452,
+    "contextWindow": 200000
+  }
+}
+
+--- stderr ---
+ZCode Built-in stale revision=43 source=CDN

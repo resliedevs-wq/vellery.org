@@ -1,0 +1,15 @@
+{
+  "graded_by": "runner/grade.py",
+  "grade": "good",
+  "why": "",
+  "checks": {
+    "words": 113,
+    "original_words": 281,
+    "missing": [],
+    "invented": [],
+    "text_outside_email": false
+  },
+  "review": [
+    "any other fact changed or added (e.g. who spoke to whom, the RSVP count)?"
+  ]
+}

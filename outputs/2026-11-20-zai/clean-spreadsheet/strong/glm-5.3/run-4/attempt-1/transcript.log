@@ -1,0 +1,31 @@
+{
+  "sessionId": "sess_1ea07d94-46a9-4fef-961e-60652cbccc91",
+  "traceId": "c3065ffb-e8c9-439a-8a30-9df5a4d3ce00",
+  "turnId": "turn_9411fc5b-86d6-4384-be72-07201db426dc",
+  "response": "The sandbox blocked the scripted check, so I verified the output by hand instead: 18 data rows (20 minus 2 duplicates), every date in `2026-03` and in non-decreasing order, all amounts two decimals with no `$`/commas, and the column sums to 3542.60.\n\nCleaned CSV (also saved to `expenses_cleaned.csv`):\n\n```csv\nDate,Description,Category,Amount\n2026-03-02,Office chairs,Furniture,1240.00\n2026-03-04,Printer paper,Office Supplies,48.50\n2026-03-05,Team lunch,Meals,212.40\n2026-03-09,Zoom subscription,Software,149.00\n2026-03-10,Taxi to client,Travel,36.20\n2026-03-10,Train tickets,Travel,184.00\n2026-03-12,Coffee beans,Meals,27.99\n2026-03-13,Monitor,Equipment,329.00\n2026-03-15,Notebooks,Office Supplies,22.75\n2026-03-18,Figma seats,Software,90.00\n2026-03-18,Client dinner,Meals,318.60\n2026-03-20,Desk lamp,Furniture,64.00\n2026-03-22,Hotel (2 nights),Travel,412.00\n2026-03-24,USB-C cables,Equipment,31.96\n2026-03-25,Team lunch,Meals,212.40\n2026-03-27,Pens,Office Supplies,9.80\n2026-03-30,Taxi to airport,Travel,58.00\n2026-03-31,Notion subscription,Software,96.00\n```\n\n## Changes made\n\n**Dates normalized to YYYY-MM-DD** (7 rows):\n| Original | Cleaned |\n|---|---|\n| `03/04/2026` (×2) | `2026-03-04` |\n| `March 5 2026` | `2026-03-05` |\n| `3/9/26` | `2026-03-09` |\n| `10/03/2026` | `2026-03-10` |\n| `Mar 13` | `2026-03-13` |\n| `18/03/2026` | `2026-03-18` |\n| `3/24/2026` | `2026-03-24` |\n\n**Exact duplicates removed** (2 rows):\n- Second `Office chairs` row (2026-03-02, $1,240.00)\n- Second `Printer paper` row (2026-03-04, $48.50)\n\n**Categories title-cased:** `office supplies`/`Office supplies` → `Office Supplies` (3 rows), `travel` → `Travel`, `software` → `Software`, `furniture` → `Furniture`. (Meals, Equipment were already correct.)\n\n**Amounts normalized:** stripped `$` and thousands comma (`\"$1,240.00\"` → `1240.00`); padded to two decimals (`48.5` → `48.50`, `149` → `149.00`, `64` → `64.00`).\n\n## Things I wasn't sure about\n\n1. **`10/03/2026` (Train tickets)** — genuinely ambiguous. The sheet mixes conventions: `03/04/2026` and `3/24/2026` are month-first, while `18/03/2026` must be day-first (18 can't be a month). I read `10/03/2026` as **March 10** because month-first would give October 3, outside March. That also lands it on the same day as the Taxi to client.\n2. **`Mar 13`** had no year — assumed 2026 per your note.\n3. **Team lunch, $212.40, on both 03-05 and 03-25** — kept both per your \"different dates\" rule, but the identical amount is suspicious if you only had one such lunch; it could be a date typo in the source.\n4. **Row order** — kept the original order (already chronological after date normalization) rather than re-sorting; the two March 10 and two March 18 rows stay in source order.",
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 3,
+    "inputTokens": 29273,
+    "outputTokens": 6323,
+    "totalTokens": 35596,
+    "cacheReadTokens": 19200,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 4818,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "eventCount": 5851,
+  "projection": {
+    "status": "idle",
+    "turnCount": 1,
+    "totalTokenCount": 35596,
+    "contextUsed": 13501,
+    "contextWindow": 200000
+  }
+}
+
+--- stderr ---
+ZCode Built-in stale revision=43 source=CDN
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)

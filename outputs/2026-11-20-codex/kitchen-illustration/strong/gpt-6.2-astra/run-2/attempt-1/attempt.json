@@ -1,0 +1,49 @@
+{
+  "ok": true,
+  "error": null,
+  "started": "2026-11-20T02:58:45+00:00",
+  "duration_s": 218.6,
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "--sandbox",
+    "workspace-write",
+    "--disable",
+    "apps",
+    "--disable",
+    "plugins",
+    "--disable",
+    "image_generation",
+    "-c",
+    "skills.config=[{path=\"/root/.codex/skills/.system/imagegen/SKILL.md\",enabled=false}]",
+    "-c",
+    "web_search=\"disabled\"",
+    "--cd",
+    "/tmp/vellery-sjcx5arl/work",
+    "--model",
+    "gpt-6.2-astra",
+    "-c",
+    "model_reasoning_effort=\"high\"",
+    "--json",
+    "--output-last-message",
+    "/tmp/vellery-sjcx5arl/last-message.txt",
+    "<prompt>"
+  ],
+  "served_models": null,
+  "usage": {
+    "input_tokens": 185351,
+    "cached_input_tokens": 159872,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 6515,
+    "reasoning_output_tokens": 364
+  },
+  "est_cost_usd": null,
+  "est_cost": null,
+  "cli_reported_cost_usd": null,
+  "files": [
+    "kitchen.svg"
+  ]
+}

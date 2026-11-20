@@ -1,0 +1,13 @@
+{
+  "task": "clean-spreadsheet",
+  "variant": "weak",
+  "model": "gpt-6.2-sol",
+  "label": "GPT-6.2 Sol",
+  "harness": "codex",
+  "effort": "high",
+  "run": 2,
+  "ok": true,
+  "attempts": 1,
+  "est_cost_usd": null,
+  "est_cost_usd_all_attempts": null
+}

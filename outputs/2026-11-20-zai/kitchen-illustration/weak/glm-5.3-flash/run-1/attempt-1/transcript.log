@@ -1,0 +1,36 @@
+{
+  "sessionId": "sess_0b419606-ca55-4d22-aee7-209bac11b811",
+  "traceId": "c0442bcb-1530-4313-b284-6a1a84d22a7b",
+  "turnId": "turn_d9e1f4c3-627d-40fc-accd-3ed74ac7ad57",
+  "response": "I drew it as an SVG illustration: **`cozy-morning-kitchen.svg`** in your working directory — open it in any browser or image viewer.\n\nThe scene includes:\n\n- **Morning sun** streaming through a window with a blossom branch, birds, and clouds in a peach-and-blue dawn sky\n- **Golden light beam** falling across the wooden floor, with floating dust motes\n- A steaming **red kettle** on the stovetop and a **fresh mug of coffee**, plus toast on a plate and a bowl of fruit\n- **Sage-green cabinets**, open shelves with jars, cookbooks, and stacked dishware\n- **Terracotta curtains**, a potted plant on the windowsill, a wall clock showing 7:00\n- A content **tabby cat** dozing on a round rug in the sunbeam ☕🐱",
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 3,
+    "inputTokens": 62370,
+    "outputTokens": 21241,
+    "totalTokens": 83611,
+    "cacheReadTokens": 34432,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 14468,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "eventCount": 14699,
+  "projection": {
+    "status": "idle",
+    "turnCount": 1,
+    "totalTokenCount": 83611,
+    "contextUsed": 28087,
+    "contextWindow": 200000
+  }
+}
+
+--- stderr ---
+ZCode Built-in stale revision=43 source=CDN
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)

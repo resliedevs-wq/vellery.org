@@ -1,0 +1,1 @@
+Saved the illustration as [kitchen.svg](/tmp/vellery-sjcx5arl/work/kitchen.svg).

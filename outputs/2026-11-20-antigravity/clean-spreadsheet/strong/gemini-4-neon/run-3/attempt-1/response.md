@@ -1,0 +1,54 @@
+```csv
+Date,Description,Category,Amount
+2026-03-02,Office chairs,Furniture,1240.00
+2026-03-04,Printer paper,Office Supplies,48.50
+2026-03-05,Team lunch,Meals,212.40
+2026-03-09,Zoom subscription,Software,149.00
+2026-03-10,Taxi to client,Travel,36.20
+2026-03-10,Train tickets,Travel,184.00
+2026-03-12,Coffee beans,Meals,27.99
+2026-03-13,Monitor,Equipment,329.00
+2026-03-15,Notebooks,Office Supplies,22.75
+2026-03-18,Figma seats,Software,90.00
+2026-03-18,Client dinner,Meals,318.60
+2026-03-20,Desk lamp,Furniture,64.00
+2026-03-22,Hotel (2 nights),Travel,412.00
+2026-03-24,USB-C cables,Equipment,31.96
+2026-03-25,Team lunch,Meals,212.40
+2026-03-27,Pens,Office Supplies,9.80
+2026-03-30,Taxi to airport,Travel,58.00
+2026-03-31,Notion subscription,Software,96.00
+```
+
+### Changes Made
+
+- **Exact duplicate rows removed (2):**
+  - Row 4: `2026-03-02,Office chairs,Furniture,"$1,240.00"` (duplicate of row 1)
+  - Row 11: `03/04/2026,Printer paper,office supplies,48.5` (duplicate of row 2)
+- **Dates standardized to `YYYY-MM-DD` (7 rows):**
+  - `03/04/2026` → `2026-03-04` (Printer paper)
+  - `March 5 2026` → `2026-03-05` (Team lunch)
+  - `3/9/26` → `2026-03-09` (Zoom subscription)
+  - `10/03/2026` → `2026-03-10` (Train tickets)
+  - `Mar 13` → `2026-03-13` (Monitor)
+  - `18/03/2026` → `2026-03-18` (Client dinner)
+  - `3/24/2026` → `2026-03-24` (USB-C cables)
+- **Categories converted to Title Case (5 rows):**
+  - `office supplies` → `Office Supplies` (Printer paper)
+  - `travel` → `Travel` (Taxi to client)
+  - `software` → `Software` (Figma seats)
+  - `furniture` → `Furniture` (Desk lamp)
+  - `Office supplies` → `Office Supplies` (Pens)
+- **Amounts formatted as plain numbers with two decimals (17 rows; only `27.99` for Coffee beans was unchanged):**
+  - Removed quotes, `$`, and `,`: `"$1,240.00"` → `1240.00`
+  - Removed quotes and `$`: `"$184.00"` → `184.00`, `"$318.60"` → `318.60`, `"$412.00"` → `412.00`
+  - Removed `$` and padded decimals: `$64` → `64.00`
+  - Padded decimals: `48.5` → `48.50`, `149` → `149.00`
+  - Removed `$`: `$212.40` (×2), `$36.20`, `$329.00`, `$22.75`, `$90.00`, `$31.96`, `$9.80`, `$58.00`, `$96.00`
+
+### Uncertainties / Items to Double-Check
+
+- **Mixed date formats (`MM/DD/YYYY` vs. `DD/MM/YYYY`):** `03/04/2026`, `3/9/26`, and `3/24/2026` are month-first, while `10/03/2026` and `18/03/2026` are day-first. Knowing every expense is from March 2026 resolves all of them unambiguously (and preserves chronological order), but it is worth confirming none of `03/04/2026`, `3/9/26`, or `10/03/2026` were accidentally entered from another month.
+- **Missing year on `Mar 13`:** Assumed `2026-03-13` based on the March 2026 rule.
+- **Identical amount on repeated `Team lunch`:** Both `2026-03-05` and `2026-03-25` are for `Team lunch` at the exact same amount (`212.40`). Both were kept per your rule to keep repeated purchases on different dates, though matching down to the cent may be worth verifying in case one was entered on the wrong date.
+- **Category assignments left as-is:** `Coffee beans` is under `Meals` (rather than `Office Supplies`) and `Desk lamp` is under `Furniture` (while `Monitor` and `USB-C cables` are under `Equipment`); these were not recategorized.

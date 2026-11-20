@@ -1,0 +1,34 @@
+{
+  "sessionId": "sess_9f2340f4-17da-4999-a8db-53d6753ebf3e",
+  "traceId": "7d7541d2-4b16-41a1-998c-7f18ac817bb0",
+  "turnId": "turn_38d5bd46-531d-4438-91d2-906fb6a383df",
+  "response": "`kitchen.svg` is saved in `/tmp/vellery-lj11l0u6/work/` (900×700 SVG). A note: I couldn't run a shell validation step (no permission client configured for Bash in this session), but the file was written successfully.\n\nWhat's in the scene, per your spec:\n\n- **Table, front view** — wooden tabletop with apron and two legs, centered-right on a warm tan floor\n- **Exactly three red apples** — a small pyramid of muted-red apples (`#c05a4e`) with stems, one leaf, and soft highlights, right of the mug\n- **Blue mug** — muted blue with a D-handle and the word **MONDAY** printed in white across the front, with gentle steam curls\n- **Folded newspaper** — off-white folded slab with a flap, crease line, and faint column rules, with a **gray cat asleep on top**: curled body, closed-eye arcs, folded ears, back stripes, a tail wrapped around the front, and a tucked paw\n- **Morning light** — window on the left with a low sun in the pane, warm glow, two light beams slanting onto the table, and a light pool on the floor\n- **Palette** — warm and muted throughout (cream wall, tan floor, muted wood tones); no people anywhere\n\nOpen it in any browser or vector editor to view. Happy to tweak anything — cat pose, apple count/position, text size on the mug, or the light angle.",
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 3,
+    "inputTokens": 46957,
+    "outputTokens": 13602,
+    "totalTokens": 60559,
+    "cacheReadTokens": 26752,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 10572,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "eventCount": 10940,
+  "projection": {
+    "status": "idle",
+    "turnCount": 1,
+    "totalTokenCount": 60559,
+    "contextUsed": 20508,
+    "contextWindow": 200000
+  }
+}
+
+--- stderr ---
+ZCode Built-in stale revision=43 source=CDN
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)

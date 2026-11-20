@@ -1,0 +1,493 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 750" width="1000" height="750">
+  <defs>
+    <!-- Wall & Floor Gradients -->
+    <linearGradient id="wallGrad" x1="0%" y1="0%" x2="100%" y2="25%">
+      <stop offset="0%" stop-color="#F5EBDC"/>
+      <stop offset="55%" stop-color="#ECE0CE"/>
+      <stop offset="100%" stop-color="#E1D2BC"/>
+    </linearGradient>
+
+    <linearGradient id="wainscotGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E6D7C3"/>
+      <stop offset="60%" stop-color="#DBCAB4"/>
+      <stop offset="100%" stop-color="#D0BDA5"/>
+    </linearGradient>
+
+    <linearGradient id="floorGrad" x1="0%" y1="0%" x2="100%" y2="15%">
+      <stop offset="0%" stop-color="#CBB094"/>
+      <stop offset="50%" stop-color="#BD9F82"/>
+      <stop offset="100%" stop-color="#AD8E70"/>
+    </linearGradient>
+
+    <!-- Morning Sky in Left Window -->
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F2C38F"/>
+      <stop offset="55%" stop-color="#F8DBA8"/>
+      <stop offset="100%" stop-color="#FCEEC9"/>
+    </linearGradient>
+
+    <!-- Tabletop & Wood Gradients -->
+    <linearGradient id="tableTopGrad" x1="0%" y1="0%" x2="100%" y2="10%">
+      <stop offset="0%" stop-color="#D8AB7F"/>
+      <stop offset="45%" stop-color="#C7966A"/>
+      <stop offset="100%" stop-color="#B38156"/>
+    </linearGradient>
+
+    <linearGradient id="tableEdgeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#BA895E"/>
+      <stop offset="50%" stop-color="#A5744B"/>
+      <stop offset="100%" stop-color="#8F5F38"/>
+    </linearGradient>
+
+    <!-- Morning Sunlight Beam Gradients -->
+    <linearGradient id="sunBeam1" x1="0%" y1="15%" x2="95%" y2="85%">
+      <stop offset="0%" stop-color="#FFF6DC" stop-opacity="0.38"/>
+      <stop offset="45%" stop-color="#FDEBC0" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#F9DFA8" stop-opacity="0.02"/>
+    </linearGradient>
+
+    <linearGradient id="sunBeam2" x1="0%" y1="25%" x2="85%" y2="90%">
+      <stop offset="0%" stop-color="#FFF5D6" stop-opacity="0.32"/>
+      <stop offset="50%" stop-color="#FDE9B9" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#F9DFA8" stop-opacity="0.0"/>
+    </linearGradient>
+
+    <linearGradient id="tableSunPatch" x1="0%" y1="0%" x2="100%" y2="20%">
+      <stop offset="0%" stop-color="#FFF5D9" stop-opacity="0.42"/>
+      <stop offset="70%" stop-color="#FDE9BD" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#FDE9BD" stop-opacity="0.0"/>
+    </linearGradient>
+
+    <!-- Clip path for Window Glass -->
+    <clipPath id="windowGlassClip">
+      <rect x="42" y="74" width="164" height="320" rx="2"/>
+    </clipPath>
+  </defs>
+
+  <!-- ==================== BACKGROUND: WALL & FLOOR ==================== -->
+  <!-- Upper Wall -->
+  <rect x="0" y="0" width="1000" height="455" fill="url(#wallGrad)"/>
+
+  <!-- Lower Wall Wainscoting -->
+  <rect x="0" y="455" width="1000" height="178" fill="url(#wainscotGrad)"/>
+  <!-- Wainscoting Vertical Grooves -->
+  <g stroke="#C7B49B" stroke-width="1.5" opacity="0.65">
+    <line x1="50" y1="455" x2="50" y2="633"/>
+    <line x1="100" y1="455" x2="100" y2="633"/>
+    <line x1="150" y1="455" x2="150" y2="633"/>
+    <line x1="200" y1="455" x2="200" y2="633"/>
+    <line x1="250" y1="455" x2="250" y2="633"/>
+    <line x1="300" y1="455" x2="300" y2="633"/>
+    <line x1="350" y1="455" x2="350" y2="633"/>
+    <line x1="400" y1="455" x2="400" y2="633"/>
+    <line x1="450" y1="455" x2="450" y2="633"/>
+    <line x1="500" y1="455" x2="500" y2="633"/>
+    <line x1="550" y1="455" x2="550" y2="633"/>
+    <line x1="600" y1="455" x2="600" y2="633"/>
+    <line x1="650" y1="455" x2="650" y2="633"/>
+    <line x1="700" y1="455" x2="700" y2="633"/>
+    <line x1="750" y1="455" x2="750" y2="633"/>
+    <line x1="800" y1="455" x2="800" y2="633"/>
+    <line x1="850" y1="455" x2="850" y2="633"/>
+    <line x1="900" y1="455" x2="900" y2="633"/>
+    <line x1="950" y1="455" x2="950" y2="633"/>
+  </g>
+  <!-- Dado Rail -->
+  <rect x="0" y="446" width="1000" height="10" fill="#EAE0CF"/>
+  <rect x="0" y="454" width="1000" height="3" fill="#C6B299"/>
+
+  <!-- Baseboard -->
+  <rect x="0" y="630" width="1000" height="18" fill="#CEBA9F"/>
+  <rect x="0" y="630" width="1000" height="3" fill="#E7DBC8"/>
+  <rect x="0" y="646" width="1000" height="3" fill="#A68B6F"/>
+
+  <!-- Floor -->
+  <rect x="0" y="648" width="1000" height="102" fill="url(#floorGrad)"/>
+  <!-- Floor Plank Lines -->
+  <g stroke="#A38365" stroke-width="1.5" opacity="0.55">
+    <line x1="0" y1="678" x2="1000" y2="678"/>
+    <line x1="0" y1="712" x2="1000" y2="712"/>
+    <line x1="0" y1="746" x2="1000" y2="746"/>
+    <line x1="140" y1="648" x2="115" y2="678"/>
+    <line x1="460" y1="648" x2="450" y2="678"/>
+    <line x1="780" y1="648" x2="795" y2="678"/>
+    <line x1="290" y1="678" x2="275" y2="712"/>
+    <line x1="640" y1="678" x2="650" y2="712"/>
+    <line x1="180" y1="712" x2="160" y2="746"/>
+    <line x1="530" y1="712" x2="535" y2="746"/>
+    <line x1="860" y1="712" x2="880" y2="746"/>
+  </g>
+
+  <!-- Sunlight Patch on Background Wall -->
+  <polygon points="206,76 920,446 920,630 206,394" fill="#FFF4D6" opacity="0.22"/>
+
+  <!-- ==================== WINDOW ON THE LEFT ==================== -->
+  <!-- Window Frame Shadow on Wall -->
+  <rect x="30" y="64" width="204" height="354" rx="4" fill="#C7B39A" opacity="0.55"/>
+
+  <!-- Outer Wooden Window Frame -->
+  <rect x="24" y="56" width="200" height="354" rx="3" fill="#E3D3BE" stroke="#C5B095" stroke-width="2"/>
+
+  <!-- Inner Window Recessed Trim -->
+  <rect x="38" y="70" width="172" height="328" fill="#C6B094"/>
+
+  <!-- Window Glass & Outdoor Morning Scene -->
+  <g clip-path="url(#windowGlassClip)">
+    <rect x="42" y="74" width="164" height="320" fill="url(#skyGrad)"/>
+
+    <!-- Morning Sun Glow -->
+    <circle cx="96" cy="150" r="68" fill="#FFF6DE" opacity="0.45"/>
+    <circle cx="96" cy="150" r="38" fill="#FFF9E8" opacity="0.92"/>
+
+    <!-- Distant Warm Hills -->
+    <path d="M 42 325 Q 105 298 165 316 Q 190 323 206 320 L 206 394 L 42 394 Z" fill="#DFC197"/>
+    <path d="M 42 348 Q 125 332 206 352 L 206 394 L 42 394 Z" fill="#C4A984"/>
+
+    <!-- Muted Sage Morning Foliage Silhouette Outside -->
+    <circle cx="52" cy="342" r="34" fill="#9AA689" opacity="0.85"/>
+    <circle cx="82" cy="358" r="28" fill="#899679" opacity="0.85"/>
+    <circle cx="45" cy="310" r="24" fill="#ABB598" opacity="0.8"/>
+    <circle cx="192" cy="362" r="26" fill="#95A184" opacity="0.75"/>
+  </g>
+
+  <!-- Window Muntins (Cross Bars) -->
+  <!-- Vertical Bar -->
+  <rect x="120" y="74" width="8" height="320" fill="#E9DCC9"/>
+  <rect x="126" y="74" width="2" height="320" fill="#C7B298"/>
+  <!-- Horizontal Bar 1 -->
+  <rect x="42" y="178" width="164" height="8" fill="#E9DCC9"/>
+  <rect x="42" y="184" width="164" height="2" fill="#C7B298"/>
+  <!-- Horizontal Bar 2 -->
+  <rect x="42" y="284" width="164" height="8" fill="#E9DCC9"/>
+  <rect x="42" y="290" width="164" height="2" fill="#C7B298"/>
+
+  <!-- Soft Curtain on Right Edge of Window -->
+  <path d="M 192 56 L 236 56 C 242 135, 238 220, 244 285 C 238 335, 242 378, 238 410 L 204 410 C 208 355, 198 310, 204 285 C 194 215, 196 130, 192 56 Z" fill="#C7856D"/>
+  <!-- Curtain Sunlit Left Fold -->
+  <path d="M 192 56 L 204 56 C 206 130, 203 215, 211 285 C 206 310, 214 355, 210 410 L 204 410 C 208 355, 198 310, 204 285 C 194 215, 196 130, 192 56 Z" fill="#DDA089"/>
+  <!-- Curtain Shaded Fold Line -->
+  <path d="M 220 56 C 223 140, 220 220, 226 285 C 221 335, 225 375, 222 410" stroke="#AD6E57" stroke-width="2.5" fill="none"/>
+  <!-- Curtain Tie-back -->
+  <rect x="200" y="281" width="45" height="9" rx="4" fill="#A6654E"/>
+
+  <!-- Window Sill -->
+  <rect x="16" y="416" width="228" height="10" rx="2" fill="#C3AC91" opacity="0.6"/>
+  <rect x="14" y="406" width="228" height="13" rx="3" fill="#EFE4D4" stroke="#C5B095" stroke-width="1.5"/>
+  <rect x="14" y="416" width="228" height="3" fill="#CBB69C"/>
+
+  <!-- ==================== SUBTLE BACKGROUND KITCHEN SHELF (RIGHT) ==================== -->
+  <g opacity="0.88">
+    <!-- Shelf Brackets -->
+    <path d="M 665 182 L 673 182 L 673 206 L 665 206 Z" fill="#9E7451"/>
+    <path d="M 815 182 L 823 182 L 823 206 L 815 206 Z" fill="#9E7451"/>
+    <!-- Wooden Shelf -->
+    <rect x="635" y="172" width="220" height="11" rx="2.5" fill="#B88B64"/>
+    <rect x="635" y="172" width="220" height="3" rx="1" fill="#D5AC85"/>
+
+    <!-- Muted Ochre Ceramic Canister on Shelf -->
+    <rect x="662" y="122" width="38" height="50" rx="5" fill="#DFC5A0"/>
+    <rect x="662" y="122" width="14" height="50" rx="4" fill="#ECD6B6"/>
+    <rect x="667" y="115" width="28" height="7" rx="2" fill="#C29A74"/>
+    <circle cx="681" cy="113" r="3.5" fill="#B08762"/>
+
+    <!-- Stacked Muted Sage Bowls on Shelf -->
+    <path d="M 718 154 C 718 166, 730 172, 744 172 C 758 172, 770 166, 770 154 Z" fill="#8B9B82"/>
+    <rect x="733" y="169" width="22" height="3" fill="#77876F"/>
+    <path d="M 721 141 C 721 152, 732 157, 744 157 C 756 157, 767 152, 767 141 Z" fill="#9EAD94"/>
+
+    <!-- Small Terracotta Pot with Muted Sage Leaves -->
+    <polygon points="790,140 824,140 819,172 795,172" fill="#C48169"/>
+    <polygon points="790,140 803,140 801,172 795,172" fill="#D79881"/>
+    <rect x="787" y="135" width="40" height="6" rx="2" fill="#CE8D75"/>
+    <ellipse cx="795" cy="128" rx="9" ry="5" transform="rotate(-25 795 128)" fill="#7E9176"/>
+    <ellipse cx="808" cy="124" rx="10" ry="5.5" transform="rotate(-5 808 124)" fill="#8FA386"/>
+    <ellipse cx="820" cy="129" rx="9" ry="5" transform="rotate(22 820 129)" fill="#788A70"/>
+  </g>
+
+  <!-- ==================== SMALL KITCHEN TABLE (FRONT VIEW) ==================== -->
+  <!-- Table Shadow Cast to the Right on the Floor -->
+  <polygon points="196,728 895,728 855,686 248,686" fill="#937356" opacity="0.45"/>
+  <ellipse cx="222" cy="728" rx="28" ry="5" fill="#7E5F44" opacity="0.55"/>
+  <ellipse cx="822" cy="728" rx="28" ry="5" fill="#7E5F44" opacity="0.55"/>
+  <ellipse cx="272" cy="692" rx="22" ry="4" fill="#7E5F44" opacity="0.45"/>
+  <ellipse cx="764" cy="692" rx="22" ry="4" fill="#7E5F44" opacity="0.45"/>
+
+  <!-- Back-Left Table Leg -->
+  <polygon points="248,530 278,530 272,692 252,692" fill="#8C5F3B"/>
+  <polygon points="248,530 256,530 256,692 252,692" fill="#B2825A"/>
+
+  <!-- Back-Right Table Leg -->
+  <polygon points="742,530 772,530 766,692 746,692" fill="#805533"/>
+  <polygon points="742,530 749,530 750,692 746,692" fill="#A1724B"/>
+
+  <!-- Table Front Apron (Under-Frame) -->
+  <rect x="208" y="514" width="604" height="32" fill="#966742"/>
+  <rect x="208" y="514" width="240" height="32" fill="#AA7952"/>
+  <rect x="208" y="514" width="604" height="5" fill="#7A5130"/>
+  <rect x="208" y="542" width="604" height="4" fill="#7D5332"/>
+
+  <!-- Front-Left Table Leg -->
+  <polygon points="190,512 230,512 222,728 196,728" fill="#AD7C53"/>
+  <!-- Sunlit Left Edge on Front-Left Leg -->
+  <polygon points="190,512 203,512 202,728 196,728" fill="#D6A87E"/>
+  <!-- Shaded Right Edge on Front-Left Leg -->
+  <polygon points="222,512 230,512 222,728 216,728" fill="#8E603B"/>
+
+  <!-- Front-Right Table Leg -->
+  <polygon points="790,512 830,512 824,728 798,728" fill="#A07048"/>
+  <!-- Sunlit Left Edge on Front-Right Leg -->
+  <polygon points="790,512 801,512 803,728 798,728" fill="#C4936A"/>
+  <!-- Shaded Right Edge on Front-Right Leg -->
+  <polygon points="822,512 830,512 824,728 818,728" fill="#835735"/>
+
+  <!-- Tabletop Upper Surface (Perspective Trapezoid Seen from Front) -->
+  <polygon points="212,418 808,418 864,494 156,494" fill="url(#tableTopGrad)"/>
+
+  <!-- Morning Sunlight Patch Across Tabletop -->
+  <polygon points="212,418 710,418 795,494 156,494" fill="url(#tableSunPatch)"/>
+
+  <!-- Subtle Wood Plank Lines on Tabletop -->
+  <line x1="195" y1="442" x2="825" y2="442" stroke="#A9784E" stroke-width="1.3" opacity="0.45"/>
+  <line x1="176" y1="468" x2="844" y2="468" stroke="#A9784E" stroke-width="1.3" opacity="0.45"/>
+
+  <!-- Tabletop Front Bevel & Thickness Edge -->
+  <rect x="156" y="494" width="708" height="20" rx="2" fill="url(#tableEdgeGrad)"/>
+  <line x1="157" y1="495" x2="863" y2="495" stroke="#E9C69E" stroke-width="2"/>
+  <rect x="156" y="511" width="708" height="3" fill="#7D5231"/>
+
+  <!-- ==================== OBJECTS ON THE TABLE ==================== -->
+
+  <!-- 1. EXACTLY THREE RED APPLES (Left side of tabletop) -->
+  <g id="three-red-apples">
+    <!-- Cast Shadows for the Three Apples (extending right) -->
+    <ellipse cx="328" cy="454" rx="29" ry="7.5" fill="#8A5A36" opacity="0.45"/>
+    <ellipse cx="282" cy="472" rx="31" ry="8" fill="#8A5A36" opacity="0.5"/>
+    <ellipse cx="378" cy="470" rx="31" ry="8" fill="#8A5A36" opacity="0.5"/>
+
+    <!-- APPLE 1 (Back-Middle Red Apple) -->
+    <g id="apple-1">
+      <!-- Main Apple Body -->
+      <path d="M 308 405 C 297 400, 280 405, 280 426 C 280 444, 293 455, 305 455 C 307 455, 309 454, 311 455 C 323 455, 336 444, 336 426 C 336 405, 319 400, 308 405 Z" fill="#BC4740"/>
+      <!-- Sunlit Left Side -->
+      <path d="M 308 405 C 297 400, 280 405, 280 426 C 280 444, 293 455, 305 455 C 296 449, 291 438, 292 425 C 293 413, 300 407, 308 405 Z" fill="#DC6E63"/>
+      <!-- Morning Sun Highlight -->
+      <ellipse cx="291" cy="422" rx="5" ry="10" transform="rotate(14 291 422)" fill="#F3A699" opacity="0.8"/>
+      <!-- Right Shaded Crescent -->
+      <path d="M 322 405 C 331 409, 336 416, 336 426 C 336 444, 323 455, 311 455 C 321 449, 326 438, 326 425 C 326 415, 324 409, 322 405 Z" fill="#98342E"/>
+      <!-- Top Indentation -->
+      <path d="M 299 407 Q 308 412 317 407" stroke="#892D28" stroke-width="2" stroke-linecap="round" fill="none"/>
+      <!-- Stem -->
+      <path d="M 308 409 Q 310 397 315 393" stroke="#5E402B" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <!-- Muted Green Leaf -->
+      <path d="M 311 398 Q 324 390 330 398 Q 320 406 311 398 Z" fill="#7D9673"/>
+      <path d="M 311 398 Q 320 397 328 398" stroke="#627859" stroke-width="1" fill="none"/>
+    </g>
+
+    <!-- APPLE 2 (Front-Left Red Apple) -->
+    <g id="apple-2">
+      <!-- Main Apple Body -->
+      <path d="M 260 419 C 248 414, 231 419, 231 442 C 231 461, 245 473, 257 473 C 259 473, 261 472, 263 473 C 275 473, 289 461, 289 442 C 289 419, 272 414, 260 419 Z" fill="#CA524A"/>
+      <!-- Sunlit Left Side -->
+      <path d="M 260 419 C 248 414, 231 419, 231 442 C 231 461, 245 473, 257 473 C 247 467, 242 455, 243 440 C 244 427, 251 421, 260 419 Z" fill="#E87E72"/>
+      <!-- Morning Sun Highlight -->
+      <ellipse cx="242" cy="437" rx="5.5" ry="11" transform="rotate(14 242 437)" fill="#F9B5A7" opacity="0.85"/>
+      <!-- Right Shaded Crescent -->
+      <path d="M 275 419 C 284 423, 289 431, 289 442 C 289 461, 275 473, 263 473 C 273 467, 279 455, 279 441 C 279 430, 277 423, 275 419 Z" fill="#A33A34"/>
+      <!-- Top Indentation -->
+      <path d="M 250 421 Q 260 426 270 421" stroke="#91302A" stroke-width="2" stroke-linecap="round" fill="none"/>
+      <!-- Stem -->
+      <path d="M 260 423 Q 258 411 253 407" stroke="#5E402B" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+      <!-- Muted Green Leaf -->
+      <path d="M 258 412 Q 245 404 239 412 Q 249 420 258 412 Z" fill="#869F7B"/>
+      <path d="M 258 412 Q 249 411 241 412" stroke="#698060" stroke-width="1" fill="none"/>
+    </g>
+
+    <!-- APPLE 3 (Front-Right Red Apple) -->
+    <g id="apple-3">
+      <!-- Main Apple Body -->
+      <path d="M 356 418 C 345 413, 328 418, 328 441 C 328 460, 341 471, 353 471 C 355 471, 357 470, 359 471 C 371 471, 384 460, 384 441 C 384 418, 367 413, 356 418 Z" fill="#C34C45"/>
+      <!-- Sunlit Left Side -->
+      <path d="M 356 418 C 345 413, 328 418, 328 441 C 328 460, 341 471, 353 471 C 344 465, 339 453, 340 439 C 341 426, 348 420, 356 418 Z" fill="#E3776B"/>
+      <!-- Morning Sun Highlight -->
+      <ellipse cx="339" cy="436" rx="5" ry="10.5" transform="rotate(14 339 436)" fill="#F5AC9E" opacity="0.82"/>
+      <!-- Right Shaded Crescent -->
+      <path d="M 370 418 C 379 422, 384 430, 384 441 C 384 460, 371 471, 359 471 C 369 465, 374 453, 374 440 C 374 429, 372 422, 370 418 Z" fill="#9A352F"/>
+      <!-- Top Indentation -->
+      <path d="M 347 420 Q 356 425 365 420" stroke="#8C2F29" stroke-width="2" stroke-linecap="round" fill="none"/>
+      <!-- Stem -->
+      <path d="M 356 422 Q 359 410 364 406" stroke="#5E402B" stroke-width="3" stroke-linecap="round" fill="none"/>
+    </g>
+  </g>
+
+  <!-- 2. BLUE MUG WITH THE WORD "MONDAY" PRINTED ON IT (Center of tabletop) -->
+  <g id="blue-monday-mug">
+    <!-- Mug Cast Shadow to the Right -->
+    <ellipse cx="516" cy="472" rx="56" ry="10.5" fill="#8A5A36" opacity="0.48"/>
+
+    <!-- Mug Handle (Right Side) -->
+    <path d="M 520 401 C 552 401, 552 453, 520 453" fill="none" stroke="#486887" stroke-width="11" stroke-linecap="round"/>
+    <path d="M 522 398 C 544 398, 548 418, 544 432" fill="none" stroke="#6E92B5" stroke-width="2.8" stroke-linecap="round"/>
+
+    <!-- Mug Body (Warm Muted Slate Blue) -->
+    <path d="M 436 382 L 526 382 L 526 458 C 526 469, 506 475, 481 475 C 456 475, 436 469, 436 458 Z" fill="#557A9E"/>
+
+    <!-- Sunlit Left Side of Mug -->
+    <path d="M 436 382 L 463 382 L 463 474 C 446 472, 436 466, 436 458 Z" fill="#7096BA"/>
+    <!-- Bright Morning Specular Highlight Strip -->
+    <path d="M 441 389 L 449 389 L 449 463 C 444 461, 441 457, 441 452 Z" fill="#95B8DA" opacity="0.72"/>
+
+    <!-- Shaded Right Side of Mug -->
+    <path d="M 503 382 L 526 382 L 526 458 C 526 466, 517 472, 503 474 Z" fill="#426180"/>
+
+    <!-- Mug Rim & Coffee Inside -->
+    <ellipse cx="481" cy="382" rx="45" ry="9" fill="#84A8CA"/>
+    <ellipse cx="481" cy="382" rx="41" ry="7" fill="#3B5773"/>
+    <ellipse cx="481" cy="384" rx="36" ry="5" fill="#6F472B"/>
+    <ellipse cx="471" cy="384" rx="14" ry="2" fill="#A67654" opacity="0.65"/>
+
+    <!-- Subtle Printed Cream Band Lines Above & Below Text -->
+    <path d="M 447 413 Q 481 417 515 413" stroke="#E8DEC9" stroke-width="1.4" fill="none" opacity="0.7"/>
+    <path d="M 447 444 Q 481 448 515 444" stroke="#E8DEC9" stroke-width="1.4" fill="none" opacity="0.7"/>
+
+    <!-- Printed Word "MONDAY" -->
+    <text x="481" y="434" text-anchor="middle" font-family="'Trebuchet MS', 'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="14.5" letter-spacing="1" fill="#F8F0E3">MONDAY</text>
+
+    <!-- Gentle Morning Steam Wisps -->
+    <path d="M 472 368 Q 466 354 474 342 Q 482 330 475 316" stroke="#FFF8EA" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.45"/>
+    <path d="M 490 370 Q 484 358 492 346 Q 499 335 493 324" stroke="#FFF8EA" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.35"/>
+  </g>
+
+  <!-- 3. FOLDED NEWSPAPER WITH A GRAY CAT ASLEEP ON TOP (Right side of tabletop) -->
+  <g id="newspaper-and-sleeping-cat">
+    <!-- Cast Shadow of Newspaper & Cat on Tabletop -->
+    <polygon points="582,476 846,486 858,452 622,442" fill="#8A5A36" opacity="0.48"/>
+
+    <!-- FOLDED NEWSPAPER -->
+    <g id="folded-newspaper">
+      <!-- Bottom Folded Page Layers -->
+      <polygon points="572,473 794,487 826,452 614,440" fill="#C7B7A2" stroke="#AD9C86" stroke-width="1"/>
+      <polygon points="570,468 791,482 823,447 612,435" fill="#D8CBB8" stroke="#BBA992" stroke-width="1"/>
+
+      <!-- Top Folded Newspaper Sheet -->
+      <polygon points="568,462 788,476 820,441 610,429" fill="#EFE5D6" stroke="#C8B8A2" stroke-width="1.2"/>
+
+      <!-- Curved Folded Spine at Front/Left Edge -->
+      <path d="M 568 462 C 562 464, 563 472, 572 473 L 794 487 C 788 486, 786 479, 788 476 Z" fill="#DFD2BF" stroke="#BBA992" stroke-width="1"/>
+      <line x1="569" y1="467" x2="789" y2="481" stroke="#B6A48D" stroke-width="1.1"/>
+      <!-- Page Edge Lines on Right Side -->
+      <line x1="790" y1="479" x2="821" y2="445" stroke="#B6A48D" stroke-width="1"/>
+      <line x1="792" y1="483" x2="824" y2="449" stroke="#A6947D" stroke-width="1"/>
+
+      <!-- Printed Newspaper Masthead, Columns & Photo Block -->
+      <!-- Left Masthead Banner -->
+      <polygon points="583,455 634,458 640,451 589,448" fill="#6D645B"/>
+      <line x1="588" y1="445" x2="642" y2="448" stroke="#8C8277" stroke-width="2" stroke-linecap="round"/>
+      <line x1="593" y1="440" x2="636" y2="443" stroke="#A4998D" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="598" y1="436" x2="639" y2="438" stroke="#A4998D" stroke-width="1.5" stroke-linecap="round"/>
+
+      <!-- Right Visible Newspaper Print & Sepia Photo Box -->
+      <polygon points="750,468 784,470 794,459 760,457" fill="#AFA292"/>
+      <line x1="696" y1="466" x2="742" y2="469" stroke="#998E81" stroke-width="1.6" stroke-linecap="round"/>
+      <line x1="700" y1="462" x2="745" y2="465" stroke="#A79B8E" stroke-width="1.4" stroke-linecap="round"/>
+      <line x1="704" y1="458" x2="748" y2="461" stroke="#A79B8E" stroke-width="1.4" stroke-linecap="round"/>
+      <line x1="764" y1="453" x2="800" y2="455" stroke="#998E81" stroke-width="1.6" stroke-linecap="round"/>
+      <line x1="768" y1="449" x2="804" y2="451" stroke="#A79B8E" stroke-width="1.4" stroke-linecap="round"/>
+      <line x1="772" y1="445" x2="807" y2="447" stroke="#A79B8E" stroke-width="1.4" stroke-linecap="round"/>
+
+      <!-- Soft Shadow of the Cat Directly on the Newspaper -->
+      <ellipse cx="702" cy="454" rx="84" ry="14" fill="#BCA992" opacity="0.75"/>
+    </g>
+
+    <!-- GRAY CAT ASLEEP ON TOP OF THE FOLDED NEWSPAPER -->
+    <g id="sleeping-gray-cat">
+      <!-- Sleeping Curled Body -->
+      <path d="M 638 446 C 622 444, 618 420, 632 403 C 648 385, 684 377, 720 381 C 756 385, 780 405, 778 432 C 776 448, 756 456, 724 456 C 688 456, 654 448, 638 446 Z" fill="#7D8188"/>
+
+      <!-- Warm Morning Sunlit Highlight Along Left & Top Back -->
+      <path d="M 632 403 C 648 385, 684 377, 720 381 C 743 383, 761 393, 771 407 C 753 396, 725 390, 695 390 C 665 390, 642 398, 632 403 Z" fill="#A0A5AD"/>
+
+      <!-- Lower Body Shadow Side -->
+      <path d="M 648 447 C 685 452, 735 452, 762 442 C 773 437, 778 428, 778 432 C 776 448, 756 456, 724 456 C 688 456, 658 450, 648 447 Z" fill="#63676E"/>
+
+      <!-- Subtle Muted Gray Tabby Back Stripes -->
+      <path d="M 690 381 Q 695 397 689 411" stroke="#62666D" stroke-width="3.8" stroke-linecap="round" fill="none"/>
+      <path d="M 711 382 Q 716 399 710 414" stroke="#62666D" stroke-width="3.8" stroke-linecap="round" fill="none"/>
+      <path d="M 732 386 Q 737 402 730 416" stroke="#62666D" stroke-width="3.8" stroke-linecap="round" fill="none"/>
+
+      <!-- Folded Hind Leg Crease -->
+      <path d="M 718 444 C 712 426, 728 410, 749 414" stroke="#62666D" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+      <!-- Curled Gray Tail Wrapping Around Onto the Newspaper -->
+      <path d="M 771 431 C 792 437, 795 456, 773 461 C 751 466, 718 462, 695 457" stroke="#6D7178" stroke-width="14" stroke-linecap="round" fill="none"/>
+      <path d="M 771 431 C 792 437, 795 456, 773 461 C 751 466, 718 462, 695 457" stroke="#858A92" stroke-width="10" stroke-linecap="round" fill="none"/>
+      <ellipse cx="693" cy="457" rx="8" ry="5.5" fill="#9FA4AC"/>
+
+      <!-- Tucked Front Paws Resting on Newspaper -->
+      <ellipse cx="621" cy="446" rx="14" ry="7" fill="#9499A1"/>
+      <line x1="613" y1="447" x2="617" y2="444" stroke="#6B6F76" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="618" y1="449" x2="622" y2="446" stroke="#6B6F76" stroke-width="1.3" stroke-linecap="round"/>
+      <ellipse cx="648" cy="451" rx="15" ry="7.5" fill="#858A92"/>
+      <line x1="641" y1="453" x2="644" y2="449" stroke="#63676E" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="647" y1="454" x2="650" y2="450" stroke="#63676E" stroke-width="1.3" stroke-linecap="round"/>
+
+      <!-- Cat Head Resting on Paws -->
+      <ellipse cx="636" cy="418" rx="30" ry="25" fill="#878C94"/>
+      <!-- Sunlit Left Cheek & Forehead Highlight -->
+      <path d="M 606 418 C 606 402, 621 393, 640 393 C 625 397, 615 407, 615 422 C 615 431, 621 438, 630 441 C 616 439, 606 430, 606 418 Z" fill="#A6ABB3"/>
+
+      <!-- Left Cat Ear -->
+      <polygon points="610,404 603,374 628,394" fill="#90959D"/>
+      <polygon points="610,404 603,374 612,382" fill="#B0B5BD"/>
+      <polygon points="612,400 607,381 623,394" fill="#C49A95"/>
+
+      <!-- Right Cat Ear -->
+      <polygon points="642,394 661,374 664,404" fill="#787C83"/>
+      <polygon points="646,394 658,381 660,400" fill="#B88E89"/>
+
+      <!-- Forehead Tabby Markings -->
+      <line x1="629" y1="397" x2="631" y2="406" stroke="#62666D" stroke-width="2" stroke-linecap="round"/>
+      <line x1="636" y1="396" x2="636" y2="407" stroke="#62666D" stroke-width="2" stroke-linecap="round"/>
+      <line x1="643" y1="397" x2="641" y2="406" stroke="#62666D" stroke-width="2" stroke-linecap="round"/>
+
+      <!-- Closed Sleeping Eyes -->
+      <path d="M 615 419 Q 622 425 629 419" stroke="#3D3F44" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+      <path d="M 641 420 Q 648 426 655 420" stroke="#3D3F44" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+
+      <!-- Soft Muzzle & Muted Pink Nose -->
+      <ellipse cx="630" cy="431" rx="7" ry="5" fill="#A1A6AE"/>
+      <ellipse cx="640" cy="431" rx="7" ry="5" fill="#A1A6AE"/>
+      <polygon points="631,426 639,426 635,431" fill="#CA8E89"/>
+      <path d="M 635 431 Q 631 435 627 433" stroke="#4A4D52" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+      <path d="M 635 431 Q 639 435 643 433" stroke="#4A4D52" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+
+      <!-- Whiskers -->
+      <line x1="613" y1="428" x2="593" y2="425" stroke="#DFD9D0" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="613" y1="432" x2="591" y2="432" stroke="#DFD9D0" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="614" y1="436" x2="595" y2="439" stroke="#DFD9D0" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="655" y1="429" x2="675" y2="427" stroke="#B9B5AF" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="655" y1="433" x2="677" y2="434" stroke="#B9B5AF" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="654" y1="437" x2="673" y2="440" stroke="#B9B5AF" stroke-width="1.3" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <!-- ==================== MORNING SUNLIGHT RAYS FROM LEFT WINDOW ==================== -->
+  <g pointer-events="none">
+    <!-- Upper Diagonal Sunbeam -->
+    <polygon points="42,74 206,74 980,520 980,750 480,750 42,280" fill="url(#sunBeam1)"/>
+    <!-- Lower Diagonal Sunbeam -->
+    <polygon points="42,188 206,188 860,750 220,750 42,394" fill="url(#sunBeam2)"/>
+
+    <!-- Warm Floating Morning Dust Motes in Sunlight -->
+    <g fill="#FFF9E6" opacity="0.55">
+      <circle cx="185" cy="245" r="2.2"/>
+      <circle cx="245" cy="220" r="1.8"/>
+      <circle cx="275" cy="295" r="2.5"/>
+      <circle cx="330" cy="265" r="1.6"/>
+      <circle cx="380" cy="335" r="2.2"/>
+      <circle cx="435" cy="310" r="1.8"/>
+      <circle cx="520" cy="350" r="2.0"/>
+      <circle cx="310" cy="365" r="1.5"/>
+      <circle cx="595" cy="365" r="1.8"/>
+    </g>
+  </g>
+</svg>

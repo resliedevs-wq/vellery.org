@@ -1,0 +1,38 @@
+{
+  "sessionId": "sess_ea1f95c2-ee78-433f-b721-5f129a89c8cb",
+  "traceId": "c4407994-b5ae-4b69-9584-d1ee5bb6f8a7",
+  "turnId": "turn_20c0af6a-87e9-4791-b85e-b245e147fb12",
+  "response": "The shell isn't available in this session, so I can't render a preview — but the drawing is done as an SVG you can open directly: **`/tmp/vellery-ieabrvzl/work/cozy-kitchen.svg`** (open it in any browser to see it full size).\n\nHere's a little companion sketch in the meantime:\n\n```\n  ☀  7:04 am                                        ~   ~  (steam)\n ┌──────────┬──────────┐              ┌─────┐      (  (\n │  \\    ✦  │   /  ✦   │  ☀ in glass  │ 🫙🫙 │   .-~~~-.\n │══════════╪══════════│  birds ~v~   ├─────┤   (  steam )\n │  ( closed│ eyes )   │              │ 🫙  │    '-.-.-'\n └─┬─┘  ┌──┴──┐  ┌────┘              └──┬──┘    ___\n   │    │ ▂▂▂ │  │ plant    · utensils ·  │    [_____] ☕\n  ══╧════╧════╧══╧══════════════════════╧══════════════\n        °  .  warm light across the floor  .  °\n                    ~ rug ~  purr...  ~\n```\n\nThe SVG scene includes:\n\n- **Morning sun** low in the window, warm peach-gold sky, birds, green hills\n- **Light beams** streaming across the room with floating dust motes, pooling on the floorboards and the rug\n- **An orange tabby cat** dozing on the windowsill, tail draped over the edge, next to a little succulent\n- **A kettle** steaming on the stove and a **coffee mug** steaming beside it\n- Butcher-block counter, cabinet doors, jars and stacked mugs on the shelf, a trailing pothos, hanging spatula/ladle/whisk, a fruit bowl, wall clock at 7:04, pendant lamp, and soft terracotta curtains\n\nWant any changes — different time of day, a dog instead of the cat, rain on the window, or a different color palette?",
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 3,
+    "inputTokens": 73938,
+    "outputTokens": 27477,
+    "totalTokens": 101415,
+    "cacheReadTokens": 33472,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 20245,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "eventCount": 20763,
+  "projection": {
+    "status": "idle",
+    "turnCount": 1,
+    "totalTokenCount": 101415,
+    "contextUsed": 34313,
+    "contextWindow": 200000
+  }
+}
+
+--- stderr ---
+ZCode Built-in stale revision=43 source=CDN
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)

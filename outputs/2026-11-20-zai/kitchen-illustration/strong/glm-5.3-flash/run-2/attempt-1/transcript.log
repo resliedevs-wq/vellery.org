@@ -1,0 +1,34 @@
+{
+  "sessionId": "sess_5110c38c-7289-4fc2-b799-37e1abdd9d02",
+  "traceId": "088f9460-a080-4d63-928a-7277f31f0743",
+  "turnId": "turn_1e9568d9-e6db-4ee0-8e2e-72bdd1baf547",
+  "response": "Saved as `kitchen.svg` (800×600, flat vector style). What's in it:\n\n- **Table from the front** — warm brown slab with two legs and a floor shadow\n- **Exactly three red apples** — muted red with stems and leaves, lined up on the left\n- **Blue mug** — muted steel blue with handle, steam wisps, and **MONDAY** printed across it\n- **Folded newspaper** — off-white slab with a fold crease and page lines, with a **gray cat asleep on top**: curled body, closed eyes, ears, stripes, and a tail wrapped around the front\n- **Morning light** — window on the left with a low sun, soft clouds, warm glow, and sunbeams falling across the wall onto the table\n- Warm, muted palette throughout, no people\n\nA note on verification: I couldn't run a syntax check (no shell access in this session), but the markup is hand-reviewed — every element is closed and attributes are quoted. If anything renders oddly in your viewer, tell me what looks off and I'll adjust.",
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 3,
+    "inputTokens": 49721,
+    "outputTokens": 14910,
+    "totalTokens": 64631,
+    "cacheReadTokens": 28160,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 12127,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "eventCount": 12407,
+  "projection": {
+    "status": "idle",
+    "turnCount": 1,
+    "totalTokenCount": 64631,
+    "contextUsed": 21813,
+    "contextWindow": 200000
+  }
+}
+
+--- stderr ---
+ZCode Built-in stale revision=43 source=CDN
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)

@@ -1,0 +1,29 @@
+{
+  "sessionId": "sess_2ed00629-d83f-4551-86a8-5fa1f21796af",
+  "traceId": "ff986712-e980-49e7-b7c0-ccec84fd3187",
+  "turnId": "turn_e12879bd-f35c-49bc-9d01-f9432183d694",
+  "response": "Here's a tighter version:\n\n```text\nSubject: Harbor Hall confirmed for March 12 — contract to sign Friday\n\nHi Dana,\n\nMostly good news on the venue front.\n\nWe're confirmed for March 12, the date we originally wanted. Priya also\noffered a walkthrough on March 3 — I don't have a conflict, but let me\nknow if you do.\n\nThe details:\n\n- Cost: $4,200, a bit under budget. They waived the AV setup fee since\n  we're bringing our own projector.\n- Capacity: up to 85 guests, right around our current RSVP count. We're\n  fine unless late signups surge.\n\nOne thing needs your eyes: they sent over a contract draft. I've read\nthrough it and nothing jumped out, but I wanted you to have a look\nbefore I sign anything. I'm planning to send it back signed on Friday,\nso let me know any thoughts before then.\n\nHappy to talk it through if that's easier.\n\nThanks,\nSam\n```\n\nWhat changed and why:\n\n- **Subject line now carries the news.** \"Venue stuff (sorry this is long)\" buries the headline and the apology undersells it. The date and the Friday deadline are the two things Dana should see in an inbox preview.\n- **Cut the hedging.** Three separate apologies/apologia in the opener (\"sorry this is long,\" \"apologies in advance,\" \"might not end up being that quick\") slowed things down before any information arrived. The content itself is short once trimmed.\n- **Made the deadline an explicit ask.** \"If I don't hear back I'm planning to sign Friday\" was easy to skim past. It's now framed as the one thing needing Dana's input, with the date attached.\n- **Numbers into bullets.** Cost and capacity are the details Dana might want to reference later; bullets make them findable instead of woven into a paragraph.\n\nThe tone stays friendly — this reads like Sam, just with the throat-clearing removed.",
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 1,
+    "inputTokens": 6981,
+    "outputTokens": 1867,
+    "totalTokens": 8848,
+    "cacheReadTokens": 704,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 1449,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "eventCount": 1877,
+  "projection": {
+    "status": "idle",
+    "turnCount": 1,
+    "totalTokenCount": 8848,
+    "contextUsed": 8848,
+    "contextWindow": 200000
+  }
+}
+
+--- stderr ---
+ZCode Built-in stale revision=43 source=CDN

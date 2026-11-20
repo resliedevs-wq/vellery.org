@@ -1,0 +1,39 @@
+{
+  "ok": true,
+  "error": null,
+  "started": "2026-11-20T03:03:52+00:00",
+  "duration_s": 474.5,
+  "command": [
+    "zcode",
+    "--prompt",
+    "<prompt>",
+    "--cwd",
+    "/tmp/vellery-9k9c_jub/work",
+    "--mode",
+    "edit",
+    "--disallowed-tools",
+    "WebSearch WebFetch Browser AskUserQuestion EnterPlanMode ExitPlanMode",
+    "--output-format",
+    "json",
+    "--no-color"
+  ],
+  "served_models": null,
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 12,
+    "inputTokens": 327015,
+    "outputTokens": 25562,
+    "totalTokens": 352577,
+    "cacheReadTokens": 295488,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 14956,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "est_cost_usd": null,
+  "est_cost": null,
+  "cli_reported_cost_usd": null,
+  "files": [
+    "cozy-kitchen.svg"
+  ]
+}

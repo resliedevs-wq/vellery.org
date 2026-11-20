@@ -1,0 +1,29 @@
+{
+  "sessionId": "sess_6f8ca312-000b-4e71-a10b-b4f3c67f2d1d",
+  "traceId": "246ba65e-890b-4ad5-a98b-17a6f658546f",
+  "turnId": "turn_64eef7b7-d2e8-4119-abbd-3c2da515fe55",
+  "response": "Here's a tighter version that keeps your voice but leads with the news and makes the asks obvious:\n\n---\n\n**Subject:** Venue confirmed for March 12 — contract needs your eyes by Friday\n\nHi Dana,\n\nGood news: after a few rounds of phone tag, I finally got Priya on the phone yesterday, and Harbor Hall can confirm **March 12** — our original date. Here's where things stand:\n\n- **Walkthrough:** They offered March 3. Works for me, but let me know if you have a conflict that day.\n- **Cost:** $4,200, under budget — they waived the AV setup fee since we're bringing our own projector.\n- **Capacity:** Covers up to 85 guests, right in line with our current RSVP count, so we should be fine unless late signups spike.\n\n**One thing I need from you:** They sent over the contract draft. I've read it and nothing looked off, but I'd like you to review it before I sign. Unless I hear otherwise, I'll send it back signed on Friday.\n\nThat's everything! Happy to talk it through if you'd like.\n\nThanks,\nSam\n\n---\n\nWhat I changed:\n\n- **Subject line** now states the outcome and the deadline instead of apologizing for length — it also gives Dana a reason to open it promptly.\n- **Cut the throat-clearing** (\"sorry this is long,\" \"apologies in advance,\" \"might not end up being that quick\") — the apology was longer than the setup it was apologizing for.\n- **Bulleted the facts** so Dana can scan date/price/headcount in seconds instead of digging through paragraphs.\n- **Promoted the contract to a clear ask** with the Friday deadline attached — it was the one real action item, and it was buried in the last paragraph.\n- **Trimmed hedges** (\"I think it should,\" \"honestly,\" \"a bit\") that softened otherwise good news.\n\nThe one judgment call: the bulleted format assumes this is a working relationship where structure reads as helpful rather than stiff. If Dana is a close friend and you'd rather keep it conversational, I can do a version that's still tight but in flowing paragraphs.",
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 1,
+    "inputTokens": 7063,
+    "outputTokens": 1215,
+    "totalTokens": 8278,
+    "cacheReadTokens": 0,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 761,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "eventCount": 1224,
+  "projection": {
+    "status": "idle",
+    "turnCount": 1,
+    "totalTokenCount": 8278,
+    "contextUsed": 8278,
+    "contextWindow": 200000
+  }
+}
+
+--- stderr ---
+ZCode Built-in stale revision=43 source=CDN

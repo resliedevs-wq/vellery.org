@@ -1,0 +1,13 @@
+{
+  "task": "shorten-email",
+  "variant": "weak",
+  "model": "deepseek-flash",
+  "label": "DeepSeek V4.1 Flash",
+  "harness": "dsh",
+  "effort": "high",
+  "run": 3,
+  "ok": true,
+  "attempts": 1,
+  "est_cost_usd": null,
+  "est_cost_usd_all_attempts": null
+}

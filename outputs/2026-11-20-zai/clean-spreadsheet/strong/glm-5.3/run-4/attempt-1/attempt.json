@@ -1,0 +1,39 @@
+{
+  "ok": true,
+  "error": null,
+  "started": "2026-11-20T02:53:05+00:00",
+  "duration_s": 138.9,
+  "command": [
+    "zcode",
+    "--prompt",
+    "<prompt>",
+    "--cwd",
+    "/tmp/vellery-_me2_x4s/work",
+    "--mode",
+    "edit",
+    "--disallowed-tools",
+    "WebSearch WebFetch Browser AskUserQuestion EnterPlanMode ExitPlanMode",
+    "--output-format",
+    "json",
+    "--no-color"
+  ],
+  "served_models": null,
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 3,
+    "inputTokens": 29273,
+    "outputTokens": 6323,
+    "totalTokens": 35596,
+    "cacheReadTokens": 19200,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 4818,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "est_cost_usd": null,
+  "est_cost": null,
+  "cli_reported_cost_usd": null,
+  "files": [
+    "expenses_cleaned.csv"
+  ]
+}

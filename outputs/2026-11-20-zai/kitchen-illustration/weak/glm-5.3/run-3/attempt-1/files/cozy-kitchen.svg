@@ -1,0 +1,381 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900">
+  <title>Cozy kitchen in the morning</title>
+  <desc>A warm illustration of a cozy kitchen at sunrise: sunlight streaming through a curtained window, a steaming kettle on the counter, shelves with jars, a breakfast table with coffee and a croissant, and a ginger cat asleep on a rug.</desc>
+
+  <defs>
+    <linearGradient id="wallGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fbeedc"/>
+      <stop offset="1" stop-color="#f3dcbc"/>
+    </linearGradient>
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9fc3de"/>
+      <stop offset="0.55" stop-color="#f2b9a0"/>
+      <stop offset="1" stop-color="#ffd9a3"/>
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fff2c0" stop-opacity="0.95"/>
+      <stop offset="0.6" stop-color="#ffe3a8" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#ffe3a8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="counterWood" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#cf9663"/>
+      <stop offset="1" stop-color="#b0734a"/>
+    </linearGradient>
+    <linearGradient id="beamGrad" x1="0" y1="440" x2="0" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffe0a0" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#ffe0a0" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="poolGrad" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffdf9f" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#ffdf9f" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="lampGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffedb8" stop-opacity="0.8"/>
+      <stop offset="1" stop-color="#ffedb8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vin" cx="600" cy="420" r="760" gradientUnits="userSpaceOnUse">
+      <stop offset="0.55" stop-color="#5a3d24" stop-opacity="0"/>
+      <stop offset="1" stop-color="#5a3d24" stop-opacity="0.25"/>
+    </radialGradient>
+    <pattern id="floor" width="64" height="64" patternUnits="userSpaceOnUse" patternTransform="translate(0,630)">
+      <rect width="64" height="64" fill="#e7d4b6"/>
+      <rect width="32" height="32" fill="#dbc29c"/>
+      <rect x="32" y="32" width="32" height="32" fill="#dbc29c"/>
+    </pattern>
+    <clipPath id="glass"><rect x="220" y="120" width="300" height="300"/></clipPath>
+  </defs>
+
+  <!-- wall & floor -->
+  <rect x="0" y="0" width="1200" height="630" fill="url(#wallGrad)"/>
+  <rect x="0" y="616" width="640" height="16" fill="#ecd9ba"/>
+  <rect x="0" y="616" width="640" height="3" fill="#d9c19a"/>
+  <rect x="0" y="630" width="1200" height="270" fill="url(#floor)"/>
+
+  <!-- window -->
+  <g>
+    <rect x="200" y="100" width="340" height="340" rx="6" fill="#fbf7ee" stroke="#e0d2bc" stroke-width="2"/>
+    <rect x="220" y="120" width="300" height="300" fill="url(#skyGrad)"/>
+    <g clip-path="url(#glass)">
+      <circle cx="293" cy="213" r="62" fill="url(#sunGlow)"/>
+      <circle cx="293" cy="213" r="24" fill="#ffd97e" stroke="#f7c65e" stroke-width="2"/>
+      <g fill="#ffd7c2" opacity="0.9">
+        <ellipse cx="258" cy="148" rx="16" ry="6"/>
+        <ellipse cx="274" cy="144" rx="12" ry="5"/>
+        <ellipse cx="452" cy="150" rx="20" ry="7"/>
+        <ellipse cx="470" cy="145" rx="13" ry="5"/>
+      </g>
+      <g fill="none" stroke="#8fa3b5" stroke-width="2" stroke-linecap="round">
+        <path d="M452 172 c4 -5 8 -5 12 0"/>
+        <path d="M482 190 c3 -4 7 -4 10 0"/>
+      </g>
+      <!-- hills -->
+      <path d="M220 368 C260 336 300 336 336 360 C366 344 396 342 428 356 C462 342 496 348 520 362 L520 420 L220 420 Z" fill="#b8cba4"/>
+      <path d="M220 392 C268 376 312 384 356 388 C404 380 452 386 520 394 L520 420 L220 420 Z" fill="#9cb78c"/>
+      <!-- tiny house on the hill -->
+      <rect x="446" y="334" width="5" height="9" fill="#c96f4a"/>
+      <rect x="432" y="346" width="16" height="12" fill="#f2e2c8"/>
+      <path d="M429 346 L440 336 L451 346 Z" fill="#c96f4a"/>
+      <rect x="437" y="351" width="6" height="7" fill="#b3814f"/>
+    </g>
+    <!-- muntins -->
+    <rect x="366" y="120" width="8" height="300" fill="#fbf7ee"/>
+    <rect x="220" y="266" width="300" height="8" fill="#fbf7ee"/>
+    <rect x="220" y="120" width="300" height="300" fill="none" stroke="#d9c7ad" stroke-width="3"/>
+    <!-- rod & curtains -->
+    <rect x="146" y="82" width="448" height="9" rx="4" fill="#8b5e3c"/>
+    <circle cx="142" cy="86" r="8" fill="#7a4f30"/>
+    <circle cx="598" cy="86" r="8" fill="#7a4f30"/>
+    <path d="M160 92 L244 92 C250 190 244 300 232 386 C228 428 220 458 200 466 C182 472 168 460 166 442 C176 330 172 200 160 92 Z" fill="#f4b98c"/>
+    <g fill="none" stroke="#e2a171" stroke-width="3" opacity="0.8">
+      <path d="M186 100 C190 200 184 320 178 436"/>
+      <path d="M210 100 C216 200 210 320 202 440"/>
+    </g>
+    <rect x="160" y="268" width="84" height="18" rx="9" fill="#d98e6b"/>
+    <path d="M580 92 L496 92 C490 190 496 300 508 386 C512 428 520 458 540 466 C558 472 572 460 574 442 C564 330 568 200 580 92 Z" fill="#f4b98c"/>
+    <g fill="none" stroke="#e2a171" stroke-width="3" opacity="0.8">
+      <path d="M554 100 C550 200 556 320 562 436"/>
+      <path d="M530 100 C524 200 530 320 538 440"/>
+    </g>
+    <rect x="496" y="268" width="84" height="18" rx="9" fill="#d98e6b"/>
+    <!-- sill & potted herbs -->
+    <rect x="186" y="440" width="368" height="16" rx="3" fill="#c99a6a"/>
+    <rect x="186" y="454" width="368" height="5" fill="#b3814f"/>
+    <g>
+      <ellipse cx="246" cy="388" rx="6" ry="16" fill="#7fa08d"/>
+      <ellipse cx="246" cy="388" rx="6" ry="16" fill="#8fae86" transform="rotate(-28 246 410)"/>
+      <ellipse cx="246" cy="388" rx="6" ry="16" fill="#7fa08d" transform="rotate(28 246 410)"/>
+      <ellipse cx="246" cy="388" rx="6" ry="16" fill="#8fae86" transform="rotate(-52 246 410)"/>
+      <ellipse cx="246" cy="388" rx="6" ry="16" fill="#7fa08d" transform="rotate(52 246 410)"/>
+      <path d="M231 414 L261 414 L256 442 L236 442 Z" fill="#c96f4a"/>
+      <rect x="229" y="408" width="34" height="8" rx="3" fill="#d98a63"/>
+    </g>
+    <g>
+      <g stroke="#6f9271" stroke-width="2.5" fill="none">
+        <path d="M469 404 L460 378"/>
+        <path d="M469 404 L469 370"/>
+        <path d="M469 404 L478 380"/>
+      </g>
+      <g fill="#7fa08d">
+        <circle cx="460" cy="378" r="4.5"/>
+        <circle cx="469" cy="370" r="4.5"/>
+        <circle cx="478" cy="380" r="4.5"/>
+      </g>
+      <circle cx="456" cy="386" r="4" fill="#8fae86"/>
+      <circle cx="482" cy="388" r="4" fill="#8fae86"/>
+      <path d="M456 406 L482 406 L477 440 L461 440 Z" fill="#f2e2c8" stroke="#d9c7ad" stroke-width="1.5"/>
+      <rect x="454" y="402" width="30" height="7" rx="3" fill="#fdf6ec"/>
+    </g>
+  </g>
+
+  <!-- wall art -->
+  <g>
+    <rect x="54" y="286" width="92" height="118" rx="4" fill="#b57a4e"/>
+    <rect x="64" y="296" width="72" height="98" fill="#f9f1e2"/>
+    <path d="M100 380 C100 356 98 334 100 314" fill="none" stroke="#7fa08d" stroke-width="3"/>
+    <ellipse cx="94" cy="368" rx="9" ry="4" fill="#8fae86" transform="rotate(-30 94 368)"/>
+    <ellipse cx="106" cy="352" rx="9" ry="4" fill="#7fa08d" transform="rotate(25 106 352)"/>
+    <ellipse cx="94" cy="336" rx="9" ry="4" fill="#8fae86" transform="rotate(-25 94 336)"/>
+    <ellipse cx="106" cy="320" rx="9" ry="4" fill="#7fa08d" transform="rotate(28 106 320)"/>
+  </g>
+  <g>
+    <rect x="592" y="206" width="62" height="84" rx="3" fill="#b57a4e"/>
+    <rect x="600" y="214" width="46" height="68" fill="#f9f1e2"/>
+    <path d="M611 258 h22 v10 c0 7 -22 7 -22 0 Z" fill="#d98e6b"/>
+    <path d="M633 262 c7 0 7 8 0 8" fill="none" stroke="#d98e6b" stroke-width="3"/>
+    <path d="M620 250 c-3 -4 3 -7 0 -11 M627 250 c-3 -4 3 -7 0 -11" fill="none" stroke="#c9b8a0" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- wall clock (7:30) -->
+  <g>
+    <circle cx="890" cy="148" r="44" fill="#fdf8ee" stroke="#b57a4e" stroke-width="9"/>
+    <g stroke="#8a6a4a" stroke-width="3" stroke-linecap="round">
+      <path d="M890 112 v8"/>
+      <path d="M890 176 v8"/>
+      <path d="M854 148 h8"/>
+      <path d="M918 148 h8"/>
+    </g>
+    <path d="M890 148 L890 182" stroke="#6b4a33" stroke-width="5" stroke-linecap="round"/>
+    <path d="M890 148 L871 167" stroke="#6b4a33" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="890" cy="148" r="4" fill="#6b4a33"/>
+  </g>
+
+  <!-- open shelves -->
+  <g>
+    <rect x="672" y="290" width="336" height="12" rx="3" fill="#b57a4e"/>
+    <path d="M700 302 L700 322 L680 302 Z" fill="#9c6440"/>
+    <path d="M1010 302 L1010 322 L990 302 Z" fill="#9c6440"/>
+    <!-- flour jar -->
+    <rect x="700" y="240" width="34" height="50" rx="6" fill="#ffffff" fill-opacity="0.45" stroke="#d8cbb8" stroke-width="2"/>
+    <rect x="704" y="262" width="26" height="24" rx="4" fill="#f5efdf"/>
+    <rect x="698" y="233" width="38" height="9" rx="3" fill="#d9a05b"/>
+    <!-- pasta jar -->
+    <rect x="748" y="240" width="34" height="50" rx="6" fill="#ffffff" fill-opacity="0.45" stroke="#d8cbb8" stroke-width="2"/>
+    <rect x="752" y="258" width="26" height="28" rx="4" fill="#e8c06a"/>
+    <rect x="746" y="233" width="38" height="9" rx="3" fill="#d9a05b"/>
+    <!-- books -->
+    <rect x="806" y="240" width="18" height="52" rx="2" fill="#c97b5a"/>
+    <rect x="828" y="248" width="16" height="44" rx="2" fill="#7fa08d"/>
+    <rect x="848" y="236" width="16" height="56" rx="2" fill="#e0b070"/>
+    <!-- little plant -->
+    <ellipse cx="903" cy="266" rx="7" ry="12" fill="#7fa08d"/>
+    <ellipse cx="903" cy="266" rx="7" ry="12" fill="#8fae86" transform="rotate(-35 903 290)"/>
+    <ellipse cx="903" cy="266" rx="7" ry="12" fill="#8fae86" transform="rotate(35 903 290)"/>
+    <path d="M892 268 L914 268 L910 291 L896 291 Z" fill="#c96f4a"/>
+    <!-- oil bottle -->
+    <rect x="944" y="234" width="18" height="56" rx="7" fill="#cf9a5a" fill-opacity="0.92"/>
+    <rect x="949" y="222" width="8" height="14" fill="#cf9a5a"/>
+    <rect x="948" y="216" width="10" height="8" rx="2" fill="#b57a4e"/>
+    <rect x="947" y="254" width="12" height="16" rx="2" fill="#f9f1e2"/>
+    <!-- jam jar -->
+    <rect x="976" y="254" width="22" height="38" rx="5" fill="#ffffff" fill-opacity="0.45" stroke="#d8cbb8" stroke-width="2"/>
+    <rect x="979" y="266" width="16" height="23" rx="3" fill="#c95a5a"/>
+    <rect x="974" y="248" width="26" height="8" rx="3" fill="#9c6440"/>
+  </g>
+  <g>
+    <rect x="744" y="372" width="184" height="12" rx="3" fill="#b57a4e"/>
+    <path d="M764 384 L764 402 L746 384 Z" fill="#9c6440"/>
+    <path d="M908 384 L908 402 L890 384 Z" fill="#9c6440"/>
+    <rect x="766" y="362" width="70" height="10" rx="2" fill="#9db8a2"/>
+    <rect x="774" y="352" width="58" height="10" rx="2" fill="#d9a05b"/>
+    <ellipse cx="872" cy="362" rx="26" ry="8" fill="#f6ead8" stroke="#e3d0b8" stroke-width="1.5"/>
+    <ellipse cx="872" cy="352" rx="22" ry="7" fill="#f6ead8" stroke="#e3d0b8" stroke-width="1.5"/>
+    <ellipse cx="872" cy="344" rx="18" ry="6" fill="#f6ead8" stroke="#e3d0b8" stroke-width="1.5"/>
+  </g>
+
+  <!-- counter & cabinets -->
+  <g>
+    <rect x="640" y="476" width="520" height="142" rx="4" fill="#9db8a2"/>
+    <rect x="654" y="490" width="150" height="114" rx="8" fill="#a8c2ae" stroke="#c3d6c6" stroke-width="2"/>
+    <rect x="826" y="490" width="150" height="114" rx="8" fill="#a8c2ae" stroke="#c3d6c6" stroke-width="2"/>
+    <rect x="998" y="490" width="148" height="114" rx="8" fill="#a8c2ae" stroke="#c3d6c6" stroke-width="2"/>
+    <circle cx="794" cy="547" r="5" fill="#d9a05b"/>
+    <circle cx="966" cy="547" r="5" fill="#d9a05b"/>
+    <circle cx="1136" cy="547" r="5" fill="#d9a05b"/>
+    <rect x="640" y="618" width="520" height="14" fill="#7d9a86"/>
+    <rect x="626" y="450" width="548" height="26" rx="8" fill="url(#counterWood)"/>
+    <rect x="632" y="452" width="536" height="6" rx="3" fill="#dca771" opacity="0.8"/>
+  </g>
+
+  <!-- counter items -->
+  <g>
+    <!-- cutting board with bread -->
+    <rect x="658" y="424" width="124" height="26" rx="13" fill="#cf9a6a"/>
+    <circle cx="768" cy="437" r="4" fill="#a8683f"/>
+    <rect x="672" y="406" width="36" height="24" rx="8" fill="#eec17e" stroke="#d19a55" stroke-width="2.5"/>
+    <rect x="676" y="410" width="28" height="16" rx="5" fill="#f7dfae"/>
+    <rect x="714" y="406" width="36" height="24" rx="8" fill="#eec17e" stroke="#d19a55" stroke-width="2.5"/>
+    <rect x="718" y="410" width="28" height="16" rx="5" fill="#f7dfae"/>
+    <!-- toaster -->
+    <rect x="808" y="384" width="22" height="22" rx="5" fill="#e8b877" stroke="#cf9a55" stroke-width="2"/>
+    <rect x="844" y="384" width="22" height="22" rx="5" fill="#e8b877" stroke="#cf9a55" stroke-width="2"/>
+    <rect x="796" y="404" width="88" height="46" rx="16" fill="#8fbfae"/>
+    <rect x="796" y="438" width="88" height="12" rx="6" fill="#7aa896"/>
+    <rect x="808" y="402" width="26" height="7" rx="3.5" fill="#5f7a6e"/>
+    <rect x="844" y="402" width="26" height="7" rx="3.5" fill="#5f7a6e"/>
+    <circle cx="872" cy="428" r="4" fill="#f6ead8"/>
+    <!-- fruit -->
+    <circle cx="908" cy="443" r="9" fill="#e8955a" stroke="#d1804a" stroke-width="1.5"/>
+    <circle cx="926" cy="440" r="9.5" fill="#e8955a" stroke="#d1804a" stroke-width="1.5"/>
+    <ellipse cx="913" cy="428" rx="8" ry="6" fill="#f2d06b" transform="rotate(-18 913 428)"/>
+    <!-- mug -->
+    <rect x="956" y="424" width="28" height="28" rx="6" fill="#e8896b"/>
+    <path d="M984 431 c10 1 10 14 0 15" fill="none" stroke="#e8896b" stroke-width="5"/>
+    <path d="M970 418 c-4 -7 4 -11 0 -19" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" opacity="0.6"/>
+    <!-- kettle -->
+    <ellipse cx="1086" cy="452" rx="44" ry="7" fill="#6b4a2e" opacity="0.15"/>
+    <path d="M1046 402 C1032 398 1020 390 1012 380 L1024 372 C1034 382 1046 388 1056 390 Z" fill="#f6ead8"/>
+    <path d="M1052 394 C1052 368 1120 368 1120 394" fill="none" stroke="#c98d5f" stroke-width="7" stroke-linecap="round"/>
+    <rect x="1046" y="392" width="80" height="60" rx="28" fill="#f6ead8"/>
+    <rect x="1052" y="398" width="68" height="20" rx="14" fill="#fdf5e6"/>
+    <circle cx="1086" cy="386" r="6" fill="#c98d5f"/>
+    <g fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" opacity="0.55">
+      <path d="M1074 372 C1066 356 1082 344 1074 328 C1068 316 1076 306 1072 296"/>
+      <path d="M1092 374 C1084 356 1100 342 1092 324 C1086 312 1094 302 1090 292"/>
+      <path d="M1108 372 C1102 360 1112 350 1108 336"/>
+    </g>
+    <!-- utensil cup -->
+    <rect x="1136" y="416" width="26" height="36" rx="4" fill="#d98e6b"/>
+    <path d="M1146 420 L1142 396" stroke="#b57a4e" stroke-width="3" stroke-linecap="round"/>
+    <ellipse cx="1142" cy="391" rx="4" ry="7" fill="#b57a4e" transform="rotate(-10 1142 391)"/>
+    <path d="M1156 420 L1158 392" stroke="#b57a4e" stroke-width="3" stroke-linecap="round"/>
+    <ellipse cx="1158" cy="387" rx="4" ry="7" fill="#b57a4e" transform="rotate(8 1158 387)"/>
+  </g>
+
+  <!-- pendant lamp -->
+  <g>
+    <line x1="150" y1="0" x2="150" y2="122" stroke="#6b4a33" stroke-width="4"/>
+    <path d="M98 152 C100 112 200 112 202 152 L190 158 L110 158 Z" fill="#d97f52"/>
+    <path d="M110 158 L190 158 L184 165 L116 165 Z" fill="#b5623c"/>
+    <circle cx="150" cy="176" r="46" fill="url(#lampGlow)"/>
+    <circle cx="150" cy="173" r="9" fill="#ffe6a3"/>
+  </g>
+
+  <!-- breakfast table -->
+  <g>
+    <ellipse cx="150" cy="744" rx="115" ry="15" fill="#6b4a2e" opacity="0.15"/>
+    <line x1="102" y1="598" x2="90" y2="730" stroke="#8b5a3c" stroke-width="11" stroke-linecap="round"/>
+    <line x1="198" y1="598" x2="210" y2="730" stroke="#8b5a3c" stroke-width="11" stroke-linecap="round"/>
+    <rect x="42" y="576" width="216" height="28" rx="14" fill="#9c6440"/>
+    <ellipse cx="150" cy="576" rx="108" ry="22" fill="#c08b5c"/>
+    <ellipse cx="150" cy="576" rx="82" ry="15" fill="none" stroke="#ad7748" stroke-width="2" opacity="0.5"/>
+    <ellipse cx="150" cy="572" rx="88" ry="14" fill="#ffdf9f" opacity="0.4"/>
+    <!-- plate & croissant -->
+    <ellipse cx="106" cy="568" rx="30" ry="9" fill="#fdf6ec" stroke="#e5d5bf" stroke-width="2"/>
+    <ellipse cx="106" cy="568" rx="20" ry="5" fill="none" stroke="#ecdcc2" stroke-width="1.5"/>
+    <path d="M84 568 C82 558 90 550 100 552 C102 544 116 544 118 552 C128 550 136 558 134 568 C126 564 118 562 109 562 C100 562 92 564 84 568 Z" fill="#dda05f" stroke="#c9854a" stroke-width="2"/>
+    <path d="M96 554 q6 4 4 10 M120 554 q-6 4 -4 10" fill="none" stroke="#c9854a" stroke-width="2" stroke-linecap="round"/>
+    <!-- coffee -->
+    <ellipse cx="197" cy="570" rx="18" ry="5" fill="#fdf6ec"/>
+    <rect x="184" y="544" width="26" height="26" rx="5" fill="#7fa08d"/>
+    <path d="M210 550 c12 1 12 14 0 15" fill="none" stroke="#7fa08d" stroke-width="5"/>
+    <path d="M197 538 c-4 -7 4 -11 0 -19" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" opacity="0.6"/>
+    <!-- flower in a vase -->
+    <rect x="142" y="546" width="14" height="22" rx="4" fill="#f2e2c8" stroke="#d9c7ad" stroke-width="1.5"/>
+    <line x1="149" y1="522" x2="147" y2="548" stroke="#7fa08d" stroke-width="2.5"/>
+    <ellipse cx="145" cy="538" rx="5" ry="2.5" fill="#7fa08d" transform="rotate(-30 145 538)"/>
+    <g fill="#f0a8b8">
+      <circle cx="149" cy="506" r="5"/>
+      <circle cx="141.4" cy="511.5" r="5"/>
+      <circle cx="144.3" cy="520.5" r="5"/>
+      <circle cx="153.7" cy="520.5" r="5"/>
+      <circle cx="156.6" cy="511.5" r="5"/>
+    </g>
+    <circle cx="149" cy="514" r="4" fill="#e8c06a"/>
+  </g>
+
+  <!-- rug & sleepy cat -->
+  <g>
+    <ellipse cx="862" cy="796" rx="215" ry="62" fill="#cf7f58"/>
+    <ellipse cx="862" cy="796" rx="186" ry="50" fill="none" stroke="#e8b08c" stroke-width="4"/>
+    <ellipse cx="862" cy="796" rx="152" ry="38" fill="none" stroke="#e8b08c" stroke-width="4" opacity="0.8"/>
+    <path d="M647 770l-13 2M646 779l-14 1M646 788l-14 0M646 797l-14 -1M647 806l-13 -2M648 815l-12 -3M650 823l-11 -4M1077 770l13 2M1078 779l14 1M1078 788l14 0M1078 797l14 -1M1077 806l13 -2M1076 815l12 -3M1074 823l11 -4" stroke="#e2a37c" stroke-width="2.5" stroke-linecap="round"/>
+    <ellipse cx="862" cy="806" rx="110" ry="26" fill="#b3653f" opacity="0.35"/>
+    <!-- cat -->
+    <path d="M936 780 C958 806 922 826 866 822 C824 819 800 808 792 794" fill="none" stroke="#dd9550" stroke-width="15" stroke-linecap="round"/>
+    <circle cx="792" cy="794" r="8.5" fill="#cf8440"/>
+    <ellipse cx="862" cy="772" rx="78" ry="46" fill="#eeb06c"/>
+    <ellipse cx="880" cy="738" rx="44" ry="12" fill="#ffddA0" opacity="0.35"/>
+    <g fill="none" stroke="#d18a45" stroke-width="7" stroke-linecap="round">
+      <path d="M884 730 C892 744 892 760 886 774"/>
+      <path d="M906 738 C913 750 913 762 909 774"/>
+      <path d="M862 726 C868 740 868 758 863 772"/>
+    </g>
+    <path d="M774 742 L766 716 L792 730 Z" fill="#eeb06c"/>
+    <path d="M802 730 L812 708 L822 734 Z" fill="#eeb06c"/>
+    <path d="M776 738 L772 722 L788 731 Z" fill="#f2c1a0"/>
+    <path d="M805 729 L812 716 L817 731 Z" fill="#f2c1a0"/>
+    <circle cx="798" cy="760" r="30" fill="#eeb06c"/>
+    <g fill="none" stroke="#7a4a28" stroke-width="2.5" stroke-linecap="round">
+      <path d="M784 762 q5 5 10 0"/>
+      <path d="M804 760 q5 5 10 0"/>
+    </g>
+    <path d="M794 770 l7 0 l-3.5 4 Z" fill="#c97b5a"/>
+    <path d="M793 778 q4.5 4 9 0" fill="none" stroke="#b3814f" stroke-width="1.5" stroke-linecap="round"/>
+    <g stroke="#f6dcc0" stroke-width="1.5" opacity="0.9">
+      <path d="M772 764 L752 760"/>
+      <path d="M772 770 L754 772"/>
+      <path d="M824 762 L844 758"/>
+      <path d="M824 768 L844 770"/>
+    </g>
+    <ellipse cx="777" cy="772" rx="5" ry="3" fill="#f0998a" opacity="0.45"/>
+    <ellipse cx="819" cy="769" rx="5" ry="3" fill="#f0998a" opacity="0.45"/>
+  </g>
+
+  <!-- slippers -->
+  <g>
+    <g transform="translate(560,856)">
+      <ellipse cx="0" cy="0" rx="25" ry="11" fill="#e8896b"/>
+      <ellipse cx="8" cy="-1" rx="12" ry="5" fill="#f6c9a8"/>
+      <path d="M12 -8 l6 -6 l3 7 Z" fill="#e8896b"/>
+      <path d="M18 -4 l8 -3 l-2 7 Z" fill="#e8896b"/>
+      <circle cx="22" cy="0" r="2.5" fill="#d97f5f"/>
+    </g>
+    <g transform="translate(616,864) rotate(8)">
+      <ellipse cx="0" cy="0" rx="25" ry="11" fill="#e8896b"/>
+      <ellipse cx="8" cy="-1" rx="12" ry="5" fill="#f6c9a8"/>
+      <path d="M12 -8 l6 -6 l3 7 Z" fill="#e8896b"/>
+      <path d="M18 -4 l8 -3 l-2 7 Z" fill="#e8896b"/>
+      <circle cx="22" cy="0" r="2.5" fill="#d97f5f"/>
+    </g>
+  </g>
+
+  <!-- morning light -->
+  <g>
+    <ellipse cx="250" cy="836" rx="290" ry="62" fill="url(#poolGrad)"/>
+    <g fill="url(#beamGrad)" opacity="0.85">
+      <polygon points="234,446 338,446 236,900 46,900"/>
+      <polygon points="384,446 486,446 472,900 268,900"/>
+    </g>
+    <g fill="#fff3c4" opacity="0.75">
+      <circle cx="296" cy="492" r="3"/>
+      <circle cx="348" cy="556" r="2.4"/>
+      <circle cx="262" cy="606" r="2"/>
+      <circle cx="410" cy="648" r="3"/>
+      <circle cx="368" cy="724" r="2.6"/>
+      <circle cx="300" cy="782" r="2.2"/>
+      <circle cx="240" cy="660" r="1.8"/>
+    </g>
+  </g>
+
+  <rect x="0" y="0" width="1200" height="900" fill="url(#vin)"/>
+</svg>

@@ -1,0 +1,29 @@
+{
+  "sessionId": "sess_944953ad-0a43-4fbe-b492-15e5db2c3246",
+  "traceId": "e64b263d-a81a-41e9-b654-12c8499995c8",
+  "turnId": "turn_6b0012c8-8864-4fdb-8fe9-b65b0b32b85b",
+  "response": "Cleaned up and saved to `expenses_cleaned.csv`. Here's the result:\n\n| Date | Description | Category | Amount |\n|---|---|---|---|\n| 2026-03-02 | Office chairs | Furniture | 1240.00 |\n| 2026-03-04 | Printer paper | Office Supplies | 48.50 |\n| 2026-03-05 | Team lunch | Meals | 212.40 |\n| 2026-03-09 | Zoom subscription | Software | 149.00 |\n| 2026-03-10 | Taxi to client | Travel | 36.20 |\n| 2026-03-10 | Train tickets | Travel | 184.00 |\n| 2026-03-12 | Coffee beans | Meals | 27.99 |\n| 2026-03-13 | Monitor | Equipment | 329.00 |\n| 2026-03-15 | Notebooks | Office Supplies | 22.75 |\n| 2026-03-18 | Figma seats | Software | 90.00 |\n| 2026-03-18 | Client dinner | Meals | 318.60 |\n| 2026-03-20 | Desk lamp | Furniture | 64.00 |\n| 2026-03-22 | Hotel (2 nights) | Travel | 412.00 |\n| 2026-03-24 | USB-C cables | Equipment | 31.96 |\n| 2026-03-25 | Team lunch | Meals | 212.40 |\n| 2026-03-27 | Pens | Office Supplies | 9.80 |\n| 2026-03-30 | Taxi to airport | Travel | 58.00 |\n| 2026-03-31 | Notion subscription | Software | 96.00 |\n\n**What I fixed**\n\n- **Dates** → normalized to ISO `YYYY-MM-DD`. The sheet mixes US (`3/9/26`), day-first (`18/03/2026`), and written-out (`March 5 2026`, `Mar 13`) formats. Ambiguous ones like `10/03/2026` were resolved by where they fall in the sheet's chronological order (March 10, not October 3). `Mar 13` was assumed to be 2026.\n- **Categories** → consistent Title Case (`office supplies`/`Office supplies` → `Office Supplies`, etc.).\n- **Amounts** → plain two-decimal numbers, stripping `$`, thousands commas, and quote-wrapping so `SUM()` and friends actually work in a spreadsheet. (Apply currency formatting in the app rather than in the data.)\n- **Duplicates** → removed 2 exact duplicate rows: *Office chairs* (3/2) and *Printer paper* (3/4).\n- **Sorting** → ordered by date ascending.\n\n**One thing to check**: *Team lunch* for $212.40 appears on both **Mar 5** and **Mar 25** — same description and amount, different dates. That's plausibly two real lunches, so I kept both, but it's worth verifying it's not a mis-entered duplicate.\n\nFinal tally: 18 rows (down from 20), totaling **$3,542.60**.",
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 3,
+    "inputTokens": 28575,
+    "outputTokens": 4783,
+    "totalTokens": 33358,
+    "cacheReadTokens": 11136,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 3688,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "eventCount": 4472,
+  "projection": {
+    "status": "idle",
+    "turnCount": 1,
+    "totalTokenCount": 33358,
+    "contextUsed": 11921,
+    "contextWindow": 200000
+  }
+}
+
+--- stderr ---
+ZCode Built-in stale revision=43 source=CDN

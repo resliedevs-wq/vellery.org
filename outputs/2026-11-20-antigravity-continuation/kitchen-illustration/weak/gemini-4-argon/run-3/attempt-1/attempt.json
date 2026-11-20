@@ -1,0 +1,38 @@
+{
+  "ok": true,
+  "error": null,
+  "started": "2026-11-20T03:47:31+00:00",
+  "duration_s": 349.5,
+  "command": [
+    "agy",
+    "--agent",
+    "workspace-files",
+    "--model",
+    "magpie/agy-cli/gemini-4-argon",
+    "--settings",
+    "{\"modelProvider\": \"gemini\", \"customModelsConfig\": {\"customModels\": {\"magpie/agy-cli/gemini-4-argon\": {\"apiProvider\": \"API_PROVIDER_GOOGLE_GEMINI\", \"modelName\": \"agy-cli/gemini-4-argon\"}}}, \"permissions\": {\"deny\": [\"read_url(*)\", \"execute_url(*)\", \"download_url(*)\"]}}",
+    "--sandbox",
+    "--mode",
+    "accept-edits",
+    "--effort",
+    "high",
+    "--output-format",
+    "json",
+    "-p",
+    "<prompt>"
+  ],
+  "served_models": null,
+  "usage": {
+    "input_tokens": 36871,
+    "output_tokens": 47786,
+    "thinking_tokens": 2306,
+    "cache_read_tokens": 0,
+    "total_tokens": 84657
+  },
+  "est_cost_usd": null,
+  "est_cost": null,
+  "cli_reported_cost_usd": null,
+  "files": [
+    "cozy_kitchen_morning.svg"
+  ]
+}

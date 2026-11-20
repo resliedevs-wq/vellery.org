@@ -1,0 +1,337 @@
+{
+  "ok": true,
+  "error": null,
+  "started": "2026-11-20T02:47:50+00:00",
+  "duration_s": 484.5,
+  "command": [
+    "dsh",
+    "--profile",
+    "headless",
+    "--patch",
+    "/root/.t3/projects/vellery/runner/deepseek-flash.yaml",
+    "--permission-mode",
+    "workspace-write",
+    "--approval-policy",
+    "never",
+    "--json",
+    "-"
+  ],
+  "served_models": null,
+  "usage": [
+    {
+      "inputTokens": 426,
+      "outputTokens": 99,
+      "cacheReadTokens": 5248,
+      "cacheWriteTokens": 0,
+      "totalTokens": 5773
+    },
+    {
+      "inputTokens": 205,
+      "outputTokens": 209,
+      "cacheReadTokens": 5632,
+      "cacheWriteTokens": 0,
+      "totalTokens": 6046
+    },
+    {
+      "inputTokens": 205,
+      "outputTokens": 564,
+      "cacheReadTokens": 5888,
+      "cacheWriteTokens": 0,
+      "totalTokens": 6657
+    },
+    {
+      "inputTokens": 670,
+      "outputTokens": 110,
+      "cacheReadTokens": 6656,
+      "cacheWriteTokens": 0,
+      "totalTokens": 7436
+    },
+    {
+      "inputTokens": 196,
+      "outputTokens": 23865,
+      "cacheReadTokens": 7296,
+      "cacheWriteTokens": 0,
+      "totalTokens": 31357
+    },
+    {
+      "inputTokens": 159,
+      "outputTokens": 1780,
+      "cacheReadTokens": 31232,
+      "cacheWriteTokens": 0,
+      "totalTokens": 33171
+    },
+    {
+      "inputTokens": 164,
+      "outputTokens": 5017,
+      "cacheReadTokens": 33024,
+      "cacheWriteTokens": 0,
+      "totalTokens": 38205
+    },
+    {
+      "inputTokens": 261,
+      "outputTokens": 61,
+      "cacheReadTokens": 38016,
+      "cacheWriteTokens": 0,
+      "totalTokens": 38338
+    },
+    {
+      "inputTokens": 1313,
+      "outputTokens": 1220,
+      "cacheReadTokens": 38272,
+      "cacheWriteTokens": 0,
+      "totalTokens": 40805
+    },
+    {
+      "inputTokens": 243,
+      "outputTokens": 53,
+      "cacheReadTokens": 40576,
+      "cacheWriteTokens": 0,
+      "totalTokens": 40872
+    },
+    {
+      "inputTokens": 464,
+      "outputTokens": 409,
+      "cacheReadTokens": 40832,
+      "cacheWriteTokens": 0,
+      "totalTokens": 41705
+    },
+    {
+      "inputTokens": 535,
+      "outputTokens": 2703,
+      "cacheReadTokens": 41600,
+      "cacheWriteTokens": 0,
+      "totalTokens": 44838
+    },
+    {
+      "inputTokens": 164,
+      "outputTokens": 197,
+      "cacheReadTokens": 44800,
+      "cacheWriteTokens": 0,
+      "totalTokens": 45161
+    },
+    {
+      "inputTokens": 177,
+      "outputTokens": 57,
+      "cacheReadTokens": 45056,
+      "cacheWriteTokens": 0,
+      "totalTokens": 45290
+    },
+    {
+      "inputTokens": 1345,
+      "outputTokens": 432,
+      "cacheReadTokens": 45184,
+      "cacheWriteTokens": 0,
+      "totalTokens": 46961
+    },
+    {
+      "inputTokens": 254,
+      "outputTokens": 61,
+      "cacheReadTokens": 46848,
+      "cacheWriteTokens": 0,
+      "totalTokens": 47163
+    },
+    {
+      "inputTokens": 532,
+      "outputTokens": 476,
+      "cacheReadTokens": 47104,
+      "cacheWriteTokens": 0,
+      "totalTokens": 48112
+    },
+    {
+      "inputTokens": 774,
+      "outputTokens": 488,
+      "cacheReadTokens": 48000,
+      "cacheWriteTokens": 0,
+      "totalTokens": 49262
+    },
+    {
+      "inputTokens": 1136,
+      "outputTokens": 516,
+      "cacheReadTokens": 49152,
+      "cacheWriteTokens": 0,
+      "totalTokens": 50804
+    },
+    {
+      "inputTokens": 153,
+      "outputTokens": 54,
+      "cacheReadTokens": 50688,
+      "cacheWriteTokens": 0,
+      "totalTokens": 50895
+    },
+    {
+      "inputTokens": 549,
+      "outputTokens": 632,
+      "cacheReadTokens": 50816,
+      "cacheWriteTokens": 0,
+      "totalTokens": 51997
+    },
+    {
+      "inputTokens": 1006,
+      "outputTokens": 1258,
+      "cacheReadTokens": 51968,
+      "cacheWriteTokens": 0,
+      "totalTokens": 54232
+    },
+    {
+      "inputTokens": 545,
+      "outputTokens": 931,
+      "cacheReadTokens": 54144,
+      "cacheWriteTokens": 0,
+      "totalTokens": 55620
+    },
+    {
+      "inputTokens": 233,
+      "outputTokens": 54,
+      "cacheReadTokens": 55424,
+      "cacheWriteTokens": 0,
+      "totalTokens": 55711
+    },
+    {
+      "inputTokens": 516,
+      "outputTokens": 982,
+      "cacheReadTokens": 55680,
+      "cacheWriteTokens": 0,
+      "totalTokens": 57178
+    },
+    {
+      "inputTokens": 199,
+      "outputTokens": 304,
+      "cacheReadTokens": 57088,
+      "cacheWriteTokens": 0,
+      "totalTokens": 57591
+    },
+    {
+      "inputTokens": 261,
+      "outputTokens": 53,
+      "cacheReadTokens": 57344,
+      "cacheWriteTokens": 0,
+      "totalTokens": 57658
+    },
+    {
+      "inputTokens": 981,
+      "outputTokens": 1360,
+      "cacheReadTokens": 57600,
+      "cacheWriteTokens": 0,
+      "totalTokens": 59941
+    },
+    {
+      "inputTokens": 202,
+      "outputTokens": 243,
+      "cacheReadTokens": 59776,
+      "cacheWriteTokens": 0,
+      "totalTokens": 60221
+    },
+    {
+      "inputTokens": 232,
+      "outputTokens": 53,
+      "cacheReadTokens": 60032,
+      "cacheWriteTokens": 0,
+      "totalTokens": 60317
+    },
+    {
+      "inputTokens": 955,
+      "outputTokens": 829,
+      "cacheReadTokens": 60288,
+      "cacheWriteTokens": 0,
+      "totalTokens": 62072
+    },
+    {
+      "inputTokens": 197,
+      "outputTokens": 57,
+      "cacheReadTokens": 61952,
+      "cacheWriteTokens": 0,
+      "totalTokens": 62206
+    },
+    {
+      "inputTokens": 1373,
+      "outputTokens": 153,
+      "cacheReadTokens": 62080,
+      "cacheWriteTokens": 0,
+      "totalTokens": 63606
+    },
+    {
+      "inputTokens": 260,
+      "outputTokens": 54,
+      "cacheReadTokens": 63360,
+      "cacheWriteTokens": 0,
+      "totalTokens": 63674
+    },
+    {
+      "inputTokens": 480,
+      "outputTokens": 1389,
+      "cacheReadTokens": 63616,
+      "cacheWriteTokens": 0,
+      "totalTokens": 65485
+    },
+    {
+      "inputTokens": 219,
+      "outputTokens": 56,
+      "cacheReadTokens": 65280,
+      "cacheWriteTokens": 0,
+      "totalTokens": 65555
+    },
+    {
+      "inputTokens": 635,
+      "outputTokens": 413,
+      "cacheReadTokens": 65536,
+      "cacheWriteTokens": 0,
+      "totalTokens": 66584
+    },
+    {
+      "inputTokens": 840,
+      "outputTokens": 870,
+      "cacheReadTokens": 66560,
+      "cacheWriteTokens": 0,
+      "totalTokens": 68270
+    },
+    {
+      "inputTokens": 383,
+      "outputTokens": 247,
+      "cacheReadTokens": 68224,
+      "cacheWriteTokens": 0,
+      "totalTokens": 68854
+    },
+    {
+      "inputTokens": 588,
+      "outputTokens": 455,
+      "cacheReadTokens": 68736,
+      "cacheWriteTokens": 0,
+      "totalTokens": 69779
+    },
+    {
+      "inputTokens": 225,
+      "outputTokens": 57,
+      "cacheReadTokens": 69632,
+      "cacheWriteTokens": 0,
+      "totalTokens": 69914
+    },
+    {
+      "inputTokens": 1263,
+      "outputTokens": 962,
+      "cacheReadTokens": 69888,
+      "cacheWriteTokens": 0,
+      "totalTokens": 72113
+    },
+    {
+      "inputTokens": 150,
+      "outputTokens": 155,
+      "cacheReadTokens": 72064,
+      "cacheWriteTokens": 0,
+      "totalTokens": 72369
+    },
+    {
+      "inputTokens": 147,
+      "outputTokens": 313,
+      "cacheReadTokens": 72320,
+      "cacheWriteTokens": 0,
+      "totalTokens": 72780
+    }
+  ],
+  "est_cost_usd": null,
+  "est_cost": null,
+  "cli_reported_cost_usd": null,
+  "files": [
+    "cozy_kitchen_morning.png",
+    "draw_kitchen.py"
+  ]
+}

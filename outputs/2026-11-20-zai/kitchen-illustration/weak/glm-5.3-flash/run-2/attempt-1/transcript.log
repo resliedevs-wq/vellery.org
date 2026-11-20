@@ -1,0 +1,39 @@
+{
+  "sessionId": "sess_77f113e9-2891-41c8-9a2f-9c86f5cdd4a3",
+  "traceId": "10f5a800-369f-4f60-85e1-4cef1f53bcc9",
+  "turnId": "turn_0ef3456f-7513-46e4-9db6-b296a1006ee9",
+  "response": "Here's a cozy morning kitchen — fresh coffee, popping toast, jam shelf stocked, and the cat already claimed the sunbeam:\n\n```\n        \\ | /\n     --  (o)  --          ~  g o o d   m o r n i n g  ~\n        /|\\               ~  the coffee is hot,           ~\n         |                ~  the toast is on its way up,   ~\n        /|\\               ~  and the cat has the sun.      ~\n\n  .---------.          .---------.   .---------.         _  _  _\n  | [] | [] |    \\     |  o   o  |   |  o   o  |      (_) (_) (\\,/)\n  | [] | [] |     \\    |         |   |         |    ~~~~~~~~~~~~~~~~~\n  | [] | [] |    \\ \\   '---------'   '---------'       jam shelf\n  '---------'     \\ \\\n                   \\ \\\n\n       ( )            ,--, ,--,         ((\n      (   )           |__| |__|         ))\n    .---------.     .---------.       .......\n    |  ::::   |     | toast!  |     |      |]       ( o )\n    | (____)  |     |_________|      \\    /      ( o o o )\n    '---------'     '---------'       '-..-'       '-----'\n\n   ________________________________________________________________________\n  |  |   o   |  |   o   |  |   o   |  |   o   |  |   o   |                 |\n  |__|_______|__|_______|__|_______|__|_______|__|_______|_________________|\n\n       /\\_/\\      z Z z\n      ( -.- )   ~*~*~*~*~*~*      ~  one sunny spot by the window  ~\n       > ~ <    ~*~*~*~*~*~*       ~  officially reserved  ~\n     \"\"     \"\"  ~*~*~*~*~*~*\n```\n\nMorning light through the window, steam off the coffee pot, the teapot waiting its turn, and toast mid-pop. Want me to add anything — a kettle on the stove, pancakes, or a rainy version instead?",
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 4,
+    "inputTokens": 60124,
+    "outputTokens": 24717,
+    "totalTokens": 84841,
+    "cacheReadTokens": 29696,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 22783,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "eventCount": 23344,
+  "projection": {
+    "status": "idle",
+    "turnCount": 1,
+    "totalTokenCount": 84841,
+    "contextUsed": 32189,
+    "contextWindow": 200000
+  }
+}
+
+--- stderr ---
+ZCode Built-in stale revision=43 source=CDN
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)

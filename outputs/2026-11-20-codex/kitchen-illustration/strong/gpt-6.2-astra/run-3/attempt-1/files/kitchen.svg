@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="740" viewBox="0 0 1000 740" role="img" aria-labelledby="title description">
+  <title id="title">Monday morning</title>
+  <desc id="description">Sunlight from a left-hand kitchen window falls over three red apples, a blue mug printed with MONDAY, and a gray tabby asleep on a folded newspaper at a wooden table.</desc>
+  <defs>
+    <clipPath id="glass"><rect x="0" y="0" width="252" height="260"/></clipPath>
+    <clipPath id="panel"><rect y="375" width="1000" height="233"/></clipPath>
+  </defs>
+
+  <!-- Plaster, painted beadboard and linoleum -->
+  <rect width="1000" height="740" fill="#ebd9bc"/>
+  <path d="M0 0 H215 L719 375 H466 Z" fill="#f6e5c4"/>
+  <path d="M0 97 L372 375 H275 L0 170 Z" fill="#f5e2c0"/>
+  <rect y="375" width="1000" height="234" fill="#aeb6a1"/>
+  <g clip-path="url(#panel)">
+    <path d="M-70 0 H215 L1040 609 H785 Z M0 97 L688 609 H590 L0 170 Z" fill="#c8c9aa"/>
+    <path d="M34 374 V610 M108 374 V610 M182 374 V610 M256 374 V610 M330 374 V610 M404 374 V610 M478 374 V610 M552 374 V610 M626 374 V610 M700 374 V610 M774 374 V610 M848 374 V610 M922 374 V610 M996 374 V610" fill="none" stroke="#929e8b" stroke-width="1.5" opacity=".62"/>
+  </g>
+  <path d="M0 366 H1000 V375 H0 Z" fill="#9fa78e"/>
+  <path d="M0 364 H1000 V369 H0 Z" fill="#c1c4a9"/>
+  <rect y="603" width="1000" height="12" fill="#929c87"/>
+  <rect y="615" width="1000" height="125" fill="#d6bda0"/>
+  <path d="M0 660 H1000 M0 722 H1000 M294 615 L236 660 M756 615 L814 660 M477 660 L470 722 M185 722 L160 740 M890 722 L915 740" fill="none" stroke="#c4aa8e" stroke-width="1.5"/>
+  <path d="M276 615 H402 L683 740 H535 Z" fill="#e6ccaa"/>
+  <path d="M502 615 H646 L973 740 H789 Z" fill="#e6ccaa"/>
+
+  <!-- The kitchen window, with a distant hillside and an olive branch -->
+  <path d="M0 0 H285 V276 H298 V291 H0 Z" fill="#cdb99d"/>
+  <path d="M0 0 H273 V276 H0 Z" fill="#f5e7cb"/>
+  <path d="M0 0 H260 V267 H0 Z" fill="#b9ad90"/>
+  <g clip-path="url(#glass)">
+    <rect width="252" height="260" fill="#cfdbcd"/>
+    <circle cx="188" cy="79" r="35" fill="#fff0c7"/>
+    <path d="M-12 195 Q42 165 83 174 Q140 185 182 161 Q227 137 273 154 V267 H-12 Z" fill="#b3c3ad"/>
+    <path d="M-10 219 Q37 195 94 201 Q136 207 179 188 Q231 170 267 184 V267 H-10 Z" fill="#9dac93"/>
+    <g fill="none" stroke="#758a73" stroke-width="3.5" stroke-linecap="round">
+      <path d="M-6 249 Q48 195 81 95 M30 201 Q46 171 41 144 M49 169 Q81 155 100 130 M60 144 Q63 109 56 85"/>
+    </g>
+    <g fill="#8b9e82">
+      <path d="M41 156 Q22 149 26 125 Q43 137 41 156 Z M40 174 Q22 166 20 146 Q39 155 40 174 Z M47 182 Q54 158 74 154 Q71 173 47 182 Z"/>
+      <path d="M62 123 Q42 114 44 92 Q60 103 62 123 Z M57 94 Q42 82 47 63 Q62 75 57 94 Z M66 133 Q66 110 83 102 Q82 122 66 133 Z"/>
+      <path d="M77 107 Q71 84 85 68 Q92 90 77 107 Z M80 151 Q83 131 100 123 Q99 142 80 151 Z M92 140 Q104 122 119 123 Q113 139 92 140 Z M24 210 Q21 187 4 180 Q4 200 24 210 Z"/>
+    </g>
+    <path d="M98 0 H108 V260 H98 Z M0 124 H252 V134 H0 Z" fill="#a7ab93"/>
+    <path d="M94 0 H103 V260 H94 Z M0 120 H252 V129 H0 Z" fill="#f4e7cb"/>
+  </g>
+  <path d="M0 263 H274 V274 H0 Z" fill="#ead9b8"/>
+  <path d="M0 274 H291 V282 H0 Z" fill="#fff0d1"/>
+  <path d="M0 282 H291 L281 291 H0 Z" fill="#b39979"/>
+
+  <!-- A small enamel kitchen clock -->
+  <circle cx="792" cy="125" r="39" fill="#d1bea2"/>
+  <circle cx="787" cy="120" r="39" fill="#65746a"/>
+  <circle cx="787" cy="120" r="33.5" fill="#f3e7cc"/>
+  <g fill="none" stroke="#91957e" stroke-width="2" stroke-linecap="round">
+    <path d="M787 92 V97 M815 120 H810 M787 148 V143 M759 120 H764 M801 96 L799 99 M811 106 L808 108 M811 134 L808 132 M801 144 L799 141 M773 144 L775 141 M763 134 L766 132 M763 106 L766 108 M773 96 L775 99"/>
+  </g>
+  <path d="M775 127 L787 120 L798 102" fill="none" stroke="#59685e" stroke-width="3.5" stroke-linecap="round"/>
+  <circle cx="787" cy="120" r="3.3" fill="#ab7657"/>
+
+  <!-- Table frame, joinery and cast shadows -->
+  <path d="M136 674 Q184 669 240 674 L391 693 Q398 697 382 698 H193 Z M743 672 L818 672 L985 692 Q991 696 968 697 H797 Z" fill="#bda78d"/>
+  <g fill="#916747">
+    <path d="M185 477 H213 L221 649 H205 Z"/>
+    <path d="M777 477 H802 L793 649 H777 Z"/>
+  </g>
+  <path d="M139 490 H180 L166 680 Q155 683 146 680 Z M822 490 H861 L851 680 Q842 683 832 680 Z" fill="#ac7952"/>
+  <path d="M167 498 H180 L166 680 H159 Z M851 498 H861 L851 680 H844 Z" fill="#936342"/>
+  <path d="M144 490 H852 V519 H828 Q811 519 802 529 Q790 519 774 519 H215 Q197 519 186 529 Q176 519 162 519 H144 Z" fill="#bb8358"/>
+  <path d="M144 491 H852 V501 H144 Z" fill="#9b6847"/>
+  <g fill="#916346"><circle cx="161" cy="510" r="2.5"/><circle cx="835" cy="510" r="2.5"/></g>
+  <path d="M133 435 Q135 433 142 433 H854 Q861 433 865 438 L899 475 Q902 481 894 483 H106 Q98 481 101 475 Z" fill="#dfac7b"/>
+  <path d="M142 435 H257 L317 480 H107 Z M298 435 H361 L423 480 H360 Z" fill="#ebbc87"/>
+  <path d="M100 478 Q100 482 107 482 H893 Q898 482 900 478 V489 Q899 495 890 495 H110 Q101 495 100 489 Z" fill="#c58c60"/>
+  <path d="M108 484 H891" stroke="#dda476" stroke-width="2" fill="none"/>
+  <g fill="none" stroke="#c58e62" stroke-linecap="round" stroke-width="1.6">
+    <path d="M139 469 Q158 467 182 469 M340 470 Q358 468 379 470 M460 440 Q477 439 496 440 M760 473 Q780 470 801 472 M185 489 H252 M678 489 H726"/>
+  </g>
+
+  <!-- Three apples -->
+  <path d="M185 449 Q226 440 284 445 Q320 445 351 459 Q327 467 267 460 Q221 458 185 452 Z" fill="#bd8f65"/>
+  <g id="back-apple">
+    <path d="M241 391 C232 382 216 385 211 397 C204 413 214 436 227 440 Q235 442 241 439 Q255 445 263 433 C271 421 277 402 267 393 Q257 382 241 391 Z" fill="#b95543"/>
+    <path d="M240 393 Q242 384 239 378" fill="none" stroke="#6c5842" stroke-width="4" stroke-linecap="round"/>
+    <path d="M241 385 Q248 368 267 372 Q260 386 241 385 Z" fill="#78825b"/>
+    <path d="M215 404 Q217 396 224 394" fill="none" stroke="#e18a66" stroke-width="4.5" stroke-linecap="round"/>
+  </g>
+  <g id="left-apple">
+    <path d="M205 412 C190 403 176 410 176 426 C175 441 186 455 196 455 Q201 456 207 453 Q216 458 224 450 C236 439 241 419 230 412 Q221 405 210 411 Q207 414 205 412 Z" fill="#cd674d"/>
+    <path d="M201 412 Q205 417 213 412" fill="none" stroke="#a54e3b" stroke-width="2.7" stroke-linecap="round"/>
+    <path d="M207 413 Q207 404 201 399" fill="none" stroke="#68523c" stroke-width="3.8" stroke-linecap="round"/>
+    <path d="M182 427 Q183 420 188 417" fill="none" stroke="#ed9b76" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <g id="right-apple">
+    <path d="M279 412 C267 403 251 407 247 422 C243 436 254 457 267 460 Q273 461 279 458 Q289 462 297 456 C308 447 315 427 307 416 Q298 403 283 411 Q281 413 279 412 Z" fill="#bb5041"/>
+    <path d="M275 412 Q280 418 287 411" fill="none" stroke="#964737" stroke-width="2.7" stroke-linecap="round"/>
+    <path d="M281 413 Q282 402 288 396" fill="none" stroke="#6e563d" stroke-width="4" stroke-linecap="round"/>
+    <path d="M283 405 Q271 403 266 392 Q281 391 283 405 Z" fill="#808761"/>
+    <path d="M253 427 Q254 419 261 416" fill="none" stroke="#e58969" stroke-width="4.5" stroke-linecap="round"/>
+    <g fill="#df8263"><circle cx="296" cy="441" r="1.1"/><circle cx="291" cy="448" r="1"/><circle cx="300" cy="436" r=".9"/></g>
+  </g>
+
+  <!-- Stoneware mug -->
+  <ellipse cx="449" cy="454" rx="66" ry="7" fill="#bb8e66"/>
+  <g fill="none" stroke="#f8edd5" stroke-width="3.2" stroke-linecap="round">
+    <path d="M399 353 C389 338 410 335 403 318"/>
+    <path d="M418 349 C418 341 427 336 426 328"/>
+  </g>
+  <path d="M451 386 C488 370 503 396 489 418 Q479 433 454 434 L454 421 Q473 421 480 409 C487 394 477 388 456 398 Z" fill="#547b8c"/>
+  <path d="M373 368 Q373 365 378 365 H454 Q460 365 460 370 L457 436 Q456 452 439 455 Q416 459 393 454 Q378 451 377 437 Z" fill="#668fa0"/>
+  <path d="M450 375 Q455 374 460 371 L457 437 Q455 452 439 455 Q415 459 393 454 Q387 453 383 449 Q421 454 438 445 Q447 441 448 429 Z" fill="#517989"/>
+  <ellipse cx="416.5" cy="369" rx="43.5" ry="8.5" fill="#adc2bf"/>
+  <ellipse cx="416.5" cy="369" rx="37.5" ry="5.1" fill="#6d5648"/>
+  <path d="M381 382 L382 398" stroke="#94b2b4" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <text x="416.5" y="419" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-weight="bold" font-size="14" letter-spacing=".8" fill="#fff1d7">MONDAY</text>
+
+  <!-- Folded broadsheet, lower leaves peeking out from under the cat -->
+  <path d="M525 452 L792 442 L852 460 L817 470 L558 471 Z" fill="#bc9069"/>
+  <path d="M524 440 L775 428 L838 450 L838 457 L552 467 L521 449 Z" fill="#c9bfa4"/>
+  <path d="M523 442 L779 430 L839 450 L551 463 L521 447 Z" fill="#f1e5c8"/>
+  <path d="M520 437 L776 426 L838 448 L551 460 L520 443 Z" fill="#a7a08c"/>
+  <path d="M520 437 L770 423 L835 446 L551 457 Z" fill="#f6ead0"/>
+  <path d="M547 452 L808 441 M550 455 L820 444" fill="none" stroke="#b2aa93" stroke-width="1.3"/>
+  <path d="M533 437 L566 435 L578 440 L544 442 Z" fill="#7e8274"/>
+  <g fill="none" stroke="#9b9b85" stroke-width="1.4">
+    <path d="M543 444 L579 442 M546 446 L583 444 M550 448 L587 446 M591 443 L621 441 M595 445 L625 443 M717 444 L752 442 M722 446 L758 444 M767 441 L799 440 M771 443 L804 442"/>
+  </g>
+
+  <!-- A curled, sleeping tabby -->
+  <ellipse cx="688" cy="434" rx="117" ry="10" fill="#b9b49c"/>
+  <path d="M617 407 C618 382 642 350 677 340 C711 329 753 337 775 361 C793 381 802 407 789 425 C777 443 744 444 711 440 L633 435 Z" fill="#8e9790"/>
+  <path d="M646 357 Q659 345 676 341 Q666 351 664 361 Q663 366 659 364 Q658 362 657 357 Q650 364 645 366 Q642 365 646 357 Z M690 337 Q699 335 705 336 Q693 346 692 355 Q688 363 686 356 Q684 346 690 337 Z M713 336 Q721 336 728 338 Q718 343 714 352 Q708 361 709 351 Q709 344 713 336 Z" fill="#6f7e78"/>
+  <path d="M675 383 C698 364 731 370 744 392 C753 410 741 427 723 435 C749 436 777 433 790 414 Q789 442 750 444 Q717 446 682 437 Q666 422 675 383 Z" fill="#7c8781"/>
+  <path d="M629 411 C646 402 663 412 670 421 Q681 424 692 423 Q703 424 701 431 Q694 440 667 438 L629 433 Z" fill="#a7ada3"/>
+  <path d="M667 429 Q673 428 678 433 M675 426 Q683 425 687 430" fill="none" stroke="#849088" stroke-width="1.7" stroke-linecap="round"/>
+  <!-- The face rests against the left forepaw -->
+  <path d="M577 400 L575 372 Q575 367 580 369 L604 383 Q615 379 629 381 L643 362 Q646 358 648 363 L653 393 Q662 405 657 419 C653 434 632 441 611 439 C591 438 574 431 573 417 Q571 408 577 400 Z" fill="#a7ada5"/>
+  <path d="M580 377 L582 394 L596 385 Z M644 369 L634 383 L648 389 Z" fill="#c79e8d"/>
+  <path d="M603 383 L611 382 Q610 389 604 395 Q601 397 602 392 Z M615 381 H623 Q619 390 614 393 Q611 394 613 388 Z M627 381 L633 380 Q630 387 625 390 Q622 390 625 385 Z" fill="#7d8982"/>
+  <path d="M574 408 L588 411 Q590 413 587 414 L574 414 Z M574 417 L586 418 Q589 419 585 421 L576 423 Z M644 403 L656 398 L658 404 L646 407 Q642 408 644 403 Z M648 411 L658 407 L658 412 L647 415 Q643 415 648 411 Z" fill="#86928a"/>
+  <path d="M590 422 Q593 413 602 414 Q608 414 612 418 Q617 412 624 413 Q635 414 633 423 Q630 435 612 435 Q598 435 590 426 Z" fill="#c2c5b9"/>
+  <g fill="none" stroke="#515e59" stroke-width="2.5" stroke-linecap="round">
+    <path d="M585 405 Q591 412 599 406 M616 404 Q623 411 631 401"/>
+  </g>
+  <path d="M603 415 Q607 413 612 415 Q614 416 609 420 Q607 421 603 416 Z" fill="#8b6c63"/>
+  <path d="M609 420 Q608 425 603 424 M609 420 Q610 424 614 422" fill="none" stroke="#69736b" stroke-width="1.4" stroke-linecap="round"/>
+  <g fill="none" stroke="#78857b" stroke-width="1.4" stroke-linecap="round">
+    <path d="M595 419 Q581 414 567 416 M595 423 Q579 422 569 427 M623 417 Q639 410 650 410 M625 420 Q638 417 648 418"/>
+  </g>
+  <path d="M585 430 Q593 424 606 429 Q617 433 627 431 Q638 430 640 436 Q640 442 627 443 L598 443 Q583 443 581 438 Q579 434 585 430 Z" fill="#b7bcb1"/>
+  <path d="M592 435 Q588 436 589 440 M599 435 Q595 437 596 441" fill="none" stroke="#919c91" stroke-width="1.6" stroke-linecap="round"/>
+  <!-- Tail turns forward across the paws -->
+  <path d="M777 383 C792 391 800 411 792 425 C783 442 758 449 735 450 C710 452 679 448 657 441 C649 438 650 430 657 428 Q664 425 681 430 C708 436 736 435 755 426 Q777 416 773 396 Q768 381 777 383 Z" fill="#929b94"/>
+  <path d="M783 392 Q789 397 793 404 Q791 410 785 413 Q786 401 783 392 Z M774 414 Q779 419 779 433 L769 439 Q770 430 766 424 Z M747 430 Q754 435 754 446 L744 448 Q748 440 740 432 Z M715 435 Q723 440 722 450 L711 450 Q715 443 708 435 Z M682 430 Q691 437 688 448 L679 446 Q682 438 676 429 Z" fill="#747f79"/>
+  <path d="M659 428 Q668 426 673 430 Q678 437 672 445 Q655 442 652 438 Q648 432 659 428 Z" fill="#697770"/>
+</svg>

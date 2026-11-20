@@ -1,0 +1,7 @@
+{"type":"thread.started","thread_id":"01a1f6ef-4502-79b0-9ec1-650c8e8f3626"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"Subject: Harbor Hall update\n\nHi Dana,\n\nI reached Priya yesterday afternoon. Harbor Hall can confirm us for March 12 and do a walkthrough on March 3 if that works for us. Let me know if you have a conflict that day.\n\n$4,200 is under budget and covers up to 85 guests. We should be fine unless a lot of late people sign up. They’ll waive the AV setup fee since we're bringing our own projector.\n\nThe draft looks good. Want to look before I sign anything? If I don't hear back I'm planning to send the signed contract back to them on Friday.\n\nLet me know if you have any questions or want to talk it through.\n\nThanks,\nSam"}}
+{"type":"turn.completed","usage":{"input_tokens":12529,"cached_input_tokens":0,"cache_write_input_tokens":0,"output_tokens":865,"reasoning_output_tokens":718}}
+
+--- stderr ---
+Reading additional input from stdin...

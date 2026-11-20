@@ -1,0 +1,29 @@
+{
+  "sessionId": "sess_f161feaa-f2f4-4bec-af70-ff840e411107",
+  "traceId": "549dcd19-4c8e-44d6-a50c-5745905b0aec",
+  "turnId": "turn_6c841ed0-809c-4350-bc9d-bda8263170d3",
+  "response": "Here's a tightened version — same information, but it leads with the news, breaks the three topics apart, and makes the Friday deadline an explicit ask instead of a throwaway line at the end:\n\n---\n\n**Subject:** Harbor Hall confirmed for March 12\n\nHi Dana,\n\nGood news: Harbor Hall is confirmed for March 12, our original date. Quick rundown of where things stand:\n\n- **Walkthrough:** They offered March 3, which should work on my end — flag it if you have a conflict.\n- **Budget:** Final cost is $4,200, a bit under plan. They waived the AV setup fee since we're bringing our own projector, and it covers up to 85 guests — right around our current RSVP count.\n- **Contract:** They sent a draft and nothing jumped out at me, but I'd like your eyes on it before I sign. Could you take a look by Thursday? If I don't hear back, I'll send them the signed contract Friday.\n\nHappy to talk through any of it — just give me a shout.\n\nThanks,\nSam\n\n---\n\nMain changes: the subject now states the outcome instead of apologizing, the reader gets the answer in the first sentence, and the one thing you actually need from Dana (contract review before Friday) is impossible to miss. I also cut the hedging openers and closers — the email is short now, so the apology for length wasn't earning its keep.",
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 1,
+    "inputTokens": 6979,
+    "outputTokens": 1198,
+    "totalTokens": 8177,
+    "cacheReadTokens": 6272,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 902,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "eventCount": 1208,
+  "projection": {
+    "status": "idle",
+    "turnCount": 1,
+    "totalTokenCount": 8177,
+    "contextUsed": 8177,
+    "contextWindow": 200000
+  }
+}
+
+--- stderr ---
+ZCode Built-in stale revision=43 source=CDN

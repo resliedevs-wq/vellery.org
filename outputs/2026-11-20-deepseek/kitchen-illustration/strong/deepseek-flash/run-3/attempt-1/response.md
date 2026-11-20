@@ -1,0 +1,1 @@
+Saved as `kitchen.svg` — a warm, flat-vector scene with three red apples, a blue “MONDAY” mug, and a gray cat asleep on a folded newspaper, lit by morning sun from the left window.

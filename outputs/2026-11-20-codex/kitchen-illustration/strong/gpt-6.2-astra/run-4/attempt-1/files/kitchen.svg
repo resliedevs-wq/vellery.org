@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 760" width="1000" height="760" role="img" aria-labelledby="title desc">
+  <title id="title">Monday morning in the kitchen</title>
+  <desc id="desc">Sunlight from the left window falls across a little wooden table. Three red apples sit beside a blue MONDAY mug. A gray tabby sleeps on a folded newspaper.</desc>
+  <defs>
+    <clipPath id="glass"><rect x="0" y="0" width="255" height="263"/></clipPath>
+    <pattern id="boards" width="71" height="240" patternUnits="userSpaceOnUse"><path d="M2 0v240" stroke="#69765f" opacity=".24" stroke-width="2"/><path d="M5 0v240" stroke="#c6c6a4" opacity=".45" stroke-width="2"/></pattern>
+    <pattern id="linen" width="15" height="15" patternUnits="userSpaceOnUse" patternTransform="rotate(6)"><rect width="15" height="15" fill="#e4cfaa"/><path d="M3 0v15M0 3h15" stroke="#b98268" opacity=".57" stroke-width="2"/></pattern>
+    <path id="fruit" d="M0-22C-10-31-23-29-29-17c-8 15-1 34 9 44 6 6 13 6 19 3 7 3 14 3 20-3C30 15 36-5 29-18 23-29 10-31 0-22Z"/>
+  </defs>
+
+  <!-- Plaster, painted paneling, and the patch of morning light. -->
+  <path fill="#e5c9a6" d="M0 0h1000v760H0z"/>
+  <path fill="#f6dfb4" d="M0 115l205 34 470 309H361L0 226z"/>
+  <path fill="#f6dfb4" d="M0 253l287 190H171L0 332z"/>
+  <path fill="#9ca58a" d="M0 374h1000v271H0z"/>
+  <path fill="#b5b99a" d="M239 374h306l314 209H553zM62 374h116l317 209H380z"/>
+  <path fill="url(#boards)" d="M0 374h1000v268H0z"/>
+  <path fill="#72816c" d="M0 374h1000v7H0z"/>
+  <path fill="#b2b69a" d="M0 364h1000v10H0z"/>
+  <path fill="#78836d" d="M0 625h1000v16H0z"/>
+  <path fill="#d6b89a" d="M0 641h1000v119H0z"/>
+  <path fill="#dec3a3" d="M0 660l463 100H266L0 701z"/>
+  <path d="M0 703h1000m-293-62 97 62m-483 0 47 57" fill="none" stroke="#bda086" stroke-width="2"/>
+
+  <!-- Recessed window and the tree outside. -->
+  <g clip-path="url(#glass)">
+    <path fill="#b9ccbd" d="M0 0h255v263H0z"/>
+    <circle cx="62" cy="61" r="30" fill="#fae8b6"/>
+    <path fill="#a2b49d" d="M-15 178q64-51 121-29t161-12v130H-15z"/>
+    <path fill="#849c87" d="M-9 210q70-24 132-9t155-30v96H-9z"/>
+    <g fill="none" stroke="#617f70" stroke-linecap="round"><path d="M-13 257Q61 206 98 113m-68 108q4-38-5-62m41 21q31-12 57-43" stroke-width="4"/></g>
+    <g fill="#718f78">
+      <path d="M94 127q-7-26 12-43 4 24-12 43zM86 145q-24-13-23-35 21 10 23 35zM78 160q8-25 30-27-6 20-30 27zM60 188q-27-12-31-35 24 6 31 35zM45 206q16-26 39-22-11 21-39 22zM25 173Q6 161 9 141q20 13 16 32zM106 155q4-22 26-29-3 18-26 29z"/>
+    </g>
+  </g>
+  <path fill="#c6ac8d" d="M257 0h22v273l17 12v12H0v-34h257z"/>
+  <path fill="#f6e8c9" d="M245 0h17v271H0v-12h245zM112 0h10v260h-10z"/>
+  <path fill="#f6e8c9" d="M0 100h249v10H0z"/>
+  <path fill="#a89579" d="M123 0h3v259h-3zM0 110h245v3H0z"/>
+  <path fill="#ead5af" d="M262 0h7v274h-7zM0 271h270l20 8H0z"/>
+  <path fill="#f9e9ca" d="M0 279h290v8H0z"/>
+
+  <!-- Cloth hanging from a short wooden peg rail. -->
+  <g>
+    <rect x="762" y="80" width="266" height="14" rx="6" fill="#d2b390"/>
+    <rect x="757" y="75" width="264" height="13" rx="6" fill="#ac8163"/>
+    <path d="M792 82l-3 11m71-11-3 11m71-11-3 11" stroke="#826852" stroke-width="8" stroke-linecap="round"/>
+    <path fill="#c5a889" d="M868 100l19 26 28 126-38 9-35-14 15-136z"/>
+    <path fill="url(#linen)" d="M853 99q4-13 9-1l10 19 28 128-38 11-31-13 15-128z"/>
+    <path fill="#c7ae90" d="M853 112l-5 136 14 8z"/>
+    <path d="M866 124l16 121m-49-9 16 5m16 8 32-10" fill="none" stroke="#a67e68" stroke-width="2"/>
+  </g>
+
+  <!-- Table seen squarely from the front. -->
+  <path fill="#b99e85" d="M139 708l622-11 140 35-710 5z"/>
+  <path fill="#946b51" d="M178 493h26l-7 177h-16zM804 493h25l-3 177h-16z"/>
+  <path fill="#b78055" d="M129 509h35l-6 207q-12 5-23 0zM841 509h35l-7 207q-10 5-22 0z"/>
+  <path fill="#95674c" d="M154 518h10l-6 198-7 1zM867 518h9l-7 198-7 1z"/>
+  <path fill="#b98056" d="M152 497h701v53q-14 0-21 10l-8 12h-11v-19H193v19h-11l-8-12q-7-10-22-10z"/>
+  <rect x="374" y="510" width="252" height="34" rx="3" fill="#946746"/>
+  <rect x="377" y="511" width="246" height="30" rx="2" fill="#c68e60"/>
+  <ellipse cx="500" cy="526" rx="12" ry="5" fill="#986c4d"/>
+  <path d="M493 523q7 6 14 0" fill="none" stroke="#665949" stroke-width="4" stroke-linecap="round"/>
+  <path fill="#ab754e" d="M100 485h800v14q0 5-6 5H106q-6 0-6-5z"/>
+  <path fill="#dfae78" d="M135 429h730l35 56q2 4-4 4H104q-6 0-4-4z"/>
+  <path fill="#efd09b" d="M135 429h260l90 60H104q-6 0-4-4z"/>
+  <g fill="none" stroke="#bc8a60" stroke-width="1.8" stroke-linecap="round" opacity=".65">
+    <path d="M116 477h55m166 5h54m121-13h29m289 8h40m-526-38h33m-207 94 106 1m423 1 84-1"/>
+  </g>
+
+  <!-- Three individual apples. -->
+  <path fill="#c49a69" d="M146 449q17-13 65-10l44 5q28-1 63 7 4 8-53 9l-51-2q-53 1-68-9z"/>
+  <g id="apple-one" transform="translate(172 421) rotate(-9)">
+    <use href="#fruit" fill="#b34e3f"/>
+    <path d="M-24-7q1-12 10-14" fill="none" stroke="#df8870" stroke-width="5" stroke-linecap="round"/>
+    <path d="M-1-22q3-10-1-17" fill="none" stroke="#6a5641" stroke-width="4" stroke-linecap="round"/>
+    <path d="M-1-31q-13-15-26-10 8 14 26 10z" fill="#75805a"/>
+  </g>
+  <g id="apple-two" transform="translate(269 420) rotate(9) scale(.97)">
+    <use href="#fruit" fill="#b74a3e"/>
+    <path d="M-24-6q1-12 10-15" fill="none" stroke="#df8469" stroke-width="5" stroke-linecap="round"/>
+    <path d="M0-22q0-9 7-17" fill="none" stroke="#68513c" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <g id="apple-three" transform="translate(219 438) rotate(-4) scale(1.03)">
+    <use href="#fruit" fill="#c65842"/>
+    <path d="M-24-6q1-12 10-15" fill="none" stroke="#eb9977" stroke-width="5" stroke-linecap="round"/>
+    <path d="M0-22q0-13 4-19" fill="none" stroke="#64503b" stroke-width="4" stroke-linecap="round"/>
+    <path d="M2-30q10-17 26-13-8 15-26 13z" fill="#687a54"/>
+    <g fill="#e79a77"><circle cx="-21" cy="5" r="1.4"/><circle cx="-16" cy="8" r="1"/><circle cx="-22" cy="11" r="1"/></g>
+  </g>
+
+  <!-- Glazed mug with hand-set lettering. -->
+  <path fill="#bc946a" d="M364 453q14-8 62-7l93 11q6 6-34 8-91 2-121-12z"/>
+  <g id="mug">
+    <path fill="none" stroke="#527880" stroke-width="13" d="M459 380q37-17 36 12-1 28-36 32"/>
+    <path fill="none" stroke="#91afb0" stroke-width="3.5" stroke-linecap="round" d="M469 375q20-6 22 7"/>
+    <path fill="#7098a1" d="M358 363q53-11 109 0l-4 71q-1 18-18 21-33 5-66 0-16-3-17-20z"/>
+    <path fill="#567e89" d="M454 364h13l-4 70q0 18-18 21-30 5-60 1 53-2 61-14 6-10 8-78z"/>
+    <ellipse cx="412.5" cy="363" rx="54.5" ry="7.5" fill="#b3c8c4"/>
+    <ellipse cx="412.5" cy="363" rx="47" ry="4.2" fill="#625249"/>
+    <path d="M367 377l2 16" stroke="#a5c0c0" stroke-width="4" stroke-linecap="round"/>
+    <text x="411" y="417" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-weight="bold" font-size="18" letter-spacing=".4" fill="#fff1d3">MONDAY</text>
+    <path d="M394 346c8-12-9-16-2-30m33 24c11-15-8-21-1-36" fill="none" stroke="#f8e6c8" stroke-width="3.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Folded daily paper, with visible stacked edges and columns. -->
+  <g id="newspaper">
+    <path fill="#ac8863" d="M538 467l281-24 59 21-264 20z"/>
+    <path fill="#a49b86" d="M540 438l266-18 59 36-1 9-264 18-62-32z"/>
+    <path fill="#e2d8bb" d="M540 444l265-19 56 35-261 19-60-32z"/>
+    <path fill="#b8ad95" d="M540 441l265-19 56 35-261 19-60-32z"/>
+    <path fill="#f1e7cb" d="M538 436l266-18 59 35-264 20-61-31z"/>
+    <path fill="#cec6aa" d="M538 436l61 32 264-19v4l-264 20-61-31z"/>
+    <g transform="matrix(1 -.074 1.55 .78 545 436)" fill="#8c8c79">
+      <path d="M0 0h244v2H0zM0 5h48v9H0zM0 17h48v1.6H0zm0 4h48v1.6H0zm0 4h34v1.6H0zM54 5h2v23h-2z"/>
+      <path id="column" d="M62 6h49v2H62zm0 5h49v1.5H62zm0 4h49v1.5H62zm0 4h49v1.5H62zm0 4h37v1.5H62z"/>
+      <use href="#column" x="56"/><use href="#column" x="112"/>
+    </g>
+  </g>
+
+  <!-- A tucked paw, curled tail and closed eyes. -->
+  <g id="sleeping-cat">
+    <ellipse cx="704" cy="440" rx="113" ry="12" fill="#b3ae98"/>
+    <path fill="#787d77" d="M631 408c2-35 30-63 69-69 41-7 81 8 102 36 17 22 23 49 7 61-16 13-59 10-87 7l-92-1z"/>
+    <path fill="#969a91" d="M633 405c7-36 36-60 72-64 35-4 62 7 80 25-37-13-80-3-98 22-10 15-12 38-21 45l-37-2z"/>
+    <g fill="#616963">
+      <path d="M703 339q12-2 21-1-2 15-15 25 4-13-6-24zM734 339q12 1 20 5-2 13-11 21 2-13-9-26zM763 347q9 3 17 9l-4 16q-1-12-13-25z"/>
+    </g>
+    <path fill="#a4a79b" d="M605 417q-15 8-21 19-3 8 9 10l46 1 20-18z"/>
+    <path fill="#898e86" d="M589 393l-4-37q-1-6 4-4l28 17q11-5 24-4l23-19q4-3 5 2l2 37q10 14 3 31-10 25-43 26-29 0-42-19-10-16 0-30z"/>
+    <path fill="#c39f91" d="M592 360l4 25 13-13zM650 368l13-13 1 23z"/>
+    <path fill="#666e67" d="M616 369l8-3 2 17zM631 365l8-1-4 18zM646 365l6-4-10 18z"/>
+    <path fill="#b4b6a9" d="M592 406q11-8 25 0 6 3 13-1 16-6 30 4-5 23-30 27-26 2-38-17z"/>
+    <g fill="none" stroke="#464e49" stroke-width="3" stroke-linecap="round">
+      <path d="M593 399q7 9 16 4m22-1q9 5 17-6"/>
+    </g>
+    <path fill="#876e66" d="M611 410q6-3 12-1-1 5-6 7-4-1-6-6z"/>
+    <path d="M617 416q0 5-5 5m5-5q2 4 6 3" fill="none" stroke="#686b62" stroke-width="1.6" stroke-linecap="round"/>
+    <g fill="none" stroke="#666e67" stroke-width="1.5" stroke-linecap="round">
+      <path d="M607 413l-29-5m29 9-26 3m54-9 27-9m-26 13 29-3"/>
+    </g>
+    <path fill="#656e68" d="M788 379c23 0 35 23 30 42-5 23-29 32-60 32-27 0-51-6-69-4-16 2-29-1-29-10 0-14 21-18 41-16l50 4c22 1 38-3 39-17 1-10-9-18-14-19z"/>
+    <path d="M681 432q14-4 31-2" fill="none" stroke="#899088" stroke-width="3" stroke-linecap="round"/>
+    <path fill="#aaada1" d="M637 427c10-7 30-6 42-1 8 4 9 13 0 17-10 4-25 1-39 2-16 1-24-1-24-7 0-6 10-9 21-11z"/>
+    <path d="M625 436q-3 2-3 5m11-5q-3 3-3 6" fill="none" stroke="#858c82" stroke-width="1.8" stroke-linecap="round"/>
+  </g>
+</svg>

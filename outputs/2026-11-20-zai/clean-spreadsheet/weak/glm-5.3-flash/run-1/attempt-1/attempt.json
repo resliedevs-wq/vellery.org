@@ -1,0 +1,39 @@
+{
+  "ok": true,
+  "error": null,
+  "started": "2026-11-20T02:49:38+00:00",
+  "duration_s": 81.7,
+  "command": [
+    "zcode",
+    "--prompt",
+    "<prompt>",
+    "--cwd",
+    "/tmp/vellery-wp4jpthw/work",
+    "--mode",
+    "edit",
+    "--disallowed-tools",
+    "WebSearch WebFetch Browser AskUserQuestion EnterPlanMode ExitPlanMode",
+    "--output-format",
+    "json",
+    "--no-color"
+  ],
+  "served_models": null,
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 3,
+    "inputTokens": 27161,
+    "outputTokens": 3847,
+    "totalTokens": 31008,
+    "cacheReadTokens": 1408,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 2489,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "est_cost_usd": null,
+  "est_cost": null,
+  "cli_reported_cost_usd": null,
+  "files": [
+    "expenses_cleaned.csv"
+  ]
+}

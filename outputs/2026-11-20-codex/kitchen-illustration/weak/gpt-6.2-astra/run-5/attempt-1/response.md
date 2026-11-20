@@ -1,0 +1,1 @@
+![Morning sunlight falls through gingham curtains onto a cozy kitchen table set with a steaming cup of coffee and a golden croissant.](/tmp/vellery-sm40nnh0/work/morning-kitchen.png)

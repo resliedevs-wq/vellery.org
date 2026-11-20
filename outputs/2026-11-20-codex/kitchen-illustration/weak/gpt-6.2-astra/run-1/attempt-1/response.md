@@ -1,0 +1,1 @@
+![A cozy kitchen in the morning. Sunlight comes through an arched window, a kettle warms on the stove, and a steaming mug sits beside jam toast on a wooden table.](/tmp/vellery-16v0b7oc/work/morning-kitchen.png)

@@ -1,0 +1,35 @@
+{
+  "sessionId": "sess_583a01a8-ec48-4de0-b139-344e3ba8d8d0",
+  "traceId": "1205c74f-86f3-4fac-a2a2-2e804d0f2365",
+  "turnId": "turn_c5d6535f-228e-456a-8bb7-cd09c62d658c",
+  "response": "The bash tool isn't available in this session, so I can't rasterize a visual preview — but the SVG was written successfully and is a self-contained, hand-checked file. Here's what's in `kitchen.svg`:\n\n**Scene (viewBox 1000×800, flat vector style):**\n- **Warm, muted palette** — cream wall `#f2e3cb`, tan floor, muted wood table, dusty reds/blues/grays throughout\n- **Window on the left** with a morning sun glow, warm golden sky gradient, two distant birds, and a sill\n- **Sunlight** — two translucent golden beams angling from the window across the wall toward the table, a light pool on the floor, and floating dust motes in the beam\n- **Small table from the front** — rectangular top with a sunlit (lighter) left edge via gradient, apron, two front legs with feet, soft floor shadow\n- **Exactly three red apples** — radial-gradient muted reds with stems, one leaf, and soft highlights\n- **Blue mug** — muted `#5e8aa8` with handle, rim, coffee inside, steam wisps, and **MONDAY** printed in cream lettering\n- **Folded newspaper** — bottom slab with fold creases plus a folded-over flap carrying gray \"text\" lines\n- **Gray cat asleep on top** — curled body with a haunch, tabby stripes, closed-eye arcs, inner ears, nose, tail wrapped around the front, and little \"z z\" marks\n- **No people** anywhere in the scene\n\nIf you'd like any adjustments — e.g., a different mug blue, the cat facing the other way, more/fewer sunbeams, or a different aspect ratio — just say the word.",
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 3,
+    "inputTokens": 55262,
+    "outputTokens": 17958,
+    "totalTokens": 73220,
+    "cacheReadTokens": 24320,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 13860,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "eventCount": 14328,
+  "projection": {
+    "status": "idle",
+    "turnCount": 1,
+    "totalTokenCount": 73220,
+    "contextUsed": 24865,
+    "contextWindow": 200000
+  }
+}
+
+--- stderr ---
+ZCode Built-in stale revision=43 source=CDN
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)

@@ -1,0 +1,38 @@
+{
+  "ok": true,
+  "error": null,
+  "started": "2026-11-20T03:55:47+00:00",
+  "duration_s": 308.5,
+  "command": [
+    "agy",
+    "--agent",
+    "workspace-files",
+    "--model",
+    "magpie/agy-cli/gemini-4-neon",
+    "--settings",
+    "{\"modelProvider\": \"gemini\", \"customModelsConfig\": {\"customModels\": {\"magpie/agy-cli/gemini-4-neon\": {\"apiProvider\": \"API_PROVIDER_GOOGLE_GEMINI\", \"modelName\": \"agy-cli/gemini-4-neon\"}}}, \"permissions\": {\"deny\": [\"read_url(*)\", \"execute_url(*)\", \"download_url(*)\"]}}",
+    "--sandbox",
+    "--mode",
+    "accept-edits",
+    "--effort",
+    "high",
+    "--output-format",
+    "json",
+    "-p",
+    "<prompt>"
+  ],
+  "served_models": null,
+  "usage": {
+    "input_tokens": 56876,
+    "output_tokens": 31877,
+    "thinking_tokens": 18552,
+    "cache_read_tokens": 159221,
+    "total_tokens": 88753
+  },
+  "est_cost_usd": null,
+  "est_cost": null,
+  "cli_reported_cost_usd": null,
+  "files": [
+    "kitchen.svg"
+  ]
+}

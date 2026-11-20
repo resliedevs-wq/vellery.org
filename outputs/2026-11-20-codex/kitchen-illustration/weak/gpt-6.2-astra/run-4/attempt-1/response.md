@@ -1,0 +1,1 @@
+![Soft morning light falls through an arched kitchen window onto sage-green cabinets. A steaming mug, a golden croissant, and a vase of daisies sit on the breakfast table.](/tmp/vellery-ke4bwjkc/work/morning-kitchen.png)

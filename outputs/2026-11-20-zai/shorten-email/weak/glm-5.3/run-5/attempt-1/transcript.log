@@ -1,0 +1,29 @@
+{
+  "sessionId": "sess_39b7e739-c697-4a23-9c30-0cf83c8ede64",
+  "traceId": "9600e0a9-4c6b-4aba-b789-b0006f0a2ea9",
+  "turnId": "turn_330aa2db-86dd-4bca-809a-11b4d37f9716",
+  "response": "Here's a tighter version:\n\n---\n\n**Subject:** Harbor Hall confirmed for March 12 — contract review by Thursday?\n\nHi Dana,\n\nGood news — Harbor Hall confirmed us for March 12, our original date. Quick rundown:\n\n- **Date:** Locked in. Priya also offered a venue walkthrough on March 3; I don't have a conflict, but flag it if you do.\n- **Cost:** Final number is $4,200, a bit under budget — they waived the AV setup fee since we're bringing our own projector. That covers up to 85 guests, right around our current RSVP count, so we're set unless there's a late surge.\n- **Contract:** They sent a draft and I've read through it — nothing jumped out, but I'd like your eyes on it before I sign. If I don't hear from you by Thursday evening, I'll send the signed copy back Friday morning.\n\nHappy to talk any of it through by phone. Thanks!\n\nSam\n\n---\n\nWhat changed and why:\n\n- **Subject line** now delivers the news and the deadline instead of apologizing — Dana knows whether this needs action before even opening it.\n- **Lede up front.** \"Venue confirmed for the date we wanted\" is the headline; the back-and-forth with Priya was process, not information, so it's cut.\n- **Bullets over paragraphs.** Three topics, three lines each — scannable in ten seconds.\n- **Concrete deadline.** \"If I don't hear back... Friday\" was ambiguous about when Dana needs to respond by. Thursday evening gives them a clear window while keeping your Friday send on track.\n- **Dropped the apologies** (\"sorry this is long,\" \"apologies in advance\"). The email is short now, and hedging undercut good news.",
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 1,
+    "inputTokens": 6980,
+    "outputTokens": 1648,
+    "totalTokens": 8628,
+    "cacheReadTokens": 1280,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 1276,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "eventCount": 1658,
+  "projection": {
+    "status": "idle",
+    "turnCount": 1,
+    "totalTokenCount": 8628,
+    "contextUsed": 8628,
+    "contextWindow": 200000
+  }
+}
+
+--- stderr ---
+ZCode Built-in stale revision=43 source=CDN

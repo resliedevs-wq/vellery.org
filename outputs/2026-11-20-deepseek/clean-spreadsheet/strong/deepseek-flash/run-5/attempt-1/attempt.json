@@ -1,0 +1,49 @@
+{
+  "ok": true,
+  "error": null,
+  "started": "2026-11-20T02:47:37+00:00",
+  "duration_s": 25.5,
+  "command": [
+    "dsh",
+    "--profile",
+    "headless",
+    "--patch",
+    "/root/.t3/projects/vellery/runner/deepseek-flash.yaml",
+    "--permission-mode",
+    "workspace-write",
+    "--approval-policy",
+    "never",
+    "--json",
+    "-"
+  ],
+  "served_models": null,
+  "usage": [
+    {
+      "inputTokens": 343,
+      "outputTokens": 3056,
+      "cacheReadTokens": 5760,
+      "cacheWriteTokens": 0,
+      "totalTokens": 9159
+    },
+    {
+      "inputTokens": 252,
+      "outputTokens": 252,
+      "cacheReadTokens": 8960,
+      "cacheWriteTokens": 0,
+      "totalTokens": 9464
+    },
+    {
+      "inputTokens": 369,
+      "outputTokens": 941,
+      "cacheReadTokens": 9344,
+      "cacheWriteTokens": 0,
+      "totalTokens": 10654
+    }
+  ],
+  "est_cost_usd": null,
+  "est_cost": null,
+  "cli_reported_cost_usd": null,
+  "files": [
+    "march_2026_expenses_clean.csv"
+  ]
+}

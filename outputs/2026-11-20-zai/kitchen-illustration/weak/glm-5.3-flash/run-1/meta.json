@@ -1,0 +1,13 @@
+{
+  "task": "kitchen-illustration",
+  "variant": "weak",
+  "model": "glm-5.3-flash",
+  "label": "GLM-5.3-Flash",
+  "harness": "zcode",
+  "effort": "high",
+  "run": 1,
+  "ok": true,
+  "attempts": 1,
+  "est_cost_usd": null,
+  "est_cost_usd_all_attempts": null
+}

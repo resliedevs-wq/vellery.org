@@ -1,0 +1,8 @@
+I have created the flat vector illustration and saved it as [kitchen.svg](file:///tmp/vellery-4aqd02g6/work/kitchen.svg).
+
+### Included Elements
+- **Kitchen Table (Front View)**: A warm honey-oak kitchen table seen from the front with four tapered legs, front apron, and foreshortened tabletop.
+- **Exactly Three Red Apples**: Arranged on the left side of the table in warm, muted crimson tones with stems, sage leaves, morning highlights on their left edges, and soft right-facing cast shadows.
+- **Blue `MONDAY` Mug**: A muted slate-blue ceramic mug at the center of the table with `MONDAY` printed across the front and gentle wisps of morning steam.
+- **Folded Newspaper & Sleeping Gray Cat**: A layered, folded newspaper on the right side of the table with visible masthead, columns, and spine, topped by a curled-up gray tabby cat fast asleep.
+- **Morning Sunlight from Left Window**: A paned window on the left showing a warm sunrise sky and distant hills, casting diagonal golden sunbeams and directional shadows across the table.

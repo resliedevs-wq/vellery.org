@@ -1,0 +1,1 @@
+![A cozy morning kitchen with sunlight through an arched window, daisies in a blue vase, and a steaming cup of coffee beside buttered toast.](/tmp/vellery-wlm57_pe/work/morning-kitchen.png)

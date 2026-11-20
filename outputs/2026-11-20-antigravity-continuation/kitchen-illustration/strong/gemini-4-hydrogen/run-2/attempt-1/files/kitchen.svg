@@ -1,0 +1,294 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <!-- Morning sky gradient outside the left window -->
+    <linearGradient id="morningSky" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCE7B2" />
+      <stop offset="55%" stop-color="#F7D59C" />
+      <stop offset="100%" stop-color="#EEC58D" />
+    </linearGradient>
+
+    <!-- Diagonal morning sunlight shafts from left window -->
+    <linearGradient id="sunBeam" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF4D2" stop-opacity="0.42" />
+      <stop offset="60%" stop-color="#FBE8B8" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#FBE8B8" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Subtle floor light patch -->
+    <linearGradient id="floorSun" x1="0%" y1="0%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#F7DFAC" stop-opacity="0.55" />
+      <stop offset="100%" stop-color="#F7DFAC" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <!-- ==================== ROOM BACKGROUND ==================== -->
+  <!-- Upper wall (warm muted cream) -->
+  <rect x="0" y="0" width="1200" height="585" fill="#EFE4D2" />
+
+  <!-- Subtle sunlit warm glow on the left wall around window -->
+  <rect x="0" y="0" width="460" height="585" fill="#F5ECD9" opacity="0.55" />
+
+  <!-- Wainscoting / lower wall -->
+  <rect x="0" y="475" width="1200" height="110" fill="#E3D3BC" />
+  <!-- Wainscoting vertical panel lines (clean flat detail) -->
+  <g stroke="#D5C2A8" stroke-width="2">
+    <line x1="120" y1="485" x2="120" y2="575" />
+    <line x1="240" y1="485" x2="240" y2="575" />
+    <line x1="360" y1="485" x2="360" y2="575" />
+    <line x1="480" y1="485" x2="480" y2="575" />
+    <line x1="600" y1="485" x2="600" y2="575" />
+    <line x1="720" y1="485" x2="720" y2="575" />
+    <line x1="840" y1="485" x2="840" y2="575" />
+    <line x1="960" y1="485" x2="960" y2="575" />
+    <line x1="1080" y1="485" x2="1080" y2="575" />
+  </g>
+  <!-- Dado rail & baseboard -->
+  <rect x="0" y="470" width="1200" height="10" fill="#D5C3AA" />
+  <rect x="0" y="575" width="1200" height="14" fill="#CEB99D" />
+
+  <!-- Wooden floor -->
+  <rect x="0" y="589" width="1200" height="211" fill="#C7A683" />
+  <!-- Floor planks -->
+  <g stroke="#B6936F" stroke-width="2">
+    <line x1="0" y1="628" x2="1200" y2="628" />
+    <line x1="0" y1="674" x2="1200" y2="674" />
+    <line x1="0" y1="726" x2="1200" y2="726" />
+    <line x1="0" y1="780" x2="1200" y2="780" />
+    <line x1="210" y1="589" x2="180" y2="628" />
+    <line x1="590" y1="589" x2="575" y2="628" />
+    <line x1="950" y1="589" x2="975" y2="628" />
+    <line x1="340" y1="628" x2="310" y2="674" />
+    <line x1="780" y1="628" x2="795" y2="674" />
+    <line x1="140" y1="674" x2="95" y2="726" />
+    <line x1="650" y1="674" x2="660" y2="726" />
+    <line x1="1020" y1="674" x2="1060" y2="726" />
+    <line x1="430" y1="726" x2="405" y2="780" />
+    <line x1="870" y1="726" x2="900" y2="780" />
+  </g>
+
+  <!-- Floor sunlight patch cast from the left window -->
+  <polygon points="80,589 355,589 720,800 180,800" fill="url(#floorSun)" />
+
+  <!-- ==================== WINDOW ON THE LEFT ==================== -->
+  <g id="window-left">
+    <!-- Outer window frame -->
+    <rect x="52" y="68" width="216" height="332" rx="4" fill="#D4C1A7" />
+    <!-- Inner recess -->
+    <rect x="66" y="82" width="188" height="304" fill="#BFA88B" />
+    <!-- Window glass / morning sky -->
+    <rect x="74" y="90" width="172" height="288" fill="url(#morningSky)" />
+
+    <!-- Distant soft morning hills & foliage silhouette (warm muted sage) -->
+    <path d="M74,320 Q120,296 168,312 Q212,326 246,304 L246,378 L74,378 Z" fill="#C9C7A7" />
+    <path d="M74,342 Q135,326 190,342 Q222,350 246,338 L246,378 L74,378 Z" fill="#B7BA98" />
+
+    <!-- Window muntins (2x2 panes) -->
+    <rect x="155" y="90" width="10" height="288" fill="#D4C1A7" />
+    <rect x="74" y="226" width="172" height="10" fill="#D4C1A7" />
+
+    <!-- Soft sheer café curtain gathered on the left side -->
+    <path d="M70,86 L128,86 Q116,180 100,260 Q116,320 122,380 L70,380 Z" fill="#FAF4E8" opacity="0.72" />
+    <path d="M70,86 L96,86 Q90,190 84,265 Q92,325 94,380 L70,380 Z" fill="#FFFBF2" opacity="0.55" />
+
+    <!-- Window sill -->
+    <rect x="42" y="396" width="236" height="18" rx="3" fill="#DECBB1" />
+    <rect x="48" y="414" width="224" height="8" fill="#C4AF94" />
+  </g>
+
+  <!-- ==================== TABLE FLOOR SHADOW ==================== -->
+  <!-- Cast slightly to the right because morning sunlight comes from the left -->
+  <ellipse cx="695" cy="686" rx="305" ry="26" fill="#9D7D5B" opacity="0.42" />
+
+  <!-- ==================== SMALL KITCHEN TABLE (FRONT VIEW) ==================== -->
+  <g id="kitchen-table">
+    <!-- Back legs (slightly recessed & darker muted wood) -->
+    <rect x="424" y="514" width="24" height="148" rx="2" fill="#7D5A3D" />
+    <rect x="872" y="514" width="24" height="148" rx="2" fill="#7D5A3D" />
+
+    <!-- Table apron / skirt -->
+    <rect x="380" y="486" width="560" height="36" fill="#8F6746" />
+    <!-- Subtle shadow strip directly beneath tabletop overhang -->
+    <rect x="380" y="486" width="560" height="8" fill="#785436" />
+    <!-- Small centered drawer front detail -->
+    <rect x="570" y="495" width="180" height="20" rx="2" fill="#99704D" stroke="#7A5638" stroke-width="1.5" />
+    <circle cx="660" cy="505" r="4" fill="#D5B895" />
+
+    <!-- Front legs -->
+    <rect x="382" y="486" width="30" height="198" rx="2" fill="#A17550" />
+    <!-- Left-edge sunlit highlight on front legs -->
+    <rect x="382" y="486" width="8" height="198" fill="#B98D67" />
+
+    <rect x="908" y="486" width="30" height="198" rx="2" fill="#A17550" />
+    <rect x="908" y="486" width="8" height="198" fill="#B98D67" />
+
+    <!-- Tabletop: slight top surface strip for resting objects cleanly in front view -->
+    <polygon points="366,452 954,452 966,466 354,466" fill="#C99C72" />
+    <!-- Tabletop sunlit left accent -->
+    <polygon points="366,452 540,452 520,466 354,466" fill="#D4AA82" opacity="0.6" />
+    <!-- Tabletop front thickness edge -->
+    <rect x="354" y="466" width="612" height="22" rx="3" fill="#AD7F57" />
+    <rect x="354" y="466" width="612" height="4" fill="#BA8B62" />
+  </g>
+
+  <!-- ==================== TABLETOP CAST SHADOWS (RIGHTWARD) ==================== -->
+  <!-- Shadows under the 3 apples -->
+  <ellipse cx="426" cy="460" rx="24" ry="4.5" fill="#9B704A" opacity="0.55" />
+  <ellipse cx="476" cy="462" rx="26" ry="5" fill="#9B704A" opacity="0.55" />
+  <ellipse cx="524" cy="460" rx="24" ry="4.5" fill="#9B704A" opacity="0.55" />
+  <!-- Shadow under the blue mug -->
+  <ellipse cx="628" cy="461" rx="48" ry="6" fill="#9B704A" opacity="0.55" />
+  <!-- Shadow under the folded newspaper -->
+  <ellipse cx="834" cy="461" rx="112" ry="6.5" fill="#9B704A" opacity="0.55" />
+
+  <!-- ==================== THREE RED APPLES ==================== -->
+  <g id="three-apples">
+    <!-- Apple 1 (left) -->
+    <g id="apple-1">
+      <path d="M394,424 C387,424 382,434 383,444 C384,454 393,460 402,459 C405,458 408,458 411,459 C420,460 429,454 430,444 C431,434 426,424 419,424 C414,424 410,427 407,427 C403,427 399,424 394,424 Z" fill="#C45345" />
+      <!-- Sunlit left highlight -->
+      <path d="M394,427 C388,428 385,436 386,444 C387,450 391,454 396,456 C392,450 391,440 394,432 Z" fill="#D96E5E" />
+      <!-- Subtle soft sheen -->
+      <ellipse cx="394" cy="436" rx="3.2" ry="6" transform="rotate(-14 394 436)" fill="#E99283" opacity="0.7" />
+      <!-- Stem & leaf -->
+      <path d="M407,428 Q408,419 412,415" fill="none" stroke="#6D4B3B" stroke-width="3" stroke-linecap="round" />
+      <path d="M409,421 Q418,413 424,419 Q416,426 409,421 Z" fill="#829A6D" />
+    </g>
+
+    <!-- Apple 2 (middle, slightly forward) -->
+    <g id="apple-2">
+      <path d="M443,425 C435,425 430,436 431,447 C432,457 441,463 451,462 C454,461 458,461 461,462 C471,463 480,457 481,447 C482,436 477,425 469,425 C464,425 460,428 456,428 C452,428 448,425 443,425 Z" fill="#BC4B3E" />
+      <!-- Sunlit left highlight -->
+      <path d="M443,428 C437,429 434,438 435,446 C436,452 440,457 445,459 C441,452 440,442 443,433 Z" fill="#D56757" />
+      <ellipse cx="443" cy="437" rx="3.5" ry="6.5" transform="rotate(-14 443 437)" fill="#E68B7B" opacity="0.7" />
+      <!-- Stem -->
+      <path d="M456,429 Q455,419 452,415" fill="none" stroke="#6D4B3B" stroke-width="3" stroke-linecap="round" />
+    </g>
+
+    <!-- Apple 3 (right) -->
+    <g id="apple-3">
+      <path d="M492,424 C485,424 480,434 481,444 C482,454 491,460 500,459 C503,458 506,458 509,459 C518,460 527,454 528,444 C529,434 524,424 517,424 C512,424 508,427 505,427 C501,427 497,424 492,424 Z" fill="#C9594A" />
+      <!-- Sunlit left highlight -->
+      <path d="M492,427 C486,428 483,436 484,444 C485,450 489,454 494,456 C490,450 489,440 492,432 Z" fill="#DE7564" />
+      <ellipse cx="492" cy="436" rx="3" ry="5.5" transform="rotate(-14 492 436)" fill="#EC9A8C" opacity="0.7" />
+      <!-- Stem & leaf -->
+      <path d="M505,428 Q506,419 510,416" fill="none" stroke="#6D4B3B" stroke-width="3" stroke-linecap="round" />
+      <path d="M506,421 Q497,414 492,420 Q500,426 506,421 Z" fill="#7D9468" />
+    </g>
+  </g>
+
+  <!-- ==================== BLUE MUG WITH "MONDAY" ==================== -->
+  <g id="blue-mug">
+    <!-- Gentle morning steam wisps -->
+    <path d="M594,358 Q587,344 595,332 Q603,320 596,308" fill="none" stroke="#FAF4E8" stroke-width="3" stroke-linecap="round" opacity="0.55" />
+    <path d="M614,355 Q621,341 613,328 Q606,317 613,304" fill="none" stroke="#FAF4E8" stroke-width="2.5" stroke-linecap="round" opacity="0.45" />
+
+    <!-- Mug handle (right side) -->
+    <path d="M648,390 L664,390 C676,390 676,438 664,438 L648,438" fill="none" stroke="#4F738E" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M650,390 L664,390 C673,390 673,438 664,438 L650,438" fill="none" stroke="#6186A1" stroke-width="4" stroke-linecap="round" opacity="0.45" />
+
+    <!-- Mug body -->
+    <path d="M562,374 L652,374 L652,448 C652,456 645,461 636,461 L578,461 C569,461 562,456 562,448 Z" fill="#557A95" />
+    <!-- Sunlit left side of mug -->
+    <path d="M562,374 L586,374 L586,461 L578,461 C569,461 562,456 562,448 Z" fill="#688EA9" />
+    <!-- Subtle right shadow side of mug -->
+    <path d="M636,374 L652,374 L652,448 C652,456 645,461 636,461 L636,461 Z" fill="#476880" opacity="0.55" />
+
+    <!-- Mug top rim & coffee inside -->
+    <ellipse cx="607" cy="374" rx="45" ry="7.5" fill="#779BB4" />
+    <ellipse cx="607" cy="374.5" rx="39" ry="5" fill="#5B3F31" />
+
+    <!-- Printed word MONDAY on front of mug -->
+    <text x="607" y="424" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="1.2" fill="#F5EDE0">MONDAY</text>
+  </g>
+
+  <!-- ==================== FOLDED NEWSPAPER & SLEEPING GRAY CAT ==================== -->
+  <g id="newspaper-and-cat">
+    <!-- Folded newspaper resting on the right side of the tabletop -->
+    <g id="folded-newspaper">
+      <!-- Bottom stacked paper layer -->
+      <polygon points="712,446 922,446 934,460 702,460" fill="#CFC3AE" />
+      <!-- Middle folded sheet -->
+      <polygon points="716,440 918,440 929,454 708,454" fill="#DCD1BD" />
+      <!-- Top folded sheet -->
+      <polygon points="722,434 914,434 924,447 713,447" fill="#E8DFCE" />
+      <!-- Folded spine / crease on left -->
+      <path d="M713,447 Q706,440 722,434 L722,447 Z" fill="#D5C9B3" />
+      <!-- Front page edge thickness & print lines so it clearly reads as a newspaper -->
+      <rect x="713" y="447" width="211" height="4" fill="#CFC3AE" />
+      <rect x="708" y="454" width="221" height="3" fill="#C4B7A1" />
+      <!-- Subtle printed text lines & masthead block visible at front edge -->
+      <rect x="726" y="439" width="44" height="4" fill="#9A9184" opacity="0.75" />
+      <rect x="778" y="440" width="38" height="2" fill="#A59C8F" opacity="0.7" />
+      <rect x="824" y="440" width="42" height="2" fill="#A59C8F" opacity="0.7" />
+      <rect x="874" y="440" width="34" height="2" fill="#A59C8F" opacity="0.7" />
+      <rect x="778" y="444" width="30" height="1.8" fill="#A59C8F" opacity="0.65" />
+      <rect x="874" y="444" width="28" height="1.8" fill="#A59C8F" opacity="0.65" />
+    </g>
+
+    <!-- Gray cat curled up asleep on top of the folded newspaper -->
+    <g id="sleeping-gray-cat">
+      <!-- Subtle soft shadow of cat on top of newspaper -->
+      <ellipse cx="818" cy="437" rx="82" ry="6" fill="#B5AA96" opacity="0.65" />
+
+      <!-- Curled body -->
+      <path d="M750,425 C750,384 790,364 834,368 C876,372 898,396 894,424 C891,436 874,439 852,439 L768,439 C755,439 750,433 750,425 Z" fill="#8A8E93" />
+
+      <!-- Sunlit highlight along upper-left back -->
+      <path d="M768,394 C785,375 815,368 842,371 C818,374 795,385 782,402 Z" fill="#9FA3A8" opacity="0.7" />
+
+      <!-- Soft muted tabby stripes on back -->
+      <path d="M812,370 Q817,384 811,394" fill="none" stroke="#6E7278" stroke-width="5" stroke-linecap="round" opacity="0.6" />
+      <path d="M830,369 Q835,385 828,396" fill="none" stroke="#6E7278" stroke-width="5" stroke-linecap="round" opacity="0.6" />
+      <path d="M848,372 Q852,387 845,397" fill="none" stroke="#6E7278" stroke-width="5" stroke-linecap="round" opacity="0.6" />
+
+      <!-- Plush tail wrapped along the right and front onto the newspaper -->
+      <path d="M884,412 C902,414 906,431 890,437 C870,443 830,441 808,437 C799,435 800,425 812,425 C834,425 866,427 878,421" fill="#7D8187" />
+      <path d="M810,431 C832,432 868,434 886,428" fill="none" stroke="#999DA3" stroke-width="3" stroke-linecap="round" opacity="0.45" />
+      <!-- Tail stripes -->
+      <path d="M862,426 L860,439" stroke="#666A70" stroke-width="4" stroke-linecap="round" opacity="0.55" />
+      <path d="M840,426 L838,439" stroke="#666A70" stroke-width="4" stroke-linecap="round" opacity="0.55" />
+
+      <!-- Cat head resting on the left side -->
+      <!-- Left ear (back) -->
+      <polygon points="739,394 734,367 758,381" fill="#7C8085" />
+      <polygon points="741,390 738,373 753,382" fill="#C79F9C" opacity="0.85" />
+
+      <!-- Right ear (front) -->
+      <polygon points="772,386 785,363 796,390" fill="#8A8E93" />
+      <polygon points="776,384 785,369 792,387" fill="#C79F9C" opacity="0.85" />
+
+      <!-- Head circle/oval -->
+      <ellipse cx="768" cy="409" rx="30" ry="25" fill="#92969B" />
+      <!-- Lighter cheek/muzzle patch -->
+      <ellipse cx="764" cy="417" rx="18" ry="12" fill="#A9ACB0" opacity="0.65" />
+
+      <!-- Forehead tabby markings -->
+      <path d="M763,388 L764,395 M769,387 L769,395 M775,389 L773,396" stroke="#6E7278" stroke-width="2.5" stroke-linecap="round" opacity="0.7" />
+
+      <!-- Peaceful closed eyes -->
+      <path d="M749,408 Q754,413 760,408" fill="none" stroke="#484B50" stroke-width="2.4" stroke-linecap="round" />
+      <path d="M768,408 Q774,413 779,408" fill="none" stroke="#484B50" stroke-width="2.4" stroke-linecap="round" />
+
+      <!-- Tiny pink nose & sleeping mouth -->
+      <polygon points="761,415 767,415 764,419" fill="#C99996" />
+      <path d="M760,421 Q762.5,423.5 764,420 Q765.5,423.5 768,421" fill="none" stroke="#5A5D62" stroke-width="1.6" stroke-linecap="round" />
+
+      <!-- Subtle whiskers -->
+      <g stroke="#63666B" stroke-width="1.2" stroke-linecap="round" opacity="0.65">
+        <line x1="746" y1="416" x2="730" y2="414" />
+        <line x1="746" y1="420" x2="731" y2="423" />
+        <line x1="781" y1="416" x2="797" y2="414" />
+        <line x1="781" y1="420" x2="796" y2="423" />
+      </g>
+
+      <!-- Front paw tucked gently under chin -->
+      <ellipse cx="755" cy="434" rx="14" ry="7" fill="#A4A7AC" />
+      <path d="M750,438 L750,434 M755,439 L755,434" stroke="#7A7E83" stroke-width="1.3" stroke-linecap="round" />
+    </g>
+  </g>
+
+  <!-- ==================== MORNING SUNLIGHT RAYS (OVERLAY) ==================== -->
+  <!-- Warm diagonal light beams streaming from the left window across the table -->
+  <polygon points="74,90 246,90 980,589 430,589" fill="url(#sunBeam)" pointer-events="none" />
+  <polygon points="74,230 246,230 780,680 340,680" fill="url(#sunBeam)" opacity="0.7" pointer-events="none" />
+</svg>

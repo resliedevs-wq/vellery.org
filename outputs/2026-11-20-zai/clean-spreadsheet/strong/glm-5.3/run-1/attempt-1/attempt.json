@@ -1,0 +1,37 @@
+{
+  "ok": true,
+  "error": null,
+  "started": "2026-11-20T02:52:20+00:00",
+  "duration_s": 29.7,
+  "command": [
+    "zcode",
+    "--prompt",
+    "<prompt>",
+    "--cwd",
+    "/tmp/vellery-qo21d23n/work",
+    "--mode",
+    "edit",
+    "--disallowed-tools",
+    "WebSearch WebFetch Browser AskUserQuestion EnterPlanMode ExitPlanMode",
+    "--output-format",
+    "json",
+    "--no-color"
+  ],
+  "served_models": null,
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 1,
+    "inputTokens": 7077,
+    "outputTokens": 1707,
+    "totalTokens": 8784,
+    "cacheReadTokens": 704,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 688,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "est_cost_usd": null,
+  "est_cost": null,
+  "cli_reported_cost_usd": null,
+  "files": []
+}

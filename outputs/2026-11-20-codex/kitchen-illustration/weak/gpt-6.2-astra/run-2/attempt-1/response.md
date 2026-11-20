@@ -1,0 +1,1 @@
+![A cozy kitchen in the morning, with sunlight streaming through an arched window onto a wooden table set with steaming coffee, a croissant, and a blue pitcher of daisies.](./morning-kitchen.png)

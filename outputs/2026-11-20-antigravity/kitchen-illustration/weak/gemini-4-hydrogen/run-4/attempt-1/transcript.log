@@ -1,0 +1,1 @@
+{"conversation_id":"1ea8af5f-e15d-40be-b92b-091307e2ccd3","status":"SUCCESS","response":"Generating an illustration of a cozy morning kitchen...\n","duration_seconds":25.094554328,"num_turns":1,"usage":{"input_tokens":18274,"output_tokens":2841,"thinking_tokens":2309,"cache_read_tokens":24414,"total_tokens":21115},"denied_actions":[{"action":"command","display_name":"Bash"}]}

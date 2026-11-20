@@ -1,0 +1,35 @@
+{
+  "sessionId": "sess_f98a5120-c4f4-42a1-ab32-a11076b0664f",
+  "traceId": "8edfe9aa-d5e6-4a8d-ad7d-8d9751cdd8e6",
+  "turnId": "turn_c7d533d4-72aa-4cbe-b302-c4f8aa459f1d",
+  "response": "The file is saved at `/tmp/vellery-tzin0u6g/work/kitchen.svg` (I couldn't run a shell validation — no command permission in this session — so it's verified by careful review rather than a rendered check).\n\n**What's in the scene** (900×700, flat front view, warm muted palette):\n\n- **Window on the left** with a soft sun in the upper pane, wooden frame and sill, muted terracotta curtains, and three translucent light beams angling down-right across the wall and table, with a few dust motes.\n- **Small kitchen table** — warm wood top, apron, and tapered legs standing on the floor, with subtle cast shadows.\n- **Exactly three red apples** (muted brick red, stems, leaves, highlights facing the window) sitting on the tabletop.\n- **Blue mug** (desaturated slate blue) with a handle, steam wisps, a left-side highlight, and **MONDAY** printed in cream across the body.\n- **Folded newspaper** with headline/column marks, and a **gray cat curled up asleep on top** — closed eyes, tucked tail, back stripes, whiskers, and a little \"z z\" floating above its head.\n- Shadows fall to the right of each object, consistent with the light coming from the left window. No people.\n\nOpen it in any browser to view. Happy to tweak colors, proportions, or add/remove details (e.g., different mug text size, more light beams, a rug).",
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 3,
+    "inputTokens": 48431,
+    "outputTokens": 14535,
+    "totalTokens": 62966,
+    "cacheReadTokens": 20928,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 11026,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "eventCount": 11506,
+  "projection": {
+    "status": "idle",
+    "turnCount": 1,
+    "totalTokenCount": 62966,
+    "contextUsed": 21356,
+    "contextWindow": 200000
+  }
+}
+
+--- stderr ---
+ZCode Built-in stale revision=43 source=CDN
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)

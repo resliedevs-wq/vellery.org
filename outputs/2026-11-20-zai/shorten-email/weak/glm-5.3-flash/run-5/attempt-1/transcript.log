@@ -1,0 +1,29 @@
+{
+  "sessionId": "sess_eb755d87-b28e-4d2f-af1c-11479518483e",
+  "traceId": "31f72fc1-5c87-49e5-91d8-49806fd3374c",
+  "turnId": "turn_0e3f2fa1-1cf6-4dbe-9fd3-3b2bb8935733",
+  "response": "Here's a tighter version that keeps your voice but puts the key facts and the deadline front and center:\n\n---\n\n**Subject:** Venue update — March 12 confirmed, contract needs your look by Friday\n\nHi Dana,\n\nGood news on the venue: Harbor Hall can confirm us for March 12, our original date. I finally got Priya on the phone yesterday after a few missed calls on both sides. She also offered a walkthrough on March 3 — I can make that, but let me know if you have a conflict.\n\nQuick rundown of the details:\n\n- **Cost:** $4,200, under budget — they waived the AV setup fee since we're bringing our own projector\n- **Capacity:** covers up to 85 guests, right in line with our current RSVP count\n- **Contract:** draft is in; I've read through it and nothing looked off\n\nThe one thing I need from you: give the contract a read if you want to before I sign. If I don't hear back by Friday, I'll go ahead and send it back to them.\n\nHappy to talk it through if that's easier!\n\nThanks,\nSam\n\n---\n\nWhat I changed:\n\n- **Subject line** now carries the two things Dana actually needs to know (confirmed date + the Friday deadline), instead of \"sorry this is long.\"\n- **Cut the apologizing and hedging** (\"I realize this might not end up being that quick,\" \"that is a relief honestly\") — the news is good, so it can just be good.\n- **Made the details scannable** with a short bullet list so Dana doesn't have to dig for the number, the capacity, or the walkthrough date.\n- **Isolated the ask.** The Friday deadline was buried in the last paragraph; now it's explicit what you need from her and what happens by when.\n\nIf bullets feel too formal for how you two usually write, I can do a prose version that's still tighter than the original.",
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 1,
+    "inputTokens": 7063,
+    "outputTokens": 1151,
+    "totalTokens": 8214,
+    "cacheReadTokens": 0,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 748,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "eventCount": 1159,
+  "projection": {
+    "status": "idle",
+    "turnCount": 1,
+    "totalTokenCount": 8214,
+    "contextUsed": 8214,
+    "contextWindow": 200000
+  }
+}
+
+--- stderr ---
+ZCode Built-in stale revision=43 source=CDN

@@ -1,0 +1,29 @@
+{
+  "sessionId": "sess_922203d3-930d-4651-ab42-6c04e4064522",
+  "traceId": "539ed5dc-7780-4941-aa10-62e057597a8e",
+  "turnId": "turn_fe7d3fc4-0c88-4d04-aa48-9035b6aec0c0",
+  "response": "Subject: Venue update\n\nHi Dana,\n\nGood news — I finally got Priya at Harbor Hall on the phone yesterday. They can confirm us for March 12, our original date, and a walkthrough on March 3 if that works for you (flag any conflict!).\n\nThe final number is $4,200, a bit under budget since they waived the AV setup fee — we're bringing our own projector. That covers up to 85 guests, right around our RSVP count, so we're fine unless lots of late people sign up.\n\nThey sent a contract draft; nothing jumped out at me, but I wanted you to look before I sign. If I don't hear back, I'll send the signed contract Friday.\n\nThanks!\nSam",
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 1,
+    "inputTokens": 7015,
+    "outputTokens": 1323,
+    "totalTokens": 8338,
+    "cacheReadTokens": 1280,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 1173,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "eventCount": 1332,
+  "projection": {
+    "status": "idle",
+    "turnCount": 1,
+    "totalTokenCount": 8338,
+    "contextUsed": 8338,
+    "contextWindow": 200000
+  }
+}
+
+--- stderr ---
+ZCode Built-in stale revision=43 source=CDN

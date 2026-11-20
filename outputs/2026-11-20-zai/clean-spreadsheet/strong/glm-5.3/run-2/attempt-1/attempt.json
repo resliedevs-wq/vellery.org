@@ -1,0 +1,37 @@
+{
+  "ok": true,
+  "error": null,
+  "started": "2026-11-20T02:52:31+00:00",
+  "duration_s": 42.9,
+  "command": [
+    "zcode",
+    "--prompt",
+    "<prompt>",
+    "--cwd",
+    "/tmp/vellery-1gmy91y9/work",
+    "--mode",
+    "edit",
+    "--disallowed-tools",
+    "WebSearch WebFetch Browser AskUserQuestion EnterPlanMode ExitPlanMode",
+    "--output-format",
+    "json",
+    "--no-color"
+  ],
+  "served_models": null,
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 1,
+    "inputTokens": 7078,
+    "outputTokens": 2041,
+    "totalTokens": 9119,
+    "cacheReadTokens": 704,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 1142,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "est_cost_usd": null,
+  "est_cost": null,
+  "cli_reported_cost_usd": null,
+  "files": []
+}

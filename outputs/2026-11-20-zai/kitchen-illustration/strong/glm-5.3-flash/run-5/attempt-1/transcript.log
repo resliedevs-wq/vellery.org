@@ -1,0 +1,33 @@
+{
+  "sessionId": "sess_b03ca8d0-32a8-4f0f-8284-3e41e3748999",
+  "traceId": "2910e4d6-75bf-43b4-bc59-b029d3d616c1",
+  "turnId": "turn_8ac51c74-0bdb-4eee-8e5d-5781fa3e44e5",
+  "response": "The shell isn't available in this session, so I couldn't run a render check — but the file is written and the markup is balanced and self-contained by construction. \n\n**`kitchen.svg` is saved** in the working directory (900×600, scalable vector).\n\nWhat's in the scene, all in a warm muted palette (cream wall, sand floor, dusty wood tones):\n\n- **Table from the front** — tabletop with a lighter lit edge, apron, and two legs with soft floor shadows\n- **Exactly three red apples** — muted brick-red cluster with stems, one leaf, subtle highlights\n- **Blue mug** — dusty steel-blue with a handle, inner-rim ellipse, and **MONDAY** printed in cream across the front\n- **Folded newspaper** — two stacked slabs (the top one folded over) with column text lines and a headline block\n- **Gray cat asleep on top** — tucked loaf pose, folded-down ears, closed eyes, body stripes, curled tail draped over the paper, and little \"z z\" drifting up\n- **Morning light from the left** — window with a soft sun in the upper pane, plus two translucent gold beams raking diagonally across the room onto the table, with a faint final overlay for atmosphere\n- **No people**, and nothing else on the table\n\nOpen it in any browser to view. If you'd like adjustments — mug on a different side, a fourth-of-nothing moved around, stronger sunbeams, or a different wall color — just say the word.",
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 3,
+    "inputTokens": 43530,
+    "outputTokens": 11976,
+    "totalTokens": 55506,
+    "cacheReadTokens": 25024,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 8914,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "eventCount": 9305,
+  "projection": {
+    "status": "idle",
+    "turnCount": 1,
+    "totalTokenCount": 55506,
+    "contextUsed": 18881,
+    "contextWindow": 200000
+  }
+}
+
+--- stderr ---
+ZCode Built-in stale revision=43 source=CDN
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)

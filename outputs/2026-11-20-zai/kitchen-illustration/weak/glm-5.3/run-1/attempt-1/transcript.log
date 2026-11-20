@@ -1,0 +1,36 @@
+{
+  "sessionId": "sess_a0783684-553f-45cf-aa4e-bf244fc11dd7",
+  "traceId": "816310ad-d63d-4053-8b91-3aba68f57d94",
+  "turnId": "turn_b1f5c07f-b27b-4a8d-b6a6-f590d547f093",
+  "response": "I drew it as a hand-coded SVG illustration — no canvas needed, it's crisp at any size and even has a few subtle animations. Open `cozy-kitchen.svg` in any browser to see it.\n\n**The scene** (`/tmp/vellery-er6993vo/work/cozy-kitchen.svg`, 1200×900):\n\n- ☀️ **Morning light** — a big four-pane window with peachy-gold sunrise sky, a glowing sun, soft clouds, rolling hills, and little birds; warm light rays slant down onto the floor with dust motes floating in them\n- 🐈 **A sleeping orange tabby** curled up on a braided rug right in the sunbeam, complete with a warm highlight on its back, closed eyes, and drifting \"z z z\"\n- ☕ **Breakfast prep** — a red kettle with gently rising steam (animated), a toaster with toast popping up, a fresh loaf on a cutting board, a steaming mug, and a honey jar\n- 🪴 **Cozy details** — sage-green cabinets, open wooden shelves with jars and a trailing plant, terracotta curtains, a wall clock at 7:25, a pendant lamp, a monstera in the corner, potted herbs, a lit candle on the sill, and slippers by the rug\n\nThe steam drifts upward and the sun glow softly pulses on a loop. Want a different mood (blue-hour evening, more muted palette), a cat on the counter instead, or a PNG export if you have a converter like `rsvg-convert` or Inkscape available?",
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 3,
+    "inputTokens": 60960,
+    "outputTokens": 25410,
+    "totalTokens": 86370,
+    "cacheReadTokens": 29632,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 16167,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "eventCount": 16857,
+  "projection": {
+    "status": "idle",
+    "turnCount": 1,
+    "totalTokenCount": 86370,
+    "contextUsed": 32168,
+    "contextWindow": 200000
+  }
+}
+
+--- stderr ---
+ZCode Built-in 刷新失败: EMFILE: too many open files, watch '/tmp/vellery-er6993vo/home/.zcode/v2/runtime/provider/linux-x86_64/0.0.0-dev/endpoint-78d7c3bef4024722642626fe3669a799'
+ZCode Built-in skipped (not-due)
+ZCode Built-in stale revision=43 source=CDN
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)

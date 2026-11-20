@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <title>Morning kitchen still life: three apples, a MONDAY mug, and a gray cat asleep on a folded newspaper</title>
+  <desc>Flat vector illustration of a small kitchen table seen from the front, lit by morning sunlight from a window on the left. Warm, muted colors. No people.</desc>
+
+  <!-- wall -->
+  <rect x="0" y="0" width="800" height="600" fill="#F2E4CB"/>
+  <!-- warm glow around the window -->
+  <ellipse cx="170" cy="210" rx="210" ry="180" fill="#FFE9B5" opacity="0.28"/>
+
+  <!-- baseboard and floor -->
+  <rect x="0" y="506" width="800" height="14" fill="#E4CFA9"/>
+  <rect x="0" y="520" width="800" height="80" fill="#DCB188"/>
+  <line x1="0" y1="546" x2="800" y2="546" stroke="#C89F76" stroke-width="2"/>
+  <line x1="0" y1="572" x2="800" y2="572" stroke="#C89F76" stroke-width="2"/>
+
+  <!-- window -->
+  <rect x="70" y="90" width="190" height="230" rx="6" fill="#E7D3AE"/>
+  <rect x="82" y="102" width="166" height="206" fill="#E3EAE0"/>
+  <!-- morning sun in the window -->
+  <circle cx="200" cy="148" r="38" fill="#F6D98D" opacity="0.35"/>
+  <circle cx="200" cy="148" r="24" fill="#F2CD7C"/>
+  <!-- soft clouds -->
+  <ellipse cx="128" cy="200" rx="26" ry="9" fill="#F2EEE2" opacity="0.9"/>
+  <ellipse cx="180" cy="240" rx="34" ry="10" fill="#F2EEE2" opacity="0.8"/>
+  <!-- panes -->
+  <rect x="161" y="102" width="8" height="206" fill="#E7D3AE"/>
+  <rect x="82" y="201" width="166" height="8" fill="#E7D3AE"/>
+  <!-- sill -->
+  <rect x="60" y="318" width="210" height="13" rx="4" fill="#DEC69B"/>
+
+  <!-- sunbeams toward the table -->
+  <polygon points="198,108 238,98 612,430 506,468" fill="#FFE2A0" opacity="0.30"/>
+  <polygon points="132,132 166,122 528,428 474,446" fill="#FFE2A0" opacity="0.18"/>
+  <polygon points="228,182 250,172 655,420 605,440" fill="#FFE2A0" opacity="0.20"/>
+
+  <!-- table shadow on the floor -->
+  <ellipse cx="480" cy="588" rx="235" ry="12" fill="#A9805B" opacity="0.35"/>
+
+  <!-- table, seen from the front -->
+  <rect x="300" y="446" width="16" height="138" rx="3" fill="#8A5C43"/>
+  <rect x="644" y="446" width="16" height="138" rx="3" fill="#8A5C43"/>
+  <rect x="270" y="424" width="420" height="24" rx="5" fill="#A97C5B"/>
+  <rect x="270" y="424" width="420" height="7" rx="3.5" fill="#BF946F"/>
+
+  <!-- shadows on the tabletop -->
+  <ellipse cx="358" cy="425" rx="66" ry="5" fill="#4A3B2C" opacity="0.16"/>
+  <ellipse cx="464" cy="425" rx="38" ry="5" fill="#4A3B2C" opacity="0.16"/>
+  <ellipse cx="595" cy="426" rx="82" ry="4" fill="#4A3B2C" opacity="0.12"/>
+
+  <!-- folded newspaper -->
+  <rect x="520" y="404" width="150" height="22" rx="3" fill="#EFE8D8"/>
+  <rect x="524" y="408" width="142" height="3" rx="1.5" fill="#F8F3E6"/>
+  <rect x="524" y="414" width="142" height="3" rx="1.5" fill="#DDD3BE"/>
+  <line x1="595" y1="404" x2="595" y2="426" stroke="#C6BDA9" stroke-width="2"/>
+
+  <!-- gray cat asleep on the newspaper -->
+  <ellipse cx="592" cy="406" rx="58" ry="7" fill="#3E3227" opacity="0.18"/>
+  <ellipse cx="592" cy="384" rx="56" ry="26" fill="#98999E"/>
+  <ellipse cx="562" cy="374" rx="26" ry="16" fill="#B0B1B6" opacity="0.4"/>
+  <path d="M575,360 q5,9 -2,15" fill="none" stroke="#82838A" stroke-width="4" stroke-linecap="round"/>
+  <path d="M591,358 q5,9 -2,15" fill="none" stroke="#82838A" stroke-width="4" stroke-linecap="round"/>
+  <path d="M607,361 q5,9 -2,15" fill="none" stroke="#82838A" stroke-width="4" stroke-linecap="round"/>
+  <!-- tail curled around the front -->
+  <path d="M548,400 Q590,414 628,404 Q648,398 640,381" fill="none" stroke="#84858C" stroke-width="8" stroke-linecap="round"/>
+  <!-- head -->
+  <polygon points="530,362 536,344 546,358" fill="#A2A3A8"/>
+  <polygon points="548,357 556,342 560,361" fill="#A2A3A8"/>
+  <polygon points="534,360 537,350 542,358" fill="#C8C3BB"/>
+  <polygon points="550,356 554,348 557,358" fill="#C8C3BB"/>
+  <circle cx="545" cy="376" r="20" fill="#A2A3A8"/>
+  <path d="M532,376 q5,4 10,0" fill="none" stroke="#55555C" stroke-width="2" stroke-linecap="round"/>
+  <path d="M548,376 q5,4 10,0" fill="none" stroke="#55555C" stroke-width="2" stroke-linecap="round"/>
+  <path d="M542,383 h6 l-3,4 z" fill="#63636B"/>
+
+  <!-- three red apples -->
+  <rect x="315.5" y="377" width="3.5" height="10" rx="1.5" fill="#6E4A2E"/>
+  <ellipse cx="324" cy="380" rx="8" ry="3.5" fill="#8FA26A" transform="rotate(-22 324 380)"/>
+  <rect x="355.2" y="373" width="3.5" height="10" rx="1.5" fill="#6E4A2E"/>
+  <ellipse cx="365" cy="376" rx="8" ry="3.5" fill="#8FA26A" transform="rotate(-22 365 376)"/>
+  <rect x="397.2" y="379" width="3.5" height="9" rx="1.5" fill="#6E4A2E"/>
+  <circle cx="317" cy="405" r="21" fill="#C25B4F"/>
+  <ellipse cx="309" cy="397" rx="6" ry="4" fill="#D9897A" opacity="0.9"/>
+  <circle cx="399" cy="406" r="20" fill="#C25B4F"/>
+  <ellipse cx="392" cy="399" rx="5" ry="3.5" fill="#D9897A" opacity="0.9"/>
+  <circle cx="357" cy="403" r="22" fill="#C25B4F"/>
+  <ellipse cx="349" cy="394" rx="6" ry="4" fill="#D9897A" opacity="0.9"/>
+
+  <!-- blue mug with MONDAY -->
+  <path d="M450,368 c-6,-8 -6,-14 0,-20 c6,-6 6,-12 0,-18" fill="none" stroke="#DCC9AC" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+  <path d="M478,366 c6,-7 6,-13 0,-19 c-6,-6 -6,-12 0,-17" fill="none" stroke="#DCC9AC" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+  <path d="M498,392 c19,0 19,26 0,26" fill="none" stroke="#6C8FAE" stroke-width="7"/>
+  <rect x="430" y="382" width="68" height="44" rx="6" fill="#6C8FAE"/>
+  <rect x="426" y="376" width="76" height="11" rx="5.5" fill="#7FA0BC"/>
+  <text x="464" y="411" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" letter-spacing="0.6" fill="#F2E9D8" text-anchor="middle">MONDAY</text>
+
+  <!-- soft morning light washing over the table -->
+  <polygon points="196,100 242,92 640,428 545,462" fill="#FFE9AE" opacity="0.10"/>
+</svg>

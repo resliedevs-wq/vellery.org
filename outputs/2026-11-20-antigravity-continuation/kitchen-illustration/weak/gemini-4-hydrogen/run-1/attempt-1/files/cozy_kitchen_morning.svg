@@ -1,0 +1,733 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <title>A Cozy Kitchen in the Morning</title>
+  <defs>
+    <!-- Wall & Floor Gradients -->
+    <linearGradient id="wallGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBF2DF"/>
+      <stop offset="55%" stop-color="#F4E4C8"/>
+      <stop offset="100%" stop-color="#E7CEAA"/>
+    </linearGradient>
+    <linearGradient id="ceilingGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#DFC7A7"/>
+      <stop offset="100%" stop-color="#F2E2C7"/>
+    </linearGradient>
+    <linearGradient id="wainscotGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E5D1B3"/>
+      <stop offset="100%" stop-color="#D2B894"/>
+    </linearGradient>
+    <linearGradient id="floorGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#B97D4B"/>
+      <stop offset="45%" stop-color="#C98D59"/>
+      <stop offset="100%" stop-color="#9B6135"/>
+    </linearGradient>
+
+    <!-- Sunrise Sky Outside Window -->
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#9CC5D9"/>
+      <stop offset="32%" stop-color="#F4D7A8"/>
+      <stop offset="70%" stop-color="#FDE8B6"/>
+      <stop offset="100%" stop-color="#FFF5D6"/>
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFDF0" stop-opacity="1"/>
+      <stop offset="30%" stop-color="#FFE68F" stop-opacity="0.85"/>
+      <stop offset="70%" stop-color="#FFBE6B" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#FFBE6B" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Morning Sunbeams -->
+    <linearGradient id="beamGrad1" x1="0%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#FFF6C9" stop-opacity="0.48"/>
+      <stop offset="55%" stop-color="#FFE99E" stop-opacity="0.24"/>
+      <stop offset="100%" stop-color="#FFE394" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="beamGrad2" x1="0%" y1="0%" x2="70%" y2="100%">
+      <stop offset="0%" stop-color="#FFF9D6" stop-opacity="0.36"/>
+      <stop offset="60%" stop-color="#FFE79B" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#FFE394" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="floorSunPatch" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFF3B8" stop-opacity="0.52"/>
+      <stop offset="65%" stop-color="#FFE296" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#FFE296" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Wood & Cabinet Gradients -->
+    <linearGradient id="cabinetGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#86A38C"/>
+      <stop offset="100%" stop-color="#6B8771"/>
+    </linearGradient>
+    <linearGradient id="cabinetDoorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#92B098"/>
+      <stop offset="100%" stop-color="#728E78"/>
+    </linearGradient>
+    <linearGradient id="woodTopGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#C3854C"/>
+      <stop offset="50%" stop-color="#D89B5E"/>
+      <stop offset="100%" stop-color="#B97A43"/>
+    </linearGradient>
+    <linearGradient id="tableTopGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2A86B"/>
+      <stop offset="50%" stop-color="#CC8D52"/>
+      <stop offset="100%" stop-color="#AD6E3A"/>
+    </linearGradient>
+    <linearGradient id="stoveBodyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FAF4E8"/>
+      <stop offset="100%" stop-color="#E6D9C3"/>
+    </linearGradient>
+    <linearGradient id="hoodGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#EFE4D2"/>
+      <stop offset="50%" stop-color="#FAF3E6"/>
+      <stop offset="100%" stop-color="#E1D2BC"/>
+    </linearGradient>
+    <linearGradient id="copperGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F2A97E"/>
+      <stop offset="50%" stop-color="#D37B4E"/>
+      <stop offset="100%" stop-color="#9A4E2A"/>
+    </linearGradient>
+    <radialGradient id="lampGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFF2B8" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#FFE082" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="curtainGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFBF2" stop-opacity="0.94"/>
+      <stop offset="55%" stop-color="#F7E8D0" stop-opacity="0.88"/>
+      <stop offset="100%" stop-color="#ECD3B0" stop-opacity="0.92"/>
+    </linearGradient>
+
+    <!-- Soft Blur Filters -->
+    <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+    <filter id="steamBlur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3.2"/>
+    </filter>
+
+    <!-- ClipPath for Window Exterior -->
+    <clipPath id="windowClip">
+      <rect x="462" y="116" width="276" height="228" rx="4"/>
+    </clipPath>
+
+    <!-- ClipPath for Oven Window -->
+    <clipPath id="ovenClip">
+      <rect x="108" y="425" width="134" height="72" rx="8"/>
+    </clipPath>
+  </defs>
+
+  <!-- ==================== 1. ROOM ARCHITECTURE ==================== -->
+  <!-- Main Wall -->
+  <rect x="0" y="0" width="1200" height="545" fill="url(#wallGrad)"/>
+
+  <!-- Subtle Ceiling & Beam -->
+  <polygon points="0,0 1200,0 1200,34 0,34" fill="url(#ceilingGrad)"/>
+  <rect x="0" y="28" width="1200" height="20" fill="#B57B4A"/>
+  <rect x="0" y="44" width="1200" height="5" fill="#8C5930" opacity="0.55"/>
+
+  <!-- Left Wall Corner Shadow for Depth -->
+  <rect x="0" y="48" width="52" height="497" fill="#D4B792" opacity="0.45"/>
+  <line x1="52" y1="48" x2="52" y2="545" stroke="#C1A17A" stroke-width="2" opacity="0.5"/>
+
+  <!-- Lower Beadboard Wainscoting (Right side & behind) -->
+  <rect x="52" y="375" width="1148" height="170" fill="url(#wainscotGrad)"/>
+  <g stroke="#BFA27E" stroke-width="1.5" opacity="0.65">
+    <line x1="860" y1="382" x2="860" y2="545"/>
+    <line x1="895" y1="382" x2="895" y2="545"/>
+    <line x1="930" y1="382" x2="930" y2="545"/>
+    <line x1="965" y1="382" x2="965" y2="545"/>
+    <line x1="1000" y1="382" x2="1000" y2="545"/>
+    <line x1="1035" y1="382" x2="1035" y2="545"/>
+    <line x1="1070" y1="382" x2="1070" y2="545"/>
+    <line x1="1105" y1="382" x2="1105" y2="545"/>
+    <line x1="1140" y1="382" x2="1140" y2="545"/>
+    <line x1="1175" y1="382" x2="1175" y2="545"/>
+  </g>
+  <!-- Chair Rail -->
+  <rect x="52" y="372" width="1148" height="10" fill="#EFE0C6" stroke="#C5A782" stroke-width="1.5"/>
+  <!-- Baseboard -->
+  <rect x="0" y="528" width="1200" height="18" fill="#E8D5B7" stroke="#BEA07B" stroke-width="1.5"/>
+
+  <!-- Hardwood Floor -->
+  <rect x="0" y="545" width="1200" height="255" fill="url(#floorGrad)"/>
+  <!-- Floor Plank Perspective Lines -->
+  <g stroke="#824E27" stroke-width="1.8" opacity="0.5">
+    <line x1="0" y1="575" x2="1200" y2="575"/>
+    <line x1="0" y1="612" x2="1200" y2="612"/>
+    <line x1="0" y1="656" x2="1200" y2="656"/>
+    <line x1="0" y1="708" x2="1200" y2="708"/>
+    <line x1="0" y1="766" x2="1200" y2="766"/>
+    <!-- Vertical Plank Joints -->
+    <line x1="180" y1="545" x2="150" y2="575"/>
+    <line x1="510" y1="545" x2="500" y2="575"/>
+    <line x1="880" y1="545" x2="900" y2="575"/>
+    <line x1="330" y1="575" x2="305" y2="612"/>
+    <line x1="720" y1="575" x2="735" y2="612"/>
+    <line x1="1060" y1="575" x2="1095" y2="612"/>
+    <line x1="140" y1="612" x2="95" y2="656"/>
+    <line x1="590" y1="612" x2="590" y2="656"/>
+    <line x1="940" y1="612" x2="975" y2="656"/>
+    <line x1="390" y1="656" x2="365" y2="708"/>
+    <line x1="810" y1="656" x2="840" y2="708"/>
+    <line x1="210" y1="708" x2="165" y2="766"/>
+    <line x1="660" y1="708" x2="670" y2="766"/>
+    <line x1="1040" y1="708" x2="1085" y2="766"/>
+  </g>
+  <!-- Warm Sunlit Patch on Floor -->
+  <ellipse cx="645" cy="645" rx="260" ry="95" fill="url(#floorSunPatch)"/>
+
+  <!-- ==================== 2. COZY BRAIDED RUG ==================== -->
+  <g transform="translate(475, 650)">
+    <ellipse cx="0" cy="6" rx="195" ry="68" fill="#5D3518" opacity="0.22"/>
+    <ellipse cx="0" cy="0" rx="192" ry="64" fill="#B9654B" stroke="#8C4833" stroke-width="2"/>
+    <ellipse cx="0" cy="0" rx="168" ry="54" fill="#EAD7B7" stroke="#CBB28D" stroke-width="2" stroke-dasharray="10 5"/>
+    <ellipse cx="0" cy="0" rx="140" ry="44" fill="#7D9882" stroke="#5E7763" stroke-width="2"/>
+    <ellipse cx="0" cy="0" rx="112" ry="34" fill="#E3B16B" stroke="#C18D48" stroke-width="2" stroke-dasharray="8 4"/>
+    <ellipse cx="0" cy="0" rx="82" ry="24" fill="#F2E2C7" stroke="#D1BA97" stroke-width="2"/>
+    <ellipse cx="0" cy="0" rx="48" ry="13" fill="#B9654B"/>
+  </g>
+
+  <!-- ==================== 3. MORNING WINDOW & EXTERIOR ==================== -->
+  <!-- Exterior Scene Clipped to Window -->
+  <g clip-path="url(#windowClip)">
+    <rect x="460" y="114" width="280" height="232" fill="url(#skyGrad)"/>
+    <!-- Morning Sun & Soft Halo -->
+    <circle cx="535" cy="212" r="78" fill="url(#sunGlow)"/>
+    <circle cx="535" cy="212" r="24" fill="#FFFDF2"/>
+
+    <!-- Soft Morning Clouds -->
+    <g fill="#FFF7E3" opacity="0.78">
+      <ellipse cx="645" cy="158" rx="38" ry="12"/>
+      <ellipse cx="668" cy="154" rx="24" ry="10"/>
+      <ellipse cx="590" cy="142" rx="28" ry="8" opacity="0.6"/>
+    </g>
+
+    <!-- Distant Misty Hills -->
+    <path d="M455,275 Q535,235 615,268 T750,255 L750,350 L455,350 Z" fill="#C2CFA9" opacity="0.75"/>
+    <path d="M455,295 Q560,262 660,288 T750,282 L750,350 L455,350 Z" fill="#9BB382"/>
+    <!-- Midground Foliage / Garden Trees -->
+    <circle cx="482" cy="285" r="34" fill="#7C9A65"/>
+    <circle cx="515" cy="296" r="26" fill="#8EAD72"/>
+    <circle cx="718" cy="276" r="38" fill="#73915C"/>
+    <circle cx="685" cy="294" r="28" fill="#89A86D"/>
+    <!-- Sunlit Meadow -->
+    <path d="M455,315 Q595,302 745,318 L745,350 L455,350 Z" fill="#A6BE78"/>
+
+    <!-- Two Tiny Birds in Morning Sky -->
+    <path d="M620,185 Q624,180 628,185 Q632,180 636,185" fill="none" stroke="#857566" stroke-width="1.6" stroke-linecap="round"/>
+    <path d="M645,196 Q648,192 651,196 Q654,192 657,196" fill="none" stroke="#857566" stroke-width="1.3" stroke-linecap="round"/>
+  </g>
+
+  <!-- Window Frame & Muntins -->
+  <rect x="454" y="108" width="292" height="242" rx="4" fill="none" stroke="#EFE4CF" stroke-width="16"/>
+  <rect x="446" y="100" width="308" height="258" rx="5" fill="none" stroke="#CBB390" stroke-width="3"/>
+  <!-- Inner Frame Line -->
+  <rect x="462" y="116" width="276" height="228" fill="none" stroke="#D7C1A0" stroke-width="2"/>
+  <!-- Crossbars (Muntins) -->
+  <rect x="550" y="116" width="8" height="228" fill="#F3E8D4" stroke="#D2BA97" stroke-width="1"/>
+  <rect x="642" y="116" width="8" height="228" fill="#F3E8D4" stroke="#D2BA97" stroke-width="1"/>
+  <rect x="462" y="218" width="276" height="10" fill="#F3E8D4" stroke="#D2BA97" stroke-width="1"/>
+
+  <!-- Wooden Windowsill -->
+  <rect x="436" y="344" width="328" height="14" rx="3" fill="#D59A60" stroke="#9F6B3A" stroke-width="1.5"/>
+  <rect x="442" y="357" width="316" height="5" fill="#9E6A3A" opacity="0.35"/>
+
+  <!-- Windowsill Potted Plants -->
+  <!-- Left Terracotta Pot with Trailing Pothos -->
+  <g transform="translate(486, 314)">
+    <polygon points="-14,0 14,0 11,30 -11,30" fill="#C96D48" stroke="#9A4B2C" stroke-width="1.2"/>
+    <rect x="-16" y="-4" width="32" height="7" rx="2" fill="#D87C55" stroke="#9A4B2C" stroke-width="1.2"/>
+    <!-- Leaves -->
+    <path d="M-2,-4 C-14,-24 -26,-16 -18,-6 Z" fill="#5D8753"/>
+    <path d="M2,-4 C12,-28 24,-18 14,-5 Z" fill="#6FA061"/>
+    <path d="M0,-4 C-4,-32 6,-32 3,-4 Z" fill="#7FB36F"/>
+    <!-- Trailing Vine -->
+    <path d="M-12,0 Q-26,18 -20,42" fill="none" stroke="#537A49" stroke-width="2"/>
+    <ellipse cx="-21" cy="18" rx="6" ry="4" transform="rotate(-25 -21 18)" fill="#6FA061"/>
+    <ellipse cx="-23" cy="34" rx="5.5" ry="3.8" transform="rotate(20 -23 34)" fill="#5D8753"/>
+  </g>
+
+  <!-- Right Cream Pot with Morning Daisies -->
+  <g transform="translate(702, 317)">
+    <polygon points="-12,0 12,0 9,27 -9,27" fill="#F2EAD9" stroke="#C5B69E" stroke-width="1.2"/>
+    <rect x="-14" y="-4" width="28" height="6" rx="2" fill="#FAF4E6" stroke="#C5B69E" stroke-width="1.2"/>
+    <path d="M-4,-4 Q-10,-20 -14,-28 M0,-4 Q0,-24 2,-32 M5,-4 Q12,-18 15,-25" fill="none" stroke="#5B874F" stroke-width="2" stroke-linecap="round"/>
+    <!-- Daisy Blooms -->
+    <g transform="translate(-14,-29)">
+      <circle cx="0" cy="-4" r="3" fill="#FFFDF7"/><circle cx="4" cy="0" r="3" fill="#FFFDF7"/>
+      <circle cx="0" cy="4" r="3" fill="#FFFDF7"/><circle cx="-4" cy="0" r="3" fill="#FFFDF7"/>
+      <circle cx="0" cy="0" r="2.6" fill="#F2B830"/>
+    </g>
+    <g transform="translate(2,-33)">
+      <circle cx="0" cy="-4" r="3.2" fill="#FFFDF7"/><circle cx="4" cy="0" r="3.2" fill="#FFFDF7"/>
+      <circle cx="0" cy="4" r="3.2" fill="#FFFDF7"/><circle cx="-4" cy="0" r="3.2" fill="#FFFDF7"/>
+      <circle cx="0" cy="0" r="2.8" fill="#F2B830"/>
+    </g>
+    <g transform="translate(15,-25)">
+      <circle cx="0" cy="-3.5" r="2.6" fill="#FFFDF7"/><circle cx="3.5" cy="0" r="2.6" fill="#FFFDF7"/>
+      <circle cx="0" cy="3.5" r="2.6" fill="#FFFDF7"/><circle cx="-3.5" cy="0" r="2.6" fill="#FFFDF7"/>
+      <circle cx="0" cy="0" r="2.2" fill="#F2B830"/>
+    </g>
+  </g>
+
+  <!-- Cafe Curtains & Brass Curtain Rod -->
+  <line x1="428" y1="96" x2="772" y2="96" stroke="#9D743E" stroke-width="4.5" stroke-linecap="round"/>
+  <circle cx="426" cy="96" r="5" fill="#B88B4E"/>
+  <circle cx="774" cy="96" r="5" fill="#B88B4E"/>
+  <!-- Left Curtain -->
+  <path d="M446,98 L516,98 Q494,185 478,215 Q488,265 496,335 L446,335 Z" fill="url(#curtainGrad)" stroke="#DEC7A6" stroke-width="1.2"/>
+  <path d="M464,98 Q468,175 462,215 Q470,275 466,335" fill="none" stroke="#E2CBB0" stroke-width="1.5"/>
+  <path d="M474,213 Q462,217 446,214" fill="none" stroke="#B67B52" stroke-width="4" stroke-linecap="round"/>
+  <!-- Right Curtain -->
+  <path d="M684,98 L754,98 L754,335 L704,335 Q712,265 722,215 Q706,185 684,98 Z" fill="url(#curtainGrad)" stroke="#DEC7A6" stroke-width="1.2"/>
+  <path d="M734,98 Q730,175 736,215 Q728,275 732,335" fill="none" stroke="#E2CBB0" stroke-width="1.5"/>
+  <path d="M726,213 Q738,217 754,214" fill="none" stroke="#B67B52" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- ==================== 4. RANGE HOOD & OPEN SHELVES ==================== -->
+  <!-- Cottage Range Hood (Above Stove) -->
+  <path d="M115,48 L245,48 L272,188 L88,188 Z" fill="url(#hoodGrad)" stroke="#D4C2A8" stroke-width="2"/>
+  <rect x="82" y="182" width="196" height="16" rx="3" fill="#C78A51" stroke="#9B6636" stroke-width="1.5"/>
+
+  <!-- Left Open Shelves (Between Hood & Window) -->
+  <!-- Shelf 1 -->
+  <rect x="292" y="184" width="136" height="10" rx="2" fill="#C78A51" stroke="#9B6636" stroke-width="1.5"/>
+  <path d="M306,194 L306,210 L318,194 Z" fill="#9B6636"/>
+  <path d="M414,194 L414,210 L402,194 Z" fill="#9B6636"/>
+  <!-- Stacked Ceramic Plates & Bowl on Shelf 1 -->
+  <ellipse cx="326" cy="182" rx="20" ry="4" fill="#EFE8D8" stroke="#C5BBA8" stroke-width="1"/>
+  <ellipse cx="326" cy="177" rx="19" ry="4" fill="#F8F3E8" stroke="#C5BBA8" stroke-width="1"/>
+  <ellipse cx="326" cy="172" rx="18" ry="4" fill="#89A48E" stroke="#68806C" stroke-width="1"/>
+  <!-- Glass Jar with Oats -->
+  <rect x="360" y="152" width="24" height="32" rx="4" fill="#EAF4F2" fill-opacity="0.7" stroke="#A6BDB8" stroke-width="1.3"/>
+  <rect x="362" y="164" width="20" height="18" rx="2" fill="#E3C99C"/>
+  <rect x="362" y="147" width="20" height="6" rx="2" fill="#B57B4A"/>
+  <!-- Small Terracotta Jar -->
+  <rect x="392" y="158" width="22" height="26" rx="3" fill="#CA704B" stroke="#994E30" stroke-width="1.2"/>
+  <rect x="394" y="154" width="18" height="5" rx="2" fill="#D59A60"/>
+
+  <!-- Shelf 2 -->
+  <rect x="292" y="266" width="136" height="10" rx="2" fill="#C78A51" stroke="#9B6636" stroke-width="1.5"/>
+  <path d="M306,276 L306,292 L318,276 Z" fill="#9B6636"/>
+  <path d="M414,276 L414,292 L402,276 Z" fill="#9B6636"/>
+  <!-- Mortar & Pestle -->
+  <path d="M310,250 Q312,266 324,266 Q336,266 338,250 Z" fill="#D8D2C5" stroke="#ACA495" stroke-width="1.2"/>
+  <line x1="330" y1="254" x2="340" y2="240" stroke="#C9C2B3" stroke-width="5" stroke-linecap="round"/>
+  <!-- Cream Pitcher -->
+  <path d="M356,240 L374,240 L378,266 L352,266 Z" fill="#FAF2E1" stroke="#CABCA4" stroke-width="1.2"/>
+  <path d="M374,245 Q384,248 377,258" fill="none" stroke="#CABCA4" stroke-width="2.5"/>
+  <!-- Coffee Canister -->
+  <rect x="390" y="236" width="26" height="30" rx="3" fill="#6F8C75" stroke="#536C58" stroke-width="1.2"/>
+  <rect x="395" y="246" width="16" height="9" rx="1" fill="#F6ECD9"/>
+
+  <!-- Brass Utensil Rail Under Left Shelf -->
+  <line x1="296" y1="305" x2="424" y2="305" stroke="#9F7842" stroke-width="3" stroke-linecap="round"/>
+  <!-- Hanging Copper Ladle -->
+  <line x1="322" y1="305" x2="322" y2="338" stroke="#9F532E" stroke-width="2.5"/>
+  <ellipse cx="322" cy="342" rx="9" ry="5" fill="url(#copperGrad)" stroke="#884221" stroke-width="1"/>
+  <!-- Hanging Whisk -->
+  <line x1="358" y1="305" x2="358" y2="330" stroke="#857E75" stroke-width="2.5"/>
+  <ellipse cx="358" cy="338" rx="6" ry="10" fill="none" stroke="#7A736B" stroke-width="1.3"/>
+  <ellipse cx="358" cy="338" rx="3" ry="10" fill="none" stroke="#7A736B" stroke-width="1.3"/>
+  <!-- Hanging Wooden Spoon -->
+  <line x1="394" y1="305" x2="394" y2="338" stroke="#BA824D" stroke-width="2.8" stroke-linecap="round"/>
+  <ellipse cx="394" cy="343" rx="6" ry="8" fill="#C98F58" stroke="#9A6838" stroke-width="1"/>
+
+  <!-- Right Open Shelves (Right of Window) -->
+  <rect x="772" y="184" width="182" height="10" rx="2" fill="#C78A51" stroke="#9B6636" stroke-width="1.5"/>
+  <path d="M788,194 L788,210 L800,194 Z" fill="#9B6636"/>
+  <path d="M938,194 L938,210 L926,194 Z" fill="#9B6636"/>
+  <!-- Leaning Cookbooks -->
+  <rect x="786" y="142" width="12" height="42" rx="1.5" fill="#B9654B" stroke="#8C4833" stroke-width="1"/>
+  <rect x="799" y="146" width="11" height="38" rx="1.5" fill="#E3B16B" stroke="#B68542" stroke-width="1"/>
+  <rect x="811" y="140" width="13" height="44" rx="1.5" fill="#6F8C75" stroke="#4E6653" stroke-width="1"/>
+  <rect x="827" y="147" width="11" height="37" rx="1.5" transform="rotate(-8 832 184)" fill="#D99B58" stroke="#A67036" stroke-width="1"/>
+  <!-- Ceramic Teapot -->
+  <g transform="translate(882, 166)">
+    <ellipse cx="0" cy="6" rx="18" ry="13" fill="#F2E4C8" stroke="#C5B08B" stroke-width="1.3"/>
+    <path d="M-16,2 Q-26,-6 -24,-10" fill="none" stroke="#F2E4C8" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M-16,2 Q-26,-6 -24,-10" fill="none" stroke="#C5B08B" stroke-width="1.3" stroke-linecap="round"/>
+    <path d="M16,-2 Q28,0 24,10 Q21,15 14,12" fill="none" stroke="#C5B08B" stroke-width="2.5"/>
+    <ellipse cx="0" cy="-6" rx="9" ry="3" fill="#89A48E" stroke="#657D69" stroke-width="1"/>
+    <circle cx="0" cy="-10" r="3" fill="#89A48E"/>
+  </g>
+  <!-- Trailing Plant on Right Shelf -->
+  <g transform="translate(930, 164)">
+    <polygon points="-10,0 10,0 8,20 -8,20" fill="#B9654B" stroke="#8C4833" stroke-width="1"/>
+    <path d="M-4,0 C-10,-16 -2,-20 2,-2 M4,0 C12,-14 16,-4 6,0" fill="#638F56"/>
+    <path d="M8,6 Q22,26 16,56" fill="none" stroke="#537A49" stroke-width="1.8"/>
+    <ellipse cx="16" cy="24" rx="5" ry="3.5" transform="rotate(25 16 24)" fill="#6FA061"/>
+    <ellipse cx="19" cy="40" rx="5" ry="3.5" transform="rotate(-15 19 40)" fill="#5D8753"/>
+    <ellipse cx="15" cy="54" rx="4.5" ry="3" transform="rotate(20 15 54)" fill="#6FA061"/>
+  </g>
+
+  <!-- Right Lower Shelf -->
+  <rect x="772" y="266" width="182" height="10" rx="2" fill="#C78A51" stroke="#9B6636" stroke-width="1.5"/>
+  <path d="M788,276 L788,292 L800,276 Z" fill="#9B6636"/>
+  <path d="M938,276 L938,292 L926,276 Z" fill="#9B6636"/>
+  <!-- Spice Jars & Honey Jar -->
+  <rect x="790" y="242" width="16" height="24" rx="3" fill="#E8D8B8" stroke="#BDA982" stroke-width="1"/>
+  <rect x="792" y="238" width="12" height="4" rx="1" fill="#8C5930"/>
+  <rect x="814" y="242" width="16" height="24" rx="3" fill="#C9704B" stroke="#964D30" stroke-width="1"/>
+  <rect x="816" y="238" width="12" height="4" rx="1" fill="#8C5930"/>
+  <rect x="838" y="242" width="16" height="24" rx="3" fill="#7C9880" stroke="#59725D" stroke-width="1"/>
+  <rect x="840" y="238" width="12" height="4" rx="1" fill="#8C5930"/>
+  <!-- Stacked Mugs -->
+  <rect x="880" y="244" width="20" height="22" rx="3" fill="#FAF2E1" stroke="#C5B395" stroke-width="1.2"/>
+  <path d="M900,248 Q907,252 900,260" fill="none" stroke="#C5B395" stroke-width="2.2"/>
+  <rect x="914" y="244" width="20" height="22" rx="3" fill="#E5A95C" stroke="#B67E38" stroke-width="1.2"/>
+  <path d="M934,248 Q941,252 934,260" fill="none" stroke="#B67E38" stroke-width="2.2"/>
+
+  <!-- Wall Clock & Botanical Frame on Right Wall -->
+  <!-- Wall Clock (7:15 AM) -->
+  <g transform="translate(1068, 155)">
+    <circle cx="0" cy="4" r="42" fill="#8C6D46" opacity="0.16"/>
+    <circle cx="0" cy="0" r="40" fill="#B57B4A" stroke="#85542D" stroke-width="2"/>
+    <circle cx="0" cy="0" r="32" fill="#FFF9EC" stroke="#D7C3A1" stroke-width="1.5"/>
+    <!-- Hour Marks -->
+    <g stroke="#6C523B" stroke-width="2" stroke-linecap="round">
+      <line x1="0" y1="-26" x2="0" y2="-22"/>
+      <line x1="26" y1="0" x2="22" y2="0"/>
+      <line x1="0" y1="26" x2="0" y2="22"/>
+      <line x1="-26" y1="0" x2="-22" y2="0"/>
+    </g>
+    <!-- Hands (~7:15) -->
+    <line x1="0" y1="0" x2="-11" y2="12" stroke="#4D3928" stroke-width="3" stroke-linecap="round"/>
+    <line x1="0" y1="0" x2="20" y2="0" stroke="#4D3928" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="0" cy="0" r="2.8" fill="#B9654B"/>
+  </g>
+
+  <!-- Framed Botanical Illustration -->
+  <g transform="translate(1022, 232)">
+    <rect x="3" y="4" width="94" height="114" rx="2" fill="#6E4E2E" opacity="0.18"/>
+    <rect x="0" y="0" width="94" height="114" rx="2" fill="#B8804E" stroke="#86552D" stroke-width="2"/>
+    <rect x="8" y="8" width="78" height="98" fill="#FAF2E2" stroke="#D8C8AE" stroke-width="1"/>
+    <!-- Pressed Herb Sprig -->
+    <path d="M47,90 Q45,56 49,24" fill="none" stroke="#628655" stroke-width="2.2" stroke-linecap="round"/>
+    <ellipse cx="37" cy="68" rx="9" ry="4.5" transform="rotate(-25 37 68)" fill="#779E69"/>
+    <ellipse cx="57" cy="62" rx="9" ry="4.5" transform="rotate(25 57 62)" fill="#779E69"/>
+    <ellipse cx="38" cy="48" rx="8" ry="4" transform="rotate(-30 38 48)" fill="#89B17A"/>
+    <ellipse cx="58" cy="42" rx="8" ry="4" transform="rotate(28 58 42)" fill="#89B17A"/>
+    <circle cx="49" cy="24" r="5" fill="#E6B24C"/>
+  </g>
+
+  <!-- ==================== 5. KITCHEN COUNTERS, SINK & STOVE ==================== -->
+  <!-- Base Cabinets -->
+  <rect x="275" y="376" width="565" height="169" fill="url(#cabinetGrad)" stroke="#536B57" stroke-width="2"/>
+  <!-- Toe Kick -->
+  <rect x="275" y="532" width="565" height="13" fill="#465C4A"/>
+
+  <!-- Cabinet Doors & Drawers -->
+  <!-- Left Cabinet Section -->
+  <rect x="288" y="388" width="112" height="32" rx="2" fill="url(#cabinetDoorGrad)" stroke="#58705C" stroke-width="1.5"/>
+  <circle cx="344" cy="404" r="4" fill="#D4AC63" stroke="#9B7534" stroke-width="1"/>
+  <rect x="288" y="428" width="112" height="96" rx="2" fill="url(#cabinetDoorGrad)" stroke="#58705C" stroke-width="1.5"/>
+  <rect x="298" y="438" width="92" height="76" rx="1" fill="none" stroke="#5E7762" stroke-width="1.5"/>
+  <circle cx="388" cy="446" r="3.8" fill="#D4AC63" stroke="#9B7534" stroke-width="1"/>
+
+  <!-- Middle-Left Drawer & Door -->
+  <rect x="408" y="388" width="98" height="32" rx="2" fill="url(#cabinetDoorGrad)" stroke="#58705C" stroke-width="1.5"/>
+  <circle cx="457" cy="404" r="4" fill="#D4AC63" stroke="#9B7534" stroke-width="1"/>
+  <rect x="408" y="428" width="98" height="96" rx="2" fill="url(#cabinetDoorGrad)" stroke="#58705C" stroke-width="1.5"/>
+  <rect x="418" y="438" width="78" height="76" rx="1" fill="none" stroke="#5E7762" stroke-width="1.5"/>
+  <circle cx="494" cy="446" r="3.8" fill="#D4AC63" stroke="#9B7534" stroke-width="1"/>
+
+  <!-- Under-Sink Doors -->
+  <rect x="518" y="432" width="74" height="92" rx="2" fill="url(#cabinetDoorGrad)" stroke="#58705C" stroke-width="1.5"/>
+  <circle cx="582" cy="450" r="3.8" fill="#D4AC63" stroke="#9B7534" stroke-width="1"/>
+  <rect x="598" y="432" width="74" height="92" rx="2" fill="url(#cabinetDoorGrad)" stroke="#58705C" stroke-width="1.5"/>
+  <circle cx="608" cy="450" r="3.8" fill="#D4AC63" stroke="#9B7534" stroke-width="1"/>
+
+  <!-- Right Cabinet Section -->
+  <rect x="684" y="388" width="142" height="32" rx="2" fill="url(#cabinetDoorGrad)" stroke="#58705C" stroke-width="1.5"/>
+  <circle cx="755" cy="404" r="4" fill="#D4AC63" stroke="#9B7534" stroke-width="1"/>
+  <rect x="684" y="428" width="68" height="96" rx="2" fill="url(#cabinetDoorGrad)" stroke="#58705C" stroke-width="1.5"/>
+  <circle cx="742" cy="446" r="3.8" fill="#D4AC63" stroke="#9B7534" stroke-width="1"/>
+  <rect x="758" y="428" width="68" height="96" rx="2" fill="url(#cabinetDoorGrad)" stroke="#58705C" stroke-width="1.5"/>
+  <circle cx="768" cy="446" r="3.8" fill="#D4AC63" stroke="#9B7534" stroke-width="1"/>
+
+  <!-- Hanging Gingham Towel on Right Cabinet -->
+  <path d="M766,435 L796,435 L798,488 Q781,493 764,488 Z" fill="#F8F2E6" stroke="#CBBFA8" stroke-width="1.2"/>
+  <rect x="765" y="446" width="32" height="7" fill="#C96D4B" opacity="0.75"/>
+  <rect x="765" y="460" width="32" height="4" fill="#C96D4B" opacity="0.55"/>
+
+  <!-- Butcher-Block Countertop -->
+  <rect x="272" y="362" width="576" height="16" rx="2" fill="url(#woodTopGrad)" stroke="#9A6434" stroke-width="1.5"/>
+
+  <!-- Farmhouse Apron Sink (Under Window) -->
+  <rect x="518" y="362" width="154" height="64" rx="4" fill="#FAF6EE" stroke="#CEC4B2" stroke-width="2"/>
+  <rect x="524" y="366" width="142" height="14" fill="#EAE3D4"/>
+  <!-- Brass Gooseneck Faucet -->
+  <path d="M595,362 L595,332 Q595,314 612,314 Q626,314 626,330" fill="none" stroke="#C5984A" stroke-width="6" stroke-linecap="round"/>
+  <rect x="588" y="357" width="14" height="6" rx="2" fill="#B2843A"/>
+  <rect x="572" y="358" width="10" height="5" rx="2" fill="#C5984A"/>
+  <!-- Soap Dispenser & Wooden Dish Brush -->
+  <rect x="642" y="340" width="12" height="22" rx="3" fill="#7D9B84" stroke="#56705C" stroke-width="1"/>
+  <path d="M648,340 L648,334 L654,334" fill="none" stroke="#B2843A" stroke-width="2"/>
+
+  <!-- Cutting Board & Fresh Lemons on Right Counter -->
+  <rect x="712" y="352" width="76" height="10" rx="3" fill="#D59A5E" stroke="#9B6636" stroke-width="1.2"/>
+  <ellipse cx="738" cy="347" rx="11" ry="7.5" fill="#F4CF47" stroke="#C8A225" stroke-width="1.2"/>
+  <ellipse cx="762" cy="348" rx="10" ry="7" fill="#E8BE34" stroke="#C8A225" stroke-width="1.2"/>
+  <!-- Ceramic Bowl with Apples on Far Right Counter -->
+  <path d="M798,344 Q800,362 818,362 Q836,362 838,344 Z" fill="#EAE0CC" stroke="#BEB198" stroke-width="1.2"/>
+  <circle cx="811" cy="343" r="7" fill="#C94E3D"/>
+  <circle cx="825" cy="344" r="7" fill="#D96548"/>
+  <circle cx="818" cy="338" r="7" fill="#B84232"/>
+
+  <!-- Vintage Cream Stove & Oven (Left) -->
+  <!-- Stove Backsplash -->
+  <rect x="75" y="336" width="200" height="28" rx="4" fill="#EFE6D5" stroke="#CBBBA1" stroke-width="1.5"/>
+  <!-- Stove Control Knobs -->
+  <circle cx="105" cy="350" r="6" fill="#B57B4A" stroke="#7E512C" stroke-width="1.2"/>
+  <circle cx="132" cy="350" r="6" fill="#B57B4A" stroke="#7E512C" stroke-width="1.2"/>
+  <circle cx="218" cy="350" r="6" fill="#B57B4A" stroke="#7E512C" stroke-width="1.2"/>
+  <circle cx="245" cy="350" r="6" fill="#B57B4A" stroke="#7E512C" stroke-width="1.2"/>
+
+  <!-- Stove Body -->
+  <rect x="75" y="364" width="200" height="181" rx="4" fill="url(#stoveBodyGrad)" stroke="#C7B69B" stroke-width="2"/>
+  <!-- Stovetop Dark Plate & Burners -->
+  <rect x="78" y="364" width="194" height="10" fill="#4B4640"/>
+  <rect x="98" y="360" width="54" height="5" rx="2" fill="#2E2A26"/>
+  <rect x="196" y="360" width="54" height="5" rx="2" fill="#2E2A26"/>
+  <!-- Tiny Warm Burner Glow under Skillet -->
+  <ellipse cx="125" cy="364" rx="16" ry="2.5" fill="#FF8C3B" opacity="0.85"/>
+
+  <!-- Oven Door -->
+  <rect x="92" y="392" width="166" height="128" rx="8" fill="#F2E9D8" stroke="#C5B49A" stroke-width="2"/>
+  <!-- Oven Handle -->
+  <rect x="110" y="402" width="130" height="8" rx="4" fill="#B88B4E" stroke="#855E2D" stroke-width="1.2"/>
+  <!-- Hanging Oven Mitt -->
+  <path d="M214,408 L228,408 L232,438 Q232,448 220,448 Q210,448 210,436 L204,430 Q201,424 208,422 L212,424 Z" fill="#C96D4B" stroke="#91482D" stroke-width="1.2"/>
+
+  <!-- Oven Window (Warm Interior) -->
+  <g clip-path="url(#ovenClip)">
+    <rect x="108" y="425" width="134" height="72" fill="#4A3422"/>
+    <ellipse cx="175" cy="482" rx="60" ry="28" fill="#F09A42" opacity="0.32"/>
+    <line x1="108" y1="468" x2="242" y2="468" stroke="#8F8578" stroke-width="3"/>
+    <!-- Baking Loaf Pan inside Oven -->
+    <polygon points="145,455 205,455 200,468 150,468" fill="#7D766D"/>
+    <path d="M148,455 Q175,438 202,455 Z" fill="#D59247"/>
+  </g>
+  <rect x="108" y="425" width="134" height="72" rx="8" fill="none" stroke="#8D7E69" stroke-width="2.5"/>
+  <!-- Stove Feet -->
+  <rect x="88" y="534" width="18" height="11" rx="2" fill="#4B4640"/>
+  <rect x="244" y="534" width="18" height="11" rx="2" fill="#4B4640"/>
+
+  <!-- Cast-Iron Skillet with Sunny-Side-Up Eggs (Left Burner) -->
+  <g transform="translate(125, 355)">
+    <rect x="-26" y="-5" width="52" height="10" rx="3" fill="#3B3733" stroke="#221F1D" stroke-width="1.2"/>
+    <line x1="-26" y1="-2" x2="-52" y2="-7" stroke="#3B3733" stroke-width="5" stroke-linecap="round"/>
+    <!-- Egg Whites & Yolks Peeking Above Rim -->
+    <ellipse cx="-8" cy="-6" rx="11" ry="3.5" fill="#FFFDF7"/>
+    <circle cx="-8" cy="-7" r="4.5" fill="#F5A623"/>
+    <ellipse cx="10" cy="-6" rx="10" ry="3.2" fill="#FFFDF7"/>
+    <circle cx="10" cy="-7" r="4.2" fill="#F5A623"/>
+  </g>
+
+  <!-- Copper Kettle on Right Burner -->
+  <g transform="translate(222, 344)">
+    <path d="M-20,16 Q-22,-6 0,-8 Q22,-6 20,16 Z" fill="url(#copperGrad)" stroke="#884221" stroke-width="1.4"/>
+    <!-- Kettle Spout -->
+    <path d="M-18,6 L-30,-4 L-26,-8 L-15,1" fill="url(#copperGrad)" stroke="#884221" stroke-width="1.2"/>
+    <!-- Kettle Handle -->
+    <path d="M-12,-4 Q0,-26 12,-4" fill="none" stroke="#3D3630" stroke-width="4" stroke-linecap="round"/>
+    <ellipse cx="0" cy="-8" rx="8" ry="2.5" fill="#B5643B" stroke="#884221" stroke-width="1"/>
+    <circle cx="0" cy="-12" r="3" fill="#3D3630"/>
+  </g>
+
+  <!-- Soft Steam Rising from Kettle & Skillet -->
+  <g fill="none" stroke="#FFFFFF" stroke-linecap="round" filter="url(#steamBlur)" opacity="0.65">
+    <path d="M192,334 Q182,315 194,296 Q204,278 190,260" stroke-width="4.5"/>
+    <path d="M126,342 Q134,328 124,312" stroke-width="3.5" opacity="0.7"/>
+  </g>
+
+  <!-- ==================== 6. PENDANT LAMP ABOVE TABLE ==================== -->
+  <g transform="translate(910, 0)">
+    <line x1="0" y1="0" x2="0" y2="295" stroke="#4D3D2F" stroke-width="3"/>
+    <ellipse cx="0" cy="342" rx="68" ry="32" fill="url(#lampGlow)" opacity="0.45"/>
+    <path d="M-48,332 Q0,282 48,332 Z" fill="#C9704B" stroke="#964D30" stroke-width="2"/>
+    <ellipse cx="0" cy="332" rx="48" ry="8" fill="#FAF0DA" stroke="#964D30" stroke-width="1.5"/>
+    <circle cx="0" cy="333" r="8" fill="#FFE699"/>
+  </g>
+
+  <!-- ==================== 7. SLEEPING ORANGE TABBY CAT ON RUG ==================== -->
+  <g transform="translate(470, 646)">
+    <!-- Soft Shadow -->
+    <ellipse cx="0" cy="14" rx="46" ry="15" fill="#4A2E16" opacity="0.22"/>
+    <!-- Curled Tail -->
+    <path d="M24,10 Q48,14 44,-2 Q40,-12 28,-6" fill="none" stroke="#D97C36" stroke-width="10" stroke-linecap="round"/>
+    <path d="M24,10 Q48,14 44,-2" fill="none" stroke="#A8551E" stroke-width="2" stroke-dasharray="4 6"/>
+    <!-- Cat Body -->
+    <ellipse cx="2" cy="2" rx="34" ry="20" fill="#E58B44" stroke="#B25E24" stroke-width="1.5"/>
+    <!-- Tabby Stripes on Back -->
+    <path d="M-8,-14 Q-4,-4 -10,4 M4,-16 Q8,-5 2,4 M16,-13 Q18,-4 13,4" fill="none" stroke="#B25E24" stroke-width="3" stroke-linecap="round" opacity="0.65"/>
+    <!-- Cat Head -->
+    <circle cx="-24" cy="4" r="15" fill="#EC964F" stroke="#B25E24" stroke-width="1.5"/>
+    <!-- Ears -->
+    <polygon points="-35,-6 -38,-20 -26,-11" fill="#E58B44" stroke="#B25E24" stroke-width="1.3"/>
+    <polygon points="-16,-8 -10,-21 -6,-8" fill="#E58B44" stroke="#B25E24" stroke-width="1.3"/>
+    <polygon points="-34,-8 -36,-16 -28,-11" fill="#F4B7A0"/>
+    <polygon points="-14,-9 -10,-17 -8,-9" fill="#F4B7A0"/>
+    <!-- Closed Peaceful Eyes & Nose -->
+    <path d="M-32,4 Q-28,7 -25,4" fill="none" stroke="#5A3014" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M-21,4 Q-18,7 -15,4" fill="none" stroke="#5A3014" stroke-width="1.8" stroke-linecap="round"/>
+    <polygon points="-24,8 -21,8 -22.5,10" fill="#D97575"/>
+    <!-- Front Paw Tucked -->
+    <ellipse cx="-16" cy="16" rx="8" ry="4.5" fill="#F6D5B0" stroke="#B25E24" stroke-width="1"/>
+  </g>
+
+  <!-- ==================== 8. BREAKFAST TABLE & CHAIRS ==================== -->
+  <!-- Left Spindle-Back Chair (Behind Table Left) -->
+  <g transform="translate(728, 520)">
+    <!-- Floor Shadow -->
+    <ellipse cx="16" cy="195" rx="45" ry="12" fill="#4A2B13" opacity="0.24"/>
+    <!-- Back Legs -->
+    <line x1="-18" y1="88" x2="-22" y2="190" stroke="#854E24" stroke-width="7" stroke-linecap="round"/>
+    <line x1="36" y1="88" x2="34" y2="188" stroke="#854E24" stroke-width="7" stroke-linecap="round"/>
+    <!-- Backrest Posts & Spindles -->
+    <line x1="-18" y1="82" x2="-26" y2="-18" stroke="#9C6030" stroke-width="6.5" stroke-linecap="round"/>
+    <line x1="36" y1="82" x2="38" y2="-18" stroke="#9C6030" stroke-width="6.5" stroke-linecap="round"/>
+    <line x1="-7" y1="78" x2="-11" y2="-15" stroke="#B2733F" stroke-width="3.5"/>
+    <line x1="6" y1="78" x2="6" y2="-15" stroke="#B2733F" stroke-width="3.5"/>
+    <line x1="20" y1="78" x2="22" y2="-15" stroke="#B2733F" stroke-width="3.5"/>
+    <!-- Curved Top Rail -->
+    <path d="M-30,-16 Q6,-28 42,-16" fill="none" stroke="#9C6030" stroke-width="10" stroke-linecap="round"/>
+    <!-- Seat & Cushion -->
+    <ellipse cx="16" cy="84" rx="42" ry="14" fill="#B5753E" stroke="#854E24" stroke-width="1.5"/>
+    <ellipse cx="14" cy="80" rx="34" ry="10" fill="#7D9B84" stroke="#5A7560" stroke-width="1.2"/>
+    <!-- Front Legs -->
+    <line x1="-4" y1="92" x2="-8" y2="198" stroke="#9C6030" stroke-width="7" stroke-linecap="round"/>
+    <line x1="46" y1="90" x2="48" y2="196" stroke="#9C6030" stroke-width="7" stroke-linecap="round"/>
+  </g>
+
+  <!-- Right Spindle-Back Chair (Behind Table Right) -->
+  <g transform="translate(1078, 526)">
+    <ellipse cx="-14" cy="195" rx="45" ry="12" fill="#4A2B13" opacity="0.24"/>
+    <line x1="18" y1="88" x2="22" y2="190" stroke="#854E24" stroke-width="7" stroke-linecap="round"/>
+    <line x1="-36" y1="88" x2="-34" y2="188" stroke="#854E24" stroke-width="7" stroke-linecap="round"/>
+    <line x1="18" y1="82" x2="26" y2="-18" stroke="#9C6030" stroke-width="6.5" stroke-linecap="round"/>
+    <line x1="-36" y1="82" x2="-38" y2="-18" stroke="#9C6030" stroke-width="6.5" stroke-linecap="round"/>
+    <line x1="7" y1="78" x2="11" y2="-15" stroke="#B2733F" stroke-width="3.5"/>
+    <line x1="-6" y1="78" x2="-6" y2="-15" stroke="#B2733F" stroke-width="3.5"/>
+    <line x1="-20" y1="78" x2="-22" y2="-15" stroke="#B2733F" stroke-width="3.5"/>
+    <path d="M30,-16 Q-6,-28 -42,-16" fill="none" stroke="#9C6030" stroke-width="10" stroke-linecap="round"/>
+    <ellipse cx="-16" cy="84" rx="42" ry="14" fill="#B5753E" stroke="#854E24" stroke-width="1.5"/>
+    <ellipse cx="-14" cy="80" rx="34" ry="10" fill="#C96D4B" stroke="#964C32" stroke-width="1.2"/>
+    <line x1="4" y1="92" x2="8" y2="198" stroke="#9C6030" stroke-width="7" stroke-linecap="round"/>
+    <line x1="-46" y1="90" x2="-48" y2="196" stroke="#9C6030" stroke-width="7" stroke-linecap="round"/>
+  </g>
+
+  <!-- Farmhouse Round Wooden Table -->
+  <g transform="translate(910, 582)">
+    <!-- Table Shadow on Floor -->
+    <ellipse cx="14" cy="166" rx="165" ry="38" fill="#3D220D" opacity="0.28"/>
+    <!-- Table Legs -->
+    <line x1="-112" y1="22" x2="-122" y2="156" stroke="#8F5528" stroke-width="11" stroke-linecap="round"/>
+    <line x1="112" y1="22" x2="122" y2="156" stroke="#8F5528" stroke-width="11" stroke-linecap="round"/>
+    <line x1="-65" y1="45" x2="-70" y2="176" stroke="#A66837" stroke-width="12" stroke-linecap="round"/>
+    <line x1="65" y1="45" x2="70" y2="176" stroke="#A66837" stroke-width="12" stroke-linecap="round"/>
+    <!-- Apron Under Tabletop -->
+    <path d="M-178,0 A184,60 0 0,0 178,0 L178,16 A184,60 0 0,1 -178,16 Z" fill="#9A5E2E"/>
+    <!-- Tabletop Surface -->
+    <ellipse cx="0" cy="0" rx="184" ry="60" fill="url(#tableTopGrad)" stroke="#8E5427" stroke-width="2"/>
+    <!-- Subtle Wood Grain Rings -->
+    <ellipse cx="0" cy="0" rx="150" ry="46" fill="none" stroke="#B5753E" stroke-width="1" opacity="0.4"/>
+
+    <!-- Woven Linen Placemat -->
+    <ellipse cx="-68" cy="14" rx="54" ry="20" fill="#F5E9D3" stroke="#D1BEA0" stroke-width="1.5"/>
+
+    <!-- Plate with Croissants -->
+    <ellipse cx="-68" cy="12" rx="34" ry="13" fill="#FFFDF8" stroke="#D4C7B2" stroke-width="1.5"/>
+    <ellipse cx="-68" cy="12" rx="24" ry="8.5" fill="none" stroke="#E5DAC5" stroke-width="1"/>
+    <!-- Golden Croissant 1 -->
+    <path d="M-86,10 Q-72,-2 -56,10 Q-72,15 -86,10 Z" fill="#D98B38" stroke="#A6611E" stroke-width="1.2"/>
+    <path d="M-78,7 L-75,11 M-70,5 L-69,11 M-63,7 L-64,11" stroke="#A6611E" stroke-width="1.1"/>
+    <!-- Golden Croissant 2 -->
+    <path d="M-74,15 Q-60,5 -46,16 Q-60,20 -74,15 Z" fill="#E39A44" stroke="#A6611E" stroke-width="1.2"/>
+
+    <!-- Steaming Ceramic Mug of Coffee -->
+    <g transform="translate(-14, 18)">
+      <ellipse cx="0" cy="6" rx="13" ry="5" fill="#7A4C25" opacity="0.25"/>
+      <path d="M-11,-14 L11,-14 L9,5 Q0,9 -9,5 Z" fill="#FAF2E3" stroke="#C5B59B" stroke-width="1.3"/>
+      <ellipse cx="0" cy="-14" rx="11" ry="3.5" fill="#5E381E"/>
+      <path d="M11,-10 Q19,-8 10,1" fill="none" stroke="#C5B59B" stroke-width="2.5"/>
+    </g>
+
+    <!-- Small Glass of Orange Juice -->
+    <g transform="translate(22, 6)">
+      <polygon points="-8,-18 8,-18 7,4 -7,4" fill="#FFF8E8" fill-opacity="0.65" stroke="#B7C5C2" stroke-width="1.2"/>
+      <polygon points="-7,-11 7,-11 6,3 -6,3" fill="#F59E2D"/>
+      <ellipse cx="0" cy="-11" rx="7" ry="2.2" fill="#FFB94E"/>
+    </g>
+
+    <!-- Jar of Strawberry Jam -->
+    <g transform="translate(-118, -4)">
+      <rect x="-10" y="-12" width="20" height="18" rx="4" fill="#D14949" stroke="#992D2D" stroke-width="1"/>
+      <rect x="-9" y="-16" width="18" height="5" rx="1.5" fill="#F2E4C8" stroke="#C4B190" stroke-width="1"/>
+    </g>
+
+    <!-- Stoneware Vase with Sunflowers & Wildflowers -->
+    <g transform="translate(8, -24)">
+      <ellipse cx="0" cy="14" rx="16" ry="5" fill="#754722" opacity="0.22"/>
+      <path d="M-12,-14 Q-16,4 -10,13 Q0,16 10,13 Q16,4 12,-14 Z" fill="#829D87" stroke="#5A725E" stroke-width="1.4"/>
+      <ellipse cx="0" cy="-14" rx="10" ry="3.2" fill="#5A725E"/>
+      <!-- Stems -->
+      <path d="M-2,-14 Q-10,-34 -16,-44 M0,-14 Q2,-38 4,-50 M4,-14 Q14,-30 18,-40" fill="none" stroke="#5A834E" stroke-width="2.2" stroke-linecap="round"/>
+      <!-- Leaves -->
+      <ellipse cx="-10" cy="-28" rx="6" ry="3" transform="rotate(-35 -10 -28)" fill="#6FA061"/>
+      <ellipse cx="12" cy="-26" rx="6" ry="3" transform="rotate(30 12 -26)" fill="#6FA061"/>
+      <!-- Sunflower 1 -->
+      <g transform="translate(-16, -45)">
+        <circle cx="0" cy="0" r="10" fill="#F4C132"/>
+        <circle cx="0" cy="0" r="5" fill="#6E4423"/>
+      </g>
+      <!-- Sunflower 2 (Center Tall) -->
+      <g transform="translate(4, -52)">
+        <circle cx="0" cy="0" r="11.5" fill="#F8CA3E"/>
+        <circle cx="0" cy="0" r="5.5" fill="#6E4423"/>
+      </g>
+      <!-- White Chamomile Cluster -->
+      <g transform="translate(18, -40)">
+        <circle cx="0" cy="0" r="6" fill="#FFFDF5"/>
+        <circle cx="0" cy="0" r="2.6" fill="#F2B830"/>
+      </g>
+    </g>
+
+    <!-- Open Morning Book & Reading Glasses -->
+    <g transform="translate(86, 4) rotate(8)">
+      <path d="M-34,-12 Q-17,-16 0,-10 Q17,-16 34,-12 L38,14 Q19,10 0,15 Q-19,10 -38,14 Z" fill="#FFF9EC" stroke="#B69E7B" stroke-width="1.5"/>
+      <line x1="0" y1="-10" x2="0" y2="15" stroke="#C5B090" stroke-width="1.5"/>
+      <!-- Tiny Text Lines -->
+      <g stroke="#B8A994" stroke-width="1">
+        <line x1="-26" y1="-5" x2="-6" y2="-4"/><line x1="-27" y1="0" x2="-6" y2="1"/><line x1="-28" y1="5" x2="-6" y2="6"/>
+        <line x1="6" y1="-4" x2="26" y2="-5"/><line x1="6" y1="1" x2="27" y2="0"/><line x1="6" y1="6" x2="28" y2="5"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- Coffee Steam Wisps Rising into the Sunbeam -->
+  <g fill="none" stroke="#FFFFFF" stroke-linecap="round" filter="url(#steamBlur)" opacity="0.72">
+    <path d="M894,580 Q886,562 898,544 Q908,528 896,512" stroke-width="3.5"/>
+    <path d="M902,576 Q910,558 900,542" stroke-width="2.5" opacity="0.75"/>
+  </g>
+
+  <!-- ==================== 9. GOLDEN MORNING SUNBEAMS & DUST MOTES ==================== -->
+  <!-- Sunbeam Rays Streaming Down-Right from Window -->
+  <polygon points="462,116 550,116 835,760 545,760" fill="url(#beamGrad1)"/>
+  <polygon points="558,116 642,116 965,690 735,690" fill="url(#beamGrad2)"/>
+  <polygon points="650,116 738,116 1060,640 870,640" fill="url(#beamGrad2)" opacity="0.7"/>
+
+  <!-- Floating Dust Motes Dancing in Morning Light -->
+  <g fill="#FFFDF0">
+    <circle cx="540" cy="285" r="2.2" opacity="0.75"/>
+    <circle cx="578" cy="340" r="1.8" opacity="0.65"/>
+    <circle cx="624" cy="310" r="2.5" opacity="0.7"/>
+    <circle cx="595" cy="420" r="2" opacity="0.6"/>
+    <circle cx="655" cy="455" r="2.6" opacity="0.7"/>
+    <circle cx="690" cy="390" r="1.8" opacity="0.55"/>
+    <circle cx="740" cy="490" r="2.4" opacity="0.65"/>
+    <circle cx="795" cy="525" r="2" opacity="0.6"/>
+    <circle cx="620" cy="540" r="2.2" opacity="0.55"/>
+    <circle cx="535" cy="585" r="1.9" opacity="0.55"/>
+    <circle cx="855" cy="555" r="2.3" opacity="0.65"/>
+    <circle cx="715" cy="595" r="1.7" opacity="0.5"/>
+  </g>
+</svg>

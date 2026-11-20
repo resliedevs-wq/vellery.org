@@ -1,0 +1,7 @@
+{"type":"thread.started","thread_id":"01a1f6ee-fd4c-7e73-b650-18a7b6ebaf63"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"Subject: Venue update\n\nHi Dana,\n\nPriya at Harbor Hall confirmed yesterday afternoon that March 12 is available, with a walkthrough on March 3 if that works for us. Let me know if you have a conflict that day.\n\nThe $4,200 is under budget and covers up to 85 guests, so we should be fine unless a lot of late people sign up. They waived the AV setup fee since we're bringing our own projector.\n\nYou can review the draft contract before I sign anything. If I don't hear back I'm planning to send the signed contract back to them on Friday.\n\nLet me know if you have any questions or want to talk it through.\n\nThanks so much,  \nSam"}}
+{"type":"turn.completed","usage":{"input_tokens":12537,"cached_input_tokens":0,"cache_write_input_tokens":0,"output_tokens":976,"reasoning_output_tokens":830}}
+
+--- stderr ---
+Reading additional input from stdin...

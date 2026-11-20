@@ -1,0 +1,36 @@
+{
+  "sessionId": "sess_428a39b8-c257-481b-aaf7-32fb30f02632",
+  "traceId": "2690caed-9110-4d40-8dfa-519483abcd8d",
+  "turnId": "turn_3b081056-7b5b-4886-baf7-30255e82419d",
+  "response": "The SVG file is written. I couldn't render a PNG preview in this environment (no shell access), but the file is complete and self-contained — opening it in any browser will show the scene, including the gentle animations.\n\n**`cozy-kitchen.svg`** — a warm morning scene with:\n\n- **Sunlight** — a bright sun through a four-pane window, soft hills and birds outside, golden light beams slanting across the room, a warm pool on the floor, and drifting dust motes\n- **The kitchen** — wooden cabinets with an oven (a tea towel hangs on its handle), a cream kettle steaming on the cooktop, a range hood, tiled backsplash, and open shelves holding glass jars, utensils, cookbooks, and little plants\n- **Cozy touches** — rust-orange curtains, a wall clock, a tiny framed picture, a potted plant and lit candle on the windowsill, a trailing hanging plant, and checkered floor tiles\n- **Breakfast** — a wooden table with a steaming mug of coffee on a saucer, a croissant on a plate, a honey jar, and slippers tucked underneath\n- **The star** — an orange tabby cat curled up asleep on the teal rug, right in the sunbeam 🐱\n\nSmall SMIL animations bring it to life: steam rises from the kettle and mug, the candle flame flickers, the sun glow pulses, and dust motes twinkle through the light beams.",
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 2,
+    "inputTokens": 38847,
+    "outputTokens": 25909,
+    "totalTokens": 64756,
+    "cacheReadTokens": 7872,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 16985,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "eventCount": 17675,
+  "projection": {
+    "status": "idle",
+    "turnCount": 1,
+    "totalTokenCount": 64756,
+    "contextUsed": 32638,
+    "contextWindow": 200000
+  }
+}
+
+--- stderr ---
+ZCode Built-in stale revision=43 source=CDN
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)

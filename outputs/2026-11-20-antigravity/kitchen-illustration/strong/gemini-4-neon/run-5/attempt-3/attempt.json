@@ -1,0 +1,34 @@
+{
+  "ok": false,
+  "error": "Antigravity reported an error or denied a tool",
+  "started": "2026-11-20T03:12:19+00:00",
+  "duration_s": 6.6,
+  "command": [
+    "agy",
+    "--model",
+    "magpie/agy-cli/gemini-4-neon",
+    "--settings",
+    "{\"modelProvider\": \"gemini\", \"customModelsConfig\": {\"customModels\": {\"magpie/agy-cli/gemini-4-neon\": {\"apiProvider\": \"API_PROVIDER_GOOGLE_GEMINI\", \"modelName\": \"agy-cli/gemini-4-neon\"}}}, \"permissions\": {\"deny\": [\"read_url(*)\", \"execute_url(*)\", \"download_url(*)\"]}}",
+    "--sandbox",
+    "--mode",
+    "accept-edits",
+    "--effort",
+    "high",
+    "--output-format",
+    "json",
+    "-p",
+    "<prompt>"
+  ],
+  "served_models": null,
+  "usage": {
+    "input_tokens": 12410,
+    "output_tokens": 251,
+    "thinking_tokens": 176,
+    "cache_read_tokens": 0,
+    "total_tokens": 12661
+  },
+  "est_cost_usd": null,
+  "est_cost": null,
+  "cli_reported_cost_usd": null,
+  "files": []
+}

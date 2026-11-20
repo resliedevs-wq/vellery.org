@@ -1,0 +1,126 @@
+{
+  "ok": true,
+  "error": null,
+  "started": "2026-11-20T03:19:49+00:00",
+  "duration_s": 241.4,
+  "command": [
+    "dsh",
+    "--profile",
+    "headless",
+    "--patch",
+    "/root/.t3/projects/vellery/runner/deepseek-flash.yaml",
+    "--permission-mode",
+    "workspace-write",
+    "--approval-policy",
+    "never",
+    "--json",
+    "-"
+  ],
+  "served_models": null,
+  "usage": [
+    {
+      "inputTokens": 364,
+      "outputTokens": 286,
+      "cacheReadTokens": 5376,
+      "cacheWriteTokens": 0,
+      "totalTokens": 6026
+    },
+    {
+      "inputTokens": 745,
+      "outputTokens": 17396,
+      "cacheReadTokens": 6016,
+      "cacheWriteTokens": 0,
+      "totalTokens": 24157
+    },
+    {
+      "inputTokens": 4754,
+      "outputTokens": 6785,
+      "cacheReadTokens": 19456,
+      "cacheWriteTokens": 0,
+      "totalTokens": 30995
+    },
+    {
+      "inputTokens": 193,
+      "outputTokens": 90,
+      "cacheReadTokens": 30848,
+      "cacheWriteTokens": 0,
+      "totalTokens": 31131
+    },
+    {
+      "inputTokens": 211,
+      "outputTokens": 55,
+      "cacheReadTokens": 30976,
+      "cacheWriteTokens": 0,
+      "totalTokens": 31242
+    },
+    {
+      "inputTokens": 896,
+      "outputTokens": 960,
+      "cacheReadTokens": 31232,
+      "cacheWriteTokens": 0,
+      "totalTokens": 33088
+    },
+    {
+      "inputTokens": 228,
+      "outputTokens": 54,
+      "cacheReadTokens": 32896,
+      "cacheWriteTokens": 0,
+      "totalTokens": 33178
+    },
+    {
+      "inputTokens": 685,
+      "outputTokens": 3846,
+      "cacheReadTokens": 33152,
+      "cacheWriteTokens": 0,
+      "totalTokens": 37683
+    },
+    {
+      "inputTokens": 320,
+      "outputTokens": 2428,
+      "cacheReadTokens": 37632,
+      "cacheWriteTokens": 0,
+      "totalTokens": 40380
+    },
+    {
+      "inputTokens": 244,
+      "outputTokens": 54,
+      "cacheReadTokens": 40192,
+      "cacheWriteTokens": 0,
+      "totalTokens": 40490
+    },
+    {
+      "inputTokens": 707,
+      "outputTokens": 378,
+      "cacheReadTokens": 40448,
+      "cacheWriteTokens": 0,
+      "totalTokens": 41533
+    },
+    {
+      "inputTokens": 952,
+      "outputTokens": 1385,
+      "cacheReadTokens": 41472,
+      "cacheWriteTokens": 0,
+      "totalTokens": 43809
+    },
+    {
+      "inputTokens": 135,
+      "outputTokens": 2391,
+      "cacheReadTokens": 43776,
+      "cacheWriteTokens": 0,
+      "totalTokens": 46302
+    },
+    {
+      "inputTokens": 171,
+      "outputTokens": 109,
+      "cacheReadTokens": 46208,
+      "cacheWriteTokens": 0,
+      "totalTokens": 46488
+    }
+  ],
+  "est_cost_usd": null,
+  "est_cost": null,
+  "cli_reported_cost_usd": null,
+  "files": [
+    "kitchen.svg"
+  ]
+}

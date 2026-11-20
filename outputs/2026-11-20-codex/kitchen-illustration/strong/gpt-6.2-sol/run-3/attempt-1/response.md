@@ -1,0 +1,1 @@
+Saved and visually checked [kitchen.svg](/tmp/vellery-f0g44mfu/work/kitchen.svg). The illustration shows three red apples, a blue MONDAY mug, and a gray cat asleep on a folded newspaper, with morning sunlight coming through the left window.

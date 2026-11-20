@@ -1,0 +1,38 @@
+{
+  "sessionId": "sess_d03ecc79-e49d-4029-ae3c-319a82f98529",
+  "traceId": "a1f34bbb-675f-40c2-8c9f-bee95a005532",
+  "turnId": "turn_61e68696-2675-4e96-8cee-22ddfd87cbe6",
+  "response": "Done! I drew your cozy morning kitchen as an SVG illustration:\n\n**`/tmp/vellery-g9j46lx0/work/cozy-kitchen-morning.svg`**\n\nJust open it in any browser to see it (shell access wasn't available in this session, so I couldn't also render a PNG — the SVG scales crisply at any size, though).\n\nWhat's in the scene:\n- **Morning light** — a low sun rising over green hills in the window, golden beams streaming across the room with floating dust motes\n- **Breakfast in progress** — a terracotta kettle steaming on the stove (with a pie warming in the oven below), a sage-green coffee mug, a French press, fresh bread on a cutting board, and a fruit bowl\n- **Cozy details** — a content orange cat dozing in the sunbeam on a patterned rug, slippers by the fridge, a towel on the oven handle, jars/plants/cookbooks on wooden shelves, warm pendant lamps, and soft curtains\n- **Palette** — warm creams, terracotta, honey-gold light, with a gentle vignette for that just-woke-up glow\n\nIf you'd like changes — a different time of day, more (or less) clutter, different colors, a window cat instead of a floor cat — just say the word and I'll adjust it.",
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 3,
+    "inputTokens": 48159,
+    "outputTokens": 27115,
+    "totalTokens": 75274,
+    "cacheReadTokens": 8448,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 17887,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "eventCount": 18286,
+  "projection": {
+    "status": "idle",
+    "turnCount": 1,
+    "totalTokenCount": 75274,
+    "contextUsed": 33959,
+    "contextWindow": 200000
+  }
+}
+
+--- stderr ---
+ZCode Built-in stale revision=43 source=CDN
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)

@@ -1,0 +1,215 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="700" viewBox="0 0 900 700" role="img" aria-labelledby="title">
+  <title id="title">Monday-morning kitchen table: three red apples, a blue mug reading MONDAY, and a gray cat asleep on a folded newspaper, lit by a sunny window on the left.</title>
+
+  <defs>
+    <linearGradient id="wallGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F4EBDA"/>
+      <stop offset="1" stop-color="#EADDC3"/>
+    </linearGradient>
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFE9C2"/>
+      <stop offset="1" stop-color="#FDDEA8"/>
+    </linearGradient>
+    <linearGradient id="beamGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFE7A3" stop-opacity="0.5"/>
+      <stop offset="0.65" stop-color="#FFDF9E" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#FFDF9E" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="glowGrad">
+      <stop offset="0" stop-color="#FFE7A3" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#FFE7A3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="appleGrad" cx="0.35" cy="0.3" r="0.85">
+      <stop offset="0" stop-color="#CB5A4C"/>
+      <stop offset="0.55" stop-color="#B5433B"/>
+      <stop offset="1" stop-color="#9E3830"/>
+    </radialGradient>
+    <clipPath id="mugClip">
+      <rect x="620" y="368" width="60" height="58" rx="9"/>
+    </clipPath>
+  </defs>
+
+  <!-- wall -->
+  <rect x="0" y="0" width="900" height="700" fill="url(#wallGrad)"/>
+
+  <!-- skirting and floor -->
+  <rect x="0" y="566" width="900" height="14" fill="#E7DABB"/>
+  <rect x="0" y="580" width="900" height="120" fill="#D9B48C"/>
+  <g stroke="#C6A175" stroke-width="2" opacity="0.55">
+    <line x1="0" y1="618" x2="900" y2="618"/>
+    <line x1="0" y1="652" x2="900" y2="652"/>
+    <g opacity="0.6">
+      <line x1="320" y1="580" x2="320" y2="618"/>
+      <line x1="590" y1="580" x2="590" y2="618"/>
+      <line x1="150" y1="618" x2="150" y2="652"/>
+      <line x1="460" y1="618" x2="460" y2="652"/>
+      <line x1="760" y1="618" x2="760" y2="652"/>
+      <line x1="260" y1="652" x2="260" y2="700"/>
+      <line x1="640" y1="652" x2="640" y2="700"/>
+    </g>
+  </g>
+
+  <!-- window on the left -->
+  <g>
+    <rect x="70" y="80" width="220" height="310" rx="6" fill="#F8F1E0" stroke="#C4A87E" stroke-width="3"/>
+    <rect x="86" y="96" width="188" height="278" fill="url(#skyGrad)"/>
+    <circle cx="130" cy="160" r="44" fill="#FFE1A6" opacity="0.6"/>
+    <circle cx="130" cy="160" r="26" fill="#FFD28C"/>
+    <path d="M86,330 Q140,300 200,322 Q240,336 274,324 L274,374 L86,374 Z" fill="#D8C294"/>
+    <g stroke="#B99B72" stroke-width="2" fill="none" stroke-linecap="round">
+      <path d="M208,182 q4,-5 8,0"/>
+      <path d="M224,172 q4,-5 8,0"/>
+    </g>
+    <g fill="#F8F1E0" stroke="#C4A87E" stroke-width="1.5">
+      <rect x="171" y="96" width="12" height="278"/>
+      <rect x="86" y="168" width="188" height="10"/>
+      <rect x="86" y="292" width="188" height="10"/>
+    </g>
+    <rect x="58" y="388" width="244" height="14" rx="3" fill="#EFE3C8" stroke="#C4A87E" stroke-width="2"/>
+    <!-- little plant on the sill -->
+    <g>
+      <g stroke="#8A9B66" stroke-width="2.5" fill="none" stroke-linecap="round">
+        <path d="M252,376 q-4,-12 -10,-18"/>
+        <path d="M256,376 q0,-16 3,-22"/>
+        <path d="M260,376 q6,-10 12,-16"/>
+      </g>
+      <ellipse cx="241" cy="357" rx="5" ry="3.4" fill="#8A9B66" transform="rotate(-35 241 357)"/>
+      <ellipse cx="260" cy="352" rx="5" ry="3.4" fill="#8A9B66" transform="rotate(5 260 352)"/>
+      <ellipse cx="273" cy="359" rx="5" ry="3.4" fill="#8A9B66" transform="rotate(40 273 359)"/>
+      <path d="M240,376 L272,376 L269,400 L243,400 Z" fill="#B0705A"/>
+      <rect x="237" y="371" width="38" height="7" rx="2" fill="#C08066"/>
+    </g>
+  </g>
+
+  <!-- morning light -->
+  <ellipse cx="195" cy="235" rx="285" ry="235" fill="url(#glowGrad)"/>
+  <g fill="url(#beamGrad)">
+    <path d="M96,120 L158,118 L840,585 L760,628 Z"/>
+    <path d="M188,112 L232,110 L700,470 L648,496 Z"/>
+    <path d="M118,258 L156,256 L560,568 L515,590 Z"/>
+  </g>
+  <g fill="#FFF2C4">
+    <circle cx="252" cy="242" r="2.5" opacity="0.7"/>
+    <circle cx="298" cy="292" r="2" opacity="0.6"/>
+    <circle cx="352" cy="348" r="2.6" opacity="0.65"/>
+    <circle cx="206" cy="196" r="1.6" opacity="0.6"/>
+  </g>
+  <path d="M330,582 L640,582 L810,700 L350,700 Z" fill="#FFE3A0" opacity="0.22"/>
+
+  <!-- table -->
+  <ellipse cx="470" cy="668" rx="255" ry="20" fill="#7A5A38" opacity="0.22"/>
+  <g>
+    <rect x="266" y="458" width="418" height="14" fill="#96693F"/>
+    <rect x="262" y="458" width="26" height="202" rx="3" fill="#A0734A"/>
+    <rect x="278" y="458" width="10" height="202" rx="3" fill="#8F6640"/>
+    <rect x="662" y="458" width="26" height="202" rx="3" fill="#A0734A"/>
+    <rect x="678" y="458" width="10" height="202" rx="3" fill="#8F6640"/>
+    <rect x="240" y="424" width="470" height="12" rx="3" fill="#C89767"/>
+    <rect x="240" y="434" width="470" height="26" rx="3" fill="#AC7C4E"/>
+    <rect x="240" y="424" width="470" height="36" rx="3" fill="none" stroke="#96693F" stroke-width="1.5"/>
+    <polygon points="250,424 480,424 455,434 240,434" fill="#FFE7A3" opacity="0.3"/>
+  </g>
+
+  <!-- folded newspaper -->
+  <g>
+    <ellipse cx="373" cy="428" rx="108" ry="4.5" fill="#6B4A2C" opacity="0.2"/>
+    <rect x="268" y="408" width="210" height="16" rx="2" fill="#EDE4CD"/>
+    <rect x="268" y="424" width="210" height="5" fill="#D6C9A9"/>
+    <rect x="404" y="411.5" width="26" height="9" rx="1" fill="#CBC0A1"/>
+    <g stroke="#B9AE92" stroke-width="2" stroke-linecap="round">
+      <line x1="436" y1="413" x2="470" y2="413"/>
+      <line x1="436" y1="417.5" x2="462" y2="417.5"/>
+      <line x1="406" y1="421.5" x2="468" y2="421.5"/>
+    </g>
+    <rect x="268" y="398" width="130" height="11" rx="2" fill="#E4DABF"/>
+    <rect x="268" y="409" width="130" height="4" fill="#D2C5A4"/>
+    <rect x="396" y="399" width="3" height="9" fill="#C9BC9C" opacity="0.7"/>
+    <g stroke="#B9AE92" stroke-width="2" stroke-linecap="round">
+      <line x1="278" y1="402" x2="384" y2="402"/>
+      <line x1="278" y1="406" x2="352" y2="406"/>
+    </g>
+  </g>
+
+  <!-- gray cat asleep on the newspaper -->
+  <g>
+    <ellipse cx="372" cy="404" rx="66" ry="5" fill="#8A7A5E" opacity="0.3"/>
+    <ellipse cx="372" cy="379" rx="63" ry="25" fill="#A3A09B"/>
+    <ellipse cx="350" cy="366" rx="28" ry="11" fill="#B5B2AD" opacity="0.45"/>
+    <circle cx="410" cy="381" r="23" fill="#9C9994"/>
+    <g stroke="#8C8883" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.45">
+      <path d="M344,360 q6,10 0,19"/>
+      <path d="M368,356 q7,11 0,22"/>
+      <path d="M392,358 q7,11 0,21"/>
+    </g>
+    <path d="M416,362 q9,11 2,23" stroke="#8C8883" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.45"/>
+    <path d="M430,394 C444,402 424,411 384,410 C352,409 330,407 318,398" stroke="#8C8883" stroke-width="9" stroke-linecap="round" fill="none"/>
+    <!-- head -->
+    <polygon points="302,357 296,337 312,350" fill="#9C9994"/>
+    <polygon points="303,355 300,344 310,351" fill="#C4A298"/>
+    <polygon points="320,350 331,335 336,352" fill="#9C9994"/>
+    <polygon points="322,350 329,341 332,352" fill="#C4A298"/>
+    <circle cx="318" cy="371" r="21" fill="#A8A5A0"/>
+    <g stroke="#6E6A66" stroke-width="2" stroke-linecap="round" fill="none">
+      <path d="M303,369 q4,3.5 8,0"/>
+      <path d="M321,369 q4,3.5 8,0"/>
+      <path d="M316,381 q-1,3.5 -5,3.5"/>
+      <path d="M316,381 q1,3.5 5,3.5"/>
+    </g>
+    <path d="M312.5,376.5 L319.5,376.5 L316,381 Z" fill="#B08D84"/>
+    <g stroke="#8C8883" stroke-width="1.3" stroke-linecap="round" opacity="0.85">
+      <line x1="299" y1="374" x2="286" y2="374"/>
+      <line x1="300" y1="378" x2="288" y2="381.5"/>
+      <line x1="335" y1="374" x2="348" y2="374"/>
+      <line x1="334" y1="378" x2="346" y2="381.5"/>
+    </g>
+  </g>
+
+  <!-- three red apples -->
+  <g>
+    <ellipse cx="511" cy="428" rx="21" ry="4" fill="#6B4A2C" opacity="0.22"/>
+    <ellipse cx="551" cy="426" rx="20" ry="4" fill="#6B4A2C" opacity="0.22"/>
+    <ellipse cx="591" cy="427" rx="20" ry="4" fill="#6B4A2C" opacity="0.22"/>
+    <!-- back apple -->
+    <g>
+      <path d="M551,392 v-8" stroke="#7A5A3A" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <ellipse cx="559" cy="382" rx="8" ry="3.8" fill="#8A9B66" transform="rotate(-28 559 382)"/>
+      <circle cx="551" cy="408" r="17" fill="url(#appleGrad)"/>
+      <path d="M546,395 Q551,389 556,395" stroke="#8F2F28" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <ellipse cx="545" cy="402" rx="5.5" ry="4" fill="#D97E6C" opacity="0.8" transform="rotate(-25 545 402)"/>
+      <circle cx="543" cy="400" r="1.8" fill="#EFA996"/>
+    </g>
+    <!-- front-left apple -->
+    <g>
+      <path d="M511,392 v-8" stroke="#7A5A3A" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <circle cx="511" cy="409" r="18" fill="url(#appleGrad)"/>
+      <path d="M506,395 Q511,389 516,395" stroke="#8F2F28" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <ellipse cx="504" cy="402" rx="6" ry="4.4" fill="#D97E6C" opacity="0.8" transform="rotate(-25 504 402)"/>
+      <circle cx="502" cy="400" r="2" fill="#EFA996"/>
+    </g>
+    <!-- front-right apple -->
+    <g>
+      <path d="M591,393 v-8" stroke="#7A5A3A" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <ellipse cx="599" cy="383" rx="8" ry="3.8" fill="#8A9B66" transform="rotate(-28 599 383)"/>
+      <circle cx="591" cy="409" r="17" fill="url(#appleGrad)"/>
+      <path d="M586,396 Q591,390 596,396" stroke="#8F2F28" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <ellipse cx="585" cy="402" rx="5.5" ry="4" fill="#D97E6C" opacity="0.8" transform="rotate(-25 585 402)"/>
+      <circle cx="583" cy="400" r="1.8" fill="#EFA996"/>
+    </g>
+  </g>
+
+  <!-- blue MONDAY mug -->
+  <g>
+    <ellipse cx="652" cy="428" rx="36" ry="4.5" fill="#6B4A2C" opacity="0.22"/>
+    <path d="M678,384 C702,380 704,414 678,418" fill="none" stroke="#4E7CA1" stroke-width="9"/>
+    <path d="M678,384 C702,380 704,414 678,418" fill="none" stroke="#3D6484" stroke-width="3" opacity="0.55"/>
+    <rect x="620" y="368" width="60" height="58" rx="9" fill="#4E7CA1"/>
+    <rect x="652" y="368" width="28" height="58" fill="#446F92" clip-path="url(#mugClip)"/>
+    <ellipse cx="650" cy="368" rx="30" ry="8" fill="#6C96B6"/>
+    <ellipse cx="650" cy="368" rx="22" ry="5.5" fill="#4A3A2C"/>
+    <text x="650" y="403" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10.5" font-weight="700" letter-spacing="1" fill="#F2EBDB">MONDAY</text>
+    <g stroke="#FBF3DE" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.55">
+      <path d="M636,352 q6,-9 0,-17 q-6,-9 0,-17"/>
+      <path d="M662,350 q5,-8 0,-15 q-5,-8 0,-14"/>
+    </g>
+  </g>
+</svg>

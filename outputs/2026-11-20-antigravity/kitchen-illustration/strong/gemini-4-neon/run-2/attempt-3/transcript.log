@@ -1,0 +1,4 @@
+{"conversation_id":"4c74ef53-951c-4666-a22c-13f47d9d7d14","status":"SUCCESS","response":"","duration_seconds":8.067904653,"num_turns":1,"usage":{"input_tokens":12390,"output_tokens":298,"thinking_tokens":223,"cache_read_tokens":0,"total_tokens":12688},"denied_actions":[{"action":"command","display_name":"Bash"}]}
+
+--- stderr ---
+jetski: no output produced — a tool required the "command" permission that headless mode cannot prompt for, so it was auto-denied. Add an allow-rule under permissions.allow in settings.json (e.g. command(<target>)). Alternatively, re-run with --dangerously-skip-permissions to auto-approve all tools.

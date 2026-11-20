@@ -1,0 +1,1 @@
+Created [kitchen.svg](/tmp/vellery-k340vp8_/work/kitchen.svg) and verified the rendered illustration. The front-facing table holds exactly three red apples, a blue mug labeled **MONDAY**, and a gray cat asleep on a folded newspaper. Warm morning sunlight enters from the left.

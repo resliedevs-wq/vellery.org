@@ -1,0 +1,34 @@
+{
+  "sessionId": "sess_d3665f30-91f1-4766-b300-4876934356db",
+  "traceId": "1a5a2a80-fa05-4f2b-8ee6-cff65ec4d6a6",
+  "turnId": "turn_f1b5bbfd-a3dc-48d0-a505-f0a8314cce3c",
+  "response": "It seems shell access isn't available in this session, so I can't render a preview — but the SVG itself is complete and saved at **`cozy-kitchen.svg`**. Just open it in any browser to see it.\n\nHere's what's in the scene:\n\n- **Morning light** — a big four-pane window with a rising sun, soft clouds, birds, and rolling hills; two light beams spill across the room with floating dust motes\n- **Steaming copper kettle** on a little stove, plus a toaster with two pieces of toast popping up\n- **Breakfast table** — a mustard teapot, a mug of something warm, and a croissant on a plate\n- **A sleeping ginger cat** curled up on a round terracotta rug\n- **Cozy touches** — sage-green cabinets, tiled backsplash, shelves of jam jars and cookbooks, a trailing hanging plant, a window bench with pillows, a cactus on the sill, sheer curtains, and a wall clock reading 7:15\n\nWant any changes — different colors (maybe blue cabinets?), a different time of day, or an extra pet? I'm happy to adjust it.",
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 3,
+    "inputTokens": 58735,
+    "outputTokens": 19707,
+    "totalTokens": 78442,
+    "cacheReadTokens": 32896,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 11404,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "eventCount": 12070,
+  "projection": {
+    "status": "idle",
+    "turnCount": 1,
+    "totalTokenCount": 78442,
+    "contextUsed": 26467,
+    "contextWindow": 200000
+  }
+}
+
+--- stderr ---
+ZCode Built-in stale revision=43 source=CDN
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)

@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="800" viewBox="0 0 1080 800" role="img" aria-labelledby="title desc">
+  <title id="title">Monday morning at the kitchen table</title>
+  <desc id="desc">Sunlight from an arched window falls across three red apples, a blue MONDAY mug, and a gray tabby asleep on a folded newspaper on a wooden kitchen table, viewed from the front.</desc>
+  <defs>
+    <clipPath id="window"><path d="M65 312V163a124 124 0 0 1 248 0v149Z"/></clipPath>
+    <clipPath id="body"><path d="M648 433c2-41 36-86 94-98 71-16 138 14 150 68 11 46-22 70-86 72l-120-6Z"/></clipPath>
+    <g id="apple">
+      <path fill="#924038" d="M0-27c13-11 33-8 40 8C49 0 38 28 25 37c-9 7-15 2-22 3-9 2-16 5-25-1C-37 29-46 8-43-9c2-19 21-29 37-20Z"/>
+      <path fill="currentColor" d="M0-27c14-10 29-7 35 5 7 17-1 39-15 50-12 9-26 11-38 7C-34 29-45 6-43-9c2-19 21-29 37-20Z"/>
+      <path fill="#f1a27d" d="M-33-9c1-9 8-15 16-14 4 1 4 4 0 6-6 2-10 8-12 13-2 4-5 1-4-5Z"/>
+      <path d="M-8-25q8 6 18-1" fill="none" stroke="#933d35" stroke-width="2.6" stroke-linecap="round"/>
+      <path d="M1-25q-2-11 6-21" fill="none" stroke="#644b38" stroke-width="4.8" stroke-linecap="round"/>
+      <g fill="#f2ac83"><circle cx="-26" cy="12" r="1.4"/><circle cx="-20" cy="15" r="1"/><circle cx="12" cy="23" r="1.2"/></g>
+    </g>
+    <g id="leaf" fill="#798261"><path d="M0 0Q-20-1-24-17-6-17 0 0Z"/></g>
+  </defs>
+  <!-- Plaster wall, floor and the shapes cast by the window mullions. -->
+  <path fill="#e6c4a1" d="M0 0h1080v800H0z"/>
+  <g fill="#f6dcad"><path d="m66 306 106-1 667 368H584Z"/><path d="m188 305 126-1 766 329v40H884Z"/><path d="m315 98 765 320v177L315 272Z"/></g>
+  <path fill="#c49d7e" d="M0 651h1080v149H0z"/>
+  <path fill="#eed2ad" d="M0 638h1080v13H0z"/><path fill="#b99170" d="M0 651h1080v4H0z"/>
+  <path fill="#dbb991" d="m578 655 246 0 256 108v37h-97Zm276 0h186l40 16v80Z"/>
+  <!-- Arched sash and the garden beyond it. -->
+  <path fill="#cda885" d="M47 328V166a142 142 0 0 1 284 0v162Z"/>
+  <path fill="#f8e3bd" d="M43 321V163a146 146 0 0 1 292 0v158Z"/>
+  <path fill="#ae8967" d="M58 316V163a131 131 0 0 1 262 0v153Z"/>
+  <g clip-path="url(#window)">
+    <path fill="#f3d89d" d="M62 30h255v290H62z"/>
+    <circle cx="250" cy="128" r="33" fill="#fff0bd"/>
+    <path fill="#d0c49a" d="M53 259q41-51 102-30t105-8q38-26 73-18v125H53Z"/>
+    <path fill="#acb18b" d="M50 281q38-49 90-36t99 0q49-16 85-12v94H50Z"/>
+    <g fill="none" stroke="#838d6b" stroke-width="4" stroke-linecap="round">
+      <path d="M71 323q54-46 69-122m-36 86q-6-35-32-57m44 36q29-7 46-29M78 309q45-10 62-21"/>
+    </g>
+    <g fill="#828e6c">
+      <path d="M137 216q-14-20 6-42 9 23-6 42Zm-7 19q-23-8-21-32 21 9 21 32Zm-7 15q4-24 27-30-2 23-27 30Zm-19 37q-23 0-38-21 26-1 38 21Zm-12-32q-21-4-26-28 21 6 26 28Zm48-2q5-22 28-28-1 22-28 28Zm-15 40q6-22 27-24-5 20-27 24Z"/>
+    </g>
+    <path fill="#b99875" d="M183 35h13v281h-13zM55 182h267v13H55z"/>
+    <path fill="#f8e5bf" d="M181 34h10v282h-10zM54 181h270v9H54z"/>
+  </g>
+  <path fill="#ccaa84" d="m33 327 314-2-6 16H51Z"/><rect x="32" y="314" width="316" height="14" rx="3" fill="#f7dfb4"/>
+  <!-- A small framed pear print. -->
+  <g transform="translate(858 85)">
+    <path fill="#cda988" d="M5 5h112v140H5z"/><path fill="#977053" d="M0 0h112v140H0z"/>
+    <path fill="#d3a980" d="M3 3h106v134H3z"/><path fill="#f8e7c6" d="M8 8h96v124H8z"/>
+    <path fill="#d9caa4" d="M19 20h74v99H19z"/>
+    <path fill="#a5a274" d="M55 111c-14 0-25-7-24-19 0-12 13-22 15-33 2-9 4-14 11-14 9 0 9 10 12 18 4 10 14 17 13 29-1 13-12 19-27 19Z"/>
+    <path d="M56 46q0-11 6-18" stroke="#705c41" fill="none" stroke-width="3" stroke-linecap="round"/><use href="#leaf" transform="translate(58 39) scale(.8)"/>
+  </g>
+  <!-- The table is drawn with a narrow visible top and a straight front apron. -->
+  <ellipse cx="561" cy="743" rx="435" ry="18" fill="#b59071"/>
+  <g fill="#885d49"><path d="M171 511h36l-7 181q-10 4-20 0Z"/><path d="M865 512h36l-8 180q-9 4-18 0Z"/></g>
+  <g fill="#ad7959"><path d="M119 533h42l-10 202q-11 5-25 0Z"/><path d="M920 533h44l-9 202q-12 5-25 0Z"/></g>
+  <g fill="#cc946a"><path d="M119 548h17l-1 188-9-1Z"/><path d="M920 548h16l4 189-10-2Z"/></g>
+  <path d="M125 514h831v66l-29 1c-28-2-34-15-63-16H218c-27 0-35 14-63 16h-30Z" fill="#976549"/>
+  <path fill="#b87e55" d="M127 519h826v49H127z"/>
+  <rect x="397" y="526" width="291" height="38" rx="3" fill="#9a684c"/><rect x="400" y="526" width="285" height="35" rx="2" fill="#c58c62"/>
+  <path d="M518 550a25 12 0 0 1 50 0Z" fill="#825a42"/><path d="M521 547a22 9 0 0 1 44 0Z" fill="#d8ad78"/>
+  <path fill="#945f47" d="M83 503h915v15q0 5-6 5H89q-6 0-6-5Z"/>
+  <path fill="#e1b083" d="M114 449h851l32 51q4 7-4 7H88q-8 0-4-7Z"/>
+  <path fill="#efd09c" d="M114 449h241l97 58H88q-8 0-4-7Z"/>
+  <g fill="none" stroke="#bf926a" stroke-width="1.6" stroke-linecap="round">
+    <path d="M110 496q50-3 99-1m17 1h31m256-36q26-2 57 0m346 32q30-2 53 0M179 546q39-2 83 0m12 0h25m476 4q41 2 92 0"/>
+  </g>
+  <!-- Exactly three apples. -->
+  <ellipse cx="240" cy="479" rx="111" ry="9" fill="#cca079"/>
+  <g id="apples">
+    <g transform="translate(228 425) rotate(8) scale(.88)" color="#bb5442"><use href="#apple"/><use href="#leaf" transform="translate(3 -36) rotate(8)"/></g>
+    <g transform="translate(174 443) rotate(-9) scale(.94)" color="#c96149"><use href="#apple"/></g>
+    <g transform="translate(273 449) rotate(7) scale(.89)" color="#cc6149"><use href="#apple"/><use href="#leaf" transform="translate(3 -34) scale(-.88 .88)"/></g>
+  </g>
+  <!-- Stoneware mug with a hand-lettered-looking condensed label. -->
+  <ellipse cx="435" cy="479" rx="81" ry="9" fill="#c19672"/>
+  <path d="M475 404c48-23 67 7 51 37-8 16-28 24-51 22l2-13c17 1 30-6 36-17 8-17 2-27-17-22l-17 8Z" fill="#4b727d"/>
+  <path d="M485 406c18-10 34-8 40 0" stroke="#88a7a7" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M365 387q57-12 115 0l-4 73q-1 18-21 21-31 4-64-1-20-3-21-22Z" fill="#507989"/>
+  <path d="M365 387q43-6 97 0l-2 69q0 17-13 21-30 3-58-2-15-4-18-19Z" fill="#668f9b"/>
+  <path d="M374 404l3 44" stroke="#90b1b3" stroke-width="4" stroke-linecap="round"/>
+  <ellipse cx="422.5" cy="387" rx="57.5" ry="9.5" fill="#bed1c9"/><ellipse cx="422.5" cy="387.6" rx="51" ry="5.7" fill="#435e63"/>
+  <path d="M378 390q41-7 88 0-39 7-88 0Z" fill="#805d46"/>
+  <text x="423" y="445" text-anchor="middle" fill="#fff0d2" font-family="Liberation Sans Narrow,Arial Narrow,sans-serif" font-weight="bold" font-size="25" textLength="86" lengthAdjust="spacingAndGlyphs">MONDAY</text>
+  <g fill="none" stroke="#fbebd0" stroke-width="3.1" stroke-linecap="round"><path d="M407 366c-13-14 13-23 3-40"/><path d="M426 355c-5-8 8-15 5-23"/></g>
+  <!-- Folded broadsheet with a masthead, engraved vignette and type columns. -->
+  <path d="m549 480 324-30 73 33-326 20Z" fill="#b78f6e"/>
+  <path fill="#9d937d" d="m539 473 319-29 81 32-1 7-326 17-73-20Z"/>
+  <path fill="#efe1bd" d="m541 476 320-29 77 31-324 19Z"/>
+  <path fill="#c4b99d" d="m539 472 322-32 80 33-1 5-328 18-73-19Z"/>
+  <path fill="#f4e8ca" d="m537 470 323-33 81 35-328 21Z"/>
+  <g transform="matrix(1,-.079,1.1,.48,550,470)" fill="#847e6c">
+    <text x="2" y="10" font-family="Georgia,DejaVu Serif,serif" font-size="17" font-weight="bold">The Chronicle</text>
+    <path d="M0 15h311v2H0zM0 20h42v2H0zm0 6h42v2H0zm0 6h42v2H0zm0 6h28v2H0zm51-18h47v20H51z"/>
+    <path d="m55 36 11-10 9 6 6-5 11 9Z" fill="#beb69d"/>
+    <path d="M105 20h58v2h-58zm0 6h58v2h-58zm0 6h58v2h-58zm0 6h43v2h-43zm67-18h62v2h-62zm0 6h62v2h-62zm0 6h62v2h-62zm0 6h41v2h-41zm70-18h65v2h-65zm0 6h65v2h-65zm0 6h65v2h-65zm0 6h40v2h-40z"/>
+  </g>
+  <!-- Curled sleeping tabby. -->
+  <ellipse cx="739" cy="459" rx="146" ry="13" fill="#aeaa95"/>
+  <g transform="translate(0 -7)">
+    <g clip-path="url(#body)">
+      <path fill="#939591" d="M630 315h277v168H630z"/>
+      <path fill="#a8a8a0" d="M644 439c-2-68 55-115 128-114 64 0 110 46 108 77-1 27-39 50-87 51Z"/>
+      <g fill="#7a807e">
+        <path d="M727 332q-5 24 11 42-4-22 7-42Z"/><path d="M752 324q-10 30 7 50-2-29 12-47Z"/>
+        <path d="M780 323q-10 23-5 39 8-20 21-30Z"/>
+        <path d="M869 360q-25 2-38 20 30-11 49-5Zm12 21q-28-2-40 13 29-5 48 1Z"/>
+      </g>
+    </g>
+    <path d="M728 443c14-28 39-44 74-38" fill="none" stroke="#838985" stroke-width="2.6" stroke-linecap="round"/>
+    <path d="M682 434c14 1 32 8 36 16 6 14-19 21-49 17l-32-6Z" fill="#888d89"/>
+    <path d="M615 445c-10-8-19-5-26 0-11 8-7 16 10 17l47 2 9-11Z" fill="#b5b4a9"/>
+    <!-- Triangular ears, closed eyelids and cream muzzle. -->
+    <path d="m597 411-5-39q0-5 5-3l31 18q15-5 29-1l26-24q5-4 5 2l-1 39c9 12 11 30 1 44-14 20-54 25-78 15-22-8-30-33-13-51Z" fill="#a1a39c"/>
+    <path d="m599 378 21 13-17 9Z" fill="#c79986"/><path d="m680 373-16 17 16 5Z" fill="#c79986"/>
+    <path d="m621 390 6 15 3-17Zm13-4 5 18 5-19Zm14 0 3 13 6-13Z" fill="#747c79"/>
+    <path d="M591 421q12-3 23 6-15 0-23 4Zm3 15q12-4 20 0l-15 6Zm94-23q-15-1-23 9 15-4 25-2Zm3 12q-13 0-20 8l19-3Z" fill="#7f8782"/>
+    <path d="M614 442c0-9 12-14 22-8 8-6 22-6 26 3 6 13-7 23-21 24-13 0-26-5-27-19Z" fill="#c9c7b9"/>
+    <g fill="none" stroke="#4f5855" stroke-width="2.8" stroke-linecap="round"><path d="M606 420q6 8 15 4m26-3q9 4 15-5"/><path d="m636 440 1 4q4 3 7 0m-7 0q-2 4-6 2" stroke-width="1.6"/></g>
+    <path d="M630 435q5-2 12-1-1 5-6 7-4-2-6-6Z" fill="#886e65"/>
+    <g fill="none" stroke="#676e67" stroke-width="1.55" stroke-linecap="round"><path d="M617 438q-17-4-36-1m37 5q-17 1-29 6m64-12q17-9 36-9m-35 13q21-5 36-2"/></g>
+    <!-- Broad tail folded over the forepaws. -->
+    <path d="M881 406c23 19 18 46-6 59-27 15-79 12-118 9-22-2-46 1-64 0-18-1-23-14-10-21 15-8 46-6 72-6 46 0 87-1 112-24Z" fill="#808784"/>
+    <path d="M889 423c-4 23-25 38-53 42-37 6-67-1-102-1-22 0-34 5-49 3-9-2-10-9-2-14 15-8 46-6 72-6 46 0 89-2 111-23 9-8 14-15 15-18q8 6 8 17Z" fill="#989d96"/>
+    <g fill="#707a76"><path d="M861 429q14 5 14 18l5-6q-1-12-12-18Z"/><path d="M837 439q13 8 16 20l8-5q-1-12-13-20Z"/><path d="M812 445q11 9 12 21l10-2q-1-13-12-21Z"/><path d="M785 447q9 9 10 19l9 1q1-12-9-21Z"/></g>
+  </g>
+</svg>

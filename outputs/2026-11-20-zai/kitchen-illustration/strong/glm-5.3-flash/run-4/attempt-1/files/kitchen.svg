@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" width="900" height="700" role="img" aria-labelledby="t">
+  <title id="t">Flat illustration of a kitchen table with three red apples, a blue MONDAY mug, and a folded newspaper with a gray cat asleep on top; morning light from a window on the left.</title>
+
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffe7ae"/>
+      <stop offset="1" stop-color="#fff3d9"/>
+    </linearGradient>
+  </defs>
+
+  <!-- wall -->
+  <rect x="0" y="0" width="900" height="562" fill="#eedcbf"/>
+  <!-- baseboard + floor -->
+  <rect x="0" y="548" width="900" height="16" fill="#dbc29c"/>
+  <rect x="0" y="562" width="900" height="138" fill="#cba77c"/>
+
+  <!-- soft glow around window -->
+  <ellipse cx="150" cy="190" rx="210" ry="190" fill="#ffe6ad" opacity="0.4"/>
+
+  <!-- morning light beams -->
+  <polygon points="260,84 260,134 640,384 498,384" fill="#ffe2a0" opacity="0.30"/>
+  <polygon points="260,168 260,224 780,384 660,384" fill="#ffe2a0" opacity="0.22"/>
+  <!-- light pool on the floor -->
+  <polygon points="250,562 480,562 372,700 128,700" fill="#ffe2a0" opacity="0.28"/>
+
+  <!-- window -->
+  <rect x="44" y="58" width="212" height="262" rx="6" fill="#96765a"/>
+  <rect x="58" y="72" width="184" height="234" fill="url(#sky)"/>
+  <circle cx="104" cy="124" r="36" fill="#ffe3a0" opacity="0.6"/>
+  <circle cx="104" cy="124" r="22" fill="#ffcf7d"/>
+  <rect x="146" y="72" width="8" height="234" fill="#96765a"/>
+  <rect x="58" y="185" width="184" height="8" fill="#96765a"/>
+  <rect x="36" y="318" width="228" height="14" rx="4" fill="#8a6c50"/>
+
+  <!-- floor shadow under table -->
+  <ellipse cx="560" cy="652" rx="280" ry="15" fill="#a9855c" opacity="0.5"/>
+
+  <!-- table (front view) -->
+  <rect x="318" y="412" width="26" height="236" fill="#97714f"/>
+  <rect x="776" y="412" width="26" height="236" fill="#97714f"/>
+  <rect x="302" y="410" width="516" height="16" fill="#8d6749"/>
+  <rect x="288" y="384" width="544" height="28" rx="8" fill="#a87c58"/>
+  <rect x="288" y="384" width="544" height="9" rx="4.5" fill="#bf9068"/>
+  <rect x="292" y="386" width="230" height="8" rx="4" fill="#ffdf9e" opacity="0.45"/>
+
+  <!-- contact shadows on the tabletop -->
+  <ellipse cx="429" cy="387" rx="102" ry="3.5" fill="#8a6244" opacity="0.45"/>
+  <ellipse cx="610" cy="387" rx="64" ry="3.5" fill="#8a6244" opacity="0.45"/>
+  <ellipse cx="740" cy="387" rx="52" ry="3.5" fill="#8a6244" opacity="0.45"/>
+
+  <!-- folded newspaper -->
+  <rect x="330" y="356" width="198" height="30" rx="3" fill="#f2ecdd"/>
+  <rect x="330" y="350" width="100" height="14" rx="2" fill="#e3dbc6"/>
+  <rect x="336" y="353" width="40" height="6" rx="1.5" fill="#b9b09a"/>
+  <rect x="330" y="368" width="198" height="3" fill="#d9d1bb"/>
+  <g stroke="#c6bda6" stroke-width="2" stroke-linecap="round">
+    <line x1="338" y1="374" x2="400" y2="374"/>
+    <line x1="338" y1="379" x2="386" y2="379"/>
+    <line x1="408" y1="374" x2="470" y2="374"/>
+    <line x1="408" y1="379" x2="456" y2="379"/>
+    <line x1="478" y1="374" x2="520" y2="374"/>
+    <line x1="478" y1="379" x2="508" y2="379"/>
+  </g>
+
+  <!-- gray cat asleep on the newspaper -->
+  <ellipse cx="430" cy="322" rx="72" ry="34" fill="#a3a3a7"/>
+  <g stroke="#8f8f95" stroke-width="8" stroke-linecap="round" fill="none">
+    <path d="M405 290 q8 16 3 32"/>
+    <path d="M437 288 q8 16 3 34"/>
+    <path d="M469 292 q8 14 3 30"/>
+  </g>
+  <path d="M496 338 C 514 352, 502 364, 470 365 C 438 366, 404 364, 382 352" fill="none" stroke="#8f8f95" stroke-width="12" stroke-linecap="round"/>
+  <!-- head -->
+  <circle cx="366" cy="318" r="27" fill="#a3a3a7"/>
+  <path d="M350 299 L343 275 L365 287 Z" fill="#a3a3a7"/>
+  <path d="M370 286 L381 270 L386 293 Z" fill="#a3a3a7"/>
+  <path d="M352 296 L348 281 L360 288 Z" fill="#c8a49e"/>
+  <path d="M372 286 L379 275 L382 291 Z" fill="#c8a49e"/>
+  <ellipse cx="364" cy="334" rx="11" ry="7" fill="#c9c7c9"/>
+  <path d="M361 330 h7 l-3.5 4.5 Z" fill="#d98e8e"/>
+  <!-- closed eyes -->
+  <g stroke="#6f6f74" stroke-width="2.5" stroke-linecap="round" fill="none">
+    <path d="M348 321 q6 5 12 0"/>
+    <path d="M368 320 q6 5 12 0"/>
+  </g>
+  <g stroke="#8b8b91" stroke-width="1.5" stroke-linecap="round" opacity="0.7">
+    <line x1="338" y1="330" x2="320" y2="326"/>
+    <line x1="338" y1="336" x2="321" y2="340"/>
+    <line x1="392" y1="330" x2="408" y2="327"/>
+    <line x1="392" y1="336" x2="407" y2="340"/>
+  </g>
+  <!-- tucked paw -->
+  <ellipse cx="400" cy="357" rx="12" ry="6" fill="#a3a3a7"/>
+  <g stroke="#8f8f95" stroke-width="1.5" stroke-linecap="round">
+    <line x1="396" y1="353" x2="396" y2="360"/>
+    <line x1="404" y1="353" x2="404" y2="360"/>
+  </g>
+
+  <!-- blue MONDAY mug -->
+  <path d="M640 324 h8 a18 18 0 0 1 0 42 h-8" fill="none" stroke="#55799b" stroke-width="9"/>
+  <rect x="548" y="308" width="94" height="78" rx="6" fill="#55799b"/>
+  <rect x="548" y="308" width="94" height="10" rx="5" fill="#4a6c8d"/>
+  <text x="595" y="353" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" letter-spacing="1" fill="#f2f6f9">MONDAY</text>
+  <!-- steam -->
+  <g fill="none" stroke="#fffdf4" stroke-width="4.5" stroke-linecap="round" opacity="0.6">
+    <path d="M580 296 q-9 -12 0 -24 q9 -12 0 -24"/>
+    <path d="M610 298 q9 -12 0 -24 q-9 -12 0 -24"/>
+  </g>
+
+  <!-- three red apples -->
+  <circle cx="714" cy="363" r="23" fill="#c05a4e"/>
+  <circle cx="766" cy="365" r="22" fill="#c05a4e"/>
+  <circle cx="740" cy="340" r="21" fill="#c05a4e"/>
+  <g stroke="#7a5638" stroke-width="3.5" stroke-linecap="round" fill="none">
+    <path d="M714 341 q2 -7 1 -12"/>
+    <path d="M766 344 q-2 -7 -1 -12"/>
+    <path d="M740 320 q3 -7 2 -11"/>
+  </g>
+  <ellipse cx="748" cy="314" rx="10" ry="5" fill="#8f9e6e" transform="rotate(28 748 314)"/>
+  <g fill="#d97e6e" opacity="0.85">
+    <ellipse cx="706" cy="355" rx="7" ry="4"/>
+    <ellipse cx="758" cy="357" rx="6.5" ry="4"/>
+    <ellipse cx="733" cy="333" rx="6" ry="3.5"/>
+  </g>
+</svg>

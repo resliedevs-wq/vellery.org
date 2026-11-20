@@ -1,0 +1,29 @@
+{
+  "sessionId": "sess_530a2608-c16b-4b0a-8538-057912b9826d",
+  "traceId": "088f421d-33d2-41cf-a1fb-48aa42c57479",
+  "turnId": "turn_199f2103-f450-41ec-a595-ccb1d5f626f1",
+  "response": "Here's the cleaned CSV (18 rows — down from 20):\n\n```csv\nDate,Description,Category,Amount\n2026-03-02,Office chairs,Furniture,1240.00\n2026-03-04,Printer paper,Office Supplies,48.50\n2026-03-05,Team lunch,Meals,212.40\n2026-03-09,Zoom subscription,Software,149.00\n2026-03-10,Taxi to client,Travel,36.20\n2026-03-10,Train tickets,Travel,184.00\n2026-03-12,Coffee beans,Meals,27.99\n2026-03-13,Monitor,Equipment,329.00\n2026-03-15,Notebooks,Office Supplies,22.75\n2026-03-18,Figma seats,Software,90.00\n2026-03-18,Client dinner,Meals,318.60\n2026-03-20,Desk lamp,Furniture,64.00\n2026-03-22,Hotel (2 nights),Travel,412.00\n2026-03-24,USB-C cables,Equipment,31.96\n2026-03-25,Team lunch,Meals,212.40\n2026-03-27,Pens,Office Supplies,9.80\n2026-03-30,Taxi to airport,Travel,58.00\n2026-03-31,Notion subscription,Software,96.00\n```\n\n## Changes made\n\n**Dates normalized to YYYY-MM-DD:**\n- `03/04/2026` → 2026-03-04 (month-first)\n- `March 5 2026` → 2026-03-05\n- `3/9/26` → 2026-03-09\n- `10/03/2026` → 2026-03-10 (day-first — see notes)\n- `Mar 13` → 2026-03-13\n- `18/03/2026` → 2026-03-18 (day-first)\n- `3/24/2026` → 2026-03-24\n\n**Duplicates removed (2 rows):**\n- Second `Office chairs` row (identical to the 2026-03-02 row)\n- Second `Printer paper` row (identical to the 03/04/2026 row)\n\n**Kept on purpose:**\n- Both `Team lunch` rows (2026-03-05 and 2026-03-25) — same description and amount, but different dates, so they count as repeated purchases per your rule.\n\n**Categories title-cased:**\n- `office supplies` → Office Supplies (2 rows), `travel` → Travel, `software` → Software (1 row), `furniture` → Furniture (1 row); `Office supplies`/`Office Supplies` casing unified.\n\n**Amounts cleaned:**\n- Stripped `$` and thousands commas, removed quote wrapping, padded to two decimals (`48.5` → 48.50, `149` → 149.00, `64` → 64.00).\n\n**Left alone:** descriptions (as-is, including `Hotel (2 nights)`) and original row order.\n\n## Things I wasn't sure about\n\n- **`10/03/2026`** is ambiguous: day-first reads March 10; month-first would be October 3, which falls outside March. I used March 10 — conveniently, even if the clerk *meant* to type `03/10/2026`, it lands on the same date. The source mixes month-first and day-first styles, so it's worth confirming the convention if more of this person's data comes through.\n- **The two Team lunch entries** are identical in description and amount ($212.40). I kept both since the dates differ, but if one was entered with a wrong date, it would be a duplicate — you may want to verify against receipts.\n- **`18/03/2026`** had to be day-first (there's no month 18), so that one's unambiguous.",
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 1,
+    "inputTokens": 7078,
+    "outputTokens": 3285,
+    "totalTokens": 10363,
+    "cacheReadTokens": 0,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 2390,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "eventCount": 3293,
+  "projection": {
+    "status": "idle",
+    "turnCount": 1,
+    "totalTokenCount": 10363,
+    "contextUsed": 10363,
+    "contextWindow": 200000
+  }
+}
+
+--- stderr ---
+ZCode Built-in stale revision=43 source=CDN

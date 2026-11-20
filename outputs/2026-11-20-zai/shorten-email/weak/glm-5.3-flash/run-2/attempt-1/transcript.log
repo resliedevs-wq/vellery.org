@@ -1,0 +1,29 @@
+{
+  "sessionId": "sess_3a80aac0-e455-45a8-be97-0f9463025059",
+  "traceId": "6f4d4624-ddff-48d5-80a2-3437c8e00991",
+  "turnId": "turn_409be0a4-e885-47c0-bfa6-841e53c3df70",
+  "response": "Here's a tighter version that keeps your voice but puts the key facts up front:\n\n---\n\n**Subject:** Harbor Hall confirmed for March 12 — one review needed\n\nHi Dana,\n\nGood news on the venue: Harbor Hall can confirm us for **March 12**, our original first-choice date. I finally caught Priya on the phone yesterday, and she also offered a walkthrough on **March 3** — let me know if you have a conflict that day.\n\nThe details:\n\n- **Cost:** $4,200, a bit under budget — they waived the AV setup fee since we're bringing our own projector.\n- **Capacity:** Covers up to 85 guests, right in line with our current RSVP count.\n- **Contract:** They sent a draft. I've read it through and nothing looked off, but I'd like your eyes on it before I sign.\n\n**One ask:** I'm planning to send the signed contract back Friday, so if you could review it before then, that would be a big help.\n\nHappy to talk it through if that's easier.\n\nThanks!\nSam\n\n---\n\nWhat I changed:\n\n- **Dropped the apologies** — \"sorry this is long\" and hedging about it being quick made the email feel heavier than it is. It's a genuinely positive update, so it now leads with that.\n- **Better subject line** — states the outcome and the one action needed, so Dana knows what she's opening.\n- **Key dates and numbers are scannable** — bolded and bulleted, so Dana can skim instead of digging through paragraphs.\n- **Made the implicit ask explicit** — the original buried the real request (review the contract by Friday) at the end of a long paragraph. Now it's unmissable.\n- **Shorter overall** — roughly half the length with no information lost.",
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 1,
+    "inputTokens": 7064,
+    "outputTokens": 941,
+    "totalTokens": 8005,
+    "cacheReadTokens": 0,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 565,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "eventCount": 949,
+  "projection": {
+    "status": "idle",
+    "turnCount": 1,
+    "totalTokenCount": 8005,
+    "contextUsed": 8005,
+    "contextWindow": 200000
+  }
+}
+
+--- stderr ---
+ZCode Built-in stale revision=43 source=CDN

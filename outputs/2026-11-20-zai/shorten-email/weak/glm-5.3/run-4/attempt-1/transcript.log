@@ -1,0 +1,29 @@
+{
+  "sessionId": "sess_13f16176-55ea-4b93-97b9-1b4cc4bbca76",
+  "traceId": "31863d96-d3a0-4633-a14d-40b4b7381a1f",
+  "turnId": "turn_cc14af7a-6a6b-4ac8-acbb-60e8e721e655",
+  "response": "**Subject: Harbor Hall confirmed for March 12 — contract review before Friday?**\n\nHi Dana,\n\nGood news — Harbor Hall confirmed us for March 12, our original date. I finally connected with Priya by phone yesterday after some back-and-forth. Here's where everything stands:\n\n- **Walkthrough:** March 3. No conflict on my end — let me know if you have one.\n- **Cost:** $4,200, a bit under budget. They waived the AV setup fee since we're bringing our own projector.\n- **Capacity:** Covers up to 85 guests, which is right around our current RSVP count. We're fine unless there's a late wave of signups.\n\nOne thing needs your eyes: they sent over a contract draft. I've read through it and nothing jumped out, but I'd like your take before signing. Could you look it over by Thursday? If I haven't heard from you by Friday, I'll send them the signed copy.\n\nHappy to talk it through if that's easier.\n\nThanks,\nSam\n\n---\n\nWhat changed:\n\n- **Subject line** now carries the key fact and the deadline, instead of an apology\n- **Cut the hedging** (\"sorry this is long,\" \"apologies in advance,\" \"I think\") — it's a normal-length update with genuinely good news\n- **Bulleted the logistics** so Dana can scan date, cost, and capacity in seconds\n- **Made the one action item explicit** — review the contract by Thursday, with the Friday fallback stated plainly\n- Trimmed the narrative about missed calls; the outcome is what matters",
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 1,
+    "inputTokens": 6981,
+    "outputTokens": 1079,
+    "totalTokens": 8060,
+    "cacheReadTokens": 1280,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 747,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "eventCount": 1086,
+  "projection": {
+    "status": "idle",
+    "turnCount": 1,
+    "totalTokenCount": 8060,
+    "contextUsed": 8060,
+    "contextWindow": 200000
+  }
+}
+
+--- stderr ---
+ZCode Built-in stale revision=43 source=CDN

@@ -1,0 +1,33 @@
+{
+  "sessionId": "sess_47e0be53-486a-48ee-bbd6-bc4df7016c49",
+  "traceId": "454d2e56-2fd6-4090-8290-f689e61dc7d6",
+  "turnId": "turn_c6ac9e33-8a32-485d-92be-1c292d1f1c44",
+  "response": "Done — the illustration is saved as `kitchen.svg` (900×700). The structure checks out: everything sits on the tabletop baseline at y≈436, all tags are well-formed, and the palette stays warm and muted.\n\nWhat's in the scene:\n\n- **Window (left)** — wood frame with cross mullions, pale morning sky, a soft sun in the upper-left pane, and a sill\n- **Light** — two low-opacity warm beams slanting down-right from the window onto the table, plus a brighter patch where they land on the tabletop; highlights sit on the left side of each object (apples, mug, tabletop edge)\n- **Table** — small front-view wooden table: tapered front legs, darker back legs for depth, apron, and a lighter sunlit strip along the left of the top\n- **Exactly three red apples** — a loose cluster (two behind, one in front) with stems, leaves, and warm side highlights\n- **Blue mug** — muted slate-blue cylinder with a handle, coffee visible at the rim, gentle steam wisps, and `MONDAY` printed in cream across the body\n- **Folded newspaper** — a flat two-face fold with a center crease, headline block, and column dashes\n- **Gray cat** — curled asleep on the newspaper: closed eyes, tucked tail with a darker tip, subtle back stripes, pink inner ears and nose\n\nNo people, no gradients — flat solid shapes with opacity used only for light and shadows. Note that the Bash tool isn't available in this session, so I couldn't rasterize a preview to eyeball; if anything looks off when you open it (e.g., the `MONDAY` text width in your viewer's font), tell me and I'll adjust.",
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 4,
+    "inputTokens": 67781,
+    "outputTokens": 14051,
+    "totalTokens": 81832,
+    "cacheReadTokens": 39168,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 10592,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "eventCount": 11204,
+  "projection": {
+    "status": "idle",
+    "turnCount": 1,
+    "totalTokenCount": 81832,
+    "contextUsed": 23931,
+    "contextWindow": 200000
+  }
+}
+
+--- stderr ---
+ZCode Built-in stale revision=43 source=CDN
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)

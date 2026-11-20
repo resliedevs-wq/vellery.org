@@ -1,0 +1,30 @@
+{
+  "sessionId": "sess_3c76e4a4-d30f-4919-b294-21b3c77fbb2f",
+  "traceId": "1b1a866f-62a7-4b7b-ab94-c55c9ece6b23",
+  "turnId": "turn_6973b9c4-16a5-4583-ac9c-595d6f652498",
+  "response": "Here's the cleaned sheet:\n\n```csv\nDate,Description,Category,Amount\n2026-03-02,Office chairs,Furniture,1240.00\n2026-03-04,Printer paper,Office Supplies,48.50\n2026-03-05,Team lunch,Meals,212.40\n2026-03-09,Zoom subscription,Software,149.00\n2026-03-10,Taxi to client,Travel,36.20\n2026-03-10,Train tickets,Travel,184.00\n2026-03-12,Coffee beans,Meals,27.99\n2026-03-13,Monitor,Equipment,329.00\n2026-03-15,Notebooks,Office Supplies,22.75\n2026-03-18,Figma seats,Software,90.00\n2026-03-18,Client dinner,Meals,318.60\n2026-03-20,Desk lamp,Furniture,64.00\n2026-03-22,Hotel (2 nights),Travel,412.00\n2026-03-24,USB-C cables,Equipment,31.96\n2026-03-25,Team lunch,Meals,212.40\n2026-03-27,Pens,Office Supplies,9.80\n2026-03-30,Taxi to airport,Travel,58.00\n2026-03-31,Notion subscription,Software,96.00\n```\n\n## Changes made\n\n**Dates normalized to YYYY-MM-DD:**\n- `03/04/2026` (×2) → `2026-03-04`\n- `March 5 2026` → `2026-03-05`\n- `3/9/26` → `2026-03-09`\n- `10/03/2026` → `2026-03-10`\n- `Mar 13` → `2026-03-13` (year inferred)\n- `18/03/2026` → `2026-03-18`\n- `3/24/2026` → `2026-03-24`\n\n**Duplicates removed (2 rows):**\n- Office chairs, 2026-03-02, $1,240.00 (appeared twice)\n- Printer paper, 03/04/2026, 48.5 (appeared twice)\n\n**Kept despite looking similar:**\n- Team lunch $212.40 appears twice (2026-03-05 and 2026-03-25) — different dates, so both kept per your rule.\n\n**Categories to Title Case:**\n- `office supplies` / `Office supplies` → `Office Supplies`\n- `travel` → `Travel`\n- `software` → `Software` (Figma seats row)\n- `furniture` → `Furniture`\n\n**Amounts reformatted:** stripped `$` and thousands commas, forced two decimals (`48.5` → `48.50`, `149` → `149.00`, `64` → `64.00`, `$1,240.00` → `1240.00`).\n\n## Things I wasn't sure about\n\n1. **The sheet mixes US (M/D) and European (D/M) date formats.** Each ambiguous date resolves uniquely because you said everything is from March 2026, but the conventions conflict:\n   - `03/04/2026` must be M/D (March 4) — as D/M it'd be April 3.\n   - `10/03/2026` must be D/M (March 10) — as M/D it'd be October 3.\n   - No single locale explains the whole sheet, so I resolved row-by-row using the March-2026 constraint. **Printer paper (2026-03-04) is the one to double-check**, since it's the only row where the alternative reading is a valid date in a different month.\n2. **`Mar 13` had no year** — assumed 2026 from context.\n3. **`3/9/26` two-digit year** — assumed 2026. (As D/M it would be September 3, so M/D is the only reading that fits March.)\n4. **\"Coffee beans\" is categorized as Meals** — left as given, though some sheets would class it as Office Supplies or a separate category. Similarly \"Hotel (2 nights)\" kept the parenthetical verbatim rather than splitting the description.",
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 1,
+    "inputTokens": 7161,
+    "outputTokens": 3705,
+    "totalTokens": 10866,
+    "cacheReadTokens": 0,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 2744,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "eventCount": 3715,
+  "projection": {
+    "status": "idle",
+    "turnCount": 1,
+    "totalTokenCount": 10866,
+    "contextUsed": 10866,
+    "contextWindow": 200000
+  }
+}
+
+--- stderr ---
+ZCode Built-in stale revision=43 source=CDN
+ZCode Built-in skipped (not-due)

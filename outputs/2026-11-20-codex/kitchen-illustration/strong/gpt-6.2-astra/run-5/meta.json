@@ -1,0 +1,13 @@
+{
+  "task": "kitchen-illustration",
+  "variant": "strong",
+  "model": "gpt-6.2-astra",
+  "label": "GPT-6.2 Astra",
+  "harness": "codex",
+  "effort": "high",
+  "run": 5,
+  "ok": true,
+  "attempts": 1,
+  "est_cost_usd": null,
+  "est_cost_usd_all_attempts": null
+}

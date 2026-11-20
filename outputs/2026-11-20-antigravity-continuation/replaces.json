@@ -1,0 +1,12 @@
+{
+  "batch": "2026-11-20-antigravity",
+  "runs": [
+    "kitchen-illustration/weak/gemini-4-neon",
+    "kitchen-illustration/weak/gemini-4-argon",
+    "kitchen-illustration/weak/gemini-4-hydrogen",
+    "kitchen-illustration/strong/gemini-4-neon",
+    "kitchen-illustration/strong/gemini-4-argon",
+    "kitchen-illustration/strong/gemini-4-hydrogen"
+  ],
+  "reason": "Repeat every kitchen round under the verified workspace file profile (7e6d205). Retain all 30 completed spreadsheet rounds from the original batch. Email rounds run in the continuation."
+}

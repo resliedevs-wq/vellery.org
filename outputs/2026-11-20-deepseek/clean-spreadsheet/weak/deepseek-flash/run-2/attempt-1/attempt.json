@@ -1,0 +1,100 @@
+{
+  "ok": true,
+  "error": null,
+  "started": "2026-11-20T02:43:50+00:00",
+  "duration_s": 146.0,
+  "command": [
+    "dsh",
+    "--profile",
+    "headless",
+    "--patch",
+    "/root/.t3/projects/vellery/runner/deepseek-flash.yaml",
+    "--permission-mode",
+    "workspace-write",
+    "--approval-policy",
+    "never",
+    "--json",
+    "-"
+  ],
+  "served_models": null,
+  "usage": [
+    {
+      "inputTokens": 775,
+      "outputTokens": 155,
+      "cacheReadTokens": 5248,
+      "cacheWriteTokens": 0,
+      "totalTokens": 6178
+    },
+    {
+      "inputTokens": 227,
+      "outputTokens": 1718,
+      "cacheReadTokens": 6016,
+      "cacheWriteTokens": 0,
+      "totalTokens": 7961
+    },
+    {
+      "inputTokens": 178,
+      "outputTokens": 123,
+      "cacheReadTokens": 7808,
+      "cacheWriteTokens": 0,
+      "totalTokens": 8109
+    },
+    {
+      "inputTokens": 206,
+      "outputTokens": 350,
+      "cacheReadTokens": 7936,
+      "cacheWriteTokens": 0,
+      "totalTokens": 8492
+    },
+    {
+      "inputTokens": 186,
+      "outputTokens": 438,
+      "cacheReadTokens": 8320,
+      "cacheWriteTokens": 0,
+      "totalTokens": 8944
+    },
+    {
+      "inputTokens": 170,
+      "outputTokens": 6251,
+      "cacheReadTokens": 8832,
+      "cacheWriteTokens": 0,
+      "totalTokens": 15253
+    },
+    {
+      "inputTokens": 707,
+      "outputTokens": 1147,
+      "cacheReadTokens": 15872,
+      "cacheWriteTokens": 0,
+      "totalTokens": 17726
+    },
+    {
+      "inputTokens": 158,
+      "outputTokens": 566,
+      "cacheReadTokens": 17664,
+      "cacheWriteTokens": 0,
+      "totalTokens": 18388
+    },
+    {
+      "inputTokens": 461,
+      "outputTokens": 682,
+      "cacheReadTokens": 18304,
+      "cacheWriteTokens": 0,
+      "totalTokens": 19447
+    },
+    {
+      "inputTokens": 182,
+      "outputTokens": 519,
+      "cacheReadTokens": 19328,
+      "cacheWriteTokens": 0,
+      "totalTokens": 20029
+    }
+  ],
+  "est_cost_usd": null,
+  "est_cost": null,
+  "cli_reported_cost_usd": null,
+  "files": [
+    "build_clean_expenses.py",
+    "cleaned_expenses.csv",
+    "cleaned_expenses.xlsx"
+  ]
+}

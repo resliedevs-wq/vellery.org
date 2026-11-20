@@ -1,0 +1,33 @@
+{
+  "sessionId": "sess_fe8f9ace-c8e3-48de-9cb0-40ac43e69d80",
+  "traceId": "40030287-412c-448e-895e-c1d1bcd9e7f4",
+  "turnId": "turn_184f0d14-5b9f-4b0d-9740-5e08fce8eea8",
+  "response": "Done — `kitchen.svg` is saved at `/tmp/vellery-nt9ll05d/work/kitchen.svg` (900×700).\n\n**What's in the scene:**\n- **Table** — small kitchen table, front view: wood-tone slab top, two front legs, back legs and a stretcher visible behind, shadow on the floor\n- **Three red apples** — a pyramid of two nestled plus one on top, each with stem, leaf, and a left-side highlight (exactly three)\n- **Blue mug** — muted steel-blue with handle, steam curls, and \"MONDAY\" printed across the body\n- **Folded newspaper** — stacked sheets with fold crease and headline/column lines\n- **Gray cat** — curled up asleep on the newspaper: closed eye, tucked paw, tabby stripes, tail draping over the paper's edge\n- **Morning light** — window on the left with a low sun, three soft light rays slanting down-right, a warm pool on the tabletop, dust motes, and all shadows cast to the right of the objects\n- Warm, muted palette (creams, tans, dusty red/blue/gray); no people\n\nOne note on verification: the Bash tool isn't usable in this session (\"no permission client configured\"), so I couldn't run an XML validator or renderer. I did a full manual pass over the file instead, which caught a real bug — the three apples used `r=` on `<ellipse>` (which would have rendered them invisibly) — and that's now fixed. All elements are well-formed, quoted, and closed, so it should open cleanly in any browser or vector editor.",
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 6,
+    "inputTokens": 119000,
+    "outputTokens": 15616,
+    "totalTokens": 134616,
+    "cacheReadTokens": 94336,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 11761,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "eventCount": 12455,
+  "projection": {
+    "status": "idle",
+    "turnCount": 1,
+    "totalTokenCount": 134616,
+    "contextUsed": 25720,
+    "contextWindow": 200000
+  }
+}
+
+--- stderr ---
+ZCode Built-in stale revision=43 source=CDN
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)

@@ -21,6 +21,7 @@ import re
 import shutil
 import sys
 from pathlib import Path
+from xml.etree import ElementTree
 
 import yaml
 
@@ -269,18 +270,27 @@ def drawing_items(runs):
         attempt = r["run_dir"] / f"attempt-{r['attempts']}"
         files = sorted(p for p in (attempt / "files").rglob("*") if p.suffix.lower() in (".svg", ".png"))
         srcs = []
+        invalid_svg = False
         for n, source in enumerate(files):
+            if source.suffix.lower() == ".svg":
+                try:
+                    ElementTree.parse(source)
+                except ElementTree.ParseError:
+                    invalid_svg = True
+                    continue
             dest = f"img/{r['task']}/{r['item'].split('.')[1]}-{n}{source.suffix.lower()}"
             (DIST / dest).parent.mkdir(parents=True, exist_ok=True)
             shutil.copy(source, DIST / dest)
             srcs.append("/" + dest)
-        if not srcs:
+        if not srcs and not files:
             svg = re.search(r"<svg\b[\s\S]*?</svg>", r["response"])
             if svg:
                 dest = f"img/{r['task']}/{r['item'].split('.')[1]}.svg"
                 write(dest, svg.group())
                 srcs.append("/" + dest)
         text = r["response"] if not srcs else ""
+        if invalid_svg and not srcs:
+            text = "The returned SVG contains invalid XML and cannot be displayed.\n\n" + text
         # Strip only the presentation fence, leaving the model's drawing intact.
         if text.strip().startswith("```"):
             text = re.sub(r"^```[^\n]*\n|\n```\s*$", "", text.strip())
@@ -480,13 +490,18 @@ def main():
     models = yaml.safe_load((ROOT / "models.yaml").read_text())["models"]
     all_runs = load_runs()
     gallery_slugs = {t["slug"] for t in tasks if t["kind"] == "svg" and t["slug"] != "kitchen-illustration"}
-    can_reveal = reveal_key(models, [r for r in all_runs if r["task"] in gallery_slugs])
+    # Preserve the original blind IDs, including their existing votes.
+    original = {(k["batch"], k["variant"], k["model"], k["run"])
+                for k in json.loads((KITCHEN / "key.json").read_text()).values()}
+    new_kitchen = [r for r in all_runs if r["task"] == "kitchen-illustration"
+                   and (r["batch"], r["variant"], r["model"], r["run"]) not in original]
+    can_reveal = reveal_key(models, new_kitchen + [r for r in all_runs if r["task"] in gallery_slugs])
     known, cards = {}, []
     for task in tasks:
         slug = task["slug"]
         runs = [r for r in all_runs if r["task"] == slug]
         if slug == "kitchen-illustration":
-            items = kitchen_items()
+            items = kitchen_items() + drawing_items(new_kitchen)
         elif task["kind"] == "svg":
             items = drawing_items(runs)
         else:
@@ -502,7 +517,7 @@ def main():
     write("index.html", page("Vellery", (
         '<section class="hero home"><h1>Same prompt.<br>Different results.</h1>'
         f'<p class="lede">{len(models)} AI models did the same everyday tasks five times each, once with a vague prompt and once '
-        'with a precise one. Every output is here, graded, with the reason it passed or failed.</p></section>'
+        'with a precise one. Explore the results and rate the drawings.</p></section>'
         f'<section id="tasks" class="block"><div class="legend">{legend}<span>not graded yet</span></div>'
         f'<div class="cards">{"".join(cards)}</div></section>')))
     print(f"{len(tasks)} tasks, {len(known)} votable outputs -> {DIST.relative_to(ROOT)}")

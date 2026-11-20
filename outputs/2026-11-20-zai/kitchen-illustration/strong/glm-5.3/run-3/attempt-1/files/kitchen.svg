@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 720" width="960" height="720">
+  <!-- Wall and floor -->
+  <rect x="0" y="0" width="960" height="720" fill="#F3E4CC"/>
+  <rect x="0" y="570" width="960" height="12" fill="#E6D2B2"/>
+  <rect x="0" y="582" width="960" height="138" fill="#E2C7A4"/>
+
+  <!-- Small framed picture on the right wall -->
+  <rect x="780" y="112" width="104" height="88" fill="#FBF4E4" stroke="#CBAE85" stroke-width="6"/>
+  <circle cx="812" cy="146" r="12" fill="#E4B67F"/>
+  <path d="M786,186 q42,-36 92,-10 l0,14 -92,0 z" fill="#A9B79B"/>
+
+  <!-- Window on the left -->
+  <rect x="72" y="84" width="216" height="248" rx="6" fill="#F9F3E6"/>
+  <rect x="88" y="100" width="184" height="216" fill="#FBE3B0"/>
+  <circle cx="136" cy="156" r="36" fill="#F7CD7E" opacity="0.35"/>
+  <circle cx="136" cy="156" r="24" fill="#F7CD7E"/>
+  <g fill="#FCEDCB">
+    <ellipse cx="210" cy="128" rx="24" ry="9"/>
+    <ellipse cx="228" cy="134" rx="18" ry="7"/>
+    <ellipse cx="196" cy="134" rx="16" ry="6"/>
+    <ellipse cx="120" cy="252" rx="26" ry="9"/>
+    <ellipse cx="138" cy="258" rx="17" ry="6"/>
+  </g>
+  <rect x="176" y="100" width="8" height="216" fill="#F9F3E6"/>
+  <rect x="88" y="204" width="184" height="8" fill="#F9F3E6"/>
+  <rect x="60" y="332" width="240" height="12" rx="3" fill="#E8D9BC"/>
+  <rect x="72" y="344" width="216" height="5" fill="#E3CFAF" opacity="0.6"/>
+
+  <!-- Morning light rays -->
+  <polygon points="132,150 188,150 812,584 704,584" fill="#FFDFA0" fill-opacity="0.30"/>
+  <polygon points="210,180 246,180 948,600 876,600" fill="#FFDFA0" fill-opacity="0.20"/>
+  <ellipse cx="420" cy="642" rx="250" ry="34" fill="#FFE0A2" opacity="0.22"/>
+
+  <!-- Table -->
+  <ellipse cx="600" cy="648" rx="330" ry="22" fill="#C9A87D" opacity="0.5"/>
+  <rect x="328" y="472" width="24" height="173" fill="#9A7048"/>
+  <rect x="846" y="472" width="24" height="173" fill="#9A7048"/>
+  <rect x="300" y="418" width="600" height="26" rx="4" fill="#C89A6A"/>
+  <rect x="296" y="444" width="608" height="28" rx="4" fill="#A97C50"/>
+  <rect x="296" y="444" width="608" height="6" fill="#B9885B"/>
+  <polygon points="340,418 620,418 800,444 312,444" fill="#FFE3A8" opacity="0.16"/>
+
+  <!-- Shadows of objects on the tabletop -->
+  <ellipse cx="408" cy="419" rx="70" ry="8" fill="#8F6840" opacity="0.28"/>
+  <ellipse cx="578" cy="420" rx="52" ry="8" fill="#8F6840" opacity="0.28"/>
+  <ellipse cx="775" cy="419" rx="128" ry="10" fill="#8F6840" opacity="0.28"/>
+
+  <!-- Three red apples -->
+  <g>
+    <path d="M408,363 q1,-10 6,-15" stroke="#7A5236" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M412,352 q13,-9 21,1 q-11,9 -21,-1" fill="#93A25C"/>
+    <circle cx="408" cy="388" r="26" fill="#C1523F"/>
+    <circle cx="399" cy="379" r="7" fill="#DB7B66"/>
+  </g>
+  <g>
+    <path d="M374,373 q0,-10 5,-14" stroke="#7A5236" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M370,362 q-13,-8 -20,2 q11,8 20,-2" fill="#93A25C"/>
+    <circle cx="374" cy="396" r="24" fill="#C85A45"/>
+    <circle cx="366" cy="388" r="6" fill="#DB7B66"/>
+  </g>
+  <g>
+    <path d="M446,375 q1,-9 5,-13" stroke="#7A5236" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M450,364 q12,-8 19,1 q-10,8 -19,-1" fill="#93A25C"/>
+    <circle cx="446" cy="397" r="23" fill="#BE4E3B"/>
+    <circle cx="438" cy="389" r="6" fill="#DB7B66"/>
+  </g>
+
+  <!-- Blue MONDAY mug -->
+  <path d="M616,364 C650,362 652,400 618,404" stroke="#6F8FAE" stroke-width="11" fill="none" stroke-linecap="round"/>
+  <rect x="538" y="346" width="80" height="74" rx="10" fill="#6F8FAE"/>
+  <ellipse cx="578" cy="346" rx="40" ry="11" fill="#7FA0BE"/>
+  <ellipse cx="578" cy="346" rx="31" ry="7.5" fill="#4E6B87"/>
+  <ellipse cx="578" cy="347" rx="25" ry="5.5" fill="#8A684C"/>
+  <text x="578" y="390" text-anchor="middle" font-family="Verdana, sans-serif" font-weight="bold" font-size="13" letter-spacing="1.5" fill="#F5EDDD">MONDAY</text>
+  <path d="M558,332 c-7,-9 7,-16 0,-28" stroke="#FFFFFF" stroke-opacity="0.5" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M586,334 c-7,-9 7,-16 0,-28" stroke="#FFFFFF" stroke-opacity="0.5" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+  <!-- Folded newspaper -->
+  <rect x="652" y="402" width="246" height="16" rx="3" fill="#D7CCB2"/>
+  <rect x="660" y="392" width="230" height="11" rx="3" fill="#EAE1CA"/>
+  <rect x="666" y="383" width="218" height="10" rx="2" fill="#F3ECDA"/>
+  <polygon points="672,372 878,372 884,383 666,383" fill="#FAF5E6"/>
+  <line x1="666" y1="383" x2="884" y2="383" stroke="#D8CDB4" stroke-width="1.5"/>
+  <rect x="690" y="375" width="64" height="4" fill="#CFC5AB"/>
+  <line x1="764" y1="376" x2="850" y2="376" stroke="#CFC5AB" stroke-width="2"/>
+  <line x1="764" y1="379.5" x2="834" y2="379.5" stroke="#CFC5AB" stroke-width="2"/>
+
+  <!-- Gray cat asleep on the newspaper -->
+  <path d="M812,352 C842,362 846,378 810,380" stroke="#96999E" stroke-width="11" fill="none" stroke-linecap="round"/>
+  <ellipse cx="760" cy="336" rx="60" ry="37" fill="#A6A9AE"/>
+  <path d="M738,304 q9,20 0,38" stroke="#8B8E94" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <path d="M760,301 q10,24 0,44" stroke="#8B8E94" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <path d="M782,305 q9,20 0,36" stroke="#8B8E94" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <ellipse cx="712" cy="368" rx="12" ry="7" fill="#ACAFB4"/>
+  <polygon points="680,320 670,293 698,309" fill="#ADB0B5"/>
+  <polygon points="679,315 673,299 691,308" fill="#C7A29B"/>
+  <polygon points="706,310 714,286 724,312" fill="#ADB0B5"/>
+  <polygon points="709,307 714,294 720,309" fill="#C7A29B"/>
+  <circle cx="698" cy="333" r="25" fill="#ADB0B5"/>
+  <path d="M686,333 q5,5 11,0" stroke="#6F7277" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M704,333 q5,5 11,0" stroke="#6F7277" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <polygon points="696,343 703,343 699.5,348" fill="#8F9298"/>
+  <g stroke="#CFD1D4" stroke-width="1.5">
+    <line x1="684" y1="344" x2="664" y2="341"/>
+    <line x1="684" y1="349" x2="665" y2="352"/>
+    <line x1="714" y1="344" x2="732" y2="341"/>
+    <line x1="714" y1="349" x2="733" y2="352"/>
+  </g>
+  <text x="736" y="296" font-family="Georgia, serif" font-style="italic" font-size="13" fill="#A9ACB1">z</text>
+  <text x="748" y="282" font-family="Georgia, serif" font-style="italic" font-size="17" fill="#A9ACB1">z</text>
+  <text x="763" y="266" font-family="Georgia, serif" font-style="italic" font-size="21" fill="#A9ACB1">z</text>
+</svg>

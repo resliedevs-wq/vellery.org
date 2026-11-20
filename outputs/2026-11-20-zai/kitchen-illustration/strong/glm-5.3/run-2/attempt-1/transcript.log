@@ -1,0 +1,33 @@
+{
+  "sessionId": "sess_b9fa1313-e4fa-490d-acdb-b6638c2ea3fc",
+  "traceId": "9c27d016-4131-42c9-8449-4a0b3a7d183f",
+  "turnId": "turn_5729705b-861d-45be-bc52-dc202b07ec8f",
+  "response": "The Bash tool isn't available in this session, so I couldn't run an XML validation or render a preview — but the file was written successfully with well-formed, hand-checked SVG. Here's what's in `kitchen.svg`:\n\n**Scene (900×700, flat vector, warm muted palette)**\n- **Wall & floor** — warm cream wall, muted tan floor with subtle plank lines and a skirting board.\n- **Window on the left** — wood frame with mullions, pale morning sun and soft hills visible through the glass, plus a tiny potted plant on the sill.\n- **Light** — three overlapping translucent gold beams fan out from the window's right edge across the wall, table, and floor (opacity 0.20/0.14/0.10, so nothing gets washed out).\n- **Table** — small four-legged wooden table, front view, with splayed front legs, back legs, apron, and a soft floor shadow.\n\n**On the table**\n- **Exactly three red apples** — a pyramid of two on the bottom, one on top, with stems, leaves, and flat highlights.\n- **Blue mug** — muted steel blue with a handle, darker rim with coffee inside, a light sheen strip, steam wisps, and **MONDAY** printed in warm white across the body.\n- **Folded newspaper** — cream sheet with a fold crease, headline bar, and column lines.\n- **Gray cat** — curled up asleep on the newspaper: closed eyes, pink inner ears, little nose, whiskers, striped back, tail wrapped around, and a floating *z z z*.\n\nNo people anywhere, and every color is a desaturated warm tone (creams, tans, muted red/blue/gray). Open the file in any browser to view it — and if you'd like anything nudged (apple positions, mug text size, beam intensity), just say the word.",
+  "usage": {
+    "source": "provider",
+    "modelRequestCount": 3,
+    "inputTokens": 46345,
+    "outputTokens": 14139,
+    "totalTokens": 60484,
+    "cacheReadTokens": 22016,
+    "cacheWriteTokens": 0,
+    "reasoningTokens": 10565,
+    "webFetchRequests": 0,
+    "webSearchRequests": 0
+  },
+  "eventCount": 11133,
+  "projection": {
+    "status": "idle",
+    "turnCount": 1,
+    "totalTokenCount": 60484,
+    "contextUsed": 20962,
+    "contextWindow": 200000
+  }
+}
+
+--- stderr ---
+ZCode Built-in stale revision=43 source=CDN
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)
+ZCode Built-in skipped (not-due)

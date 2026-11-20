@@ -1,0 +1,13 @@
+{
+  "task": "shorten-email",
+  "variant": "weak",
+  "model": "gemini-4-argon",
+  "label": "Gemini 4 Argon",
+  "harness": "agy",
+  "effort": "high",
+  "run": 4,
+  "ok": true,
+  "attempts": 1,
+  "est_cost_usd": null,
+  "est_cost_usd_all_attempts": null
+}
