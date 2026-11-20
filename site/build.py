@@ -605,7 +605,9 @@ def build_puzzle(task, runs, models):
                 f'<button class="cell {grade}" data-id="{r["item"]}" title="Chance {n}: {verdict.lower()}" '
                 f'aria-label="{esc(m["label"])}, chance {n}: {verdict.lower()}"><span class="g">{GLYPH[grade]}</span></button>')
         outcome = (f'<b class="good">Solved on the {CHANCE.get(won, f"#{won}")} chance</b>' if won
-                   else f'<b class="slop">Not solved</b>' if len(mine) == chances
+                   else f'<b class="slop">Not solved</b>' + (
+                       f' <span class="muted">· ran out of time ({TIMEOUT_MIN} min)</span>' if any(r.get("timed_out") for r in mine) else "")
+                   if len(mine) == chances
                    else '<b class="muted">Still running</b>')
         costs = [r.get("est_cost_usd_all_attempts", r.get("est_cost_usd")) for r in mine]
         cost = None if None in costs else sum(costs)

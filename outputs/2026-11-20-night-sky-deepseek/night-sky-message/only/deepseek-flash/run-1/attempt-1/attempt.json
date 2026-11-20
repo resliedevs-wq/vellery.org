@@ -1,0 +1,794 @@
+{
+  "ok": true,
+  "error": null,
+  "started": "2026-11-20T09:10:23+00:00",
+  "duration_s": 404.3,
+  "command": [
+    "dsh",
+    "--profile",
+    "headless",
+    "--patch",
+    "/tmp/vellery-11ek91zq/deepseek-flash.yaml",
+    "--permission-mode",
+    "workspace-write",
+    "--approval-policy",
+    "never",
+    "--json",
+    "-"
+  ],
+  "jailed": true,
+  "served_models": null,
+  "usage": [
+    {
+      "inputTokens": 308,
+      "outputTokens": 109,
+      "cacheReadTokens": 5376,
+      "cacheWriteTokens": 0,
+      "totalTokens": 5793
+    },
+    {
+      "inputTokens": 147,
+      "outputTokens": 60,
+      "cacheReadTokens": 5760,
+      "cacheWriteTokens": 0,
+      "totalTokens": 5967
+    },
+    {
+      "inputTokens": 561,
+      "outputTokens": 215,
+      "cacheReadTokens": 5888,
+      "cacheWriteTokens": 0,
+      "totalTokens": 6664
+    },
+    {
+      "inputTokens": 356,
+      "outputTokens": 284,
+      "cacheReadTokens": 6656,
+      "cacheWriteTokens": 0,
+      "totalTokens": 7296
+    },
+    {
+      "inputTokens": 709,
+      "outputTokens": 300,
+      "cacheReadTokens": 7296,
+      "cacheWriteTokens": 0,
+      "totalTokens": 8305
+    },
+    {
+      "inputTokens": 377,
+      "outputTokens": 59,
+      "cacheReadTokens": 8192,
+      "cacheWriteTokens": 0,
+      "totalTokens": 8628
+    },
+    {
+      "inputTokens": 537,
+      "outputTokens": 68,
+      "cacheReadTokens": 8576,
+      "cacheWriteTokens": 0,
+      "totalTokens": 9181
+    },
+    {
+      "inputTokens": 580,
+      "outputTokens": 204,
+      "cacheReadTokens": 9088,
+      "cacheWriteTokens": 0,
+      "totalTokens": 9872
+    },
+    {
+      "inputTokens": 158,
+      "outputTokens": 175,
+      "cacheReadTokens": 9728,
+      "cacheWriteTokens": 0,
+      "totalTokens": 10061
+    },
+    {
+      "inputTokens": 143,
+      "outputTokens": 247,
+      "cacheReadTokens": 9984,
+      "cacheWriteTokens": 0,
+      "totalTokens": 10374
+    },
+    {
+      "inputTokens": 148,
+      "outputTokens": 52,
+      "cacheReadTokens": 10240,
+      "cacheWriteTokens": 0,
+      "totalTokens": 10440
+    },
+    {
+      "inputTokens": 563,
+      "outputTokens": 400,
+      "cacheReadTokens": 10368,
+      "cacheWriteTokens": 0,
+      "totalTokens": 11331
+    },
+    {
+      "inputTokens": 2908,
+      "outputTokens": 447,
+      "cacheReadTokens": 11264,
+      "cacheWriteTokens": 0,
+      "totalTokens": 14619
+    },
+    {
+      "inputTokens": 169,
+      "outputTokens": 54,
+      "cacheReadTokens": 14464,
+      "cacheWriteTokens": 0,
+      "totalTokens": 14687
+    },
+    {
+      "inputTokens": 580,
+      "outputTokens": 222,
+      "cacheReadTokens": 14592,
+      "cacheWriteTokens": 0,
+      "totalTokens": 15394
+    },
+    {
+      "inputTokens": 515,
+      "outputTokens": 322,
+      "cacheReadTokens": 15360,
+      "cacheWriteTokens": 0,
+      "totalTokens": 16197
+    },
+    {
+      "inputTokens": 211,
+      "outputTokens": 54,
+      "cacheReadTokens": 16000,
+      "cacheWriteTokens": 0,
+      "totalTokens": 16265
+    },
+    {
+      "inputTokens": 721,
+      "outputTokens": 387,
+      "cacheReadTokens": 16256,
+      "cacheWriteTokens": 0,
+      "totalTokens": 17364
+    },
+    {
+      "inputTokens": 226,
+      "outputTokens": 53,
+      "cacheReadTokens": 17152,
+      "cacheWriteTokens": 0,
+      "totalTokens": 17431
+    },
+    {
+      "inputTokens": 722,
+      "outputTokens": 402,
+      "cacheReadTokens": 17408,
+      "cacheWriteTokens": 0,
+      "totalTokens": 18532
+    },
+    {
+      "inputTokens": 583,
+      "outputTokens": 443,
+      "cacheReadTokens": 18432,
+      "cacheWriteTokens": 0,
+      "totalTokens": 19458
+    },
+    {
+      "inputTokens": 144,
+      "outputTokens": 56,
+      "cacheReadTokens": 19328,
+      "cacheWriteTokens": 0,
+      "totalTokens": 19528
+    },
+    {
+      "inputTokens": 237,
+      "outputTokens": 134,
+      "cacheReadTokens": 19328,
+      "cacheWriteTokens": 0,
+      "totalTokens": 19699
+    },
+    {
+      "inputTokens": 190,
+      "outputTokens": 56,
+      "cacheReadTokens": 19584,
+      "cacheWriteTokens": 0,
+      "totalTokens": 19830
+    },
+    {
+      "inputTokens": 602,
+      "outputTokens": 543,
+      "cacheReadTokens": 19712,
+      "cacheWriteTokens": 0,
+      "totalTokens": 20857
+    },
+    {
+      "inputTokens": 135,
+      "outputTokens": 54,
+      "cacheReadTokens": 20736,
+      "cacheWriteTokens": 0,
+      "totalTokens": 20925
+    },
+    {
+      "inputTokens": 534,
+      "outputTokens": 346,
+      "cacheReadTokens": 20864,
+      "cacheWriteTokens": 0,
+      "totalTokens": 21744
+    },
+    {
+      "inputTokens": 254,
+      "outputTokens": 54,
+      "cacheReadTokens": 21504,
+      "cacheWriteTokens": 0,
+      "totalTokens": 21812
+    },
+    {
+      "inputTokens": 833,
+      "outputTokens": 908,
+      "cacheReadTokens": 21760,
+      "cacheWriteTokens": 0,
+      "totalTokens": 23501
+    },
+    {
+      "inputTokens": 219,
+      "outputTokens": 56,
+      "cacheReadTokens": 23296,
+      "cacheWriteTokens": 0,
+      "totalTokens": 23571
+    },
+    {
+      "inputTokens": 508,
+      "outputTokens": 386,
+      "cacheReadTokens": 23552,
+      "cacheWriteTokens": 0,
+      "totalTokens": 24446
+    },
+    {
+      "inputTokens": 784,
+      "outputTokens": 680,
+      "cacheReadTokens": 24320,
+      "cacheWriteTokens": 0,
+      "totalTokens": 25784
+    },
+    {
+      "inputTokens": 1078,
+      "outputTokens": 1100,
+      "cacheReadTokens": 25728,
+      "cacheWriteTokens": 0,
+      "totalTokens": 27906
+    },
+    {
+      "inputTokens": 371,
+      "outputTokens": 241,
+      "cacheReadTokens": 27904,
+      "cacheWriteTokens": 0,
+      "totalTokens": 28516
+    },
+    {
+      "inputTokens": 242,
+      "outputTokens": 52,
+      "cacheReadTokens": 28288,
+      "cacheWriteTokens": 0,
+      "totalTokens": 28582
+    },
+    {
+      "inputTokens": 516,
+      "outputTokens": 604,
+      "cacheReadTokens": 28544,
+      "cacheWriteTokens": 0,
+      "totalTokens": 29664
+    },
+    {
+      "inputTokens": 238,
+      "outputTokens": 54,
+      "cacheReadTokens": 29440,
+      "cacheWriteTokens": 0,
+      "totalTokens": 29732
+    },
+    {
+      "inputTokens": 517,
+      "outputTokens": 995,
+      "cacheReadTokens": 29696,
+      "cacheWriteTokens": 0,
+      "totalTokens": 31208
+    },
+    {
+      "inputTokens": 153,
+      "outputTokens": 307,
+      "cacheReadTokens": 31104,
+      "cacheWriteTokens": 0,
+      "totalTokens": 31564
+    },
+    {
+      "inputTokens": 395,
+      "outputTokens": 1070,
+      "cacheReadTokens": 31488,
+      "cacheWriteTokens": 0,
+      "totalTokens": 32953
+    },
+    {
+      "inputTokens": 199,
+      "outputTokens": 53,
+      "cacheReadTokens": 32768,
+      "cacheWriteTokens": 0,
+      "totalTokens": 33020
+    },
+    {
+      "inputTokens": 720,
+      "outputTokens": 1031,
+      "cacheReadTokens": 32896,
+      "cacheWriteTokens": 0,
+      "totalTokens": 34647
+    },
+    {
+      "inputTokens": 229,
+      "outputTokens": 54,
+      "cacheReadTokens": 34432,
+      "cacheWriteTokens": 0,
+      "totalTokens": 34715
+    },
+    {
+      "inputTokens": 511,
+      "outputTokens": 304,
+      "cacheReadTokens": 34688,
+      "cacheWriteTokens": 0,
+      "totalTokens": 35503
+    },
+    {
+      "inputTokens": 533,
+      "outputTokens": 160,
+      "cacheReadTokens": 35456,
+      "cacheWriteTokens": 0,
+      "totalTokens": 36149
+    },
+    {
+      "inputTokens": 1243,
+      "outputTokens": 312,
+      "cacheReadTokens": 36096,
+      "cacheWriteTokens": 0,
+      "totalTokens": 37651
+    },
+    {
+      "inputTokens": 171,
+      "outputTokens": 82,
+      "cacheReadTokens": 37504,
+      "cacheWriteTokens": 0,
+      "totalTokens": 37757
+    },
+    {
+      "inputTokens": 147,
+      "outputTokens": 123,
+      "cacheReadTokens": 37632,
+      "cacheWriteTokens": 0,
+      "totalTokens": 37902
+    },
+    {
+      "inputTokens": 236,
+      "outputTokens": 1066,
+      "cacheReadTokens": 37888,
+      "cacheWriteTokens": 0,
+      "totalTokens": 39190
+    },
+    {
+      "inputTokens": 164,
+      "outputTokens": 514,
+      "cacheReadTokens": 39040,
+      "cacheWriteTokens": 0,
+      "totalTokens": 39718
+    },
+    {
+      "inputTokens": 180,
+      "outputTokens": 200,
+      "cacheReadTokens": 39552,
+      "cacheWriteTokens": 0,
+      "totalTokens": 39932
+    },
+    {
+      "inputTokens": 427,
+      "outputTokens": 244,
+      "cacheReadTokens": 39808,
+      "cacheWriteTokens": 0,
+      "totalTokens": 40479
+    },
+    {
+      "inputTokens": 782,
+      "outputTokens": 742,
+      "cacheReadTokens": 40448,
+      "cacheWriteTokens": 0,
+      "totalTokens": 41972
+    },
+    {
+      "inputTokens": 898,
+      "outputTokens": 136,
+      "cacheReadTokens": 41856,
+      "cacheWriteTokens": 0,
+      "totalTokens": 42890
+    },
+    {
+      "inputTokens": 152,
+      "outputTokens": 54,
+      "cacheReadTokens": 42752,
+      "cacheWriteTokens": 0,
+      "totalTokens": 42958
+    },
+    {
+      "inputTokens": 504,
+      "outputTokens": 358,
+      "cacheReadTokens": 42880,
+      "cacheWriteTokens": 0,
+      "totalTokens": 43742
+    },
+    {
+      "inputTokens": 666,
+      "outputTokens": 902,
+      "cacheReadTokens": 43648,
+      "cacheWriteTokens": 0,
+      "totalTokens": 45216
+    },
+    {
+      "inputTokens": 174,
+      "outputTokens": 55,
+      "cacheReadTokens": 45056,
+      "cacheWriteTokens": 0,
+      "totalTokens": 45285
+    },
+    {
+      "inputTokens": 589,
+      "outputTokens": 372,
+      "cacheReadTokens": 45184,
+      "cacheWriteTokens": 0,
+      "totalTokens": 46145
+    },
+    {
+      "inputTokens": 207,
+      "outputTokens": 52,
+      "cacheReadTokens": 45952,
+      "cacheWriteTokens": 0,
+      "totalTokens": 46211
+    },
+    {
+      "inputTokens": 485,
+      "outputTokens": 882,
+      "cacheReadTokens": 46208,
+      "cacheWriteTokens": 0,
+      "totalTokens": 47575
+    },
+    {
+      "inputTokens": 229,
+      "outputTokens": 56,
+      "cacheReadTokens": 47360,
+      "cacheWriteTokens": 0,
+      "totalTokens": 47645
+    },
+    {
+      "inputTokens": 513,
+      "outputTokens": 932,
+      "cacheReadTokens": 47616,
+      "cacheWriteTokens": 0,
+      "totalTokens": 49061
+    },
+    {
+      "inputTokens": 597,
+      "outputTokens": 447,
+      "cacheReadTokens": 49024,
+      "cacheWriteTokens": 0,
+      "totalTokens": 50068
+    },
+    {
+      "inputTokens": 633,
+      "outputTokens": 810,
+      "cacheReadTokens": 50048,
+      "cacheWriteTokens": 0,
+      "totalTokens": 51491
+    },
+    {
+      "inputTokens": 646,
+      "outputTokens": 470,
+      "cacheReadTokens": 51456,
+      "cacheWriteTokens": 0,
+      "totalTokens": 52572
+    },
+    {
+      "inputTokens": 1157,
+      "outputTokens": 581,
+      "cacheReadTokens": 52480,
+      "cacheWriteTokens": 0,
+      "totalTokens": 54218
+    },
+    {
+      "inputTokens": 216,
+      "outputTokens": 55,
+      "cacheReadTokens": 54016,
+      "cacheWriteTokens": 0,
+      "totalTokens": 54287
+    },
+    {
+      "inputTokens": 645,
+      "outputTokens": 217,
+      "cacheReadTokens": 54272,
+      "cacheWriteTokens": 0,
+      "totalTokens": 55134
+    },
+    {
+      "inputTokens": 236,
+      "outputTokens": 56,
+      "cacheReadTokens": 54912,
+      "cacheWriteTokens": 0,
+      "totalTokens": 55204
+    },
+    {
+      "inputTokens": 527,
+      "outputTokens": 1419,
+      "cacheReadTokens": 55168,
+      "cacheWriteTokens": 0,
+      "totalTokens": 57114
+    },
+    {
+      "inputTokens": 596,
+      "outputTokens": 549,
+      "cacheReadTokens": 57088,
+      "cacheWriteTokens": 0,
+      "totalTokens": 58233
+    },
+    {
+      "inputTokens": 135,
+      "outputTokens": 54,
+      "cacheReadTokens": 58112,
+      "cacheWriteTokens": 0,
+      "totalTokens": 58301
+    },
+    {
+      "inputTokens": 775,
+      "outputTokens": 316,
+      "cacheReadTokens": 58240,
+      "cacheWriteTokens": 0,
+      "totalTokens": 59331
+    },
+    {
+      "inputTokens": 209,
+      "outputTokens": 57,
+      "cacheReadTokens": 59136,
+      "cacheWriteTokens": 0,
+      "totalTokens": 59402
+    },
+    {
+      "inputTokens": 500,
+      "outputTokens": 613,
+      "cacheReadTokens": 59392,
+      "cacheWriteTokens": 0,
+      "totalTokens": 60505
+    },
+    {
+      "inputTokens": 256,
+      "outputTokens": 757,
+      "cacheReadTokens": 60288,
+      "cacheWriteTokens": 0,
+      "totalTokens": 61301
+    },
+    {
+      "inputTokens": 139,
+      "outputTokens": 1664,
+      "cacheReadTokens": 61184,
+      "cacheWriteTokens": 0,
+      "totalTokens": 62987
+    },
+    {
+      "inputTokens": 153,
+      "outputTokens": 52,
+      "cacheReadTokens": 62848,
+      "cacheWriteTokens": 0,
+      "totalTokens": 63053
+    },
+    {
+      "inputTokens": 556,
+      "outputTokens": 62,
+      "cacheReadTokens": 62976,
+      "cacheWriteTokens": 0,
+      "totalTokens": 63594
+    },
+    {
+      "inputTokens": 594,
+      "outputTokens": 1050,
+      "cacheReadTokens": 63488,
+      "cacheWriteTokens": 0,
+      "totalTokens": 65132
+    },
+    {
+      "inputTokens": 696,
+      "outputTokens": 1013,
+      "cacheReadTokens": 65024,
+      "cacheWriteTokens": 0,
+      "totalTokens": 66733
+    },
+    {
+      "inputTokens": 306,
+      "outputTokens": 1701,
+      "cacheReadTokens": 66688,
+      "cacheWriteTokens": 0,
+      "totalTokens": 68695
+    },
+    {
+      "inputTokens": 797,
+      "outputTokens": 1677,
+      "cacheReadTokens": 68608,
+      "cacheWriteTokens": 0,
+      "totalTokens": 71082
+    },
+    {
+      "inputTokens": 225,
+      "outputTokens": 2301,
+      "cacheReadTokens": 71040,
+      "cacheWriteTokens": 0,
+      "totalTokens": 73566
+    },
+    {
+      "inputTokens": 254,
+      "outputTokens": 285,
+      "cacheReadTokens": 73344,
+      "cacheWriteTokens": 0,
+      "totalTokens": 73883
+    }
+  ],
+  "est_cost_usd": 0.074564,
+  "est_cost": {
+    "deepseek-flash": {
+      "input_tokens": 39979,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 2999808,
+      "output_tokens": 37143,
+      "usd": 0.074564
+    }
+  },
+  "cli_reported_cost_usd": null,
+  "files": [
+    "auto.png",
+    "autoch.png",
+    "ch_B.png",
+    "ch_G.png",
+    "ch_R.png",
+    "cheq_B.png",
+    "cheq_G.png",
+    "cheq_R.png",
+    "chroma_r10_s10.png",
+    "chroma_r10_s100.png",
+    "chroma_r10_s30.png",
+    "chroma_r20_s10.png",
+    "chroma_r20_s100.png",
+    "chroma_r20_s30.png",
+    "chroma_r40_s10.png",
+    "chroma_r40_s100.png",
+    "chroma_r40_s30.png",
+    "chroma_r5_s10.png",
+    "chroma_r5_s100.png",
+    "chroma_r5_s30.png",
+    "crop_bl.png",
+    "crop_br.png",
+    "crop_tl.png",
+    "crop_tr.png",
+    "darkscale128.png",
+    "darkscale16.png",
+    "darkscale24.png",
+    "darkscale32.png",
+    "darkscale48.png",
+    "darkscale64.png",
+    "darkscale96.png",
+    "diff_gb.png",
+    "diff_rb.png",
+    "diff_rg.png",
+    "dog_10_40.png",
+    "dog_20_80.png",
+    "dog_2_10.png",
+    "dog_5_20.png",
+    "edges.png",
+    "equal.png",
+    "full2x.png",
+    "heat_B0.png",
+    "heat_B1.png",
+    "heat_G0.png",
+    "heat_G1.png",
+    "heat_R0.png",
+    "heat_R1.png",
+    "highpass1.png",
+    "highpass10.png",
+    "highpass2.png",
+    "highpass3.png",
+    "highpass5.png",
+    "hue.png",
+    "hue_resid10.png",
+    "hue_resid3.png",
+    "invert.png",
+    "loglum.png",
+    "meddiff3.png",
+    "meddiff5.png",
+    "meddiff7.png",
+    "mirror.png",
+    "moon6x.png",
+    "neg_B_3.png",
+    "neg_B_5.png",
+    "neg_B_7.png",
+    "neg_B_9.png",
+    "neg_G_3.png",
+    "neg_G_5.png",
+    "neg_G_7.png",
+    "neg_G_9.png",
+    "neg_R_3.png",
+    "neg_R_5.png",
+    "neg_R_7.png",
+    "neg_R_9.png",
+    "night-sky.png",
+    "pil_test.png",
+    "plane_B0.png",
+    "plane_B1.png",
+    "plane_B2.png",
+    "plane_B3.png",
+    "plane_B4.png",
+    "plane_B5.png",
+    "plane_B6.png",
+    "plane_B7.png",
+    "plane_G0.png",
+    "plane_G1.png",
+    "plane_G2.png",
+    "plane_G3.png",
+    "plane_G4.png",
+    "plane_G5.png",
+    "plane_G6.png",
+    "plane_G7.png",
+    "plane_R0.png",
+    "plane_R1.png",
+    "plane_R2.png",
+    "plane_R3.png",
+    "plane_R4.png",
+    "plane_R5.png",
+    "plane_R6.png",
+    "plane_R7.png",
+    "planes_grid.png",
+    "pos_B_3.png",
+    "pos_B_5.png",
+    "pos_B_7.png",
+    "pos_B_9.png",
+    "pos_G_3.png",
+    "pos_G_5.png",
+    "pos_G_7.png",
+    "pos_G_9.png",
+    "pos_R_3.png",
+    "pos_R_5.png",
+    "pos_R_7.png",
+    "pos_R_9.png",
+    "resid_r1_s10.png",
+    "resid_r1_s30.png",
+    "resid_r2_s10.png",
+    "resid_r2_s30.png",
+    "resid_r4_s10.png",
+    "resid_r4_s30.png",
+    "resid_r8_s10.png",
+    "resid_r8_s30.png",
+    "rot180.png",
+    "sat.png",
+    "sat_resid10.png",
+    "sat_resid3.png",
+    "selfdiff_0_1.png",
+    "selfdiff_0_2.png",
+    "selfdiff_16_0.png",
+    "selfdiff_1_0.png",
+    "selfdiff_1_1.png",
+    "selfdiff_2_0.png",
+    "selfdiff_4_0.png",
+    "selfdiff_8_0.png",
+    "sky2x.png",
+    "skyblur10.png",
+    "skyblur15.png",
+    "skyblur20.png",
+    "skyblur3.png",
+    "skyblur30.png",
+    "skyblur6.png",
+    "stars_all.png",
+    "stars_dots.png",
+    "stars_only.png",
+    "thresh.png",
+    "val.png",
+    "val_resid10.png",
+    "val_resid3.png",
+    "xor_BG_0.png",
+    "xor_BG_1.png",
+    "xor_BG_2.png",
+    "xor_BR_0.png",
+    "xor_BR_1.png",
+    "xor_BR_2.png",
+    "xor_GR_0.png",
+    "xor_GR_1.png",
+    "xor_GR_2.png"
+  ]
+}

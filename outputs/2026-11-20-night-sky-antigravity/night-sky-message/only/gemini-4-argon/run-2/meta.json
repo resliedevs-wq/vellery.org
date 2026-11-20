@@ -1,0 +1,13 @@
+{
+  "task": "night-sky-message",
+  "variant": "only",
+  "model": "gemini-4-argon",
+  "label": "Gemini 4 Argon",
+  "harness": "agy",
+  "effort": "high",
+  "run": 2,
+  "ok": false,
+  "attempts": 3,
+  "est_cost_usd": 0.0,
+  "est_cost_usd_all_attempts": 0.0
+}

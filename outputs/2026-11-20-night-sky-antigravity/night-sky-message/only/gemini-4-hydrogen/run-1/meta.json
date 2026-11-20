@@ -1,0 +1,13 @@
+{
+  "task": "night-sky-message",
+  "variant": "only",
+  "model": "gemini-4-hydrogen",
+  "label": "Gemini 4 Hydrogen",
+  "harness": "agy",
+  "effort": "high",
+  "run": 1,
+  "ok": true,
+  "attempts": 1,
+  "est_cost_usd": 0.191793,
+  "est_cost_usd_all_attempts": 0.191793
+}

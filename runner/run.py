@@ -403,7 +403,8 @@ def run_chances(task, variant, model, outs):
             run_one(task, variant, model, n, out)
         if solved(task, out):
             return f"solved on chance {n}"
-    return f"not solved in {len(outs)} chances"
+    failed = [o.name for o in outs if not json.loads((o / "meta.json").read_text())["ok"]]
+    return f"not solved in {len(outs)} chances" + (f" ({', '.join(failed)} failed in the harness)" if failed else "")
 
 
 def start_batch(batch_dir, harnesses):

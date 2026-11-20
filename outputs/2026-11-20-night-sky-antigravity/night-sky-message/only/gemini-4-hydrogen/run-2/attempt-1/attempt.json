@@ -1,0 +1,44 @@
+{
+  "ok": true,
+  "error": null,
+  "started": "2026-11-20T09:12:31+00:00",
+  "duration_s": 117.3,
+  "command": [
+    "agy",
+    "--model",
+    "magpie/agy-cli/gemini-4-hydrogen",
+    "--settings",
+    "{\"modelProvider\": \"gemini\", \"customModelsConfig\": {\"customModels\": {\"magpie/agy-cli/gemini-4-hydrogen\": {\"apiProvider\": \"API_PROVIDER_GOOGLE_GEMINI\", \"modelName\": \"agy-cli/gemini-4-hydrogen\"}}}, \"permissions\": {\"allow\": [\"command(*)\"], \"deny\": [\"read_url(*)\", \"execute_url(*)\", \"download_url(*)\"]}}",
+    "--mode",
+    "accept-edits",
+    "--effort",
+    "high",
+    "--output-format",
+    "json",
+    "-p",
+    "<prompt>"
+  ],
+  "jailed": true,
+  "served_models": null,
+  "usage": {
+    "input_tokens": 47230,
+    "output_tokens": 13682,
+    "thinking_tokens": 6110,
+    "cache_read_tokens": 235064,
+    "total_tokens": 60912
+  },
+  "est_cost_usd": 0.19109,
+  "est_cost": {
+    "gemini-4-hydrogen": {
+      "input_tokens": 47230,
+      "cache_write_tokens": 0,
+      "cache_read_tokens": 235064,
+      "output_tokens": 13682,
+      "usd": 0.19109
+    }
+  },
+  "cli_reported_cost_usd": null,
+  "files": [
+    "night-sky.png"
+  ]
+}
