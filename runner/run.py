@@ -441,16 +441,15 @@ def main():
         return
 
     if "claude" in {job[2]["harness"] for job in jobs}:
-        # Test the sandbox itself: the sysctl can be restrictive while this
-        # process is still permitted to create the required namespaces.
         if not shutil.which("bwrap"):
             sys.exit("Claude's shell sandbox requires bubblewrap (bwrap).")
-        probe = subprocess.run(
-            ["bwrap", "--ro-bind", "/", "/", "--unshare-user", "--unshare-pid", "--unshare-net", "--", "/bin/true"],
-            capture_output=True, text=True,
-        )
-        if probe.returncode:
-            sys.exit(f"Claude's shell sandbox cannot start: {probe.stderr.strip()}")
+        # A plain bwrap probe passes here, but Claude's seccomp helper then
+        # fails inside it ("apply-seccomp: write /proc/self/setgroups"), and
+        # every shell command in the run errors out. Check the setting itself.
+        userns = Path("/proc/sys/kernel/apparmor_restrict_unprivileged_userns")
+        if userns.exists() and userns.read_text().strip() == "1":
+            sys.exit("Claude's shell sandbox can't start while kernel.apparmor_restrict_unprivileged_userns=1. "
+                     "Set it to 0 for the batch (sysctl -w), and back to 1 afterwards.")
     if git("status", "--porcelain", "--", "tasks", "models.yaml", "prices.yaml", "runner"):
         sys.exit("tasks/, models.yaml, prices.yaml, or runner/ has uncommitted changes. Commit them before running a batch.")
     start_batch(batch_dir, {job[2]["harness"] for job in jobs})
