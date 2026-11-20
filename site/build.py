@@ -492,6 +492,11 @@ def build_task_page(task, runs, models, items, can_reveal):
     data = {"slug": slug, "mode": "gallery" if gallery else "grid", "detail": detail, "votable": votable,
             "rules": RULES, "buckets": BUCKETS, "reveal": bool(gallery and can_reveal),
             "models": [{"id": m["id"], "label": m["label"], "stats": model_stats(runs, m["id"])} for m in models]}
+    if gallery:
+        # Frozen pre-expansion membership. A legacy reveal cache could contain
+        # identities fetched after its category-wide cookie was first set.
+        legacy = json.loads(Path(__file__).with_name("legacy-gallery-ids.json").read_text())
+        data["legacyRevealIds"] = [item for item in legacy if item in detail]
     body += f'<script id="data" type="application/json">{blob(data)}</script>'
     write(f"tasks/{slug}/index.html", page(task["title"], body, ["task.js"]))
     return votable

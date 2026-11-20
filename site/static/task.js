@@ -14,7 +14,7 @@
   const flagKey = `vellery_revealed_${data.slug}`;
   const rank = { good: 0, fix: 1, slop: 2, none: 3 };
   const rowsPlaced = new Set();
-  const exposureKey = `vellery.disclosed.${data.slug}`;
+  const exposureKey = `vellery.disclosed.v2.${data.slug}`;
   let meta = {};
   let revealing = false;
   const pending = {};
@@ -427,15 +427,18 @@
       const stored = localStorage.getItem(exposureKey);
       if (stored) meta = JSON.parse(stored);
       else {
-        // Old cookies named variants. Only migrate IDs in the snapshot that
-        // browser actually fetched. Never extend the cookie to a later release.
+        // Both older formats could carry a category reveal into newly added
+        // drawings. Only the original gallery can inherit that decision.
+        const previous = JSON.parse(localStorage.getItem(`vellery.disclosed.${data.slug}`) || "{}");
         const flags = (document.cookie.match(new RegExp(`${flagKey}=([a-z,]*)`)) || [])[1]?.split(",") || [];
         const snapshot = JSON.parse(localStorage.getItem(metaKey) || "{}");
-        for (const t of tiles) {
-          if (flags.includes(t.dataset.variant) && snapshot[t.dataset.id]) meta[t.dataset.id] = snapshot[t.dataset.id];
+        for (const id of data.legacyRevealIds || []) {
+          const identity = previous[id] || (flags.includes(byId[id]?.dataset.variant) && snapshot[id]);
+          if (identity) meta[id] = identity;
         }
         localStorage.setItem(exposureKey, JSON.stringify(meta));
       }
+      localStorage.removeItem(`vellery.disclosed.${data.slug}`);
       localStorage.removeItem(metaKey);
       document.cookie = `${flagKey}=; Path=/; Max-Age=0; SameSite=Lax`;
     } catch {}
