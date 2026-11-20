@@ -1,0 +1,11 @@
+# Adding benchmark models
+
+A one-line brief for a future agent is enough:
+
+> Add MODEL through its official HARNESS, run both prompt variants five times on every published task (including pelican-bicycle), and publish the verified results.
+
+1. Check the model ID and effort level with the authenticated official harness. Register it in `models.yaml`, add dated provider API rates to `prices.yaml`, and check the usage fields in `runner/cost.py`. Existing harness IDs are `codex`, `claude`, `dsh`, `zcode`, and `agy`. DeepSeek's current profile explicitly pins Flash. Give a different DeepSeek model its own matching profile. For Antigravity, use the pinned Magpie agy-cli route with the official agy binary on PATH. Read the adapter for required environment variables and keep credentials outside the repo and transcripts.
+2. Pilot an original prompt in a scratch workspace. Verify the selected model, usage capture, file delivery and SVG rendering for drawing tasks. Keep pilots outside scored batches. Commit runner, task, pricing and model changes before starting.
+3. For the current four tasks, the scored run is one command (replace BATCH and MODEL): `python3 runner/run.py BATCH --model MODEL`. Repeat `--model` to select more; use explicit `--task` flags if the requested scope differs or unpublished tasks exist. Preview the matrix with `--dry-run`. A fresh batch gives 40 rounds per model today. Resume the same batch with the same commit and CLI versions. For replacements, record superseded groups in `replaces.json`; preserve the originals.
+4. Check every expected task, variant, model and run number against its `meta.json` and successful attempt. A zero runner exit alone is insufficient. Run `python3 runner/grade.py BATCH` for scripted scores, then `npm run build`. Drawings go to blind community scoring. Preserve historical blind IDs, votes and raw output. Verify new tiles, images or text responses, costs and reveal mappings. The site builder picks up new batches automatically.
+5. When publication is requested, check raw artifacts for credentials, commit and push the results so the site's source links resolve. With Cloudflare credentials supplied privately, `npm run deploy` builds, publishes and checks the live site. Check the new result count and drawing assets on the live task pages.
