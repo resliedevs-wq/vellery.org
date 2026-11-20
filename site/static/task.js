@@ -176,10 +176,11 @@
     return tiles.filter((t) => t.dataset.variant === which && blind(t));
   }
 
-  async function reveal(ids) {
-    if (revealing || !ids.length) return;
+  async function reveal(ids, ratedOnly = false) {
+    if (revealing || !ids.length || ids.some((id) => pending[id])) return;
+    if (ratedOnly && (!window.vellery.me || !ids.every((id) => tally(id).mine))) return;
     const subject = ids.length === 1 ? "this drawing" : `these ${ids.length} drawings`;
-    if (!window.confirm(`Reveal the model for ${subject}? Your ratings stay saved. Scoring closes for ${subject}.`)) return;
+    if (!ratedOnly && !window.confirm(`Reveal the model for ${subject}? Your ratings stay saved. Scoring closes for ${subject}.`)) return;
     revealing = true;
     paintReveal();
     try {
@@ -212,8 +213,13 @@
     rate.disabled = !here.length;
     rate.textContent = here.length && !unrated.length ? "Review your ratings" : "Rate a drawing";
     const revealButton = revealBar.querySelector("#reveal");
-    revealButton.hidden = !here.length;
-    revealButton.disabled = revealing;
+    const completed = !!window.vellery.me && here.length > 0 && !unrated.length;
+    const saving = here.some((t) => pending[t.dataset.id]);
+    revealButton.hidden = !here.length || completed;
+    revealButton.disabled = revealing || saving;
+    const ratedButton = revealBar.querySelector("#reveal-rated");
+    ratedButton.hidden = !completed;
+    ratedButton.disabled = revealing || saving;
     const status = revealBar.querySelector(".num");
     if (!here.length) {
       status.textContent = "All models have been revealed for this prompt. Blind scoring is closed.";
@@ -453,6 +459,7 @@
   const revealButton = document.getElementById("reveal");
   if (revealButton) revealButton.addEventListener("click", () => reveal(blindTiles(variant).map((t) => t.dataset.id)));
   if (data.reveal) {
+    document.getElementById("reveal-rated").onclick = () => reveal(blindTiles(variant).map((t) => t.dataset.id), true);
     document.getElementById("rate").onclick = () => {
       const available = [...board.querySelectorAll(".tile")].filter((t) => !t.hidden && blind(t));
       const next = available.find((t) => !tally(t.dataset.id).mine) || available[0];

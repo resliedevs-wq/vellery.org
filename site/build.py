@@ -461,7 +461,7 @@ def build_task_page(task, runs, models, items, can_reveal):
                 f'<div class="art">{artwork}</div>')
             votable[i["id"]] = {"basic": True}
         reveal = ('<div class="revealbar" id="revealbar"><button class="ghost" id="rate">Rate a drawing</button><button class="ghost" id="reveal">Reveal remaining models</button>'
-                  '<span class="num"></span></div>' if can_reveal else "")
+                  '<button class="ghost" id="reveal-rated" hidden>Reveal rated models</button><span class="num"></span></div>' if can_reveal else "")
         outputs = (f'{reveal}{legend(True)}{flat_board(tiles)}'
                    f'<div class="matrix" id="matrix" hidden><h3>Revealed drawings</h3></div>')
     else:
